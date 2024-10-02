@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rigidbody;
     private void Awake() 
     {
+        _rigidbody = GetComponent<Rigidbody>();
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
