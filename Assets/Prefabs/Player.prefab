@@ -268,6 +268,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8f1ebc2b-4f6c-4999-8b23-e1686dcfc086
     m_ActionName: PlayerMovement/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57447b8b-af0e-43ec-bf30-f81c275feb97
+    m_ActionName: PlayerMovement/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 311577893531157241}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 23a31aa9-de50-4591-a753-6849acc11e1e
+    m_ActionName: PlayerMovement/Forward[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b817da47-51a0-4c4f-a539-73a430173299
+    m_ActionName: PlayerMovement/Backward[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99d88905-b84b-4b10-9b90-b3e5c2ff34d6
+    m_ActionName: PlayerMovement/TurnRight[/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4b0b49d0-96ea-44bf-9622-e36a60219b9f
+    m_ActionName: PlayerMovement/TurnLeft[/Keyboard/a]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
@@ -287,4 +319,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 0
+  maxHealth: 10

@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
             _movementInput = Vector2.zero;
         }
     }
+
+    public void OnForward(InputAction.CallbackContext context)
+    {
+        Debug.Log("forward");
+    }
     private void HandleRotation(Vector3 moveDirection)
     {
         if (moveDirection != Vector3.zero)
