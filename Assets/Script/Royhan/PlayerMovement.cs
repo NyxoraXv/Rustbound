@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,18 +31,18 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.velocity = new Vector3(moveDirection.x * _speed, _rigidbody.velocity.y, moveDirection.z * _speed);
     }
 
-    // public void OnMove(InputAction.CallbackContext context)
-    // {
-    //         _movementInput = context.ReadValue<Vector2>();
+    public void OnMove(InputAction.CallbackContext context)
+    {
+            _movementInput = context.ReadValue<Vector2>();
             
-    //         if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
-    //         {
-    //             _rigidbody.freezeRotation = true;
-    //         }
+            if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
+            {
+                _rigidbody.freezeRotation = true;
+            }
 
-    //         if (_movementInput.magnitude < 0.1f)
-    //         {
-    //             _movementInput = Vector2.zero;
-    //         }
-    // }
+            if (_movementInput.magnitude < 0.1f)
+            {
+                _movementInput = Vector2.zero;
+            }
+    }
 }
