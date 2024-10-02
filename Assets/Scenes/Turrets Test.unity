@@ -2018,6 +2018,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1370130267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6052941085073110227, guid: 68463368760bf6340916ca182b1a14c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1714599347135275737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1374362568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6767061246603287690, guid: 4f17101356d90194d8b198d99e3a9152,
@@ -2429,6 +2435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMinigun: 0
   directionX: 0
   directionY: -90
   directionMinZ: -90
@@ -2437,8 +2444,8 @@ MonoBehaviour:
   detectionAngle: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
-  turretHead: {fileID: 0}
+    m_Bits: 64
+  turretHead: {fileID: 1370130267}
   firePoints:
   - {fileID: 1437887405}
   - {fileID: 1839948876}
@@ -2467,6 +2474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMinigun: 1
   directionX: 0
   directionY: -90
   directionMinZ: 270
