@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    [SerializeField] private float rotationSpeed = 5f;
     private Transform cameraTransform; 
     
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
+
     private void Awake() 
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -30,20 +32,32 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = forward * _movementInput.y + right * _movementInput.x;
         _rigidbody.velocity = new Vector3(moveDirection.x * _speed, _rigidbody.velocity.y, moveDirection.z * _speed);
+
+        HandleRotation(moveDirection);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-            _movementInput = context.ReadValue<Vector2>();
-            
-            if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
-            {
-                _rigidbody.freezeRotation = true;
-            }
+        _movementInput = context.ReadValue<Vector2>();
+        
+        if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
+        {
+            _rigidbody.freezeRotation = true;
+        }
 
-            if (_movementInput.magnitude < 0.1f)
-            {
-                _movementInput = Vector2.zero;
-            }
+        if (_movementInput.magnitude < 0.1f)
+        {
+            _movementInput = Vector2.zero;
+        }
+    }
+    private void HandleRotation(Vector3 moveDirection)
+    {
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+        }
+
     }
 }
