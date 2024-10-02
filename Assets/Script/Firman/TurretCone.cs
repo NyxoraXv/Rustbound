@@ -4,33 +4,42 @@ using DG.Tweening;
 
 public class TurretCone : MonoBehaviour
 {
-    public float detectionRadius = 10f;  // The radius of detection.
-    public float detectionAngle = 60f;   // The angle of the detection cone.
-    public LayerMask enemyLayer;         // Layer mask to filter out enemies.
+    public float directionX = 0f;
+    public float directionY = 0f;
+    public float directionMinZ = 0f;
+    public float directionMaxZ = 0f;
+    public float detectionRadius = 10f;  
+    public float detectionAngle = 60f;   
+    public LayerMask enemyLayer;         
+    
+    public Transform turretHead;         
+    public Transform firePoint;          
+    public GameObject projectilePrefab;  
 
-    public Transform turretHead;         // The part of the turret that rotates to aim.
-    public Transform firePoint;          // The point from which the turret shoots.
-    public GameObject projectilePrefab;  // The projectile prefab to shoot.
-
+    public float fireCooldown = 2f;      
+    
     public enum TargetingMode { First, Strongest, Farthest }
-    public TargetingMode targetingMode;  // The current targeting mode of the turret.
+    public TargetingMode targetingMode;  
 
     private Transform target;
+    private float lastFireTime;          
 
     void Update()
     {
-        // Find a target based on the targeting mode.
         target = FindTarget();
 
-        // If a target is found, rotate towards the target and shoot.
         if (target != null)
         {
             AimAtTarget();
-            ShootAtTarget();
+
+            if (Time.time >= lastFireTime + fireCooldown)
+            {
+                ShootAtTarget();
+                lastFireTime = Time.time; 
+            }
         }
     }
 
-    // Function to find the closest enemy based on the targeting mode.
     Transform FindTarget()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, enemyLayer);
@@ -40,7 +49,6 @@ public class TurretCone : MonoBehaviour
         {
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
 
-            // Check if the target is within the detection angle.
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
             if (angleToTarget <= detectionAngle / 2f)
             {
@@ -48,7 +56,6 @@ public class TurretCone : MonoBehaviour
             }
         }
 
-        // If there are valid targets, sort them based on the targeting mode.
         if (validTargets.Count > 0)
         {
             switch (targetingMode)
@@ -69,10 +76,10 @@ public class TurretCone : MonoBehaviour
                     break;
             }
 
-            return validTargets[0];  // Return the best target based on the sort.
+            return validTargets[0];  
         }
 
-        return null;  // No target found.
+        return null;  
     }
 
     void AimAtTarget()
@@ -80,30 +87,29 @@ public class TurretCone : MonoBehaviour
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
-        // Lock the X rotation at -45 and clamp the Z rotation between 70 and 90
         Vector3 euler = lookRotation.eulerAngles;
-        euler.x = -45f; // Fix X rotation at -45
-        euler.z = Mathf.Clamp(euler.z, 80f, 90f); // Restrict Z rotation
+        euler.x = directionX; 
+        euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ); 
 
-        // Start Y rotation from -90
-        euler.y -= 90f;
+        // Apply the Y rotation only to the turret head, maintaining its local rotation
+        euler.y -= directionY;
 
-        // Apply rotation using DoTween
-        turretHead.DORotate(euler, 1f); // Adjust time for smoother rotation if needed
+        turretHead.DORotate(euler, 1f); 
+        
+        // Optional: If firePoint is a child of turretHead, it will follow automatically
+        // If you need to set firePoint's rotation explicitly, uncomment the line below:
+        firePoint.rotation = turretHead.rotation;
     }
 
-
-    // Shoot at the target.
     void ShootAtTarget()
     {
-        // Example shooting mechanism: Instantiate a projectile.
         if (projectilePrefab != null && firePoint != null)
         {
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
             ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
             if (projectileController != null)
             {
-                projectileController.SetTarget(target);  // Assign the target to the projectile.
+                projectileController.SetTarget(target);  
             }
         }
     }
