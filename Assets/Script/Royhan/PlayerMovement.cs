@@ -5,18 +5,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;
-    [SerializeField] private float rotationSpeed = 5f;
+    private float speed = 5f;
+    private float rotationSpeed = 5f;
     private Transform cameraTransform; 
     
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
+    private VariableComponent variableComponent;
 
     private void Awake() 
     {
         _rigidbody = GetComponent<Rigidbody>();
+        variableComponent = GetComponent<VariableComponent>();
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
+        speed = variableComponent.speed;
+        rotationSpeed = variableComponent.rotationSpeed;
     }
 
     private void FixedUpdate() 
@@ -31,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         right.Normalize();
 
         moveDirection = forward * _movementInput.y + right * _movementInput.x;
-        _rigidbody.velocity = new Vector3(moveDirection.x * _speed, _rigidbody.velocity.y, moveDirection.z * _speed);
+        _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
 
         HandleRotation(moveDirection);
     }
