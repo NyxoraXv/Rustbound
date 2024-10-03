@@ -44,6 +44,8 @@ public class TurretMinigun : MonoBehaviour
 
     void Start()
     {
+        DOTween.SetTweensCapacity(7812, 50); 
+
         fireCooldown = initialFireCooldown;  // Set initial cooldown
 
         // Initialize fire point arrays
@@ -61,7 +63,7 @@ public class TurretMinigun : MonoBehaviour
         }
         else
         {
-            notMinigunSetFirePoints =  new Transform[4];;
+            notMinigunSetFirePoints =  new Transform[5];
             for (int i = 0; i < 5; i++)
             {
                 notMinigunSetFirePoints[i] = firePoints[i];
@@ -151,9 +153,13 @@ public class TurretMinigun : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
+            // Check if VariableComponent exists and is valid
+            VariableComponent variableComponent = col.GetComponent<VariableComponent>();
+            if (variableComponent == null) continue; // Skip if component is not found
 
+            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+            
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -180,11 +186,12 @@ public class TurretMinigun : MonoBehaviour
                     break;
             }
 
-            return validTargets[0];  
+            return validTargets[0];
         }
 
-        return null;  
+        return null; // Return null if no valid targets found
     }
+
 
     void AimAtTarget()
     {

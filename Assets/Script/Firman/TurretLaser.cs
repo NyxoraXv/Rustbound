@@ -48,9 +48,13 @@ public class TurretLaser : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
+            // Check if VariableComponent exists and is valid
+            VariableComponent variableComponent = col.GetComponent<VariableComponent>();
+            if (variableComponent == null) continue; // Skip if component is not found
 
+            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+            
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -80,11 +84,16 @@ public class TurretLaser : MonoBehaviour
             return validTargets[0];
         }
 
-        return null;
+        return null; // Return null if no valid targets found
     }
+
 
     void AimAtTarget()
     {
+        // Check if target is null
+        if (target == null)
+            return; // Exit early if there is no target
+
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
@@ -103,26 +112,29 @@ public class TurretLaser : MonoBehaviour
         }
     }
 
+
     void ShootAtTarget()
     {
-        if (projectilePrefab != null && firePoint != null && target != null)
+        // Check for null references before proceeding
+        if (projectilePrefab == null || firePoint == null || target == null)
+            return; // Exit early if any of the references are missing
+
+        // Calculate direction to the target
+        Vector3 directionToTarget = target.position - firePoint.position;
+
+        // Create a rotation that looks at the target
+        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+
+        // Instantiate the projectile at the firePoint's position with the calculated rotation
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
+        
+        ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
+        if (projectileController != null)
         {
-            // Calculate direction to the target
-            Vector3 directionToTarget = target.position - firePoint.position;
-
-            // Create a rotation that looks at the target
-            Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
-
-            // Instantiate the projectile at the firePoint's position with the calculated rotation
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
-            
-            ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
-            if (projectileController != null)
-            {
-                projectileController.SetTarget(target);
-            }
+            projectileController.SetTarget(target);
         }
     }
+
 
     IEnumerator FiringSequence()
     {

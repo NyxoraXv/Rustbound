@@ -48,9 +48,13 @@ public class TurretCone : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
+            // Check if VariableComponent exists and is valid
+            VariableComponent variableComponent = col.GetComponent<VariableComponent>();
+            if (variableComponent == null) continue; // Skip if component is not found
 
+            Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+            
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -80,7 +84,7 @@ public class TurretCone : MonoBehaviour
             return validTargets[0];
         }
 
-        return null;
+        return null; // Return null if no valid targets found
     }
 
     void AimAtTarget()
