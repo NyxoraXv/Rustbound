@@ -215,8 +215,51 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7547340654127326739}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1567043499468467809}
   m_SourcePrefab: {fileID: 100100000, guid: 991fa4da127de394daa722a182514fac, type: 3}
+--- !u!1 &6052941085072812279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac,
+    type: 3}
+  m_PrefabInstance: {fileID: 6052941085072715351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1567043499468467809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052941085072812279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMinigun: 0
+  directionX: 0
+  directionY: -90
+  directionMinZ: -90
+  directionMaxZ: -90
+  detectionRadius: 15
+  detectionAngle: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  turretHead: {fileID: 6052941085073110227}
+  firePoints:
+  - {fileID: 1392573051358241116}
+  - {fileID: 6603060205665269144}
+  - {fileID: 7544636054894867042}
+  - {fileID: 7547340654127326739}
+  projectilePrefab: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
+    type: 3}
+  initialFireCooldown: 0.55
+  rapidFireDelay: 0.4
+  targetingMode: 0
 --- !u!4 &6052941085073110227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 991fa4da127de394daa722a182514fac,
