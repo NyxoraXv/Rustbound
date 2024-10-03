@@ -25,9 +25,9 @@
                 },
                 {
                     "name": "Forward",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "23a31aa9-de50-4591-a753-6849acc11e1e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
