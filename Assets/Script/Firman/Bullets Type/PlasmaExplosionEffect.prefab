@@ -9728,4 +9728,4 @@ MonoBehaviour:
   isExplode: 0
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 10
+  impactDamage: 12

@@ -4876,7 +4876,7 @@ MonoBehaviour:
   isExplode: 0
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 2
+  impactDamage: 4
 --- !u!1 &7563516080808768140
 GameObject:
   m_ObjectHideFlags: 0
