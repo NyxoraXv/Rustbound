@@ -9717,16 +9717,28 @@ PrefabInstance:
       value: TurretHead
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.9820952
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.9820952
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.9820952
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5731616
+      value: 8.54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.008406035
+      value: 0.008100867
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5493984
+      value: -0.25971758
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_LocalRotation.w

@@ -176,16 +176,28 @@ PrefabInstance:
       value: TurretHead
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2379456
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2379456
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2379456
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.884528
+      value: -43.56
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.021654353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9458742
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalRotation.w
