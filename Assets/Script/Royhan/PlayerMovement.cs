@@ -115,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
 
                     // Mengatur rotasi peluru agar tidak mengubah sumbu Y
                     bulletPush.transform.rotation = Quaternion.LookRotation(direction);
+                    Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
 
                     bulletPush.SetActive(true);
                     bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
@@ -125,10 +127,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-
-
-
 
     private GameObject GetPooledBullet()
     {
