@@ -635,7 +635,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3793514803700490305}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1332287975066396615}
   m_SourcePrefab: {fileID: 100100000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
 --- !u!4 &1123162897191220169 stripped
 Transform:
@@ -643,3 +647,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1123162897191348557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1123162897191317485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73,
+    type: 3}
+  m_PrefabInstance: {fileID: 1123162897191348557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1332287975066396615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123162897191317485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMinigun: 1
+  directionX: 0
+  directionY: -90
+  directionMinZ: 270
+  directionMaxZ: 270
+  detectionRadius: 15
+  detectionAngle: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  turretHead: {fileID: 1123162897191220169}
+  firePoints:
+  - {fileID: 1413424364178472209}
+  - {fileID: 5436606586730481992}
+  - {fileID: 8586314300605277435}
+  - {fileID: 1583615790018917458}
+  - {fileID: 1248754507741778120}
+  - {fileID: 7910157826195616462}
+  - {fileID: 6938160891639220430}
+  - {fileID: 2652544109317243645}
+  - {fileID: 6767061246603287690}
+  - {fileID: 4984503903722497837}
+  - {fileID: 5301892214768807915}
+  - {fileID: 692778547745521403}
+  - {fileID: 6039598620297542159}
+  - {fileID: 3510330685837386731}
+  - {fileID: 1094336480103452378}
+  - {fileID: 3793514803700490305}
+  projectilePrefab: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
+    type: 3}
+  initialFireCooldown: 0.6
+  rapidFireDelay: 0.15
+  targetingMode: 0

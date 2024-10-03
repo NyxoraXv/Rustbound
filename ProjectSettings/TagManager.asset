@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Turret
   - Lightning
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - Main UI
-  - Terrain
+  - 
+  - 
   - 
   - 
   - 
@@ -42,7 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 3413695389
     locked: 0
