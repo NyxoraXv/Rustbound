@@ -17,10 +17,12 @@ public class TurretLaser : MonoBehaviour
     public Transform turretHead;
     public Transform firePoint;
     public GameObject projectilePrefab;
+    public GameObject lastShootBeforePause;
 
     public float fireCooldown = 2f;
     public float fireDuration = 10f;
     public float pauseDuration = 4f;
+    public float lastShoot = 2f;
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
@@ -36,7 +38,7 @@ public class TurretLaser : MonoBehaviour
 
         if (target != null && canFire && !isFiring)
         {
-            // Start firing sequence with a delay
+
             StartCoroutine(FiringSequence());
         }
     }
@@ -48,13 +50,13 @@ public class TurretLaser : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            // Check if VariableComponent exists and is valid
+
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; // Skip if component is not found
+            if (variableComponent == null) continue;
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-            
+
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -84,15 +86,15 @@ public class TurretLaser : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; // Return null if no valid targets found
+        return null;
     }
 
 
     void AimAtTarget()
     {
-        // Check if target is null
+
         if (target == null)
-            return; // Exit early if there is no target
+            return;
 
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -101,7 +103,7 @@ public class TurretLaser : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        // Apply the Y rotation only to the turret head, maintaining its local rotation
+
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
@@ -115,19 +117,19 @@ public class TurretLaser : MonoBehaviour
 
     void ShootAtTarget()
     {
-        // Check for null references before proceeding
-        if (projectilePrefab == null || firePoint == null || target == null)
-            return; // Exit early if any of the references are missing
 
-        // Calculate direction to the target
+        if (projectilePrefab == null || firePoint == null || target == null)
+            return;
+
+
         Vector3 directionToTarget = target.position - firePoint.position;
 
-        // Create a rotation that looks at the target
+
         Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
 
-        // Instantiate the projectile at the firePoint's position with the calculated rotation
+
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
-        
+
         ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
         if (projectileController != null)
         {
@@ -138,7 +140,7 @@ public class TurretLaser : MonoBehaviour
 
     IEnumerator FiringSequence()
     {
-        // Wait 4 seconds before starting to fire
+        
         yield return new WaitForSeconds(4f);
 
         isFiring = true;
@@ -147,22 +149,45 @@ public class TurretLaser : MonoBehaviour
 
         while (Time.time < fireStartTime + fireDuration)
         {
-            AimAtTarget();
+            
+            if (target == null)
+            {
+                target = FindTarget(); 
+                if (target == null) 
+                    break;
+            }
+
+            AimAtTarget(); 
 
             if (Time.time >= lastFireTime + fireCooldown)
             {
-                ShootAtTarget();
+                ShootAtTarget(); 
                 lastFireTime = Time.time;
             }
 
-            yield return null; // Wait until next frame to continue firing
+            yield return null;
         }
 
-        // Stop firing and wait for 4 seconds before allowing to fire again
+        
+        yield return new WaitForSeconds(lastShoot);
+
+        
+        if (target != null && lastShootBeforePause != null)
+        {
+            AimAtTarget(); 
+            GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
+            ProjectileController projectileController = lastShootProjectile.GetComponent<ProjectileController>();
+            if (projectileController != null)
+            {
+                projectileController.SetTarget(target);
+            }
+        }
+
+        
         isFiring = false;
         yield return new WaitForSeconds(pauseDuration);
 
-        // After pause, allow firing again
+        
         canFire = true;
     }
 

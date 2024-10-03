@@ -16,9 +16,10 @@ public class TurretDoubleType : MonoBehaviour
     public Transform turretHead;
     public Transform firePoint1;
     public Transform firePoint2;
-    public GameObject projectilePrefab1; // Projectile for firePoint1
-    public GameObject projectilePrefab2; // Projectile for firePoint2
+    public GameObject projectilePrefab1; 
+    public GameObject projectilePrefab2; 
 
+    public ParticleSystem particle;
     public float fireCooldown = 2f;
 
     public enum TargetingMode { First, Strongest, Farthest }
@@ -50,9 +51,9 @@ public class TurretDoubleType : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            // Check if VariableComponent exists and is valid
+            
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; // Skip if component is not found
+            if (variableComponent == null) continue; 
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -86,7 +87,7 @@ public class TurretDoubleType : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; // Return null if no valid targets found
+        return null; 
     }
 
 
@@ -99,16 +100,16 @@ public class TurretDoubleType : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        // Apply the Y rotation only to the turret head, maintaining its local rotation
+        
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
 
-        // Optional: If firePoint is a child of turretHead, it will follow automatically
+        
         if (isFollowTuretHead)
         {
             firePoint1.rotation = turretHead.rotation;
-            firePoint2.rotation = turretHead.rotation; // Update firePoint2's rotation as well
+            firePoint2.rotation = turretHead.rotation; 
         }
     }
 
@@ -116,7 +117,7 @@ public class TurretDoubleType : MonoBehaviour
     {
         if (projectilePrefab1 != null && firePoint1 != null)
         {
-            // Shoot from firePoint1
+            
             GameObject projectile1 = Instantiate(projectilePrefab1, firePoint1.position, firePoint1.rotation);
             ProjectileController projectileController1 = projectile1.GetComponent<ProjectileController>();
             if (projectileController1 != null)
@@ -125,16 +126,17 @@ public class TurretDoubleType : MonoBehaviour
             }
         }
 
-        // Wait a short duration before firing from firePoint2
-        Invoke("ShootFromFirePoint2", 0.2f); // Adjust the delay as needed
+        
+        Invoke("ShootFromFirePoint2", 0.2f); 
     }
 
     void ShootFromFirePoint2()
     {
         if (projectilePrefab2 != null && firePoint2 != null)
         {
-            // Shoot from firePoint2
+            
             GameObject projectile2 = Instantiate(projectilePrefab2, firePoint2.position, firePoint2.rotation);
+            particle.Play();
             ProjectileController projectileController2 = projectile2.GetComponent<ProjectileController>();
             if (projectileController2 != null)
             {

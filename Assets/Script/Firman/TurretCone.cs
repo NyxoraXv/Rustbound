@@ -48,9 +48,9 @@ public class TurretCone : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            // Check if VariableComponent exists and is valid
+            
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; // Skip if component is not found
+            if (variableComponent == null) continue; 
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -84,7 +84,7 @@ public class TurretCone : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; // Return null if no valid targets found
+        return null; 
     }
 
     void AimAtTarget()
@@ -96,13 +96,13 @@ public class TurretCone : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        // Apply the Y rotation only to the turret head, maintaining its local rotation
+        
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
 
-        // Optional: If firePoint is a child of turretHead, it will follow automatically
-        // If you need to set firePoint's rotation explicitly, uncomment the line below:
+        
+        
         if (isFollowTuretHead)
         {
             firePoint.rotation = turretHead.rotation;
