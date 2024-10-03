@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8749119983784039280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0162, y: -0.0755, z: 0.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3901723522905683783}
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3901723522905550275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,9 +148,12 @@ MonoBehaviour:
   firePoint: {fileID: 7955125722846479797}
   projectilePrefab: {fileID: 1044506023210681456, guid: b453273825c8a454aae216eef82e2d1a,
     type: 3}
+  lastShootBeforePause: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+    type: 3}
   fireCooldown: 0.05
   fireDuration: 10
   pauseDuration: 4
+  lastShoot: 4
   targetingMode: 0
 --- !u!4 &3901723522905683783 stripped
 Transform:

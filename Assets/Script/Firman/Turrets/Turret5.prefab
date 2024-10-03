@@ -287,6 +287,6 @@ MonoBehaviour:
   - {fileID: 242222147302942654}
   projectilePrefab: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
     type: 3}
-  initialFireCooldown: 0.3
-  rapidFireDelay: 0.2
+  initialFireCooldown: 0.2
+  rapidFireDelay: 0.15
   targetingMode: 0

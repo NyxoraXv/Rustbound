@@ -9816,7 +9816,7 @@ MonoBehaviour:
     type: 3}
   projectilePrefab2: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
     type: 3}
-  particle: {fileID: 0}
+  particle: {fileID: 103719759185016750}
   fireCooldown: 2
   targetingMode: 0
 --- !u!4 &445760852530748432 stripped
