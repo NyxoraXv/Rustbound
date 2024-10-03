@@ -117,7 +117,7 @@ public class TurretMinigun : MonoBehaviour
     }
     IEnumerator FireFromNotMinigun()
     {
-        for (int i = 0; i < 4; i++) // Only fire from the first 4 fire points
+        for (int i = 0; i < 5; i++) // Only fire from the first 4 fire points
         {
             ShootAtTarget(firePoints[i]); // Fire from the current fire point
             lastFireTime = Time.time; // Update last fire time to the current time

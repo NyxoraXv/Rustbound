@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee391407971a014b933f2811f637329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFollowTuretHead: 1
   directionX: -90
   directionY: 0
   directionMinZ: 0
@@ -151,7 +152,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   turretHead: {fileID: 3591375948646411726}
-  firePoint: {fileID: 3591375948646411726}
-  projectilePrefab: {fileID: 0}
+  firePoint: {fileID: 4870649472621391847}
+  projectilePrefab: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
+    type: 3}
   fireCooldown: 2
   targetingMode: 0
