@@ -2453,7 +2453,7 @@ MonoBehaviour:
   - {fileID: 163908848}
   projectilePrefab: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
     type: 3}
-  initialFireCooldown: 0.6
+  initialFireCooldown: 0.55
   rapidFireDelay: 0.4
   targetingMode: 0
 --- !u!1 &1812790644 stripped
@@ -2788,10 +2788,25 @@ PrefabInstance:
       objectReference: {fileID: 145547979896219631}
     - target: {fileID: 5288765769019402584, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
+      propertyPath: fireCooldown
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288765769019402584, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: directionMinZ
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5288765769019402584, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
+      objectReference: {fileID: 1044506023210681456, guid: b453273825c8a454aae216eef82e2d1a,
         type: 3}
+    - target: {fileID: 5288765769019402584, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: isFollowTuretHead
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6197577030655037241, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
       propertyPath: m_Name
@@ -2846,6 +2861,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300866610961809072, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: fireCooldown
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3262,6 +3312,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
         type: 3}
+    - target: {fileID: 3507353358923496151, guid: 35216f1b2b204cf4c9fd7d6b09ec0d51,
+        type: 3}
+      propertyPath: isFollowTuretHead
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3507353358923496151, guid: 35216f1b2b204cf4c9fd7d6b09ec0d51,
         type: 3}
       propertyPath: isFollowTurretHead

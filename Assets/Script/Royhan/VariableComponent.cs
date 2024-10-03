@@ -5,7 +5,7 @@ public class VariableComponent : MonoBehaviour
     public float speed = 5f;
     public float rotationSpeed = 5f;
     public float maxHealth;
-    private float _currentHealth;
+    public float _currentHealth {get; private set;}
 
     private void Start() 
     {

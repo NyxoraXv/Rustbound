@@ -150,7 +150,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 09a7031439bbe91499a2881a5c569036,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5288765769019402584}
+      addedObject: {fileID: 9105757630462839571}
   m_SourcePrefab: {fileID: 100100000, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
 --- !u!1 &6197577030655037241 stripped
 GameObject:
@@ -158,7 +158,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6197577030655134105}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5288765769019402584
+--- !u!114 &9105757630462839571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,12 +167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6197577030655037241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee391407971a014b933f2811f637329, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bf96da177ebe7e4096af2d0e335d32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFollowTuretHead: 1
   directionX: -45
   directionY: 90
-  directionMinZ: 80
+  directionMinZ: 85
   directionMaxZ: 90
   detectionRadius: 10
   detectionAngle: 80
@@ -180,11 +181,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   turretHead: {fileID: 6197577030655529757}
-  firePoint: {fileID: 6197577030655529757}
-  projectilePrefab: {fileID: 5244816529337484106, guid: 6f70e51a1b0a5a847b3d7b2ba0f93c4e,
+  firePoint: {fileID: 6300866610961809072}
+  projectilePrefab: {fileID: 1044506023210681456, guid: b453273825c8a454aae216eef82e2d1a,
     type: 3}
-  fireCooldown: 2
-  targetingMode: 1
+  fireCooldown: 0.05
+  targetingMode: 0
 --- !u!4 &6197577030655529757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 09a7031439bbe91499a2881a5c569036,

@@ -4,25 +4,26 @@ using DG.Tweening;
 
 public class TurretCone : MonoBehaviour
 {
+    public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
     public float directionMinZ = 0f;
     public float directionMaxZ = 0f;
-    public float detectionRadius = 10f;  
-    public float detectionAngle = 60f;   
-    public LayerMask enemyLayer;         
-    
-    public Transform turretHead;         
-    public Transform firePoint;          
-    public GameObject projectilePrefab;  
+    public float detectionRadius = 10f;
+    public float detectionAngle = 60f;
+    public LayerMask enemyLayer;
 
-    public float fireCooldown = 2f;      
-    
+    public Transform turretHead;
+    public Transform firePoint;
+    public GameObject projectilePrefab;
+
+    public float fireCooldown = 2f;
+
     public enum TargetingMode { First, Strongest, Farthest }
-    public TargetingMode targetingMode;  
+    public TargetingMode targetingMode;
 
     private Transform target;
-    private float lastFireTime;          
+    private float lastFireTime;
 
     void Update()
     {
@@ -35,7 +36,7 @@ public class TurretCone : MonoBehaviour
             if (Time.time >= lastFireTime + fireCooldown)
             {
                 ShootAtTarget();
-                lastFireTime = Time.time; 
+                lastFireTime = Time.time;
             }
         }
     }
@@ -76,10 +77,10 @@ public class TurretCone : MonoBehaviour
                     break;
             }
 
-            return validTargets[0];  
+            return validTargets[0];
         }
 
-        return null;  
+        return null;
     }
 
     void AimAtTarget()
@@ -88,17 +89,20 @@ public class TurretCone : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
         Vector3 euler = lookRotation.eulerAngles;
-        euler.x = directionX; 
-        euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ); 
+        euler.x = directionX;
+        euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
         // Apply the Y rotation only to the turret head, maintaining its local rotation
         euler.y -= directionY;
 
-        turretHead.DORotate(euler, 1f); 
-        
+        turretHead.DORotate(euler, 0.5f);
+
         // Optional: If firePoint is a child of turretHead, it will follow automatically
         // If you need to set firePoint's rotation explicitly, uncomment the line below:
-        firePoint.rotation = turretHead.rotation;
+        if (isFollowTuretHead)
+        {
+            firePoint.rotation = turretHead.rotation;
+        }
     }
 
     void ShootAtTarget()
@@ -109,7 +113,7 @@ public class TurretCone : MonoBehaviour
             ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
             if (projectileController != null)
             {
-                projectileController.SetTarget(target);  
+                projectileController.SetTarget(target);
             }
         }
     }

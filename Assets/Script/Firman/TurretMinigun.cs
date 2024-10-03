@@ -198,7 +198,7 @@ public class TurretMinigun : MonoBehaviour
         // Apply the Y rotation only to the turret head, maintaining its local rotation
         euler.y -= directionY;
 
-        turretHead.DORotate(euler, 1f); 
+        turretHead.DORotate(euler, 0.5f); 
         
         // Optional: If firePoint is a child of turretHead, it will follow automatically
         firePoints[0].rotation = turretHead.rotation; // Set rotation for fire points if needed
