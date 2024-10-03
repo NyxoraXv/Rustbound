@@ -4611,6 +4611,11 @@ PrefabInstance:
       objectReference: {fileID: 124735437}
     - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
+      propertyPath: lastShoot
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
       propertyPath: directionX
       value: -45
       objectReference: {fileID: 0}
@@ -4631,6 +4636,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
+      propertyPath: fireDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
       propertyPath: directionMaxZ
       value: 90
       objectReference: {fileID: 0}
@@ -4638,6 +4648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: directionMinZ
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: pauseDuration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
