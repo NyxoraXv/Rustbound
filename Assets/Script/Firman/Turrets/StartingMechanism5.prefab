@@ -191,7 +191,7 @@ MonoBehaviour:
   firePoint: {fileID: 989410331529154846}
   projectilePrefab: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
     type: 3}
-  fireCooldown: 2
+  fireCooldown: 4
   targetingMode: 0
 --- !u!1 &5409564507108793302 stripped
 GameObject:

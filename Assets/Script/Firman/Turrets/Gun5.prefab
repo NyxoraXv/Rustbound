@@ -9837,7 +9837,7 @@ MonoBehaviour:
   projectilePrefab2: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
     type: 3}
   particle: {fileID: 103719759185016750}
-  fireCooldown: 2
+  fireCooldown: 4
   targetingMode: 0
 --- !u!1 &445760852530380850 stripped
 GameObject:
