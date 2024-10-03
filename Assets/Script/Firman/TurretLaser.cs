@@ -1,8 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretCone : MonoBehaviour
+public class TurretLaser : MonoBehaviour
 {
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
@@ -18,26 +19,25 @@ public class TurretCone : MonoBehaviour
     public GameObject projectilePrefab;
 
     public float fireCooldown = 2f;
+    public float fireDuration = 10f;
+    public float pauseDuration = 4f;
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
 
     private Transform target;
     private float lastFireTime;
+    private bool isFiring = false;
+    private bool canFire = true;
 
     void Update()
     {
         target = FindTarget();
 
-        if (target != null)
+        if (target != null && canFire && !isFiring)
         {
-            AimAtTarget();
-
-            if (Time.time >= lastFireTime + fireCooldown)
-            {
-                ShootAtTarget();
-                lastFireTime = Time.time;
-            }
+            // Start firing sequence with a delay
+            StartCoroutine(FiringSequence());
         }
     }
 
@@ -97,8 +97,6 @@ public class TurretCone : MonoBehaviour
 
         turretHead.DORotate(euler, 0.5f);
 
-        // Optional: If firePoint is a child of turretHead, it will follow automatically
-        // If you need to set firePoint's rotation explicitly, uncomment the line below:
         if (isFollowTuretHead)
         {
             firePoint.rotation = turretHead.rotation;
@@ -107,15 +105,53 @@ public class TurretCone : MonoBehaviour
 
     void ShootAtTarget()
     {
-        if (projectilePrefab != null && firePoint != null)
+        if (projectilePrefab != null && firePoint != null && target != null)
         {
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            // Calculate direction to the target
+            Vector3 directionToTarget = target.position - firePoint.position;
+
+            // Create a rotation that looks at the target
+            Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+
+            // Instantiate the projectile at the firePoint's position with the calculated rotation
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
+            
             ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
             }
         }
+    }
+
+    IEnumerator FiringSequence()
+    {
+        // Wait 4 seconds before starting to fire
+        yield return new WaitForSeconds(4f);
+
+        isFiring = true;
+        canFire = false;
+        float fireStartTime = Time.time;
+
+        while (Time.time < fireStartTime + fireDuration)
+        {
+            AimAtTarget();
+
+            if (Time.time >= lastFireTime + fireCooldown)
+            {
+                ShootAtTarget();
+                lastFireTime = Time.time;
+            }
+
+            yield return null; // Wait until next frame to continue firing
+        }
+
+        // Stop firing and wait for 4 seconds before allowing to fire again
+        isFiring = false;
+        yield return new WaitForSeconds(pauseDuration);
+
+        // After pause, allow firing again
+        canFire = true;
     }
 
     private void OnDrawGizmos()
