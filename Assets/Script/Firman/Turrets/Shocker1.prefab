@@ -184,12 +184,11 @@ MonoBehaviour:
   firePoint: {fileID: 6300866610961809072}
   projectilePrefab: {fileID: 1044506023210681456, guid: b453273825c8a454aae216eef82e2d1a,
     type: 3}
-  lastShootBeforePause: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
-    type: 3}
+  lastShootBeforePause: {fileID: 0}
   fireCooldown: 0.05
   fireDuration: 10
   pauseDuration: 4
-  lastShoot: 2
+  lastShoot: 0
   targetingMode: 0
 --- !u!4 &6197577030655529757 stripped
 Transform:

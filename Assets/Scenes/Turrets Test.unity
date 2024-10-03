@@ -3040,6 +3040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
+      propertyPath: lastShoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
       propertyPath: fireCooldown
       value: 0.05
       objectReference: {fileID: 0}
@@ -3047,8 +3052,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lastShootBeforePause
       value: 
-      objectReference: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
-        type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
