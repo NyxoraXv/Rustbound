@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 1000
+  maxHealth: 5000
 --- !u!65 &134127054
 BoxCollider:
   m_ObjectHideFlags: 0

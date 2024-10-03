@@ -162,7 +162,7 @@ public class TurretLaser : MonoBehaviour
         }
 
         // Wait for 2 seconds after fireDuration ends
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(lastShoot);
 
         // Fire the lastShootBeforePause only once
         if (lastShootBeforePause != null)
