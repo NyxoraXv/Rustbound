@@ -17,10 +17,12 @@ public class TurretLaser : MonoBehaviour
     public Transform turretHead;
     public Transform firePoint;
     public GameObject projectilePrefab;
+    public GameObject lastShootBeforePause;
 
     public float fireCooldown = 2f;
     public float fireDuration = 10f;
     public float pauseDuration = 4f;
+    public float lastShoot = 2f;
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
@@ -145,6 +147,7 @@ public class TurretLaser : MonoBehaviour
         canFire = false;
         float fireStartTime = Time.time;
 
+        // Regular firing sequence during fireDuration
         while (Time.time < fireStartTime + fireDuration)
         {
             AimAtTarget();
@@ -158,13 +161,28 @@ public class TurretLaser : MonoBehaviour
             yield return null; // Wait until next frame to continue firing
         }
 
-        // Stop firing and wait for 4 seconds before allowing to fire again
+        // Wait for 2 seconds after fireDuration ends
+        yield return new WaitForSeconds(lastShoot);
+
+        // Fire the lastShootBeforePause only once
+        if (lastShootBeforePause != null)
+        {
+            GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
+            ProjectileController projectileController = lastShootProjectile.GetComponent<ProjectileController>();
+            if (projectileController != null)
+            {
+                projectileController.SetTarget(target);
+            }
+        }
+
+        // Stop firing and immediately start the pause duration
         isFiring = false;
         yield return new WaitForSeconds(pauseDuration);
 
-        // After pause, allow firing again
+        // After the pause, allow firing again
         canFire = true;
     }
+
 
     private void OnDrawGizmos()
     {

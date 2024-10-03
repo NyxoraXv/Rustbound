@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 1000
+  maxHealth: 5000
 --- !u!65 &134127054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3043,6 +3043,12 @@ PrefabInstance:
       propertyPath: fireCooldown
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: lastShootBeforePause
+      value: 
+      objectReference: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4165,6 +4171,12 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: lastShootBeforePause
+      value: 
+      objectReference: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4300,6 +4312,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8638656366173567468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8964499783965666424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.179043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7004657
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670091272062598665, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
+        type: 3}
+      propertyPath: m_Name
+      value: PlasmaExplosionEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5eecf6e5c47d1dc4284d47a32931b6f6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4333,3 +4413,4 @@ SceneRoots:
   - {fileID: 4445492442632237673}
   - {fileID: 5621342459287294224}
   - {fileID: 1034397444}
+  - {fileID: 8964499783965666424}
