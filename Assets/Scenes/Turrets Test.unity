@@ -1591,6 +1591,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &929684517 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 103719759185016750, guid: 83ce49cf53477dd41bd441adeb95c234,
+    type: 3}
+  m_PrefabInstance: {fileID: 1034397444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &968177038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4870649472621391847, guid: aeb69ac83ae139545803cffd10cff942,
@@ -1675,6 +1681,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2041597165544353193, guid: 83ce49cf53477dd41bd441adeb95c234,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 929684517}
     - target: {fileID: 2041597165544353193, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
       propertyPath: directionX

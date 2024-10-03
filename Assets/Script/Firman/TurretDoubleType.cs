@@ -19,6 +19,7 @@ public class TurretDoubleType : MonoBehaviour
     public GameObject projectilePrefab1; // Projectile for firePoint1
     public GameObject projectilePrefab2; // Projectile for firePoint2
 
+    public ParticleSystem particle;
     public float fireCooldown = 2f;
 
     public enum TargetingMode { First, Strongest, Farthest }
@@ -135,6 +136,7 @@ public class TurretDoubleType : MonoBehaviour
         {
             // Shoot from firePoint2
             GameObject projectile2 = Instantiate(projectilePrefab2, firePoint2.position, firePoint2.rotation);
+            particle.Play();
             ProjectileController projectileController2 = projectile2.GetComponent<ProjectileController>();
             if (projectileController2 != null)
             {
