@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 3dc4ea04f6a5e114a8f0bb048def912b
+guid: 2f57bc3af6f5bde4b9b40779ca60b4a1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Magazin.004_Baked
-    second: {fileID: 2100000, guid: 4fe2ae17edd9222438d002322eda7fc9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
