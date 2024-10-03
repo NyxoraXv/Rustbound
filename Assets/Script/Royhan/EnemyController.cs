@@ -20,9 +20,6 @@ public class EnemyController : MonoBehaviour
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
-            // Optional: Add visual feedback, sound, or other effects here
-            Debug.Log($"Enemy took {damage} damage! Current health: {variableComponent.GetCurrentHealth()}");
-
             // Optional: Check if the enemy is dead and handle accordingly
             if (!IsAlive())
             {
