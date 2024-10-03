@@ -15,17 +15,17 @@ public class TurretMinigun : MonoBehaviour
     public LayerMask enemyLayer;         
     
     public Transform turretHead;         
-    public Transform[] firePoints;       // Array for 16 fire points
+    public Transform[] firePoints;       
     public GameObject projectilePrefab;  
 
-    public float initialFireCooldown = 0.8f;  // Initial delay between shots
-    public float rapidFireDelay = 0.1f;        // Delay after 5 seconds
-    private float fireCooldown;                 // Current fire cooldown
+    public float initialFireCooldown = 0.8f;  
+    public float rapidFireDelay = 0.1f;        
+    private float fireCooldown;                 
 
-    private float elapsedTime = 0f;             // Time since started firing
-    private Transform target;                    // Current target
-    private float lastFireTime;                  // Last time a shot was fired
-    private bool isFiring = false;               // State to prevent overlapping firing
+    private float elapsedTime = 0f;             
+    private Transform target;                    
+    private float lastFireTime;                  
+    private bool isFiring = false;               
 
     public enum TargetingMode
     {
@@ -34,31 +34,31 @@ public class TurretMinigun : MonoBehaviour
         Farthest
     }
     
-    public TargetingMode targetingMode;  // Targeting mode variable
+    public TargetingMode targetingMode;  
 
-    // New arrays for firing points
-    private Transform[] firstSetFirePoints;  // Array for fire points 1-7
-    private Transform[] secondSetFirePoints; // Array for fire points 8-15
-    private Transform[] notMinigunSetFirePoints; // Array for fire points 8-15
+    
+    private Transform[] firstSetFirePoints;  
+    private Transform[] secondSetFirePoints; 
+    private Transform[] notMinigunSetFirePoints; 
 
 
     void Start()
     {
         DOTween.SetTweensCapacity(7812, 50); 
 
-        fireCooldown = initialFireCooldown;  // Set initial cooldown
+        fireCooldown = initialFireCooldown;  
 
-        // Initialize fire point arrays
+        
         if (isMinigun)
         {
-            firstSetFirePoints = new Transform[8];  // 0-7
-            secondSetFirePoints = new Transform[8]; // 8-15
+            firstSetFirePoints = new Transform[8];  
+            secondSetFirePoints = new Transform[8]; 
 
-            // Populate the arrays with the corresponding fire points
+            
             for (int i = 0; i < 8; i++)
             {
-                firstSetFirePoints[i] = firePoints[i];        // Fire points 0-7
-                secondSetFirePoints[i] = firePoints[i + 8];  // Fire points 8-15
+                firstSetFirePoints[i] = firePoints[i];        
+                secondSetFirePoints[i] = firePoints[i + 8];  
             }
         }
         else
@@ -73,77 +73,77 @@ public class TurretMinigun : MonoBehaviour
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;  // Increment elapsed time
+        elapsedTime += Time.deltaTime;  
 
-        // Check for target and handle firing logic based on isMinigun
-        target = FindTarget(); // Find a target each update
+        
+        target = FindTarget(); 
 
         if (target != null)
         {
             AimAtTarget();
 
-            // If isMinigun is true, handle rapid firing
+            
             if (isMinigun)
             {
-                // Check if the elapsed time is greater than 5 seconds to switch to rapid fire
+                
                 if (elapsedTime > 5f && !isFiring)
                 {
-                    fireCooldown = rapidFireDelay;  // Change to rapid fire delay
-                    StartCoroutine(FireFromFirePoints()); // Start firing coroutine
+                    fireCooldown = rapidFireDelay;  
+                    StartCoroutine(FireFromFirePoints()); 
                 }
 
-                // Check if enough time has passed to shoot
+                
                 if (Time.time >= lastFireTime + fireCooldown && !isFiring)
                 {
-                    isFiring = true; // Set firing state
-                    StartCoroutine(FireFromFirePoints()); // Start firing from fire points
+                    isFiring = true; 
+                    StartCoroutine(FireFromFirePoints()); 
                     lastFireTime = Time.time; 
                 }
             }
-            else // Normal firing behavior
+            else 
             {
                 if (Time.time >= lastFireTime + initialFireCooldown && !isFiring)
                 {
-                    isFiring = true; // Set firing state
-                    StartCoroutine(FireFromNotMinigun()); // Start firing from the first 4 fire points
+                    isFiring = true; 
+                    StartCoroutine(FireFromNotMinigun()); 
                 }
             }
         }
         else
         {
-            // If no target is found, reset firing state, cooldown, and elapsed time
+            
             isFiring = false; 
-            fireCooldown = initialFireCooldown; // Reset fire cooldown to initial
-            elapsedTime = 0f; // Reset elapsed time
+            fireCooldown = initialFireCooldown; 
+            elapsedTime = 0f; 
         }
     }
     IEnumerator FireFromNotMinigun()
     {
-        for (int i = 0; i < 5; i++) // Only fire from the first 4 fire points
+        for (int i = 0; i < 5; i++) 
         {
-            ShootAtTarget(firePoints[i]); // Fire from the current fire point
-            lastFireTime = Time.time; // Update last fire time to the current time
-            yield return new WaitForSeconds(initialFireCooldown); // Wait for the specified cooldown
+            ShootAtTarget(firePoints[i]); 
+            lastFireTime = Time.time; 
+            yield return new WaitForSeconds(initialFireCooldown); 
         }
-        isFiring = false; // Reset firing state after shooting all fire points
+        isFiring = false; 
     }
 
     IEnumerator FireFromFirePoints()
     {
-        // Fire from both sets of fire points simultaneously
+        
         for (int i = 0; i < 8; i++)
         {
-            // Fire from the first set (0 to 7)
+            
             ShootAtTarget(firstSetFirePoints[i]);
 
-            // Fire from the second set (8 to 15)
+            
             ShootAtTarget(secondSetFirePoints[i]);
 
-            // Wait for a short duration before the next shot
-            yield return new WaitForSeconds(fireCooldown); // Wait for the specified fire cooldown
+            
+            yield return new WaitForSeconds(fireCooldown); 
         }
 
-        isFiring = false; // Reset firing state after shooting all fire points
+        isFiring = false; 
     }
 
     Transform FindTarget()
@@ -153,9 +153,9 @@ public class TurretMinigun : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            // Check if VariableComponent exists and is valid
+            
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; // Skip if component is not found
+            if (variableComponent == null) continue; 
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -189,7 +189,7 @@ public class TurretMinigun : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; // Return null if no valid targets found
+        return null; 
     }
 
 
@@ -202,7 +202,7 @@ public class TurretMinigun : MonoBehaviour
         euler.x = directionX; 
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ); 
 
-        // Apply the Y rotation only to the turret head, maintaining its local rotation
+        
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f); 

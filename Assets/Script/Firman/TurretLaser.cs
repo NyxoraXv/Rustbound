@@ -38,7 +38,7 @@ public class TurretLaser : MonoBehaviour
 
         if (target != null && canFire && !isFiring)
         {
-            // Start firing sequence with a delay
+
             StartCoroutine(FiringSequence());
         }
     }
@@ -50,13 +50,13 @@ public class TurretLaser : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            // Check if VariableComponent exists and is valid
+
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; // Skip if component is not found
+            if (variableComponent == null) continue;
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-            
+
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -86,15 +86,15 @@ public class TurretLaser : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; // Return null if no valid targets found
+        return null;
     }
 
 
     void AimAtTarget()
     {
-        // Check if target is null
+
         if (target == null)
-            return; // Exit early if there is no target
+            return;
 
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -103,7 +103,7 @@ public class TurretLaser : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        // Apply the Y rotation only to the turret head, maintaining its local rotation
+
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
@@ -117,19 +117,19 @@ public class TurretLaser : MonoBehaviour
 
     void ShootAtTarget()
     {
-        // Check for null references before proceeding
-        if (projectilePrefab == null || firePoint == null || target == null)
-            return; // Exit early if any of the references are missing
 
-        // Calculate direction to the target
+        if (projectilePrefab == null || firePoint == null || target == null)
+            return;
+
+
         Vector3 directionToTarget = target.position - firePoint.position;
 
-        // Create a rotation that looks at the target
+
         Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
 
-        // Instantiate the projectile at the firePoint's position with the calculated rotation
+
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
-        
+
         ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
         if (projectileController != null)
         {
@@ -140,14 +140,14 @@ public class TurretLaser : MonoBehaviour
 
     IEnumerator FiringSequence()
     {
-        // Wait 4 seconds before starting to fire
+
         yield return new WaitForSeconds(4f);
 
         isFiring = true;
         canFire = false;
         float fireStartTime = Time.time;
 
-        // Regular firing sequence during fireDuration
+
         while (Time.time < fireStartTime + fireDuration)
         {
             AimAtTarget();
@@ -158,13 +158,13 @@ public class TurretLaser : MonoBehaviour
                 lastFireTime = Time.time;
             }
 
-            yield return null; // Wait until next frame to continue firing
+            yield return null;
         }
 
-        // Wait for 2 seconds after fireDuration ends
+
         yield return new WaitForSeconds(lastShoot);
 
-        // Fire the lastShootBeforePause only once
+
         if (lastShootBeforePause != null)
         {
             GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
@@ -175,11 +175,11 @@ public class TurretLaser : MonoBehaviour
             }
         }
 
-        // Stop firing and immediately start the pause duration
+
         isFiring = false;
         yield return new WaitForSeconds(pauseDuration);
 
-        // After the pause, allow firing again
+
         canFire = true;
     }
 
