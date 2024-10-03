@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int poolSize = 10; // Ukuran pool
     private float speed = 5f;
     private float rotationSpeed = 5f;
-    private Transform cameraTransform; 
+    private Transform cameraTransform;
 
     private Vector3 moveDirection;
     private Vector2 _movementInput;
@@ -21,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
 
-    private void Awake() 
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         variableComponent = GetComponent<VariableComponent>();
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
@@ -61,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
-        
+
         if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
         {
             _rigidbody.freezeRotation = true;
@@ -98,22 +100,35 @@ public class PlayerMovement : MonoBehaviour
                 Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                     Vector3 direction = (hit.point - shootPos.position).normalized;
+                    // Hit point berdasarkan mouse tanpa mengubah posisi Y dari peluru
+                    Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
+
+                    targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
+                    // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
+                    Vector3 direction = (targetPosition - shootPos.position).normalized;
+                    // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
+                    // print("dir" + direction);
+                    // print("target" + targetPosition);
+                    // print("hit" + hit.point.normalized);
+
                     bulletPush.transform.position = shootPos.position;
 
-                    // Hanya ubah rotasi pada sumbu Y
-                    Quaternion targetRotation = Quaternion.LookRotation(direction);
-                    bulletPush.transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-                
+                    // Mengatur rotasi peluru agar tidak mengubah sumbu Y
+                    bulletPush.transform.rotation = Quaternion.LookRotation(direction);
+
                     bulletPush.SetActive(true);
                     bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
                     bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
-                    
+
                     StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
                 }
             }
         }
     }
+
+
+
+
 
     private GameObject GetPooledBullet()
     {
