@@ -24,6 +24,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "958a5af4-0903-4867-9d96-c529ffaf06a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Forward",
                     "type": "PassThrough",
                     "id": "23a31aa9-de50-4591-a753-6849acc11e1e",
@@ -168,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f26ce203-7ef3-40ae-aedc-7d2a703c7ed3",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
