@@ -249,7 +249,7 @@ MonoBehaviour:
   turretSlot3: {fileID: 3591375948646511082, guid: aeb69ac83ae139545803cffd10cff942,
     type: 3}
   turret3: {fileID: 706483018}
-  turretSlot4: {fileID: 6052941085072812279, guid: 68463368760bf6340916ca182b1a14c9,
+  turretSlot4: {fileID: 1123162897191317485, guid: 4f17101356d90194d8b198d99e3a9152,
     type: 3}
   turret4: {fileID: 1157907422}
 --- !u!1 &86221052
@@ -441,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 134127052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4360647, y: -6.7253795, z: -5.1824465}
+  m_LocalPosition: {x: -3.4360647, y: -6.7253795, z: -6.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3278,6 +3278,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420968198}
   m_CullTransparentMesh: 1
+--- !u!1001 &1450174316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25.159725
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1635733
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dd08149a73761d46945acc455781ac0,
+        type: 3}
+      propertyPath: m_Name
+      value: Characters_Zombie_Pacient_04
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4dd08149a73761d46945acc455781ac0, type: 3}
 --- !u!1 &1476573379
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,6 +4179,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740509463}
   m_CullTransparentMesh: 1
+--- !u!1001 &1761557736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.193853
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2007606
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 885eac34fd0d577439e6670a7ca3777e,
+        type: 3}
+      propertyPath: m_Name
+      value: Characters_Zombie_SuitMan_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 885eac34fd0d577439e6670a7ca3777e, type: 3}
 --- !u!1 &1884412696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,6 +4750,7 @@ SceneRoots:
   - {fileID: 4445492442632237673}
   - {fileID: 5621342459287294224}
   - {fileID: 1034397444}
+  - {fileID: 295769075}
   - {fileID: 1941988985}
   - {fileID: 1884412697}
   - {fileID: 706483018}
@@ -4622,4 +4759,5 @@ SceneRoots:
   - {fileID: 1363990736}
   - {fileID: 58105469}
   - {fileID: 500861966}
-  - {fileID: 295769075}
+  - {fileID: 1450174316}
+  - {fileID: 1761557736}

@@ -175,7 +175,7 @@ MonoBehaviour:
   directionY: 90
   directionMinZ: 85
   directionMaxZ: 90
-  detectionRadius: 12
+  detectionRadius: 10.5
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
