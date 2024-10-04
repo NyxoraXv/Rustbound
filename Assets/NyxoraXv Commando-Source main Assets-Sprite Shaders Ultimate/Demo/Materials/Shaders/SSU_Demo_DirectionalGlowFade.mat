@@ -13,7 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - ETC1_EXTERNAL_ALPHA
-  - _ENABLEDIRECTIONALGLOWFADE_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
   - _STRONGTINTCONTRASTTOGGLE_ON
@@ -212,10 +211,10 @@ Material:
     - _DirectionalDistortionRandomDirection: 0.1
     - _DirectionalDistortionRotation: 0
     - _DirectionalDistortionWidth: 0.5
-    - _DirectionalGlowFadeFade: 2.2
+    - _DirectionalGlowFadeFade: 4.5
     - _DirectionalGlowFadeInvert: 0
     - _DirectionalGlowFadeNoiseFactor: 0.2
-    - _DirectionalGlowFadeRotation: 180
+    - _DirectionalGlowFadeRotation: 228
     - _DirectionalGlowFadeWidth: 0.1
     - _DstBlend: 0
     - _EnableAddColor: 0
@@ -231,7 +230,7 @@ Material:
     - _EnableCustomFade: 0
     - _EnableDirectionalAlphaFade: 0
     - _EnableDirectionalDistortion: 0
-    - _EnableDirectionalGlowFade: 1
+    - _EnableDirectionalGlowFade: 0
     - _EnableEnchanted: 0
     - _EnableFlame: 0
     - _EnableFrozen: 0
@@ -550,7 +549,8 @@ Material:
     - _DirectionalDistortionDistortion: {r: 0, g: 0.1, b: 0, a: 0}
     - _DirectionalDistortionDistortionScale: {r: 1, g: 1, b: 0, a: 0}
     - _DirectionalDistortionNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
-    - _DirectionalGlowFadeEdgeColor: {r: 0.75294113, g: 11.984312, b: 0.80094546, a: 0}
+    - _DirectionalGlowFadeEdgeColor: {r: 0.75294113, g: 11.984312, b: 0.80094546,
+        a: 0}
     - _DirectionalGlowFadeNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnchantedHighColor: {r: 0, g: 0.7098798, b: 4.237095, a: 0}
