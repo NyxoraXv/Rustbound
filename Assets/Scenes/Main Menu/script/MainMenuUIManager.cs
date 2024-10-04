@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuUIManager : MonoBehaviour
 {
@@ -99,7 +100,7 @@ public class MainMenuUIManager : MonoBehaviour
             Camera.main.transform.DOMoveY(-3f, 1f).SetEase(Ease.InOutCubic);
         }).OnStart(() =>
         {
-            pivotButton.DORotate(new Vector3(-4.101f, 65.048f, 6.466f), 1f).SetEase(Ease.InOutCubic);
+            pivotButton.DORotate(new Vector3(-4.101f, 65.048f, 6.466f), 1f).SetEase(Ease.InOutCubic).OnComplete(() => { DOVirtual.DelayedCall(1f, () => { SceneManager.LoadScene(1); }); });
         });
     }
 
