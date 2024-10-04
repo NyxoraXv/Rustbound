@@ -98,16 +98,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
-        // Debug.Log("move " + _movementInput);
-        // Debug.Log("dir " + direction);
-        // Debug.Log("dis " + Vector2.Distance(new Vector2 (direction.x, direction.z).normalized, _movementInput));
-
-        if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
+        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+        if (currentState.IsName("State"))
+        // if (context.performed)
         {
-            _rigidbody.freezeRotation = true;
-        }
+            Debug.Log( "tag ");
+            _movementInput = context.ReadValue<Vector2>();
+            // Debug.Log("move " + _movementInput);
+            // Debug.Log("dir " + direction);
+            // Debug.Log("dis " + Vector2.Distance(new Vector2 (direction.x, direction.z).normalized, _movementInput));
 
+            if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
+            {
+                _rigidbody.freezeRotation = true;
+            }
+
+        }
+        
         if (_movementInput.magnitude < 0.1f)
         {
             _movementInput = Vector2.zero;
@@ -150,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            animator.SetTrigger(fireParam);
+            animator.SetBool(fireParam, true);
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
             {
