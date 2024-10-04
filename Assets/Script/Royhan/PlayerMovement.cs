@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
+    [SerializeField] private float sprintWalkPercentage = 50f;
     private float speed = 5f;
     private float rotationSpeed = 5f;
     private Transform cameraTransform;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private int speedParam = Animator.StringToHash("Speed");
     private int fireParam = Animator.StringToHash("Fire");
+    private bool onSprint = false;
 
     private void Awake()
     {
@@ -72,12 +74,21 @@ public class PlayerMovement : MonoBehaviour
         if (dotProduct > 0)
         {
             Debug.Log("maju");
-            animator.SetFloat(speedParam, 0.5f);
+            if (!onSprint)
+                animator.SetFloat(speedParam, 0.5f);
+
+            else
+                animator.SetFloat(speedParam, 1f);
+
         }
         else if (dotProduct < 0)
         {
             Debug.Log("mundur");
-            animator.SetFloat(speedParam, -0.5f);
+            if (!onSprint)
+                animator.SetFloat(speedParam, -0.5f);
+
+            else
+                animator.SetFloat(speedParam, -1f);
         }
         else
         {
@@ -179,5 +190,19 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         bullet.SetActive(false);
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            speed = variableComponent.speed + (variableComponent.speed * sprintWalkPercentage/100);
+            onSprint = true;
+        }
+        else if (context.canceled)
+        {
+            speed = variableComponent.speed;
+            onSprint = false;
+        }
     }
 }
