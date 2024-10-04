@@ -195,7 +195,7 @@ MonoBehaviour:
   lastShootBeforePause: {fileID: 0}
   fireCooldown: 0.05
   fireDuration: 10
-  pauseDuration: 4
+  pauseDuration: 2.5
   lastShoot: 0
   targetingMode: 0
 --- !u!1 &6197577030655037243 stripped

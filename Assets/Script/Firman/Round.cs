@@ -47,6 +47,7 @@ public class Round : MonoBehaviour
     [Header("Zombie Type")]
     public GameObject[] zombiePrefabs; // Array to hold different zombie prefabs
     public int healthIncreaseEachRound;
+    private float healthMultiplier = 1;
 
     [Header("Enemy Spawn")]
     public Transform[] spawnPoints; // Array to hold different spawn points
@@ -82,7 +83,7 @@ public class Round : MonoBehaviour
             // Increment zombies to spawn by 2 for the next round
             zombiesToSpawn += 2;
 
-            IncreaseAllEnemiesMaxHealth(healthIncreaseEachRound);
+            healthMultiplier += 1f;
 
             // Spawn special zombies with a delay
             StartCoroutine(SpawnSpecialZombiesWithDelay());
@@ -151,7 +152,6 @@ public class Round : MonoBehaviour
         UpdateTotalZombieText();
     }
 
-    // Method to spawn a zombie
     private void SpawnZombie()
     {
         // Check if the max number of zombies has been reached
@@ -176,12 +176,16 @@ public class Round : MonoBehaviour
         // Increment the number of spawned zombies
         spawnedZombies++;
 
+        // Increase the max health of this specific zombie
+        IncreaseZombieMaxHealth(zombie, healthIncreaseEachRound * healthMultiplier);
+
         // Update the total zombies text
         UpdateTotalZombieText();
 
         // Optional: Log the spawning of zombies for debugging
         Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
     }
+
     
     // Coroutine to spawn special zombies with a delay between each
     private IEnumerator SpawnSpecialZombiesWithDelay()
@@ -279,6 +283,8 @@ public class Round : MonoBehaviour
         specialZombieInstance.transform.SetParent(spawnPoint);
         specialZombieList.Add(specialZombieInstance);
         UpdateTotalZombieText();
+
+        IncreaseZombieMaxHealth(specialZombieInstance, healthIncreaseEachRound * healthMultiplier);
         // Optional: Log the spawning of special zombies for debugging
         Debug.Log("Spawned Special Zombie: " + specialZombiePrefab.name + " at " + spawnPoint.position);
     }
@@ -350,6 +356,8 @@ public class Round : MonoBehaviour
             GameObject bossInstance = Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
             bossInstance.transform.SetParent(spawnPoint);
             bossList.Add(bossInstance);
+            
+            IncreaseZombieMaxHealth(bossInstance, healthIncreaseEachRound * healthMultiplier);
 
             UpdateTotalZombieText();
                 
@@ -360,18 +368,18 @@ public class Round : MonoBehaviour
             Debug.LogError("Boss prefab is not assigned!");
         }
     }
-    private void IncreaseAllEnemiesMaxHealth(float amount)
+    private void IncreaseZombieMaxHealth(GameObject zombie, float healthIncrease)
     {
-        // Find all EnemyController instances in the scene
-        EnemyController[] enemies = FindObjectsOfType<EnemyController>();
+        // Assuming the zombie has a VariableComponent to manage its health
+        var variableComponent = zombie.GetComponent<VariableComponent>(); // Replace 'VariableComponent' with your actual component
 
-        foreach (var enemy in enemies)
+        if (variableComponent != null)
         {
-            VariableComponent variableComponent = enemy.GetComponent<VariableComponent>();
-            if (variableComponent != null)
-            {
-                variableComponent.IncreaseMaxHealth(amount); // Increase max health by the specified amount
-            }
+            variableComponent.maxHealth += healthIncrease; // Increase max health by the specified amount
+        }
+        else
+        {
+            Debug.LogError("VariableComponent is missing on the zombie!");
         }
     }
 

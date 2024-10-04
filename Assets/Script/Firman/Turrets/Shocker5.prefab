@@ -188,8 +188,8 @@ MonoBehaviour:
     type: 3}
   fireCooldown: 0.05
   fireDuration: 10
-  pauseDuration: 5
-  lastShoot: 5
+  pauseDuration: 2.5
+  lastShoot: 2.5
   targetingMode: 0
 --- !u!1 &3901723522905647975 stripped
 GameObject:

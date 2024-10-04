@@ -405,24 +405,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 483121274}
   textTotalZombie: {fileID: 42829556}
-  currentRound: 1
+  currentRound: 8
   zombiesToSpawn: 5
   Boss1: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d, type: 3}
   Boss2: {fileID: 0}
-  Boss3: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d, type: 3}
+  Boss3: {fileID: 0}
   Boss4: {fileID: 0}
   Boss5: {fileID: 0}
   specialZombieRound9: {fileID: 4619081630930541923, guid: d931f363fb635d840a3bfab26343be45,
     type: 3}
   specialZombieRound13: {fileID: 0}
   specialZombieRound18: {fileID: 0}
-  specialZombieRound23: {fileID: 4619081630930541923, guid: d931f363fb635d840a3bfab26343be45,
-    type: 3}
-  specialZombie:
-  - {fileID: 4619081630930541923, guid: d931f363fb635d840a3bfab26343be45, type: 3}
+  specialZombieRound23: {fileID: 0}
+  specialZombie: []
   zombiePrefabs:
   - {fileID: 4619081630930541923, guid: c37fd5c39db71c44785647c878bfc8ed, type: 3}
-  healthIncreaseEachRound: 10
+  healthIncreaseEachRound: 1000
   spawnPoints:
   - {fileID: 1692203468}
   - {fileID: 1404548781}
@@ -862,6 +860,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: lastShoot
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525558531074305928, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: pauseDuration
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4946,6 +4954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194885002129642106, guid: c37fd5c39db71c44785647c878bfc8ed,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

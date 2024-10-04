@@ -19,10 +19,10 @@ public class TurretLaser : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject lastShootBeforePause;
 
-    public float fireCooldown = 2f;
+    public float fireCooldown = 0.05f;
     public float fireDuration = 10f;
-    public float pauseDuration = 4f;
-    public float lastShoot = 2f;
+    public float pauseDuration = 2.5f;
+    public float lastShoot = 2.5f;
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
@@ -141,7 +141,7 @@ public class TurretLaser : MonoBehaviour
     IEnumerator FiringSequence()
     {
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
 
         isFiring = true;
         canFire = false;
