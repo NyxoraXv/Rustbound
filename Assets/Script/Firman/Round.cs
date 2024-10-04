@@ -44,6 +44,9 @@ public class Round : MonoBehaviour
     [Header("Special Zombie Round 25+")]
     public GameObject[] specialZombie; // Array to hold special zombie prefabs
 
+    [Header("UnBeatable Zombies Round 51+")]
+    public GameObject[] unbeatableZombies;
+
     [Header("Zombie Type")]
     public GameObject[] zombiePrefabs; // Array to hold different zombie prefabs
     public int healthIncreaseEachRound;
@@ -83,7 +86,11 @@ public class Round : MonoBehaviour
             // Increment zombies to spawn by 2 for the next round
             zombiesToSpawn += 2;
 
-            healthMultiplier += 1f;
+            // Increase health multiplier starting from wave 11
+            if (currentRound >= 15)
+            {
+                healthMultiplier += 1f;
+            }
 
             // Spawn special zombies with a delay
             StartCoroutine(SpawnSpecialZombiesWithDelay());
@@ -158,8 +165,19 @@ public class Round : MonoBehaviour
         if (spawnedZombies >= zombiesToSpawn)
             return;
 
-        // Randomly select a zombie type
-        GameObject zombiePrefab = zombiePrefabs[Random.Range(0, zombiePrefabs.Length)];
+        GameObject zombiePrefab;
+
+        // Check if the current round is 51 or higher to spawn unbeatable zombies
+        if (currentRound >= 51)
+        {
+            // Select a random unbeatable zombie from the array
+            zombiePrefab = unbeatableZombies[Random.Range(0, unbeatableZombies.Length)];
+        }
+        else
+        {
+            // Randomly select a regular zombie type
+            zombiePrefab = zombiePrefabs[Random.Range(0, zombiePrefabs.Length)];
+        }
 
         // Randomly select a spawn point
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -185,7 +203,6 @@ public class Round : MonoBehaviour
         // Optional: Log the spawning of zombies for debugging
         Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
     }
-
     
     // Coroutine to spawn special zombies with a delay between each
     private IEnumerator SpawnSpecialZombiesWithDelay()
@@ -356,7 +373,7 @@ public class Round : MonoBehaviour
             GameObject bossInstance = Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
             bossInstance.transform.SetParent(spawnPoint);
             bossList.Add(bossInstance);
-            
+           
             IncreaseZombieMaxHealth(bossInstance, healthIncreaseEachRound * healthMultiplier);
 
             UpdateTotalZombieText();
