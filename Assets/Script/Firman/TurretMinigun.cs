@@ -19,7 +19,8 @@ public class TurretMinigun : MonoBehaviour
     public GameObject projectilePrefab;  
 
     public float initialFireCooldown = 0.8f;  
-    public float rapidFireDelay = 0.1f;        
+    public float rapidFireDelay = 0.1f;    
+    public ParticleSystem gunEffect;    
     private float fireCooldown;                 
 
     private float elapsedTime = 0f;             
@@ -135,8 +136,8 @@ public class TurretMinigun : MonoBehaviour
         {
             
             ShootAtTarget(firstSetFirePoints[i]);
+            gunEffect.Play();
 
-            
             ShootAtTarget(secondSetFirePoints[i]);
 
             
