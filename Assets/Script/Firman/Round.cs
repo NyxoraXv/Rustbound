@@ -19,6 +19,8 @@ public class Round : MonoBehaviour
 
     private int spawnedZombies = 0; // Track the number of zombies spawned
     private List<GameObject> zombieList = new List<GameObject>(); // List to keep track of spawned zombies
+    private List<GameObject> specialZombieList = new List<GameObject>(); // List for special zombies
+    private List<GameObject> bossList = new List<GameObject>();
 
     [Header("Bosses")]
     public GameObject Boss1; // Reference to Boss1 GameObject
@@ -27,11 +29,24 @@ public class Round : MonoBehaviour
     public GameObject Boss4; // Reference to Boss4 GameObject
     public GameObject Boss5; // Reference to Boss5 GameObject
 
-    [Header("Special Zombie")]
+    [Header("Special Zombie Round 9")]
+    public GameObject specialZombieRound9;
+
+    [Header("Special Zombie Round 13")]
+    public GameObject specialZombieRound13;
+
+    [Header("Special Zombie Round 18")]
+    public GameObject specialZombieRound18;
+
+    [Header("Special Zombie Round 23")]
+    public GameObject specialZombieRound23;
+
+    [Header("Special Zombie Round 25+")]
     public GameObject[] specialZombie; // Array to hold special zombie prefabs
 
     [Header("Zombie Type")]
     public GameObject[] zombiePrefabs; // Array to hold different zombie prefabs
+    public int healthIncreaseEachRound;
 
     [Header("Enemy Spawn")]
     public Transform[] spawnPoints; // Array to hold different spawn points
@@ -67,8 +82,7 @@ public class Round : MonoBehaviour
             // Increment zombies to spawn by 2 for the next round
             zombiesToSpawn += 2;
 
-            // Optionally, spawn the boss based on the current round
-            SpawnBossIfNeeded();
+            IncreaseAllEnemiesMaxHealth(healthIncreaseEachRound);
 
             // Spawn special zombies with a delay
             StartCoroutine(SpawnSpecialZombiesWithDelay());
@@ -103,11 +117,14 @@ public class Round : MonoBehaviour
         }
     }
     // Method to update the total zombie text
-    public void UpdateTotalZombieText(int totalZombies)
+    public void UpdateTotalZombieText()
     {
+        // Calculate total zombies as the sum of zombies in all lists
+        int totalZombies = zombieList.Count + specialZombieList.Count + bossList.Count;
+
         if (textTotalZombie != null)
         {
-            textTotalZombie.text = "Total Zombie " + totalZombies;
+            textTotalZombie.text = "Total Zombies: " + totalZombies;
         }
         else
         {
@@ -115,11 +132,23 @@ public class Round : MonoBehaviour
         }
     }
     // Add this method in your Round class
-    public void DecreaseZombieCount()
+    public void DecreaseZombieCount(GameObject zombie)
     {
-        // Decrease the total zombies count and update the UI
-        spawnedZombies--;
-        UpdateTotalZombieText(spawnedZombies);
+        if (zombieList.Remove(zombie))
+        {
+            Debug.Log("Regular Zombie defeated.");
+        }
+        else if (specialZombieList.Remove(zombie))
+        {
+            Debug.Log("Special Zombie defeated.");
+        }
+        else if (bossList.Remove(zombie))
+        {
+            Debug.Log("Boss defeated.");
+        }
+
+        // Update the total zombies text after a zombie is defeated
+        UpdateTotalZombieText();
     }
 
     // Method to spawn a zombie
@@ -148,7 +177,7 @@ public class Round : MonoBehaviour
         spawnedZombies++;
 
         // Update the total zombies text
-        UpdateTotalZombieText(spawnedZombies);
+        UpdateTotalZombieText();
 
         // Optional: Log the spawning of zombies for debugging
         Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
@@ -157,7 +186,7 @@ public class Round : MonoBehaviour
     // Coroutine to spawn special zombies with a delay between each
     private IEnumerator SpawnSpecialZombiesWithDelay()
     {
-        yield return new WaitForSeconds(5f); // Wait for 5 seconds before spawning special zombies
+        yield return new WaitForSeconds(1.5f); // Wait for 5 seconds before spawning special zombies
 
         // Determine the number of special zombies to spawn based on the current round
         int specialZombiesToSpawn = GetSpecialZombiesToSpawn();
@@ -166,11 +195,11 @@ public class Round : MonoBehaviour
         for (int i = 0; i < specialZombiesToSpawn; i++)
         {
             SpawnSpecialZombie();
-            yield return new WaitForSeconds(5f); // Wait for 5 seconds before spawning the next special zombie
+            yield return new WaitForSeconds(1.5f); // Wait for 5 seconds before spawning the next special zombie
         }
 
         // Spawn the boss after 20 seconds
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(5f);
         SpawnBossIfNeeded();
     }
 
@@ -182,7 +211,7 @@ public class Round : MonoBehaviour
         // Determine the number of special zombies to spawn based on the current round
         if (currentRound == 9)
         {
-            specialZombiesToSpawn = 1;
+           specialZombiesToSpawn = 1;
         }
         else if (currentRound == 13)
         {
@@ -215,15 +244,41 @@ public class Round : MonoBehaviour
     // Method to spawn a special zombie
     private void SpawnSpecialZombie()
     {
-        // Randomly select a special zombie type
-        GameObject specialZombiePrefab = specialZombie[Random.Range(0, specialZombie.Length)];
+       GameObject specialZombiePrefab;
+
+        // Check if it's one of the special rounds (9, 13, 18, or 23)
+        if (currentRound == 9)
+        {
+            specialZombiePrefab = specialZombieRound9; // Use the special zombie for these rounds
+        }
+        else if (currentRound == 13)
+        {
+            specialZombiePrefab = specialZombieRound13; // Use the special zombie for these rounds
+        }
+        else if (currentRound == 18)
+        {
+            specialZombiePrefab = specialZombieRound18; // Use the special zombie for these rounds
+        }
+        else if (currentRound == 23)
+        {
+            specialZombiePrefab = specialZombieRound23; // Use the special zombie for these rounds
+        }
+        else
+        {
+            // Randomly select a special zombie type from the array for other rounds
+            specialZombiePrefab = specialZombie[Random.Range(0, specialZombie.Length)];
+        }
 
         // Randomly select a spawn point, ensuring to delay if the same spawn point was recently used
         Transform spawnPoint = GetSpawnPointWithDelay();
 
         // Instantiate the special zombie at the chosen spawn point
-        Instantiate(specialZombiePrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject specialZombieInstance = Instantiate(specialZombiePrefab, spawnPoint.position, spawnPoint.rotation);
 
+        // Make the special zombie a child of the spawn point
+        specialZombieInstance.transform.SetParent(spawnPoint);
+        specialZombieList.Add(specialZombieInstance);
+        UpdateTotalZombieText();
         // Optional: Log the spawning of special zombies for debugging
         Debug.Log("Spawned Special Zombie: " + specialZombiePrefab.name + " at " + spawnPoint.position);
     }
@@ -292,7 +347,12 @@ public class Round : MonoBehaviour
         if (boss != null)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
+            GameObject bossInstance = Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
+            bossInstance.transform.SetParent(spawnPoint);
+            bossList.Add(bossInstance);
+
+            UpdateTotalZombieText();
+                
             Debug.Log("Spawned Boss: " + boss.name + " at " + spawnPoint.position);
         }
         else
@@ -300,17 +360,45 @@ public class Round : MonoBehaviour
             Debug.LogError("Boss prefab is not assigned!");
         }
     }
+    private void IncreaseAllEnemiesMaxHealth(float amount)
+    {
+        // Find all EnemyController instances in the scene
+        EnemyController[] enemies = FindObjectsOfType<EnemyController>();
+
+        foreach (var enemy in enemies)
+        {
+            VariableComponent variableComponent = enemy.GetComponent<VariableComponent>();
+            if (variableComponent != null)
+            {
+                variableComponent.IncreaseMaxHealth(amount); // Increase max health by the specified amount
+            }
+        }
+    }
 
     // Method to check if all zombies are dead
     private bool AreAllZombiesDead()
     {
+        // Check if all regular zombies are dead
         foreach (GameObject zombie in zombieList)
         {
-            if (zombie != null) // Check if the zombie is still alive
-            {
-                return false; // If any zombie is alive, return false
-            }
+            if (zombie != null)
+                return false;
         }
-        return true; // All zombies are dead
+
+        // Check if all special zombies are dead
+        foreach (GameObject specialZombie in specialZombieList)
+        {
+            if (specialZombie != null)
+                return false;
+        }
+
+        // Check if all bosses are dead
+        foreach (GameObject boss in bossList)
+        {
+            if (boss != null)
+                return false;
+        }
+
+        return true;
     }
 }

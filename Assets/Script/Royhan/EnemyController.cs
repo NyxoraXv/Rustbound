@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
                 // Decrease total zombies in the Round
                 if (round != null)
                 {
-                    round.DecreaseZombieCount(); // Call the method to decrease total zombie count
+                    round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
                 }
                 Debug.Log("Enemy is dead!");
             }

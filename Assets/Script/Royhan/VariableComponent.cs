@@ -33,6 +33,15 @@ public class VariableComponent : MonoBehaviour
     {
         return maxHealth;
     }
+    
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        // Optionally, reset the current health to max if desired
+        _currentHealth = maxHealth;
+        Debug.Log($"Max health increased to: {maxHealth}");
+    }
+
 
     // Handle the enemy death.
     private void Die()
