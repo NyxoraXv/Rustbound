@@ -14833,7 +14833,7 @@ MonoBehaviour:
     type: 3}
   initialFireCooldown: 0.4
   rapidFireDelay: 0.3
-  gunEffect: {fileID: 0}
+  gunEffect: {fileID: 6923710193368815513}
   targetingMode: 0
 --- !u!4 &6052941085073110227 stripped
 Transform:

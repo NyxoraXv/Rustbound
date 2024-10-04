@@ -14870,7 +14870,7 @@ MonoBehaviour:
     type: 3}
   initialFireCooldown: 0.2
   rapidFireDelay: 0.15
-  gunEffect: {fileID: 0}
+  gunEffect: {fileID: 8711231570536077344}
   targetingMode: 0
 --- !u!1 &9168491504708515983 stripped
 GameObject:
