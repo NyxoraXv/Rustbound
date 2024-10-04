@@ -7,6 +7,7 @@ public class MainMenuUIManager : MonoBehaviour
 {
     // RectTransforms for each button
     [SerializeField] private RectTransform play, or, quit, pivotButton;
+    [SerializeField] private Transform player;
 
     // Variables to store default positions and rotations
     private Vector3 playDefaultPosition, orDefaultPosition, quitDefaultPosition;
@@ -40,6 +41,8 @@ public class MainMenuUIManager : MonoBehaviour
     // Hover Enter: Play Button
     public void PlayHoverEnter()
     {
+        DOTween.Kill(play);
+        play.DOScale(1.1f, 0.3f);
         FadeInGlitch(play.GetComponent<Image>());
         Debug.Log("hovering enter");
         // Animate to new position and rotation assigned in the Inspector
@@ -50,6 +53,8 @@ public class MainMenuUIManager : MonoBehaviour
     // Hover Exit: Play Button
     public void PlayHoverExit()
     {
+        DOTween.Kill(play);
+        play.DOScale(1f, 0.3f);
         FadeOutGlitch(play.GetComponent<Image>());
         // Return to default position and rotation
         play.DOLocalMove(playDefaultPosition, 0.3f);
@@ -94,19 +99,37 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void PlayButtonDown()
     {
+        DOTween.Kill(play);
+        play.DOScale(0.9f, 0.3f);
+    }
 
+    public void PlayButtonUp()
+    {
+        DOTween.Kill(play);
+        play.DOScale(1.1f, 0.3f);
     }
 
     public void PlayAction()
     {
-        GetComponent<CanvasGroup>().DOFade(0f, 0.5f).SetEase(Ease.InOutCubic).OnComplete(() =>
+
+        Animator ac = player.GetComponent<Animator>();
+        ac.SetBool("jalankan", true);
+        
+        DOVirtual.DelayedCall(0.6f, () =>
+        { player.DOMove(new Vector3(7.11899996f, -0.0399999991f, -8.77099991f), 5f); });
+        DOVirtual.DelayedCall(1f, () =>
         {
-            Camera.main.GetComponent<MouseParallax>().enabled = false;
-            Camera.main.transform.DOMoveY(-3f, 1f).SetEase(Ease.InOutCubic);
-        }).OnStart(() =>
-        {
-            pivotButton.DORotate(new Vector3(-4.101f, 65.048f, 6.466f), 1f).SetEase(Ease.InOutCubic).OnComplete(() => { DOVirtual.DelayedCall(1f, () => { SceneManager.LoadScene(1); }); });
+            GetComponent<CanvasGroup>().DOFade(0f, 0.5f).SetEase(Ease.InOutCubic).OnComplete(() =>
+            {
+                Camera.main.GetComponent<MouseParallax>().enabled = false;
+                Camera.main.transform.DOMoveY(-3f, 1f).SetEase(Ease.InOutCubic);
+            }).OnStart(() =>
+            {
+                pivotButton.DORotate(new Vector3(6.56699991f, 0.075000003f, -8.6239996f), 1f).SetEase(Ease.InOutCubic).OnComplete(() => { DOVirtual.DelayedCall(1f, () => { SceneManager.LoadScene(1); }); });
+            });
         });
+
+        
     }
 
     public void OrAction()
