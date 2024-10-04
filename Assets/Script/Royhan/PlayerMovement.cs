@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
+    private Vector3 direction;
 
     private void Awake()
     {
@@ -82,10 +83,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation(Vector3 moveDirection)
     {
-        if (moveDirection != Vector3.zero)
+        // if (moveDirection != Vector3.zero)
+        // {
+        //     Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        // }
+
+        // Menentukan arah tembakan berdasarkan posisi mouse
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            // Hit point berdasarkan mouse tanpa mengubah posisi Y dari peluru
+            Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
+
+            targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
+            // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
+            direction = (targetPosition - shootPos.position).normalized;
+
+            
+            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
         }
     }
 
@@ -96,34 +113,22 @@ public class PlayerMovement : MonoBehaviour
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
             {
-                // Menentukan arah tembakan berdasarkan posisi mouse
-                Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-                if (Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    // Hit point berdasarkan mouse tanpa mengubah posisi Y dari peluru
-                    Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
+                
+                // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
+                // print("dir" + direction);
+                // print("target" + targetPosition);
+                // print("hit" + hit.point.normalized);
 
-                    targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
-                    // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
-                    Vector3 direction = (targetPosition - shootPos.position).normalized;
-                    // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
-                    // print("dir" + direction);
-                    // print("target" + targetPosition);
-                    // print("hit" + hit.point.normalized);
+                bulletPush.transform.position = shootPos.position;
 
-                    bulletPush.transform.position = shootPos.position;
+                // Mengatur rotasi peluru agar tidak mengubah sumbu Y
+                bulletPush.transform.rotation = Quaternion.LookRotation(direction);
 
-                    // Mengatur rotasi peluru agar tidak mengubah sumbu Y
-                    bulletPush.transform.rotation = Quaternion.LookRotation(direction);
-                    Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
+                bulletPush.SetActive(true);
+                bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
+                bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
 
-                    bulletPush.SetActive(true);
-                    bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
-                    bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
-
-                    StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
-                }
+                StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
             }
         }
     }
