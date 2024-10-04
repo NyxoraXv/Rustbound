@@ -8,7 +8,8 @@ using System.Linq;
 public class Round : MonoBehaviour
 {
     [Header("Round Information")]
-    public TextMeshProUGUI textMeshPro; // Public variable to assign in the Inspector
+    public TextMeshProUGUI textRound; // Public variable to assign in the Inspector
+    public TextMeshProUGUI textTotalZombie; // Public variable to assign in the Inspector
 
     [Header("Gameplay Settings")]
     public int currentRound = 1; // Example of a variable under a header
@@ -40,10 +41,10 @@ public class Round : MonoBehaviour
     void Start()
     {
         // Check if textMeshPro is assigned
-        if (textMeshPro == null)
+        if (textRound == null)
         {
             // Try to find the TextMeshPro component if not assigned
-            textMeshPro = GetComponent<TextMeshProUGUI>();
+            textRound = GetComponent<TextMeshProUGUI>();
         }
 
         // Update the text
@@ -80,9 +81,9 @@ public class Round : MonoBehaviour
     // Method to update the round text
     public void UpdateRoundText(int roundNumber)
     {
-        if (textMeshPro != null)
+        if (textRound != null)
         {
-            textMeshPro.text = "ROUND " + roundNumber;
+            textRound.text = "ROUND " + roundNumber;
         }
         else
         {
@@ -98,6 +99,18 @@ public class Round : MonoBehaviour
         {
             SpawnZombie();
             yield return new WaitForSeconds(0.5f); // Wait for 0.5 seconds before spawning the next zombie
+        }
+    }
+    // Method to update the total zombie text
+    public void UpdateTotalZombieText(int totalZombies)
+    {
+        if (textTotalZombie != null)
+        {
+            textTotalZombie.text = "Total Zombie " + totalZombies;
+        }
+        else
+        {
+            Debug.LogError("TextMeshPro component for total zombies is missing!");
         }
     }
 
@@ -126,9 +139,13 @@ public class Round : MonoBehaviour
         // Increment the number of spawned zombies
         spawnedZombies++;
 
+        // Update the total zombies text
+        UpdateTotalZombieText(spawnedZombies);
+
         // Optional: Log the spawning of zombies for debugging
         Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
     }
+
     
     // Coroutine to spawn special zombies with a delay between each
     private IEnumerator SpawnSpecialZombiesWithDelay()
