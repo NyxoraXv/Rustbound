@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 483121274}
   textTotalZombie: {fileID: 42829556}
-  currentRound: 50
+  currentRound: 11
   zombiesToSpawn: 5
   Boss1: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d, type: 3}
   Boss2: {fileID: 0}
