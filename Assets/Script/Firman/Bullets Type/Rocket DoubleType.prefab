@@ -4929,6 +4929,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletType: 2
   speed: 20
-  explosionRadius: 5
+  explosionRadius: 6.25
   explosionDamage: 100
   impactDamage: 10
