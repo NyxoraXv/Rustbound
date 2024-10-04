@@ -321,7 +321,7 @@ MonoBehaviour:
   directionY: -90
   directionMinZ: -90
   directionMaxZ: -90
-  detectionRadius: 15
+  detectionRadius: 12
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
@@ -333,7 +333,7 @@ MonoBehaviour:
   - {fileID: 4697810888236957296}
   - {fileID: 924262099366359936}
   - {fileID: 242222147302942654}
-  projectilePrefab: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
+  projectilePrefab: {fileID: 692787065392757746, guid: 403a7758cd8f5d44ebc2c5e863f786ea,
     type: 3}
   initialFireCooldown: 0.2
   rapidFireDelay: 0.15

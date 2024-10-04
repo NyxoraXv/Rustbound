@@ -9824,7 +9824,7 @@ MonoBehaviour:
   directionY: 260
   directionMinZ: -10
   directionMaxZ: -10
-  detectionRadius: 13
+  detectionRadius: 12
   detectionAngle: 150
   enemyLayer:
     serializedVersion: 2
@@ -9832,9 +9832,9 @@ MonoBehaviour:
   turretHead: {fileID: 445760852530748436}
   firePoint1: {fileID: 6193074131826482532}
   firePoint2: {fileID: 6035768219910417757}
-  projectilePrefab1: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
+  projectilePrefab1: {fileID: 3284594040163142055, guid: 22013031760126447ab3c4d6ebf2eb1a,
     type: 3}
-  projectilePrefab2: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
+  projectilePrefab2: {fileID: 692787065392757746, guid: 3490b19601ca3854ca5bce3d74406ecf,
     type: 3}
   particle: {fileID: 103719759185016750}
   fireCooldown: 3

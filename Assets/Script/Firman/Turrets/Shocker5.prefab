@@ -175,21 +175,21 @@ MonoBehaviour:
   directionY: 90
   directionMinZ: 85
   directionMaxZ: 90
-  detectionRadius: 15
-  detectionAngle: 180
+  detectionRadius: 12
+  detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   turretHead: {fileID: 3901723522905683783}
   firePoint: {fileID: 7955125722846479797}
-  projectilePrefab: {fileID: 1044506023210681456, guid: b453273825c8a454aae216eef82e2d1a,
+  projectilePrefab: {fileID: 1044506023210681456, guid: 3cb43768a414b8f4eab260f6203c3fd2,
     type: 3}
   lastShootBeforePause: {fileID: 5774161896809782697, guid: 5eecf6e5c47d1dc4284d47a32931b6f6,
     type: 3}
   fireCooldown: 0.05
   fireDuration: 10
-  pauseDuration: 4
-  lastShoot: 4
+  pauseDuration: 5
+  lastShoot: 5
   targetingMode: 0
 --- !u!1 &3901723522905647975 stripped
 GameObject:

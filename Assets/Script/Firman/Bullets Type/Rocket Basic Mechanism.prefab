@@ -4843,7 +4843,7 @@ GameObject:
   - component: {fileID: 5610201574878586627}
   - component: {fileID: 3701587283458209730}
   m_Layer: 0
-  m_Name: Rocket Ammo
+  m_Name: Rocket Basic Mechanism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4930,5 +4930,5 @@ MonoBehaviour:
   speed: 20
   isExplode: 1
   explosionRadius: 5
-  explosionDamage: 50
+  explosionDamage: 75
   impactDamage: 10

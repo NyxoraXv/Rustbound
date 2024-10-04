@@ -4958,7 +4958,7 @@ GameObject:
   - component: {fileID: 6585502056531184489}
   - component: {fileID: -562825209281860002}
   m_Layer: 0
-  m_Name: PlasmaExplosionEffect
+  m_Name: PlasmaExplosioOvercharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

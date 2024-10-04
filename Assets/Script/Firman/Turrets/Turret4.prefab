@@ -308,7 +308,7 @@ MonoBehaviour:
   directionY: -90
   directionMinZ: -90
   directionMaxZ: -90
-  detectionRadius: 15
+  detectionRadius: 12
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
@@ -322,8 +322,8 @@ MonoBehaviour:
   - {fileID: 7547340654127326739}
   projectilePrefab: {fileID: 692787065392757746, guid: 864660879a3341540bb8e956a0d9cbe9,
     type: 3}
-  initialFireCooldown: 0.3
-  rapidFireDelay: 0.2
+  initialFireCooldown: 0.4
+  rapidFireDelay: 0.3
   targetingMode: 0
 --- !u!4 &6052941085073110227 stripped
 Transform:
