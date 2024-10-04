@@ -459,6 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &236617989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &479943537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &500861963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &574670442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &686383871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &706483017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &814592728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1214663601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1291900306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1363990735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,74 +3298,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420968198}
   m_CullTransparentMesh: 1
---- !u!1001 &1450174316
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 25.159725
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1635733
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 4dd08149a73761d46945acc455781ac0,
-        type: 3}
-      propertyPath: m_Name
-      value: Characters_Zombie_Pacient_04
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4dd08149a73761d46945acc455781ac0, type: 3}
 --- !u!1 &1476573379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: -1
+  resistanceMultiplier: 1
 --- !u!1 &1568455674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,6 +3701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1692203467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,6 +4001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1740509463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,74 +4137,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740509463}
   m_CullTransparentMesh: 1
---- !u!1001 &1761557736
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 23.193853
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.2007606
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 885eac34fd0d577439e6670a7ca3777e,
-        type: 3}
-      propertyPath: m_Name
-      value: Characters_Zombie_SuitMan_1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 885eac34fd0d577439e6670a7ca3777e, type: 3}
 --- !u!1 &1884412696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,6 +4302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1 &1941988984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,6 +4469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 0
+  resistanceMultiplier: 0.5
 --- !u!1001 &4445492442632237673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4759,5 +4653,3 @@ SceneRoots:
   - {fileID: 1363990736}
   - {fileID: 58105469}
   - {fileID: 500861966}
-  - {fileID: 1450174316}
-  - {fileID: 1761557736}
