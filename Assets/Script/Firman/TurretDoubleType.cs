@@ -145,15 +145,15 @@ public class TurretDoubleType : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
-        Vector3 leftBoundary = Quaternion.Euler(0, -detectionAngle / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, detectionAngle / 2, 0) * transform.forward;
+    //     Vector3 leftBoundary = Quaternion.Euler(0, -detectionAngle / 2, 0) * transform.forward;
+    //     Vector3 rightBoundary = Quaternion.Euler(0, detectionAngle / 2, 0) * transform.forward;
 
-        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * detectionRadius);
-        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * detectionRadius);
-    }
+    //     Gizmos.DrawLine(transform.position, transform.position + leftBoundary * detectionRadius);
+    //     Gizmos.DrawLine(transform.position, transform.position + rightBoundary * detectionRadius);
+    // }
 }

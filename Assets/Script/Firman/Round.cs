@@ -90,6 +90,7 @@ public class Round : MonoBehaviour
             Debug.LogError("TextMeshPro component is missing!");
         }
     }
+    
 
     // Coroutine to start spawning zombies
     private IEnumerator StartSpawningZombies()
@@ -112,6 +113,13 @@ public class Round : MonoBehaviour
         {
             Debug.LogError("TextMeshPro component for total zombies is missing!");
         }
+    }
+    // Add this method in your Round class
+    public void DecreaseZombieCount()
+    {
+        // Decrease the total zombies count and update the UI
+        spawnedZombies--;
+        UpdateTotalZombieText(spawnedZombies);
     }
 
     // Method to spawn a zombie
@@ -145,7 +153,6 @@ public class Round : MonoBehaviour
         // Optional: Log the spawning of zombies for debugging
         Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
     }
-
     
     // Coroutine to spawn special zombies with a delay between each
     private IEnumerator SpawnSpecialZombiesWithDelay()

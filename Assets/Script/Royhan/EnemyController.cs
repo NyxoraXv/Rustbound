@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
 
     private VariableComponent variableComponent;
+    private Round round; // Reference to the Round class
 
     private void Start()
     {
@@ -23,6 +24,13 @@ public class EnemyController : MonoBehaviour
         if (variableComponent == null)
         {
             Debug.LogError("VariableComponent not found on this GameObject.");
+        }
+
+        // Get the Round component in the scene (make sure there's only one Round component or adjust accordingly)
+        round = FindObjectOfType<Round>();
+        if (round == null)
+        {
+            Debug.LogError("Round component not found in the scene.");
         }
     }
 
@@ -42,6 +50,11 @@ public class EnemyController : MonoBehaviour
             // Optional: Check if the enemy is dead and handle accordingly
             if (!IsAlive())
             {
+                // Decrease total zombies in the Round
+                if (round != null)
+                {
+                    round.DecreaseZombieCount(); // Call the method to decrease total zombie count
+                }
                 Debug.Log("Enemy is dead!");
             }
         }

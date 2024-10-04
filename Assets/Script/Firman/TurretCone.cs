@@ -48,13 +48,13 @@ public class TurretCone : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            
+
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; 
+            if (variableComponent == null) continue;
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-            
+
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -84,7 +84,7 @@ public class TurretCone : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; 
+        return null;
     }
 
     void AimAtTarget()
@@ -96,13 +96,13 @@ public class TurretCone : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        
+
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
 
-        
-        
+
+
         if (isFollowTuretHead)
         {
             firePoint.rotation = turretHead.rotation;
@@ -122,15 +122,15 @@ public class TurretCone : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
-        Vector3 leftBoundary = Quaternion.Euler(0, -detectionAngle / 2, 0) * transform.forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, detectionAngle / 2, 0) * transform.forward;
+    //     Vector3 leftBoundary = Quaternion.Euler(0, -detectionAngle / 2, 0) * transform.forward;
+    //     Vector3 rightBoundary = Quaternion.Euler(0, detectionAngle / 2, 0) * transform.forward;
 
-        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * detectionRadius);
-        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * detectionRadius);
-    }
+    //     Gizmos.DrawLine(transform.position, transform.position + leftBoundary * detectionRadius);
+    //     Gizmos.DrawLine(transform.position, transform.position + rightBoundary * detectionRadius);
+    // }
 }
