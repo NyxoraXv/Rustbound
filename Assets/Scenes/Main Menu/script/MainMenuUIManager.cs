@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUIManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     private void Start()
     {
-        // Store default positions and rotations
+
         playDefaultPosition = play.localPosition;
         orDefaultPosition = or.localPosition;
         quitDefaultPosition = quit.localPosition;
@@ -39,6 +40,7 @@ public class MainMenuUIManager : MonoBehaviour
     // Hover Enter: Play Button
     public void PlayHoverEnter()
     {
+        FadeInGlitch(play.GetComponent<Image>());
         Debug.Log("hovering enter");
         // Animate to new position and rotation assigned in the Inspector
         play.DOLocalMove(playTargetPosition, 0.3f);
@@ -48,6 +50,7 @@ public class MainMenuUIManager : MonoBehaviour
     // Hover Exit: Play Button
     public void PlayHoverExit()
     {
+        FadeOutGlitch(play.GetComponent<Image>());
         // Return to default position and rotation
         play.DOLocalMove(playDefaultPosition, 0.3f);
         play.DOLocalRotate(playDefaultRotation.eulerAngles, 0.3f);
@@ -75,6 +78,7 @@ public class MainMenuUIManager : MonoBehaviour
         // Animate to new position and rotation assigned in the Inspector
         quit.DOLocalMove(quitTargetPosition, 0.3f);
         quit.DOLocalRotate(quitTargetRotation, 0.3f);
+        FadeInGlitch(quit.GetComponent<Image>());
     }
 
     // Hover Exit: Quit Button
@@ -83,6 +87,7 @@ public class MainMenuUIManager : MonoBehaviour
         // Return to default position and rotation
         quit.DOLocalMove(quitDefaultPosition, 0.3f);
         quit.DOLocalRotate(quitDefaultRotation.eulerAngles, 0.3f);
+        FadeOutGlitch(quit.GetComponent<Image>());
     }
 
     // Placeholder actions for buttons
@@ -112,5 +117,28 @@ public class MainMenuUIManager : MonoBehaviour
     public void QuitAction()
     {
         // Action for quit button
+    }
+
+
+    public void FadeInGlitch(Image img)
+    {
+        Material mat = img.material;
+
+        // Convert property name to ID within the function
+        int glitchPropertyID = Shader.PropertyToID("_GlitchFade");
+
+        mat.SetFloat(glitchPropertyID, 1f);
+    }
+
+    // Call this to fade out glitch effect
+    public void FadeOutGlitch(Image img)
+    {
+        Material mat = img.material;
+
+        // Convert property name to ID within the function
+        int glitchPropertyID = Shader.PropertyToID("_GlitchFade");
+
+        mat.SetFloat(glitchPropertyID, 0f);
+
     }
 }
