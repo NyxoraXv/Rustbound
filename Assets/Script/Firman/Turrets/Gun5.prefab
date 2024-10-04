@@ -5546,7 +5546,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 80
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -19647,7 +19647,8 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114407232850301898, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1000013291811288, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
     m_AddedGameObjects:

@@ -122,7 +122,8 @@ public class TurretMinigun : MonoBehaviour
     {
         for (int i = 0; i < 5; i++) 
         {
-            ShootAtTarget(firePoints[i]); 
+            ShootAtTarget(firePoints[i]);
+            gunEffect.Play(); 
             lastFireTime = Time.time; 
             yield return new WaitForSeconds(initialFireCooldown); 
         }
