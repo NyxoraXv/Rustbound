@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 483121274}
   textTotalZombie: {fileID: 42829556}
-  currentRound: 13
+  currentRound: 50
   zombiesToSpawn: 5
   Boss1: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d, type: 3}
   Boss2: {fileID: 0}
@@ -418,6 +418,8 @@ MonoBehaviour:
   specialZombieRound18: {fileID: 0}
   specialZombieRound23: {fileID: 0}
   specialZombie: []
+  unbeatableZombies:
+  - {fileID: 4619081630930541923, guid: a1b72c81e5c049b42a9525eb14991278, type: 3}
   zombiePrefabs:
   - {fileID: 4619081630930541923, guid: c37fd5c39db71c44785647c878bfc8ed, type: 3}
   healthIncreaseEachRound: 1000
