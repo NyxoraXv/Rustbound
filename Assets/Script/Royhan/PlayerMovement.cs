@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction;
     private Animator animator;
     private int speedParam = Animator.StringToHash("Speed");
+    private int fireParam = Animator.StringToHash("Fire");
 
     private void Awake()
     {
@@ -138,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
+            animator.SetTrigger(fireParam);
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
             {
