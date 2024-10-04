@@ -140,8 +140,8 @@ public class TurretLaser : MonoBehaviour
 
     IEnumerator FiringSequence()
     {
-        
-        yield return new WaitForSeconds(4f);
+
+        yield return new WaitForSeconds(5f);
 
         isFiring = true;
         canFire = false;
@@ -149,32 +149,32 @@ public class TurretLaser : MonoBehaviour
 
         while (Time.time < fireStartTime + fireDuration)
         {
-            
+
             if (target == null)
             {
-                target = FindTarget(); 
-                if (target == null) 
+                target = FindTarget();
+                if (target == null)
                     break;
             }
 
-            AimAtTarget(); 
+            AimAtTarget();
 
             if (Time.time >= lastFireTime + fireCooldown)
             {
-                ShootAtTarget(); 
+                ShootAtTarget();
                 lastFireTime = Time.time;
             }
 
             yield return null;
         }
 
-        
+
         yield return new WaitForSeconds(lastShoot);
 
-        
+
         if (target != null && lastShootBeforePause != null)
         {
-            AimAtTarget(); 
+            AimAtTarget();
             GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
             ProjectileController projectileController = lastShootProjectile.GetComponent<ProjectileController>();
             if (projectileController != null)
@@ -183,11 +183,11 @@ public class TurretLaser : MonoBehaviour
             }
         }
 
-        
+
         isFiring = false;
         yield return new WaitForSeconds(pauseDuration);
 
-        
+
         canFire = true;
     }
 

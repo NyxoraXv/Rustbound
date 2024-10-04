@@ -182,14 +182,14 @@ MonoBehaviour:
   directionY: 0
   directionMinZ: 0
   directionMaxZ: 0
-  detectionRadius: 15
-  detectionAngle: 180
+  detectionRadius: 10.5
+  detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   turretHead: {fileID: 5409564507108296688}
   firePoint: {fileID: 989410331529154846}
-  projectilePrefab: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
+  projectilePrefab: {fileID: 3284594040163142055, guid: af403f481b00a8947bf83c96c7733228,
     type: 3}
   fireCooldown: 4
   targetingMode: 0

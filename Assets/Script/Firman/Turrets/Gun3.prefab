@@ -197,7 +197,7 @@ MonoBehaviour:
   directionY: 260
   directionMinZ: -10
   directionMaxZ: -10
-  detectionRadius: 12
+  detectionRadius: 10.5
   detectionAngle: 120
   enemyLayer:
     serializedVersion: 2
@@ -206,7 +206,7 @@ MonoBehaviour:
   firePoint: {fileID: 8417578649110696969}
   projectilePrefab: {fileID: 3284594040163142055, guid: 526c504f0c0789f42b350eccc236902d,
     type: 3}
-  fireCooldown: 3
+  fireCooldown: 3.5
   targetingMode: 0
 --- !u!1 &2159287507833668370 stripped
 GameObject:
