@@ -23,11 +23,16 @@ public class PlayerMovement : MonoBehaviour
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
     private Vector3 direction;
+    private Animator animator;
+    private int speedParam = Animator.StringToHash("Speed");
 
     private void Awake()
     {
+        
         _rigidbody = GetComponent<Rigidbody>();
         variableComponent = GetComponent<VariableComponent>();
+        animator = GetComponent<Animator>();
+
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
         mainCamera = Camera.main;
 
@@ -59,11 +64,32 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
 
         HandleRotation(moveDirection);
+
+        // Mengecek apakah player bergerak maju atau mundur
+        float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
+
+        if (dotProduct > 0)
+        {
+            Debug.Log("maju");
+            animator.SetFloat(speedParam, 0.5f);
+        }
+        else if (dotProduct < 0)
+        {
+            Debug.Log("mundur");
+            animator.SetFloat(speedParam, -0.5f);
+        }
+        else
+        {
+            animator.SetFloat(speedParam, 0f);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         _movementInput = context.ReadValue<Vector2>();
+        // Debug.Log("move " + _movementInput);
+        // Debug.Log("dir " + direction);
+        // Debug.Log("dis " + Vector2.Distance(new Vector2 (direction.x, direction.z).normalized, _movementInput));
 
         if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
         {
@@ -78,7 +104,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnForward(InputAction.CallbackContext context)
     {
-        Debug.Log("forward");
+        // if(context.)
+        // Debug.Log("forward");
+        // if(context.canceled)
     }
 
     private void HandleRotation(Vector3 moveDirection)
@@ -100,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
             direction = (targetPosition - shootPos.position).normalized;
 
-            
+
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
         }
@@ -113,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
             {
-                
+
                 // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
                 // print("dir" + direction);
                 // print("target" + targetPosition);
