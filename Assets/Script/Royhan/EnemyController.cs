@@ -10,13 +10,25 @@ public class EnemyController : MonoBehaviour
         Bullet = 1 << 1,  // 2
         Explosion = 1 << 2 // 4
     }
+    public enum TargetType
+    {
+        None,          // Target both player and turret
+        NearestTurret, // Target only the nearest turret
+        NearestPlayer   // Target only the nearest player
+    }
 
-    public float damageDealtToTurret = 10f;
+    public TargetType currentTargetType = TargetType.None; // Set default target type
+    private GameObject targetedEntity;
+
+    public float damageDealt = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
+    private bool isAttacking = false;
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
 
     private VariableComponent variableComponent;
     private Round round; // Reference to the Round class
+
+    private GameObject targetedTurret; // Reference to the currently targeted turret
 
     private void Start()
     {
@@ -32,6 +44,41 @@ public class EnemyController : MonoBehaviour
         if (round == null)
         {
             Debug.LogError("Round component not found in the scene.");
+        }
+
+        SetTarget();
+        Attack();
+    }
+
+    private GameObject FindNearestEntityWithTag(string tag)
+    {
+        GameObject[] entities = GameObject.FindGameObjectsWithTag(tag);
+        GameObject nearestEntity = null;
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (GameObject entity in entities)
+        {
+            float distance = Vector3.Distance(transform.position, entity.transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestEntity = entity;
+            }
+        }
+
+        return nearestEntity; // Returns the nearest entity or null if none found
+    }
+
+    public void Attack()
+    {
+        if (targetedEntity != null)
+        {
+            VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
+            if (targetHealth != null)
+            {
+                targetHealth.TakeDamage(damageDealt); // Apply damage
+                Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+            }
         }
     }
 
@@ -61,39 +108,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void AttackTurret(GameObject turret)
+    // Method to set the targeted turret
+    private void SetTarget()
     {
-        // Try to get the VariableComponent on the turret
-        VariableComponent turretHealth = turret.GetComponent<VariableComponent>();
-        if (turretHealth != null)
+        switch (currentTargetType)
         {
-            // Apply damage to the turret directly
-            turretHealth.TakeDamage(damageDealtToTurret);
-            Debug.Log($"{turret.name} attacked! Damage dealt: {damageDealtToTurret}");
-
-            // Optional: Check if the turret is destroyed
-            if (turretHealth.GetCurrentHealth() <= 0)
-            {
-                Debug.Log($"{turret.name} is destroyed!");
-            }
-        }
-        else
-        {
-            Debug.LogError("No VariableComponent found on the turret!");
-        }
-    }
-
-    // Optional: Example method to demonstrate attacking a turret
-    public void AttackTurretExample()
-    {
-        GameObject turret = GameObject.FindWithTag("Turret"); // Find turret by tag
-        if (turret != null)
-        {
-            AttackTurret(turret);
-        }
-        else
-        {
-            Debug.LogError("No turret found with the specified tag!");
+            case TargetType.None:
+                targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
+                break;
+            case TargetType.NearestTurret:
+                targetedEntity = FindNearestEntityWithTag("Turret");
+                break;
+            case TargetType.NearestPlayer:
+                targetedEntity = FindNearestEntityWithTag("Player");
+                break;
         }
     }
 

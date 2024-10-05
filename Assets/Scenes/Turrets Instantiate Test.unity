@@ -551,7 +551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &134127053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &236617989
@@ -1333,7 +1335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &452400163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &479943537
@@ -1469,7 +1473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &479943538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,6 +1587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &483121272
@@ -1807,7 +1813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &568476328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &574670442
@@ -1943,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &574670443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2057,6 +2065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &686383871
@@ -2185,7 +2195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &693525651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2299,6 +2309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &706483017
@@ -2352,7 +2364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &741195839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,6 +2478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &814592728
@@ -2962,7 +2976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1163469471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3076,6 +3090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1214663601
@@ -3232,7 +3248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1256265886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,6 +3362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1291900306
@@ -3368,7 +3386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1291900307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3482,6 +3500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1363990735
@@ -3854,7 +3874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1638927709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3968,6 +3988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1692203467
@@ -4154,7 +4176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1732763930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4268,6 +4290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1740509463
@@ -4455,7 +4479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1930129875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4569,6 +4593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1 &1941988984
@@ -4622,7 +4648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2147200738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4736,6 +4762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
 --- !u!1001 &4445492442632237673
@@ -4976,6 +5004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619081630930541923, guid: c37fd5c39db71c44785647c878bfc8ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6194885002129642106, guid: c37fd5c39db71c44785647c878bfc8ed,
         type: 3}
