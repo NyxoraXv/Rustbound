@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
         }
 
         SetTarget();
-        Attack();
+        // Attack();
     }
 
     private GameObject FindNearestEntityWithTag(string tag)
