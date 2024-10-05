@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         {
             shoot = true;
             Invoke("DeactiveShoot", 0.35f);
-            animator.SetBool(fireParam, true);
+            animator.SetTrigger(fireParam);
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
             {
