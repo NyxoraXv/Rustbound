@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private int speedParam = Animator.StringToHash("Speed");
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
+    private bool shoot = false;
 
     private void Awake()
     {
@@ -53,46 +54,50 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
-
-        forward.y = 0f;
-        right.y = 0f;
-
-        forward.Normalize();
-        right.Normalize();
-
-        moveDirection = forward * _movementInput.y + right * _movementInput.x;
-        _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
-
-        HandleRotation(moveDirection);
-
-        // Mengecek apakah player bergerak maju atau mundur
-        float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
-
-        if (dotProduct > 0)
+    {   
+        if (!shoot)
         {
-            Debug.Log("maju");
-            if (!onSprint)
-                animator.SetFloat(speedParam, 0.5f);
 
+            Vector3 forward = cameraTransform.forward;
+            Vector3 right = cameraTransform.right;
+
+            forward.y = 0f;
+            right.y = 0f;
+
+            forward.Normalize();
+            right.Normalize();
+
+            moveDirection = forward * _movementInput.y + right * _movementInput.x;
+            _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
+
+            HandleRotation(moveDirection);
+
+            // Mengecek apakah player bergerak maju atau mundur
+            float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
+
+            if (dotProduct > 0)
+            {
+                Debug.Log("maju");
+                if (!onSprint)
+                    animator.SetFloat(speedParam, 0.5f);
+
+                else
+                    animator.SetFloat(speedParam, 1f);
+
+            }
+            else if (dotProduct < 0)
+            {
+                Debug.Log("mundur");
+                if (!onSprint)
+                    animator.SetFloat(speedParam, -0.5f);
+
+                else
+                    animator.SetFloat(speedParam, -1f);
+            }
             else
-                animator.SetFloat(speedParam, 1f);
-
-        }
-        else if (dotProduct < 0)
-        {
-            Debug.Log("mundur");
-            if (!onSprint)
-                animator.SetFloat(speedParam, -0.5f);
-
-            else
-                animator.SetFloat(speedParam, -1f);
-        }
-        else
-        {
-            animator.SetFloat(speedParam, 0f);
+            {
+                animator.SetFloat(speedParam, 0f);
+            }
         }
     }
 
@@ -157,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
+            shoot = true;
+            Invoke("DeactiveShoot", 0.35f);
             animator.SetBool(fireParam, true);
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
@@ -180,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    private void DeactiveShoot() => shoot = false;
 
     private GameObject GetPooledBullet()
     {
