@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
         Explosion = 1 << 2 // 4
     }
 
+    public float damageDealtToTurret = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
 
@@ -60,20 +61,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void AttackTurret(GameObject turret, float damage)
+    public void AttackTurret(GameObject turret)
     {
-        // Get the VariableComponent attached to the turret
+        // Try to get the VariableComponent on the turret
         VariableComponent turretHealth = turret.GetComponent<VariableComponent>();
         if (turretHealth != null)
         {
-            // Apply damage to the turret directly without resistance check
-            turretHealth.TakeDamage(damage);
+            // Apply damage to the turret directly
+            turretHealth.TakeDamage(damageDealtToTurret);
+            Debug.Log($"{turret.name} attacked! Damage dealt: {damageDealtToTurret}");
 
-            // Check if the turret is destroyed and handle accordingly
+            // Optional: Check if the turret is destroyed
             if (turretHealth.GetCurrentHealth() <= 0)
             {
-                Debug.Log("Turret is destroyed!");
-                Destroy(turret);
+                Debug.Log($"{turret.name} is destroyed!");
             }
         }
         else
@@ -82,9 +83,19 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // // Assuming you have a reference to the turret GameObject
-    // enemyController.AttackTurret(turretGameObject, damageAmount); // 10f represents the damage amount
-
+    // Optional: Example method to demonstrate attacking a turret
+    public void AttackTurretExample()
+    {
+        GameObject turret = GameObject.FindWithTag("Turret"); // Find turret by tag
+        if (turret != null)
+        {
+            AttackTurret(turret);
+        }
+        else
+        {
+            Debug.LogError("No turret found with the specified tag!");
+        }
+    }
 
     // Check if the bullet type matches any of the enemy's resistance types
     private bool IsResistantTo(ProjectileController.BulletType bulletType)

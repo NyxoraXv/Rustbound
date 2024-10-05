@@ -208,8 +208,23 @@ public class TurretLaser : MonoBehaviour
     {
         if (variableComponent != null)
         {
-            variableComponent.TakeDamage(damage); // Use VariableComponent to handle health
+            variableComponent.TakeDamage(damage);
+
+            // Optional: Log turret health
+            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            // Check if turret is destroyed
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
         }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretCone is destroyed!");
+        Destroy(gameObject); // Destroy the turret GameObject
     }
 
     // private void OnDrawGizmos()

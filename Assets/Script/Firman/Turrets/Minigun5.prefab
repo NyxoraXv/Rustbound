@@ -29309,6 +29309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minigun5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_Name
       value: TurretHolder

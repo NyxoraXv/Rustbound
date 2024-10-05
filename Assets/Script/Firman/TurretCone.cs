@@ -140,8 +140,20 @@ public class TurretCone : MonoBehaviour
     {
         if (variableComponent != null)
         {
-            variableComponent.TakeDamage(damage); // Delegate the damage to VariableComponent
+            variableComponent.TakeDamage(damage);
+            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
         }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretCone is destroyed!");
+        Destroy(gameObject);
     }
 
     // private void OnDrawGizmos()

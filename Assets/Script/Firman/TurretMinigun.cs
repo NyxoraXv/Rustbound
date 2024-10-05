@@ -231,6 +231,26 @@ public class TurretMinigun : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        if (variableComponent != null)
+        {
+            variableComponent.TakeDamage(damage);
+            Debug.Log($"TurretMinigun took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
+        }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretMinigun is destroyed!");
+        Destroy(gameObject);
+    }
+
     // private void OnDrawGizmos()
     // {
     //     Gizmos.color = Color.red;
