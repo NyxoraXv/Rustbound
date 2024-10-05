@@ -49,6 +49,16 @@ public class EnemyController : MonoBehaviour
         SetTarget();
         // Attack();
     }
+    private void Update()
+    {
+        if (currentTargetType == TargetType.None)
+        {
+            SetTarget(); // Continuously update the target if the type is None
+        }
+
+        // Optional: Call the Attack method here based on certain conditions (e.g., in range, cooldown, etc.)
+        // Attack();
+    }
 
     private GameObject FindNearestEntityWithTag(string tag)
     {
