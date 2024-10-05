@@ -813,6 +813,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shocker5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3901723522905647971, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3901723522905683779, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1560,7 +1565,7 @@ Transform:
   m_GameObject: {fileID: 479943537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.876064, y: -6.7253795, z: -7.4524465}
+  m_LocalPosition: {x: -29.876064, y: -6.7253795, z: -10.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2034,7 +2039,7 @@ Transform:
   m_GameObject: {fileID: 574670442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.256065, y: -6.7253795, z: -7.4524465}
+  m_LocalPosition: {x: -43.45, y: -6.7253795, z: -10.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2195,7 +2200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
 --- !u!65 &693525652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2276,7 +2281,7 @@ Transform:
   m_GameObject: {fileID: 693525650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.316063, y: -6.7253795, z: -6.6524467}
+  m_LocalPosition: {x: -41.51, y: -6.7253795, z: -9.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2443,7 +2448,7 @@ Transform:
   m_GameObject: {fileID: 741195838}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00026837, y: 0.002459797, z: 0.0027543223, w: 0.99999315}
-  m_LocalPosition: {x: -19.126064, y: -6.7253795, z: -6.9724464}
+  m_LocalPosition: {x: -19.126064, y: -6.7253795, z: -11.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2664,6 +2669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun5
+      objectReference: {fileID: 0}
+    - target: {fileID: 445760852530380848, guid: 83ce49cf53477dd41bd441adeb95c234,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
@@ -3048,7 +3058,7 @@ Transform:
   m_GameObject: {fileID: 1163469470}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.513937, y: -6.7253795, z: -8.252446}
+  m_LocalPosition: {x: 5.97, y: -6.7253795, z: -8.252446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3237,7 +3247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
 --- !u!65 &1256265887
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3318,7 +3328,7 @@ Transform:
   m_GameObject: {fileID: 1256265885}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.996064, y: -6.7253795, z: -8.652447}
+  m_LocalPosition: {x: -13.996064, y: -6.7253795, z: -9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3373,7 +3383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
 --- !u!65 &1291900308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3454,7 +3464,7 @@ Transform:
   m_GameObject: {fileID: 1291900306}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.643936, y: -6.7253795, z: -9.9324465}
+  m_LocalPosition: {x: 11.099999, y: -6.7253795, z: -7.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3859,7 +3869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 5000
 --- !u!65 &1638927710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3940,7 +3950,7 @@ Transform:
   m_GameObject: {fileID: 1638927708}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.703937, y: -6.7253795, z: -6.462446}
+  m_LocalPosition: {x: 9.16, y: -6.7253795, z: -8.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4159,7 +4169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
 --- !u!65 &1732763931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4240,7 +4250,7 @@ Transform:
   m_GameObject: {fileID: 1732763929}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.936064, y: -6.7253795, z: -6.6524467}
+  m_LocalPosition: {x: -27.936064, y: -6.7253795, z: -10.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4541,7 +4551,7 @@ Transform:
   m_GameObject: {fileID: 1930129874}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.446064, y: -6.7253795, z: -11.412446}
+  m_LocalPosition: {x: -46.64, y: -6.7253795, z: -11.412446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4627,7 +4637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 5000
 --- !u!65 &2147200739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4708,7 +4718,7 @@ Transform:
   m_GameObject: {fileID: 2147200737}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.936065, y: -6.7253795, z: -3.1924467}
+  m_LocalPosition: {x: -15.936065, y: -6.7253795, z: -10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4790,6 +4800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StartingMechanism5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409564507108793300, guid: 163590cd09ad9264abe45ed72fabc3ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4888,6 +4903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168491504708515979, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

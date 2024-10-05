@@ -4930,5 +4930,5 @@ MonoBehaviour:
   bulletType: 2
   speed: 20
   explosionRadius: 5
-  explosionDamage: 75
+  explosionDamage: 100
   impactDamage: 10
