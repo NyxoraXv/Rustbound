@@ -138,15 +138,6 @@ public class EnemyController : MonoBehaviour
                 targetedEntity = FindNearestEntityWithTag("Player");
                 break;
         }
-
-        if (targetedEntity != null)
-        {
-            Debug.Log($"Target set to: {targetedEntity.name}");
-        }
-        else
-        {
-            Debug.LogWarning("No valid target found for the enemy!");
-        }
     }
 
     // Check if the bullet type matches any of the enemy's resistance types
