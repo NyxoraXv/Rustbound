@@ -1,24 +1,27 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GPS_Input : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
+    [SerializeField]
+    private Camera sceneCamera;
+
     private Vector3 lastPosition;
-    [SerializeField] private LayerMask placementLayerMask;
+
+    [SerializeField]
+    private LayerMask placementLayermask;
+
     public event Action OnClicked, OnExit;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        if(Input.GetMouseButtonDown(0))
             OnClicked?.Invoke();
-        }
         if(Input.GetKeyDown(KeyCode.Escape))
-        {
             OnExit?.Invoke();
-        }
     }
 
     public bool IsPointerOverUI()
@@ -27,20 +30,13 @@ public class GPS_Input : MonoBehaviour
     public Vector3 GetSelectedMapPosition()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = cam.nearClipPlane;
-        Ray ray = cam.ScreenPointToRay(mousePos);
+        mousePos.z = sceneCamera.nearClipPlane;
+        Ray ray = sceneCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, placementLayerMask))
+        if (Physics.Raycast(ray, out hit, 100, placementLayermask))
         {
             lastPosition = hit.point;
-            Debug.Log("Raycast hit at: " + hit.point);
         }
-        else
-        {
-            Debug.Log("Raycast did not hit anything.");
-        }
-
         return lastPosition;
     }
 }
