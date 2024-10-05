@@ -29,6 +29,8 @@ public class TurretDoubleType : MonoBehaviour
     private float lastFireTime;
 
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -44,7 +46,11 @@ public class TurretDoubleType : MonoBehaviour
 
     void Update()
     {
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null)
         {

@@ -42,6 +42,8 @@ public class TurretMinigun : MonoBehaviour
     private Transform[] secondSetFirePoints;
     private Transform[] notMinigunSetFirePoints;
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -85,7 +87,11 @@ public class TurretMinigun : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
 
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null)
         {

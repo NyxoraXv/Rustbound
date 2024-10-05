@@ -33,6 +33,8 @@ public class TurretLaser : MonoBehaviour
     private bool canFire = true;
 
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -47,7 +49,11 @@ public class TurretLaser : MonoBehaviour
 
     void Update()
     {
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null && canFire && !isFiring)
         {
