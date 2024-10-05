@@ -4906,7 +4906,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f57bc3af6f5bde4b9b40779ca60b4a1,
         type: 3}
       propertyPath: m_Name
-      value: bullet
+      value: bullet Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4949,4 +4949,4 @@ MonoBehaviour:
   speed: 25
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 10
+  impactDamage: 20

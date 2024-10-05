@@ -41,7 +41,7 @@ public class TurretMinigun : MonoBehaviour
     private Transform[] firstSetFirePoints;
     private Transform[] secondSetFirePoints;
     private Transform[] notMinigunSetFirePoints;
-
+    private VariableComponent variableComponent;
 
     void Start()
     {
@@ -69,6 +69,14 @@ public class TurretMinigun : MonoBehaviour
             {
                 notMinigunSetFirePoints[i] = firePoints[i];
             }
+        }
+
+        variableComponent = GetComponent<VariableComponent>();
+        
+        // Optionally, log an error if the component is missing
+        if (variableComponent == null)
+        {
+            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
     }
 

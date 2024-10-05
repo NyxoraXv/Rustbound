@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 5000
 --- !u!65 &479943539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 5000
 --- !u!65 &574670444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3499,7 +3499,7 @@ Transform:
   m_GameObject: {fileID: 1363990735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2160647, y: 7.5353794, z: 23.51}
+  m_LocalPosition: {x: 2.2160647, y: 7.5353794, z: 13.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4915,7 +4915,7 @@ PrefabInstance:
     - target: {fileID: 1801816580463447765, guid: c37fd5c39db71c44785647c878bfc8ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.42
+      value: -6.13
       objectReference: {fileID: 0}
     - target: {fileID: 1801816580463447765, guid: c37fd5c39db71c44785647c878bfc8ed,
         type: 3}

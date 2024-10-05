@@ -32,6 +32,19 @@ public class TurretLaser : MonoBehaviour
     private bool isFiring = false;
     private bool canFire = true;
 
+    private VariableComponent variableComponent;
+
+    void Start()
+    {
+        // Get the VariableComponent attached to the turret
+        variableComponent = GetComponent<VariableComponent>();
+
+        if (variableComponent == null)
+        {
+            Debug.LogError("VariableComponent not found on turret!");
+        }
+    }
+
     void Update()
     {
         target = FindTarget();
@@ -189,6 +202,14 @@ public class TurretLaser : MonoBehaviour
 
 
         canFire = true;
+    }
+    
+    public void TakeDamage(float damage)
+    {
+        if (variableComponent != null)
+        {
+            variableComponent.TakeDamage(damage); // Use VariableComponent to handle health
+        }
     }
 
     // private void OnDrawGizmos()

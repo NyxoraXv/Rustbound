@@ -60,6 +60,32 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void AttackTurret(GameObject turret, float damage)
+    {
+        // Get the VariableComponent attached to the turret
+        VariableComponent turretHealth = turret.GetComponent<VariableComponent>();
+        if (turretHealth != null)
+        {
+            // Apply damage to the turret directly without resistance check
+            turretHealth.TakeDamage(damage);
+
+            // Check if the turret is destroyed and handle accordingly
+            if (turretHealth.GetCurrentHealth() <= 0)
+            {
+                Debug.Log("Turret is destroyed!");
+                Destroy(turret);
+            }
+        }
+        else
+        {
+            Debug.LogError("No VariableComponent found on the turret!");
+        }
+    }
+
+    // // Assuming you have a reference to the turret GameObject
+    // enemyController.AttackTurret(turretGameObject, damageAmount); // 10f represents the damage amount
+
+
     // Check if the bullet type matches any of the enemy's resistance types
     private bool IsResistantTo(ProjectileController.BulletType bulletType)
     {

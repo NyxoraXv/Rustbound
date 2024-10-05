@@ -28,6 +28,20 @@ public class TurretDoubleType : MonoBehaviour
     private Transform target;
     private float lastFireTime;
 
+    private VariableComponent variableComponent;
+
+    void Start()
+    {
+        // Initialize the VariableComponent if it's on the same GameObject
+        variableComponent = GetComponent<VariableComponent>();
+        
+        // Optionally, log an error if the component is missing
+        if (variableComponent == null)
+        {
+            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
+        }
+    }
+
     void Update()
     {
         target = FindTarget();
@@ -142,6 +156,14 @@ public class TurretDoubleType : MonoBehaviour
             {
                 projectileController2.SetTarget(target);
             }
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (variableComponent != null)
+        {
+            variableComponent.TakeDamage(damage); // Delegate the damage to VariableComponent
         }
     }
 
