@@ -134,5 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTargetType: 0
+  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5

@@ -42,6 +42,8 @@ public class TurretMinigun : MonoBehaviour
     private Transform[] secondSetFirePoints;
     private Transform[] notMinigunSetFirePoints;
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -85,7 +87,11 @@ public class TurretMinigun : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
 
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null)
         {
@@ -229,6 +235,26 @@ public class TurretMinigun : MonoBehaviour
                 projectileController.SetTarget(target);
             }
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (variableComponent != null)
+        {
+            variableComponent.TakeDamage(damage);
+            Debug.Log($"TurretMinigun took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
+        }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretMinigun is destroyed!");
+        Destroy(gameObject);
     }
 
     // private void OnDrawGizmos()

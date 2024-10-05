@@ -14696,6 +14696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret5
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_Name
       value: TurretHolder

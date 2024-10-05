@@ -10,12 +10,26 @@ public class EnemyController : MonoBehaviour
         Bullet = 1 << 1,  // 2
         Explosion = 1 << 2 // 4
     }
+    public enum TargetType
+    {
+        None,          // Target both player and turret
+        NearestTurret, // Target only the nearest turret
+        NearestPlayer   // Target only the nearest player
+    }
 
+    public TargetType currentTargetType = TargetType.None; // Set default target type
+    private GameObject targetedEntity;
+
+    public float damageDealt = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
+    private bool isAttacking = false;
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
 
     private VariableComponent variableComponent;
     private Round round; // Reference to the Round class
+
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     private void Start()
     {
@@ -31,6 +45,51 @@ public class EnemyController : MonoBehaviour
         if (round == null)
         {
             Debug.LogError("Round component not found in the scene.");
+        }
+
+        SetTarget();
+        // Attack();
+    }
+    private void Update()
+    {
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            SetTarget(); // Update the target
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
+        
+        // Call the Attack method based on certain conditions
+        // Attack();
+    }
+    private GameObject FindNearestEntityWithTag(string tag)
+    {
+        GameObject[] entities = GameObject.FindGameObjectsWithTag(tag);
+        GameObject nearestEntity = null;
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (GameObject entity in entities)
+        {
+            float distance = Vector3.Distance(transform.position, entity.transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestEntity = entity;
+            }
+        }
+
+        return nearestEntity; // Returns the nearest entity or null if none found
+    }
+
+    public void Attack()
+    {
+        if (targetedEntity != null)
+        {
+            VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
+            if (targetHealth != null)
+            {
+                targetHealth.TakeDamage(damageDealt); // Apply damage
+                Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+            }
         }
     }
 
@@ -60,31 +119,45 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void AttackTurret(GameObject turret, float damage)
+    // Method to set the targeted turret
+    private void SetTarget()
     {
-        // Get the VariableComponent attached to the turret
-        VariableComponent turretHealth = turret.GetComponent<VariableComponent>();
-        if (turretHealth != null)
+        switch (currentTargetType)
         {
-            // Apply damage to the turret directly without resistance check
-            turretHealth.TakeDamage(damage);
+            case TargetType.None:
+                // Find the nearest player and turret
+                GameObject nearestPlayer = FindNearestEntityWithTag("Player");
+                GameObject nearestTurret = FindNearestEntityWithTag("Turret");
 
-            // Check if the turret is destroyed and handle accordingly
-            if (turretHealth.GetCurrentHealth() <= 0)
-            {
-                Debug.Log("Turret is destroyed!");
-                Destroy(turret);
-            }
+                // Choose the closest entity between player and turret
+                if (nearestPlayer != null && nearestTurret != null)
+                {
+                    // Compare distances and choose the closest
+                    float distanceToPlayer = Vector3.Distance(transform.position, nearestPlayer.transform.position);
+                    float distanceToTurret = Vector3.Distance(transform.position, nearestTurret.transform.position);
+
+                    targetedEntity = (distanceToPlayer < distanceToTurret) ? nearestPlayer : nearestTurret;
+                }
+                else
+                {
+                    // If only one exists, target that one
+                    targetedEntity = nearestPlayer ?? nearestTurret;
+                }
+                break;
+
+            case TargetType.NearestTurret:
+                targetedEntity = FindNearestEntityWithTag("Turret") ?? FindNearestEntityWithTag("Player");
+                break;
+
+            case TargetType.NearestPlayer:
+                targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
+                break;
         }
-        else
+        if (targetedEntity != null)
         {
-            Debug.LogError("No VariableComponent found on the turret!");
+            Debug.Log($"Target set to: {targetedEntity.name}");
         }
     }
-
-    // // Assuming you have a reference to the turret GameObject
-    // enemyController.AttackTurret(turretGameObject, damageAmount); // 10f represents the damage amount
-
 
     // Check if the bullet type matches any of the enemy's resistance types
     private bool IsResistantTo(ProjectileController.BulletType bulletType)

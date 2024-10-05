@@ -52,7 +52,7 @@ public class Round : MonoBehaviour
 
     [Header("HealthIncreaseStartAtRound-15")]
     public int healthIncreaseEachRound;
-    private float healthMultiplier = 1;
+    private float healthMultiplier = 0;
 
     [Header("Enemy Spawn")]
     public Transform[] spawnPoints; // Array to hold different spawn points
@@ -146,15 +146,15 @@ public class Round : MonoBehaviour
     {
         if (zombieList.Remove(zombie))
         {
-            Debug.Log("Regular Zombie defeated.");
+            // Debug.Log("Regular Zombie defeated.");
         }
         else if (specialZombieList.Remove(zombie))
         {
-            Debug.Log("Special Zombie defeated.");
+            // Debug.Log("Special Zombie defeated.");
         }
         else if (bossList.Remove(zombie))
         {
-            Debug.Log("Boss defeated.");
+            // Debug.Log("Boss defeated.");
         }
 
         // Update the total zombies text after a zombie is defeated
@@ -201,9 +201,6 @@ public class Round : MonoBehaviour
 
         // Update the total zombies text
         UpdateTotalZombieText();
-
-        // Optional: Log the spawning of zombies for debugging
-        Debug.Log("Spawned Zombie: " + zombiePrefab.name + " at " + spawnPoint.position);
     }
     
     // Coroutine to spawn special zombies with a delay between each
@@ -304,8 +301,6 @@ public class Round : MonoBehaviour
         UpdateTotalZombieText();
 
         IncreaseZombieMaxHealth(specialZombieInstance, healthIncreaseEachRound * healthMultiplier);
-        // Optional: Log the spawning of special zombies for debugging
-        Debug.Log("Spawned Special Zombie: " + specialZombiePrefab.name + " at " + spawnPoint.position);
     }
 
     // Method to get a spawn point with a delay if the same point was recently used
@@ -379,8 +374,6 @@ public class Round : MonoBehaviour
             IncreaseZombieMaxHealth(bossInstance, healthIncreaseEachRound * healthMultiplier);
 
             UpdateTotalZombieText();
-                
-            Debug.Log("Spawned Boss: " + boss.name + " at " + spawnPoint.position);
         }
         else
         {

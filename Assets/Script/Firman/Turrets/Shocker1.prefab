@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shocker1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_Name
       value: TurretHolder

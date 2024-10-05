@@ -33,6 +33,8 @@ public class TurretLaser : MonoBehaviour
     private bool canFire = true;
 
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -47,7 +49,11 @@ public class TurretLaser : MonoBehaviour
 
     void Update()
     {
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null && canFire && !isFiring)
         {
@@ -208,8 +214,23 @@ public class TurretLaser : MonoBehaviour
     {
         if (variableComponent != null)
         {
-            variableComponent.TakeDamage(damage); // Use VariableComponent to handle health
+            variableComponent.TakeDamage(damage);
+
+            // Optional: Log turret health
+            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            // Check if turret is destroyed
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
         }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretCone is destroyed!");
+        Destroy(gameObject); // Destroy the turret GameObject
     }
 
     // private void OnDrawGizmos()

@@ -29,6 +29,8 @@ public class TurretDoubleType : MonoBehaviour
     private float lastFireTime;
 
     private VariableComponent variableComponent;
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
@@ -44,7 +46,11 @@ public class TurretDoubleType : MonoBehaviour
 
     void Update()
     {
-        target = FindTarget();
+        if (Time.time >= nextTargetUpdateTime)
+        {
+            target = FindTarget();
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
 
         if (target != null)
         {
@@ -163,8 +169,20 @@ public class TurretDoubleType : MonoBehaviour
     {
         if (variableComponent != null)
         {
-            variableComponent.TakeDamage(damage); // Delegate the damage to VariableComponent
+            variableComponent.TakeDamage(damage);
+            Debug.Log($"TurretDoubleType took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            if (variableComponent.GetCurrentHealth() <= 0)
+            {
+                DestroyTurret();
+            }
         }
+    }
+
+    private void DestroyTurret()
+    {
+        Debug.Log("TurretDoubleType is destroyed!");
+        Destroy(gameObject);
     }
 
     // private void OnDrawGizmos()
