@@ -118,10 +118,24 @@ public class EnemyController : MonoBehaviour
                 break;
             case TargetType.NearestTurret:
                 targetedEntity = FindNearestEntityWithTag("Turret");
+                if (targetedEntity == null)
+                {
+                    Debug.LogWarning("No turrets found! Targeting player instead.");
+                    targetedEntity = FindNearestEntityWithTag("Player");
+                }
                 break;
             case TargetType.NearestPlayer:
                 targetedEntity = FindNearestEntityWithTag("Player");
                 break;
+        }
+
+        if (targetedEntity != null)
+        {
+            Debug.Log($"Target set to: {targetedEntity.name}");
+        }
+        else
+        {
+            Debug.LogWarning("No valid target found for the enemy!");
         }
     }
 
