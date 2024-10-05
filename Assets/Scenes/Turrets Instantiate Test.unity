@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 483121274}
   textTotalZombie: {fileID: 42829556}
-  currentRound: 11
+  currentRound: 13
   zombiesToSpawn: 5
   Boss1: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d, type: 3}
   Boss2: {fileID: 0}
@@ -2689,6 +2689,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 445760852530380848, guid: 83ce49cf53477dd41bd441adeb95c234,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4832,7 +4837,7 @@ PrefabInstance:
     - target: {fileID: 5409564507108793300, guid: 163590cd09ad9264abe45ed72fabc3ba,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

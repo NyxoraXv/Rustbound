@@ -28,7 +28,8 @@ public class EnemyController : MonoBehaviour
     private VariableComponent variableComponent;
     private Round round; // Reference to the Round class
 
-    private GameObject targetedTurret; // Reference to the currently targeted turret
+    private float targetUpdateInterval = 1f; // Update target every second
+    private float nextTargetUpdateTime = 0f;
 
     private void Start()
     {
@@ -51,15 +52,15 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
-        if (currentTargetType == TargetType.None)
+        if (Time.time >= nextTargetUpdateTime)
         {
-            SetTarget(); // Continuously update the target if the type is None
+            SetTarget(); // Update the target
+            nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
         }
-
-        // Optional: Call the Attack method here based on certain conditions (e.g., in range, cooldown, etc.)
+        
+        // Call the Attack method based on certain conditions
         // Attack();
     }
-
     private GameObject FindNearestEntityWithTag(string tag)
     {
         GameObject[] entities = GameObject.FindGameObjectsWithTag(tag);
@@ -124,19 +125,37 @@ public class EnemyController : MonoBehaviour
         switch (currentTargetType)
         {
             case TargetType.None:
-                targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
-                break;
-            case TargetType.NearestTurret:
-                targetedEntity = FindNearestEntityWithTag("Turret");
-                if (targetedEntity == null)
+                // Find the nearest player and turret
+                GameObject nearestPlayer = FindNearestEntityWithTag("Player");
+                GameObject nearestTurret = FindNearestEntityWithTag("Turret");
+
+                // Choose the closest entity between player and turret
+                if (nearestPlayer != null && nearestTurret != null)
                 {
-                    Debug.LogWarning("No turrets found! Targeting player instead.");
-                    targetedEntity = FindNearestEntityWithTag("Player");
+                    // Compare distances and choose the closest
+                    float distanceToPlayer = Vector3.Distance(transform.position, nearestPlayer.transform.position);
+                    float distanceToTurret = Vector3.Distance(transform.position, nearestTurret.transform.position);
+
+                    targetedEntity = (distanceToPlayer < distanceToTurret) ? nearestPlayer : nearestTurret;
+                }
+                else
+                {
+                    // If only one exists, target that one
+                    targetedEntity = nearestPlayer ?? nearestTurret;
                 }
                 break;
-            case TargetType.NearestPlayer:
-                targetedEntity = FindNearestEntityWithTag("Player");
+
+            case TargetType.NearestTurret:
+                targetedEntity = FindNearestEntityWithTag("Turret") ?? FindNearestEntityWithTag("Player");
                 break;
+
+            case TargetType.NearestPlayer:
+                targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
+                break;
+        }
+        if (targetedEntity != null)
+        {
+            Debug.Log($"Target set to: {targetedEntity.name}");
         }
     }
 
