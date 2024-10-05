@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretLaser : MonoBehaviour
+public class TurretAdvance : MonoBehaviour
 {
-    public bool isFollowTuretHead = true;
+    [Header ("Max Spawn Turret")]
+    public int maxSpawnTurret = 1;
+    private static int currentSpawnedTurrets = 0;
+    public bool isMinigun = true;
     public float directionX = 0f;
     public float directionY = 0f;
     public float directionMinZ = 0f;
@@ -15,51 +18,161 @@ public class TurretLaser : MonoBehaviour
     public LayerMask enemyLayer;
 
     public Transform turretHead;
-    public Transform firePoint;
+    public Transform[] firePoints;
     public GameObject projectilePrefab;
-    public GameObject lastShootBeforePause;
 
-    public float fireCooldown = 0.05f;
-    public float fireDuration = 10f;
-    public float pauseDuration = 2.5f;
-    public float lastShoot = 2.5f;
+    public float initialFireCooldown = 0.8f;
+    public float rapidFireDelay = 0.1f;
+    public ParticleSystem gunEffect;
+    private float fireCooldown;
 
-    public enum TargetingMode { First, Strongest, Farthest }
-    public TargetingMode targetingMode;
-
+    private float elapsedTime = 0f;
     private Transform target;
     private float lastFireTime;
     private bool isFiring = false;
-    private bool canFire = true;
 
+    public enum TargetingMode
+    {
+        First,
+        Strongest,
+        Farthest
+    }
+
+    public TargetingMode targetingMode;
+
+
+    private Transform[] firstSetFirePoints;
+    private Transform[] secondSetFirePoints;
+    private Transform[] notMinigunSetFirePoints;
     private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
-        // Get the VariableComponent attached to the turret
-        variableComponent = GetComponent<VariableComponent>();
+        DOTween.SetTweensCapacity(7812, 50);
 
+        if (currentSpawnedTurrets >= maxSpawnTurret)
+        {
+            Debug.Log("Max number of turrets already spawned. This turret will not be created.");
+            Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
+            return; // Exit start if max is reached
+        }
+
+        // Increment the static counter for spawned turrets
+        currentSpawnedTurrets++;
+
+        fireCooldown = initialFireCooldown;
+
+
+        if (isMinigun)
+        {
+            firstSetFirePoints = new Transform[8];
+            secondSetFirePoints = new Transform[8];
+
+
+            for (int i = 0; i < 8; i++)
+            {
+                firstSetFirePoints[i] = firePoints[i];
+                secondSetFirePoints[i] = firePoints[i + 8];
+            }
+        }
+        else
+        {
+            notMinigunSetFirePoints = new Transform[5];
+            for (int i = 0; i < 5; i++)
+            {
+                notMinigunSetFirePoints[i] = firePoints[i];
+            }
+        }
+
+        variableComponent = GetComponent<VariableComponent>();
+        
+        // Optionally, log an error if the component is missing
         if (variableComponent == null)
         {
-            Debug.LogError("VariableComponent not found on turret!");
+            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
     }
 
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+
+
         if (Time.time >= nextTargetUpdateTime)
         {
             target = FindTarget();
             nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
         }
 
-        if (target != null && canFire && !isFiring)
+        if (target != null)
+        {
+            AimAtTarget();
+
+
+            if (isMinigun)
+            {
+
+                if (elapsedTime > 5f && !isFiring)
+                {
+                    fireCooldown = rapidFireDelay;
+                    StartCoroutine(FireFromFirePoints());
+                }
+
+
+                if (Time.time >= lastFireTime + fireCooldown && !isFiring)
+                {
+                    isFiring = true;
+                    StartCoroutine(FireFromFirePoints());
+                    lastFireTime = Time.time;
+                }
+            }
+            else
+            {
+                if (Time.time >= lastFireTime + initialFireCooldown && !isFiring)
+                {
+                    isFiring = true;
+                    StartCoroutine(FireFromNotMinigun());
+                }
+            }
+        }
+        else
         {
 
-            StartCoroutine(FiringSequence());
+            isFiring = false;
+            fireCooldown = initialFireCooldown;
+            elapsedTime = 0f;
         }
+    }
+    IEnumerator FireFromNotMinigun()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ShootAtTarget(firePoints[i]);
+            gunEffect.Play();
+            lastFireTime = Time.time;
+            yield return new WaitForSeconds(initialFireCooldown);
+        }
+        isFiring = false;
+    }
+
+    IEnumerator FireFromFirePoints()
+    {
+
+        for (int i = 0; i < 8; i++)
+        {
+
+            ShootAtTarget(firstSetFirePoints[i]);
+            gunEffect.Play();
+
+            ShootAtTarget(secondSetFirePoints[i]);
+
+
+            yield return new WaitForSeconds(fireCooldown);
+        }
+
+        isFiring = false;
     }
 
     Transform FindTarget()
@@ -111,10 +224,6 @@ public class TurretLaser : MonoBehaviour
 
     void AimAtTarget()
     {
-
-        if (target == null)
-            return;
-
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
@@ -126,100 +235,28 @@ public class TurretLaser : MonoBehaviour
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
-
-        if (isFollowTuretHead)
-        {
-            firePoint.rotation = turretHead.rotation;
-        }
     }
 
-
-    void ShootAtTarget()
+    void ShootAtTarget(Transform firePoint)
     {
-
-        if (projectilePrefab == null || firePoint == null || target == null)
-            return;
-
-
-        Vector3 directionToTarget = target.position - firePoint.position;
-
-
-        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
-
-
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
-
-        ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
-        if (projectileController != null)
+        if (projectilePrefab != null && firePoint != null)
         {
-            projectileController.SetTarget(target);
-        }
-    }
-
-
-    IEnumerator FiringSequence()
-    {
-
-        yield return new WaitForSeconds(2.5f);
-
-        isFiring = true;
-        canFire = false;
-        float fireStartTime = Time.time;
-
-        while (Time.time < fireStartTime + fireDuration)
-        {
-
-            if (target == null)
-            {
-                target = FindTarget();
-                if (target == null)
-                    break;
-            }
-
-            AimAtTarget();
-
-            if (Time.time >= lastFireTime + fireCooldown)
-            {
-                ShootAtTarget();
-                lastFireTime = Time.time;
-            }
-
-            yield return null;
-        }
-
-
-        yield return new WaitForSeconds(lastShoot);
-
-
-        if (target != null && lastShootBeforePause != null)
-        {
-            AimAtTarget();
-            GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
-            ProjectileController projectileController = lastShootProjectile.GetComponent<ProjectileController>();
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
             }
         }
-
-
-        isFiring = false;
-        yield return new WaitForSeconds(pauseDuration);
-
-
-        canFire = true;
     }
-    
+
     public void TakeDamage(float damage)
     {
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
+            Debug.Log($"TurretMinigun took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
-            // Optional: Log turret health
-            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
-
-            // Check if turret is destroyed
             if (variableComponent.GetCurrentHealth() <= 0)
             {
                 DestroyTurret();
@@ -229,7 +266,9 @@ public class TurretLaser : MonoBehaviour
 
     private void DestroyTurret()
     {
-        Debug.Log("TurretCone is destroyed!");
+        Debug.Log("Turret destroyed!");
+
+        currentSpawnedTurrets--; // Decrement the static counter when the turret is destroyed
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

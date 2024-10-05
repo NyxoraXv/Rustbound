@@ -14791,7 +14791,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3040533244218522936}
+      addedObject: {fileID: 7834751782949668918}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced,
         type: 3}
       insertIndex: -1
@@ -14844,7 +14844,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9168491504708615723}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3040533244218522936
+--- !u!114 &7834751782949668918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14853,9 +14853,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9168491504708515979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
+  m_Script: {fileID: 11500000, guid: acb5f7a5f4b42534cbf1d611e5a45d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawnTurret: 2
   isMinigun: 0
   directionX: 0
   directionY: -90

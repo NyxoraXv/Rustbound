@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
 
     public float damageDealt = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
-    private bool isAttacking = false;
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
 
     private VariableComponent variableComponent;
@@ -153,10 +152,10 @@ public class EnemyController : MonoBehaviour
                 targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
                 break;
         }
-        if (targetedEntity != null)
-        {
-            Debug.Log($"Target set to: {targetedEntity.name}");
-        }
+        // if (targetedEntity != null)
+        // {
+        //     Debug.Log($"Target set to: {targetedEntity.name}");
+        // }
     }
 
     // Check if the bullet type matches any of the enemy's resistance types
