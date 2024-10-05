@@ -1,9 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretDoubleType : MonoBehaviour
+public class TurretLaser : MonoBehaviour
 {
+    [Header ("Max Spawn Turret")]
+    public int maxSpawnTurret = 1;
+    private static int currentSpawnedTurrets = 0;
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
@@ -14,19 +18,22 @@ public class TurretDoubleType : MonoBehaviour
     public LayerMask enemyLayer;
 
     public Transform turretHead;
-    public Transform firePoint1;
-    public Transform firePoint2;
-    public GameObject projectilePrefab1; 
-    public GameObject projectilePrefab2; 
+    public Transform firePoint;
+    public GameObject projectilePrefab;
+    public GameObject lastShootBeforePause;
 
-    public ParticleSystem particle;
-    public float fireCooldown = 2f;
+    public float fireCooldown = 0.05f;
+    public float fireDuration = 10f;
+    public float pauseDuration = 2.5f;
+    public float lastShoot = 2.5f;
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
 
     private Transform target;
     private float lastFireTime;
+    private bool isFiring = false;
+    private bool canFire = true;
 
     private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
@@ -34,13 +41,21 @@ public class TurretDoubleType : MonoBehaviour
 
     void Start()
     {
-        // Initialize the VariableComponent if it's on the same GameObject
+        if (currentSpawnedTurrets >= maxSpawnTurret)
+        {
+            Debug.Log("Max number of turrets already spawned. This turret will not be created.");
+            Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
+            return; // Exit start if max is reached
+        }
+
+        // Increment the static counter for spawned turrets
+        currentSpawnedTurrets++;
+        // Get the VariableComponent attached to the turret
         variableComponent = GetComponent<VariableComponent>();
-        
-        // Optionally, log an error if the component is missing
+
         if (variableComponent == null)
         {
-            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
+            Debug.LogError("VariableComponent not found on turret!");
         }
     }
 
@@ -52,15 +67,10 @@ public class TurretDoubleType : MonoBehaviour
             nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
         }
 
-        if (target != null)
+        if (target != null && canFire && !isFiring)
         {
-            AimAtTarget();
 
-            if (Time.time >= lastFireTime + fireCooldown)
-            {
-                ShootAtTarget();
-                lastFireTime = Time.time;
-            }
+            StartCoroutine(FiringSequence());
         }
     }
 
@@ -71,13 +81,13 @@ public class TurretDoubleType : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            
+
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; 
+            if (variableComponent == null) continue;
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-            
+
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -107,12 +117,16 @@ public class TurretDoubleType : MonoBehaviour
             return validTargets[0];
         }
 
-        return null; 
+        return null;
     }
 
 
     void AimAtTarget()
     {
+
+        if (target == null)
+            return;
+
         Vector3 direction = (target.position - turretHead.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
 
@@ -120,58 +134,104 @@ public class TurretDoubleType : MonoBehaviour
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        
+
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
 
-        
         if (isFollowTuretHead)
         {
-            firePoint1.rotation = turretHead.rotation;
-            firePoint2.rotation = turretHead.rotation; 
+            firePoint.rotation = turretHead.rotation;
         }
     }
+
 
     void ShootAtTarget()
     {
-        if (projectilePrefab1 != null && firePoint1 != null)
-        {
-            
-            GameObject projectile1 = Instantiate(projectilePrefab1, firePoint1.position, firePoint1.rotation);
-            ProjectileController projectileController1 = projectile1.GetComponent<ProjectileController>();
-            if (projectileController1 != null)
-            {
-                projectileController1.SetTarget(target);
-            }
-        }
 
-        
-        Invoke("ShootFromFirePoint2", 0.2f); 
+        if (projectilePrefab == null || firePoint == null || target == null)
+            return;
+
+
+        Vector3 directionToTarget = target.position - firePoint.position;
+
+
+        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget);
+
+
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotationToTarget);
+
+        ProjectileController projectileController = projectile.GetComponent<ProjectileController>();
+        if (projectileController != null)
+        {
+            projectileController.SetTarget(target);
+        }
     }
 
-    void ShootFromFirePoint2()
+
+    IEnumerator FiringSequence()
     {
-        if (projectilePrefab2 != null && firePoint2 != null)
+
+        yield return new WaitForSeconds(2.5f);
+
+        isFiring = true;
+        canFire = false;
+        float fireStartTime = Time.time;
+
+        while (Time.time < fireStartTime + fireDuration)
         {
-            
-            GameObject projectile2 = Instantiate(projectilePrefab2, firePoint2.position, firePoint2.rotation);
-            particle.Play();
-            ProjectileController projectileController2 = projectile2.GetComponent<ProjectileController>();
-            if (projectileController2 != null)
+
+            if (target == null)
             {
-                projectileController2.SetTarget(target);
+                target = FindTarget();
+                if (target == null)
+                    break;
+            }
+
+            AimAtTarget();
+
+            if (Time.time >= lastFireTime + fireCooldown)
+            {
+                ShootAtTarget();
+                lastFireTime = Time.time;
+            }
+
+            yield return null;
+        }
+
+
+        yield return new WaitForSeconds(lastShoot);
+
+
+        if (target != null && lastShootBeforePause != null)
+        {
+            AimAtTarget();
+            GameObject lastShootProjectile = Instantiate(lastShootBeforePause, firePoint.position, firePoint.rotation);
+            ProjectileController projectileController = lastShootProjectile.GetComponent<ProjectileController>();
+            if (projectileController != null)
+            {
+                projectileController.SetTarget(target);
             }
         }
-    }
 
+
+        isFiring = false;
+        yield return new WaitForSeconds(pauseDuration);
+
+
+        canFire = true;
+    }
+    
     public void TakeDamage(float damage)
     {
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
-            Debug.Log($"TurretDoubleType took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
+            // Optional: Log turret health
+            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+
+            // Check if turret is destroyed
             if (variableComponent.GetCurrentHealth() <= 0)
             {
                 DestroyTurret();
@@ -181,8 +241,10 @@ public class TurretDoubleType : MonoBehaviour
 
     private void DestroyTurret()
     {
-        Debug.Log("TurretDoubleType is destroyed!");
-        Destroy(gameObject);
+        Debug.Log("Turret destroyed!");
+
+        currentSpawnedTurrets--; // Decrement the static counter when the turret is destroyed
+        Destroy(gameObject); // Destroy the turret GameObject
     }
 
     // private void OnDrawGizmos()

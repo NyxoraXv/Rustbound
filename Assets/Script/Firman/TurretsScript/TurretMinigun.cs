@@ -1,10 +1,14 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretCone : MonoBehaviour
+public class TurretMinigun : MonoBehaviour
 {
-    public bool isFollowTuretHead = true;
+    [Header ("Max Spawn Turret")]
+    public int maxSpawnTurret = 1;
+    private static int currentSpawnedTurrets = 0;
+    public bool isMinigun = true;
     public float directionX = 0f;
     public float directionY = 0f;
     public float directionMinZ = 0f;
@@ -14,24 +18,74 @@ public class TurretCone : MonoBehaviour
     public LayerMask enemyLayer;
 
     public Transform turretHead;
-    public Transform firePoint;
+    public Transform[] firePoints;
     public GameObject projectilePrefab;
 
-    public float fireCooldown = 2f;
+    public float initialFireCooldown = 0.8f;
+    public float rapidFireDelay = 0.1f;
+    public ParticleSystem gunEffect;
+    private float fireCooldown;
 
-    public enum TargetingMode { First, Strongest, Farthest }
-    public TargetingMode targetingMode;
-
+    private float elapsedTime = 0f;
     private Transform target;
     private float lastFireTime;
+    private bool isFiring = false;
 
+    public enum TargetingMode
+    {
+        First,
+        Strongest,
+        Farthest
+    }
+
+    public TargetingMode targetingMode;
+
+
+    private Transform[] firstSetFirePoints;
+    private Transform[] secondSetFirePoints;
+    private Transform[] notMinigunSetFirePoints;
     private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
 
     void Start()
     {
-        // Initialize the VariableComponent if it's on the same GameObject
+        DOTween.SetTweensCapacity(7812, 50);
+
+        if (currentSpawnedTurrets >= maxSpawnTurret)
+        {
+            Debug.Log("Max number of turrets already spawned. This turret will not be created.");
+            Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
+            return; // Exit start if max is reached
+        }
+
+        // Increment the static counter for spawned turrets
+        currentSpawnedTurrets++;
+
+        fireCooldown = initialFireCooldown;
+
+
+        if (isMinigun)
+        {
+            firstSetFirePoints = new Transform[8];
+            secondSetFirePoints = new Transform[8];
+
+
+            for (int i = 0; i < 8; i++)
+            {
+                firstSetFirePoints[i] = firePoints[i];
+                secondSetFirePoints[i] = firePoints[i + 8];
+            }
+        }
+        else
+        {
+            notMinigunSetFirePoints = new Transform[5];
+            for (int i = 0; i < 5; i++)
+            {
+                notMinigunSetFirePoints[i] = firePoints[i];
+            }
+        }
+
         variableComponent = GetComponent<VariableComponent>();
         
         // Optionally, log an error if the component is missing
@@ -40,9 +94,12 @@ public class TurretCone : MonoBehaviour
             Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
     }
-    
+
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+
+
         if (Time.time >= nextTargetUpdateTime)
         {
             target = FindTarget();
@@ -53,12 +110,69 @@ public class TurretCone : MonoBehaviour
         {
             AimAtTarget();
 
-            if (Time.time >= lastFireTime + fireCooldown)
+
+            if (isMinigun)
             {
-                ShootAtTarget();
-                lastFireTime = Time.time;
+
+                if (elapsedTime > 5f && !isFiring)
+                {
+                    fireCooldown = rapidFireDelay;
+                    StartCoroutine(FireFromFirePoints());
+                }
+
+
+                if (Time.time >= lastFireTime + fireCooldown && !isFiring)
+                {
+                    isFiring = true;
+                    StartCoroutine(FireFromFirePoints());
+                    lastFireTime = Time.time;
+                }
+            }
+            else
+            {
+                if (Time.time >= lastFireTime + initialFireCooldown && !isFiring)
+                {
+                    isFiring = true;
+                    StartCoroutine(FireFromNotMinigun());
+                }
             }
         }
+        else
+        {
+
+            isFiring = false;
+            fireCooldown = initialFireCooldown;
+            elapsedTime = 0f;
+        }
+    }
+    IEnumerator FireFromNotMinigun()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ShootAtTarget(firePoints[i]);
+            gunEffect.Play();
+            lastFireTime = Time.time;
+            yield return new WaitForSeconds(initialFireCooldown);
+        }
+        isFiring = false;
+    }
+
+    IEnumerator FireFromFirePoints()
+    {
+
+        for (int i = 0; i < 8; i++)
+        {
+
+            ShootAtTarget(firstSetFirePoints[i]);
+            gunEffect.Play();
+
+            ShootAtTarget(secondSetFirePoints[i]);
+
+
+            yield return new WaitForSeconds(fireCooldown);
+        }
+
+        isFiring = false;
     }
 
     Transform FindTarget()
@@ -107,6 +221,7 @@ public class TurretCone : MonoBehaviour
         return null;
     }
 
+
     void AimAtTarget()
     {
         Vector3 direction = (target.position - turretHead.position).normalized;
@@ -120,16 +235,9 @@ public class TurretCone : MonoBehaviour
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
-
-
-
-        if (isFollowTuretHead)
-        {
-            firePoint.rotation = turretHead.rotation;
-        }
     }
 
-    void ShootAtTarget()
+    void ShootAtTarget(Transform firePoint)
     {
         if (projectilePrefab != null && firePoint != null)
         {
@@ -147,7 +255,7 @@ public class TurretCone : MonoBehaviour
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
-            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
+            Debug.Log($"TurretMinigun took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
             if (variableComponent.GetCurrentHealth() <= 0)
             {
@@ -158,8 +266,10 @@ public class TurretCone : MonoBehaviour
 
     private void DestroyTurret()
     {
-        Debug.Log("TurretCone is destroyed!");
-        Destroy(gameObject);
+        Debug.Log("Turret destroyed!");
+
+        currentSpawnedTurrets--; // Decrement the static counter when the turret is destroyed
+        Destroy(gameObject); // Destroy the turret GameObject
     }
 
     // private void OnDrawGizmos()

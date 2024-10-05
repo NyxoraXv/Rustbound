@@ -19493,6 +19493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d266d64af08c5439cb23bf524d96f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawnTurret: 2
   isFollowTuretHead: 0
   directionX: -90
   directionY: 260
