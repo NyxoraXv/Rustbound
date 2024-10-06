@@ -34,6 +34,14 @@ public class VariableComponent : MonoBehaviour
         return maxHealth;
     }
     
+    public void Heal(float amount)
+    {
+        _currentHealth += amount; // Assume currentHealth is a float variable
+        // Clamp the health to the maximum health value if needed
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth); // Assuming you have maxHealth defined
+    }
+
+    
     public void IncreaseMaxHealth(float amount)
     {
         maxHealth += amount;

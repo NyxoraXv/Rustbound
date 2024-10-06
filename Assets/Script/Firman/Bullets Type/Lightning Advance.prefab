@@ -4876,7 +4876,7 @@ MonoBehaviour:
   speed: 20
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 4
+  impactDamage: 12
 --- !u!1 &7563516080808768140
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public bool isBoss = false;
+    public float regenerationHealthPerSecond = 10f;
+
     [System.Flags]
     public enum ResistanceType
     {
@@ -10,6 +13,7 @@ public class EnemyController : MonoBehaviour
         Bullet = 1 << 1,  // 2
         Explosion = 1 << 2 // 4
     }
+
     public enum TargetType
     {
         None,          // Target both player and turret
@@ -47,8 +51,15 @@ public class EnemyController : MonoBehaviour
         }
 
         SetTarget();
-        // Attack();
+        
+        // Start health regeneration coroutine if the enemy is a boss
+        if (isBoss)
+        {
+            Debug.Log("Boss detected. Starting health regeneration.");
+            StartCoroutine(RegenerateHealth());
+        }
     }
+
     private void Update()
     {
         if (Time.time >= nextTargetUpdateTime)
@@ -56,10 +67,8 @@ public class EnemyController : MonoBehaviour
             SetTarget(); // Update the target
             nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
         }
-        
-        // Call the Attack method based on certain conditions
-        // Attack();
     }
+
     private GameObject FindNearestEntityWithTag(string tag)
     {
         GameObject[] entities = GameObject.FindGameObjectsWithTag(tag);
@@ -152,10 +161,6 @@ public class EnemyController : MonoBehaviour
                 targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
                 break;
         }
-        // if (targetedEntity != null)
-        // {
-        //     Debug.Log($"Target set to: {targetedEntity.name}");
-        // }
     }
 
     // Check if the bullet type matches any of the enemy's resistance types
@@ -185,5 +190,33 @@ public class EnemyController : MonoBehaviour
     public bool IsAlive()
     {
         return variableComponent != null && variableComponent.GetCurrentHealth() > 0;
+    }
+
+    private System.Collections.IEnumerator RegenerateHealth()
+    {
+        Debug.Log("Health regeneration coroutine started.");
+        while (true) // Keep this loop running indefinitely
+        {
+            yield return new WaitForSeconds(1f); // Wait for 1 second
+            Debug.Log("Checking health...");
+
+            // Check if the boss is still alive
+            if (!IsAlive())
+            {
+                Debug.Log("Boss is dead. Stopping regeneration.");
+                yield break; // Stop the coroutine if the boss is dead
+            }
+
+            // Heal the boss if current health is less than max health
+            if (variableComponent.GetCurrentHealth() < variableComponent.GetMaxHealth())
+            {
+                variableComponent.Heal(regenerationHealthPerSecond); // Heal by the specified amount
+                Debug.Log($"Boss healed for {regenerationHealthPerSecond} HP! Current Health: {variableComponent.GetCurrentHealth()}");
+            }
+            else
+            {
+                Debug.Log("Boss is at max health. No healing performed.");
+            }
+        }
     }
 }

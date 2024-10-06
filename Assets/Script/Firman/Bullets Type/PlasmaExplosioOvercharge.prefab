@@ -9728,4 +9728,4 @@ MonoBehaviour:
   speed: 20
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 50
+  impactDamage: 60
