@@ -4872,11 +4872,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef56d853860cc1479f3570caceafb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 0
   speed: 20
-  isExplode: 0
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 4
+  impactDamage: 5
 --- !u!1 &7563516080808768140
 GameObject:
   m_ObjectHideFlags: 0
