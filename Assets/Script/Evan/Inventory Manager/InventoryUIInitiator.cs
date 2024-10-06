@@ -24,7 +24,7 @@ public class InventoryUIInitiator : MonoBehaviour
         rateOfFire.text = weapon.weaponRateOfFire.ToString();
         accuracy.text = weapon.weaponAccuracy.ToString("F2"); // Assuming accuracy is a float
         icon.sprite = weapon.weaponImage;
-
+        
         // Clear any existing listeners before adding a new one
         equipButton.onClick.RemoveAllListeners();
 

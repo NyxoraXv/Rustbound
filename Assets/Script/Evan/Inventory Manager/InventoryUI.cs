@@ -5,7 +5,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject weaponContainerPrefab; // The prefab with InventoryUIInitiator
     [SerializeField] private Transform weaponContainerParent;  // The parent for instantiated prefabs
-    [SerializeField] private Vector2 posAddition; // Position increment for each weapon
+    [SerializeField] private Vector2 StartPos;
     private WeaponManager weaponManager; // Reference to the WeaponManager
 
     private void OnEnable()
@@ -34,8 +34,7 @@ public class InventoryUI : MonoBehaviour
             {
                 // Instantiate the weapon prefab and set its parent
                 GameObject newWeaponContainer = Instantiate(weaponContainerPrefab, weaponContainerParent);
-                newWeaponContainer.GetComponent<RectTransform>().anchoredPosition = (Vector2.zero + (posAddition * i));
-                i += 1;
+                newWeaponContainer.GetComponent<RectTransform>().anchoredPosition = StartPos;
 
                 // Get the InventoryUIInitiator component and initialize it
                 InventoryUIInitiator initiator = newWeaponContainer.GetComponent<InventoryUIInitiator>();
