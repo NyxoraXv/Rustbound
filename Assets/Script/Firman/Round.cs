@@ -72,7 +72,7 @@ public class Round : MonoBehaviour
         UpdateRoundText(currentRound); // For example, "ROUND 1"
 
         // Start spawning zombies
-        StartCoroutine(StartSpawningZombies());
+        // StartCoroutine(StartSpawningZombies());
     }
 
     void Update()
@@ -94,11 +94,11 @@ public class Round : MonoBehaviour
                 healthMultiplier += 1f;
             }
 
-            // Spawn special zombies with a delay
-            StartCoroutine(SpawnSpecialZombiesWithDelay());
+            // // Spawn special zombies with a delay
+            // StartCoroutine(SpawnSpecialZombiesWithDelay());
 
-            // Start spawning zombies for the next round
-            StartCoroutine(StartSpawningZombies());
+            // // Start spawning zombies for the next round
+            // StartCoroutine(StartSpawningZombies());
         }
     }
 
@@ -117,7 +117,7 @@ public class Round : MonoBehaviour
     
 
     // Coroutine to start spawning zombies
-    private IEnumerator StartSpawningZombies()
+    public IEnumerator StartSpawningZombies()
     {
         // Call SpawnZombie method repeatedly until reaching the max limit
         while (spawnedZombies < zombiesToSpawn)
@@ -204,7 +204,7 @@ public class Round : MonoBehaviour
     }
     
     // Coroutine to spawn special zombies with a delay between each
-    private IEnumerator SpawnSpecialZombiesWithDelay()
+    public IEnumerator SpawnSpecialZombiesWithDelay()
     {
         yield return new WaitForSeconds(1.5f); // Wait for 5 seconds before spawning special zombies
 
