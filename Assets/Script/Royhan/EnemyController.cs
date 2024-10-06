@@ -198,7 +198,6 @@ public class EnemyController : MonoBehaviour
         while (true) // Keep this loop running indefinitely
         {
             yield return new WaitForSeconds(1f); // Wait for 1 second
-            Debug.Log("Checking health...");
 
             // Check if the boss is still alive
             if (!IsAlive())

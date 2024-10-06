@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBoss: 0
+  isBoss: 1
   regenerationHealthPerSecond: 10
   currentTargetType: 0
   damageDealt: 10
@@ -5056,7 +5056,7 @@ PrefabInstance:
     - target: {fileID: 7411323302968431422, guid: c37fd5c39db71c44785647c878bfc8ed,
         type: 3}
       propertyPath: isBoss
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
