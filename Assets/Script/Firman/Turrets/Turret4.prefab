@@ -14818,7 +14818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68f10b9fe07dd84d98c55efe44230af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnTurret: 2
+  maxSpawnTurret: 1
   isMinigun: 0
   directionX: 0
   directionY: -90
