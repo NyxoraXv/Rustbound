@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class WeaponData
 {
     public string weaponName;
     public GameObject weaponPrefab;
+    public Sprite weaponImage;
     public int weaponID;
     public int weaponDamage;
     public float weaponRateOfFire;
