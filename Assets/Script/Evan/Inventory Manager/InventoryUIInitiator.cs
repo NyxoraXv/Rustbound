@@ -30,6 +30,7 @@ public class InventoryUIInitiator : MonoBehaviour
 
         // Add a listener to the equip button to handle weapon equipping
         equipButton.onClick.AddListener(() => TryEquipWeapon(weapon));
+        
     }
 
     // Method to handle weapon equipping
@@ -38,8 +39,12 @@ public class InventoryUIInitiator : MonoBehaviour
         // Equip the weapon if owned
         if (weaponManager.IsWeaponOwned(weapon.weaponID))
         {
-            weaponManager.EquipWeapon(weapon.weaponID, 1); // You can choose the slot as needed
-            Debug.Log("Equipped weapon: " + weapon.weaponName);
+            if (weaponManager.isSelectingWeapon)
+            {
+                weaponManager.OnWeaponSelected(weapon.weaponID); // Select the weapon
+                Debug.Log("Selected weapon: " + weapon.weaponName);
+            }
+            
         }
         else
         {

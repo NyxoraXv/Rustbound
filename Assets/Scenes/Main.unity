@@ -484,6 +484,7 @@ MonoBehaviour:
   weaponDatabase: {fileID: 11400000, guid: ef89875c2278b6c418ffee05bcbb64d2, type: 2}
   weaponSlot1Image: {fileID: 283479353}
   weaponSlot2Image: {fileID: 1350587031}
+  isSelectingWeapon: 0
 --- !u!4 &91464112
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &721395152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1720,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &804911197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2027,11 +2028,11 @@ MonoBehaviour:
       - m_Target: {fileID: 91464111}
         m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: BeginSelectWeapon
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3625,11 +3626,11 @@ MonoBehaviour:
       - m_Target: {fileID: 91464111}
         m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: BeginSelectWeapon
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

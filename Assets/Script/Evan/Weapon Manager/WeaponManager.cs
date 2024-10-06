@@ -17,7 +17,8 @@ public class WeaponManager : MonoBehaviour
 
     private List<int> ownedWeapons = new List<int>(); // Store owned weapon IDs
 
-    private bool isSelectingWeapon = false; // Indicates whether the player is in weapon selection mode
+    public bool isSelectingWeapon = false; // Indicates whether the player is in weapon selection mode
+    private int currentSelectionSlot; // Track the currently selected slot for equipping
 
     private void Awake()
     {
@@ -56,6 +57,23 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    // Start weapon selection mode from slot button press
+    public void BeginSelectWeapon(int slot)
+    {
+        isSelectingWeapon = true;
+        currentSelectionSlot = slot; // Set the current selection slot
+        Debug.Log("Entering weapon selection mode for Slot " + slot);
+        // Additional UI setup can be done here, such as opening a weapon selection screen
+        // Here you might want to show available weapons for selection
+    }
+
+    // Handle weapon selection in UI
+    public void OnWeaponSelected(int weaponID)
+    {
+        // Attempt to equip the selected weapon in the current selection slot
+        EquipWeapon(weaponID, currentSelectionSlot); // Use the current selection slot instead of checking for empty slots
+    }
+
     // Equip a weapon into one of the two slots by ID
     public void EquipWeapon(int weaponID, int slot)
     {
@@ -66,28 +84,28 @@ public class WeaponManager : MonoBehaviour
             // Check which slot to equip
             if (slot == 1)
             {
-                // Replace if already equipped
                 if (equippedWeaponSlot1 != null)
                 {
                     Debug.Log("Replacing weapon in Slot 1: " + equippedWeaponSlot1.weaponName);
                 }
 
-                equippedWeaponSlot1 = weaponToEquip;
+                equippedWeaponSlot1 = weaponToEquip; // Equip the new weapon
                 weaponSlot1Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 1
                 Debug.Log("Weapon equipped in Slot 1: " + equippedWeaponSlot1.weaponName);
             }
             else if (slot == 2)
             {
-                // Replace if already equipped
                 if (equippedWeaponSlot2 != null)
                 {
                     Debug.Log("Replacing weapon in Slot 2: " + equippedWeaponSlot2.weaponName);
                 }
 
-                equippedWeaponSlot2 = weaponToEquip;
+                equippedWeaponSlot2 = weaponToEquip; // Equip the new weapon
                 weaponSlot2Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 2
                 Debug.Log("Weapon equipped in Slot 2: " + equippedWeaponSlot2.weaponName);
             }
+
+            ExitSelectWeapon(); // Exit selection mode after equipping
         }
         else
         {
@@ -95,27 +113,12 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    // Unequip weapon from a slot
-    public void UnequipWeapon(int slot)
+    // Exit weapon selection mode
+    public void ExitSelectWeapon()
     {
-        if (slot == 1)
-        {
-            if (equippedWeaponSlot1 != null)
-            {
-                Debug.Log("Unequipped weapon from Slot 1: " + equippedWeaponSlot1.weaponName);
-            }
-            equippedWeaponSlot1 = null;
-            weaponSlot1Image.sprite = null; // Clear the image for slot 1
-        }
-        else if (slot == 2)
-        {
-            if (equippedWeaponSlot2 != null)
-            {
-                Debug.Log("Unequipped weapon from Slot 2: " + equippedWeaponSlot2.weaponName);
-            }
-            equippedWeaponSlot2 = null;
-            weaponSlot2Image.sprite = null; // Clear the image for slot 2
-        }
+        isSelectingWeapon = false;
+        Debug.Log("Exiting weapon selection mode.");
+        // Additional UI teardown can be done here, such as closing the weapon selection screen
     }
 
     // Check if a weapon is owned by ID
@@ -136,41 +139,6 @@ public class WeaponManager : MonoBehaviour
             return equippedWeaponSlot2;
         }
         return null;
-    }
-
-    // Start weapon selection mode
-    public void BeginSelectWeapon()
-    {
-        isSelectingWeapon = true;
-        Debug.Log("Entering weapon selection mode.");
-        // Additional UI setup can be done here, such as opening a weapon selection screen
-    }
-
-    // Handle weapon selection in UI
-    public void OnWeaponSelected(int weaponID)
-    {
-        // Attempt to equip the selected weapon in the first available slot
-        if (equippedWeaponSlot1 == null)
-        {
-            EquipWeapon(weaponID, 1);
-        }
-        else if (equippedWeaponSlot2 == null)
-        {
-            EquipWeapon(weaponID, 2);
-        }
-        else
-        {
-            // If both slots are occupied, replace the one in slot 1 (or you can customize this logic)
-            EquipWeapon(weaponID, 1);
-        }
-    }
-
-    // Exit weapon selection mode
-    public void ExitSelectWeapon()
-    {
-        isSelectingWeapon = false;
-        Debug.Log("Exiting weapon selection mode.");
-        // Additional UI teardown can be done here, such as closing the weapon selection screen
     }
 
     // Get a list of all owned weapon IDs
