@@ -89,7 +89,7 @@ public class Round : MonoBehaviour
             zombiesToSpawn += 2;
 
             // Increase health multiplier starting from wave 11
-            if (currentRound >= 15)
+            if (currentRound >= 16)
             {
                 healthMultiplier += 1f;
             }

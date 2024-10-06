@@ -379,10 +379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcf5419549b3854aa07799d4036fcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSlot1: {fileID: 2159287507833668368, guid: 35216f1b2b204cf4c9fd7d6b09ec0d51,
+  turretSlot1: {fileID: 6052941085072812279, guid: 68463368760bf6340916ca182b1a14c9,
     type: 3}
   turret1: {fileID: 1941988985}
-  turretSlot2: {fileID: 2159287507833668368, guid: 35216f1b2b204cf4c9fd7d6b09ec0d51,
+  turretSlot2: {fileID: 9168491504708515979, guid: 6a3782f25f77e184daf1c68341688570,
     type: 3}
   turret2: {fileID: 1884412697}
   turretSlot3: {fileID: 5409564507108793300, guid: 163590cd09ad9264abe45ed72fabc3ba,
@@ -665,10 +665,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &236617989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,10 +1458,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &479943537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,10 +1600,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &483121272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,10 +1944,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &574670442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,10 +2086,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &686383871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,10 +2334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &706483017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,10 +2507,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &814592728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,10 +3128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1214663601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,10 +3404,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resistances: 1
+  resistanceMultiplier: 0.5
   currentTargetType: 0
   damageDealt: 10
-  resistances: 0
-  resistanceMultiplier: 0.5
+  plasmaResistanceVfx: {fileID: 1477754693192646972, guid: 472fb9afe42fe1d4c9663c66682b8e7a,
+    type: 3}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1291900306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,10 +3547,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1363990735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,10 +4039,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1692203467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4300,10 +4345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1740509463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4603,10 +4652,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1 &1941988984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4772,10 +4825,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTargetType: 0
-  damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  currentTargetType: 0
+  damageDealt: 10
+  plasmaResistanceVfx: {fileID: 0}
+  bulletResistanceVfx: {fileID: 0}
+  explosionResistanceVfx: {fileID: 0}
+  everythingResistanceVfx: {fileID: 0}
 --- !u!1001 &4445492442632237673
 PrefabInstance:
   m_ObjectHideFlags: 0
