@@ -20,7 +20,7 @@ MonoBehaviour:
     weaponDamage: 0
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 150
+    price: -20
   - weaponName: Benelli M4
     weaponPrefab: {fileID: 0}
     weaponImage: {fileID: 21300000, guid: a7c56146d54f8b9468a0db3acc27f07e, type: 3}
@@ -28,7 +28,7 @@ MonoBehaviour:
     weaponDamage: 0
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 350
+    price: -20
   - weaponName: M4
     weaponPrefab: {fileID: 0}
     weaponImage: {fileID: 21300000, guid: 7c0de5710a5e6d34ea334db8da5af75f, type: 3}
@@ -36,7 +36,7 @@ MonoBehaviour:
     weaponDamage: 0
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 550
+    price: 0
   - weaponName: M107
     weaponPrefab: {fileID: 0}
     weaponImage: {fileID: 21300000, guid: 00bf065747b717b4c8a1a3ddb4c702f8, type: 3}
@@ -44,7 +44,7 @@ MonoBehaviour:
     weaponDamage: 0
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 750
+    price: 0
   - weaponName: M249
     weaponPrefab: {fileID: 0}
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
@@ -52,7 +52,7 @@ MonoBehaviour:
     weaponDamage: 0
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 1000
+    price: 0
   - weaponName: M1911
     weaponPrefab: {fileID: 0}
     weaponImage: {fileID: 21300000, guid: b11e4b82e68ec064eb658bc08c55f053, type: 3}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponInventoryUI : MonoBehaviour
+public class WeaponShopUI : MonoBehaviour
 {
     [SerializeField] private GameObject weaponContainerPrefab; // The prefab with WeaponContainerInitiator
     [SerializeField] private Transform weaponContainerParent;  // The parent for instantiated prefabs
