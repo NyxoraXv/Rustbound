@@ -29323,15 +29323,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.1113
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.1113
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.1113
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29347,19 +29347,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.67838097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.73471034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -29371,7 +29371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -94.565
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29575,7 +29575,7 @@ MonoBehaviour:
   directionY: -90
   directionMinZ: 270
   directionMaxZ: 270
-  detectionRadius: 10.5
+  detectionRadius: 13
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2

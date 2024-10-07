@@ -71,7 +71,7 @@ public class ProjectileController : MonoBehaviour
         {
             // Instantiate and destroy the VFX after 1 second
             ParticleSystem vfxInstance = Instantiate(explosionVfx, transform.position, Quaternion.identity);
-            Destroy(vfxInstance.gameObject, 1f);
+            Destroy(vfxInstance.gameObject, 2f);
         }
 
         // Destroy the projectile after explosion

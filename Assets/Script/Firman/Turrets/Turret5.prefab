@@ -14710,15 +14710,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.2379456
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.2379456
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.2379456
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14862,7 +14862,7 @@ MonoBehaviour:
   directionY: -90
   directionMinZ: -90
   directionMaxZ: -90
-  detectionRadius: 10.5
+  detectionRadius: 13
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2

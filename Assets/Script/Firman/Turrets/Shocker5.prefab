@@ -57,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.6492
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.6492
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.6492
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,9 +181,9 @@ MonoBehaviour:
   isFollowTuretHead: 1
   directionX: -45
   directionY: 90
-  directionMinZ: 85
+  directionMinZ: 90
   directionMaxZ: 90
-  detectionRadius: 10.5
+  detectionRadius: 13
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2
