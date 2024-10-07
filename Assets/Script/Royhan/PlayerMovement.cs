@@ -169,8 +169,9 @@ public class PlayerMovement : MonoBehaviour
             // Dapatkan sudut Euler dari rotasi yang diinginkan
             Vector3 eulerRotation = toRotation.eulerAngles;
 
-            // Batasi sudut rotasi Y ke dalam rentang 0 hingga 152 derajat
-            eulerRotation.y = Mathf.Clamp(eulerRotation.y, 0, 552);
+            // Biarkan rotasi Y tidak terbatas atau clamp ke rentang 0 hingga 360 jika diperlukan
+            eulerRotation.y = Mathf.Repeat(eulerRotation.y, 360);
+
 
             // Terapkan rotasi baru yang sudah dibatasi
             rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
