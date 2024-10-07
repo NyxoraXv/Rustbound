@@ -385,10 +385,10 @@ MonoBehaviour:
   turretSlot2: {fileID: 9168491504708515979, guid: 6a3782f25f77e184daf1c68341688570,
     type: 3}
   turret2: {fileID: 1884412697}
-  turretSlot3: {fileID: 1123162897191317485, guid: 4f17101356d90194d8b198d99e3a9152,
+  turretSlot3: {fileID: 3591375948646511082, guid: aeb69ac83ae139545803cffd10cff942,
     type: 3}
   turret3: {fileID: 706483018}
-  turretSlot4: {fileID: 1123162897191317485, guid: 4f17101356d90194d8b198d99e3a9152,
+  turretSlot4: {fileID: 2159287507833668368, guid: 35216f1b2b204cf4c9fd7d6b09ec0d51,
     type: 3}
   turret4: {fileID: 1157907422}
 --- !u!114 &58105471
@@ -2729,17 +2729,17 @@ PrefabInstance:
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.9820952
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.9820952
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.9820952
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445760852530748432, guid: 83ce49cf53477dd41bd441adeb95c234,
         type: 3}
