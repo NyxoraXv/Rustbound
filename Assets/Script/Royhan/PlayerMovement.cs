@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform shootPos;
     [SerializeField] private Transform rotateBody;
+    // [SerializeField] private Transform body;
+    // [SerializeField] private Transform leftFoot;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
@@ -70,11 +72,10 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = forward * _movementInput.y + right * _movementInput.x;
             _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
 
-
             // Mengecek apakah player bergerak maju atau mundur
             float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
 
-            if (dotProduct > 0)
+            if (dotProduct != 0)
             {
                 Debug.Log("maju");
                 if (!onSprint)
@@ -84,15 +85,15 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetFloat(speedParam, 1f);
 
             }
-            else if (dotProduct < 0)
-            {
-                Debug.Log("mundur");
-                if (!onSprint)
-                    animator.SetFloat(speedParam, -0.5f);
+            // else if (dotProduct < 0)
+            // {
+            //     Debug.Log("mundur");
+            //     if (!onSprint)
+            //         animator.SetFloat(speedParam, -0.5f);
 
-                else
-                    animator.SetFloat(speedParam, -1f);
-            }
+            //     else
+            //         animator.SetFloat(speedParam, -1f);
+            // }
             else
             {
                 animator.SetFloat(speedParam, 0f);
@@ -110,9 +111,9 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        if (currentState.IsName("State"))
-        // if (context.performed)
-        {
+        // if (currentState.IsName("State"))
+        // // if (context.performed)
+        // {
             Debug.Log("tag ");
             _movementInput = context.ReadValue<Vector2>();
             // Debug.Log("move " + _movementInput);
@@ -124,12 +125,18 @@ public class PlayerMovement : MonoBehaviour
                 _rigidbody.freezeRotation = true;
             }
 
-        }
+        // }
 
-        if (_movementInput.magnitude < 0.1f)
+        if (_movementInput.magnitude < 1f)
         {
             _movementInput = Vector2.zero;
-        }
+        }   
+        Debug.Log(_movementInput);
+
+        // if (context.canceled)
+        // {
+        //     _rigidbody.velocity = Vector2.zero;
+        // }
     }
 
     public void OnForward(InputAction.CallbackContext context)
@@ -160,10 +167,24 @@ public class PlayerMovement : MonoBehaviour
             Vector3 eulerRotation = toRotation.eulerAngles;
 
             // Batasi sudut rotasi Y ke dalam rentang 0 hingga 152 derajat
-            eulerRotation.y = Mathf.Clamp(eulerRotation.y, 0, 352);
+            eulerRotation.y = Mathf.Clamp(eulerRotation.y, 0, 552);
 
             // Terapkan rotasi baru yang sudah dibatasi
             rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
+
+            if (moveDirection != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation, 
+                    Quaternion.LookRotation(moveDirection), 
+                    rotationSpeed * Time.deltaTime
+                );
+                // leftFoot.rotation = Quaternion.Slerp(
+                //     leftFoot.rotation, 
+                //     Quaternion.LookRotation(moveDirection), 
+                //     rotationSpeed * Time.deltaTime
+                // );
+            }
         }
     }
 
