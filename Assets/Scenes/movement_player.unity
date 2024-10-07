@@ -1878,9 +1878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7e7c0ddaf1f09498e850fcefb046dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1938057177 stripped
+--- !u!4 &2117396428 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4892000278053851870, guid: c529607493801d34fba5de493b0377f7,
+  m_CorrespondingSourceObject: {fileID: 5338675373124951838, guid: c529607493801d34fba5de493b0377f7,
     type: 3}
   m_PrefabInstance: {fileID: 7256050854970557716}
   m_PrefabAsset: {fileID: 0}
@@ -1969,7 +1969,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rotateBody
       value: 
-      objectReference: {fileID: 1938057177}
+      objectReference: {fileID: 2117396428}
     - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
       propertyPath: sprintWalkPercentage
@@ -2042,11 +2042,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6666946901883765497, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666946901883765497, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
       propertyPath: m_WarningMessage
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Run Backward'\n\tFrom
         animation clip 'Idle'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99977386
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.021265153
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000002970553
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00013965953
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 8505413646065514719, guid: c529607493801d34fba5de493b0377f7,
         type: 3}

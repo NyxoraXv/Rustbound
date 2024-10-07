@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = forward * _movementInput.y + right * _movementInput.x;
             _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
 
-            HandleRotation(moveDirection);
 
             // Mengecek apakah player bergerak maju atau mundur
             float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
@@ -98,6 +97,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetFloat(speedParam, 0f);
             }
+        }
+    }
+    private void LateUpdate() 
+    {
+        if (!shoot)    
+        {
+            HandleRotation(moveDirection);
         }
     }
 
