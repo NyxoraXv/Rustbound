@@ -8,7 +8,7 @@ public class HUDController : MonoBehaviour
 {
     public static HUDController instance;
 
-    [SerializeField] private TextMeshProUGUI hp, sp, round, current_ammo, max_ammo, level;
+    [SerializeField] private TextMeshProUGUI hp, sp, round, zombie, current_ammo, max_ammo, level;
     [SerializeField] private Image first_slot, second_slot;
 
     private void init(int maxHP, int maxSP)
