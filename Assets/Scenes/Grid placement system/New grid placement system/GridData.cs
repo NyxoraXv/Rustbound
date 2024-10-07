@@ -60,6 +60,12 @@ public class GridData
             placedObjects.Remove(pos);
         }
     }
+    
+    public bool IsOccupied(Vector3Int gridPosition)
+    {
+        return placedObjects.ContainsKey(gridPosition);
+    }
+
 }
 
 public class PlacementData
