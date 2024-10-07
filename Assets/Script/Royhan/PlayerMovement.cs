@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform shootPos;
+    [SerializeField] private Transform rotateBody;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
@@ -153,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
 
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
+            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, toRotation, 0.5f);
         }
     }
 
