@@ -16,5 +16,54 @@ MonoBehaviour:
   - <Name>k__BackingField: Ray-200
     <ID>k__BackingField: 0
     <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 1225695144971036340, guid: eaa51df6f2f4f6f47899b9b89b482e8c,
+      type: 3}
+  - <Name>k__BackingField: Ray-300
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 5554163016575847230, guid: e44b3856662d3c343af5a8b6601a37a0,
+      type: 3}
+  - <Name>k__BackingField: T-132
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 6661780400189700398, guid: 2a5b8945a167ee34c91ba83e0f6251e4,
+      type: 3}
+  - <Name>k__BackingField: T-145
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 1287796884402699263, guid: 8085d418f499a214da33871be37f907f,
+      type: 3}
+  - <Name>k__BackingField: GT-Gun 2015
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 9215277367735509922, guid: b5e88f26208f3c94db4e97f5a1e91d89,
+      type: 3}
+  - <Name>k__BackingField: GT-Gun 2004
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 1901075721596580542, guid: 16bacba3d4c770a46a578c61a810788a,
+      type: 3}
+  - <Name>k__BackingField: L-5000
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 4357588046153101256, guid: c8e85bc6f0885e745994cbdd88fd9705,
+      type: 3}
+  - <Name>k__BackingField: L-10000
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 6570756096919733836, guid: f03fdb412d3df3e42aa05027522d91a5,
+      type: 3}
+  - <Name>k__BackingField: GT-Gun 1988
+    <ID>k__BackingField: 0
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 8267046036068752686, guid: d20d00aed4ac1c5458ba1b7e03db6b21,
       type: 3}

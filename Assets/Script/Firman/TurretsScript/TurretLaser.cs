@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretLaser : MonoBehaviour
+public class TurretLaser : MonoBehaviour, ITurret
 {
     [Header ("Max Spawn Turret")]
     public int maxSpawnTurret = 1;
@@ -38,15 +38,16 @@ public class TurretLaser : MonoBehaviour
     private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
+    private bool isPreviewObject;
 
     void Start()
     {
-        if (currentSpawnedTurrets >= maxSpawnTurret)
-        {
-            Debug.Log("Max number of turrets already spawned. This turret will not be created.");
-            Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
-            return; // Exit start if max is reached
-        }
+        // if (currentSpawnedTurrets >= maxSpawnTurret)
+        // {
+        //     Debug.Log("Max number of turrets already spawned. This turret will not be created.");
+        //     Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
+        //     return; // Exit start if max is reached
+        // }
 
         // Increment the static counter for spawned turrets
         currentSpawnedTurrets++;
@@ -245,6 +246,19 @@ public class TurretLaser : MonoBehaviour
 
         currentSpawnedTurrets--; // Decrement the static counter when the turret is destroyed
         Destroy(gameObject); // Destroy the turret GameObject
+    }
+
+    private void OnDestroy()
+    {
+        if (!isPreviewObject)
+        {
+            DestroyTurret(); // Call DestroyTurret if it's not a preview object
+        }
+    }
+
+    public void SetIsPreviewObject(bool isPreview)
+    {
+        isPreviewObject = isPreview; // Method to set the preview object flag
     }
 
     // private void OnDrawGizmos()

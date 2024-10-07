@@ -12,14 +12,6 @@ public class ObjectPlacer : MonoBehaviour
         newObject.transform.position = position;
         placedGameObjects.Add(newObject);
 
-        // Log information about the instantiated object and its children
-        Debug.Log($"Instantiated object: {newObject.name}");
-
-        foreach (Transform child in newObject.transform)
-        {
-            Debug.Log($"Child object: {child.name}, active: {child.gameObject.activeSelf}");
-        }
-
         return placedGameObjects.Count - 1;
     }
 

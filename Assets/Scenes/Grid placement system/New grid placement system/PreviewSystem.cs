@@ -26,10 +26,16 @@ public class PreviewSystem : MonoBehaviour
     public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
     {
         previewObject = Instantiate(prefab);
+        ITurret turretScript = previewObject.GetComponent<ITurret>();
+        if (turretScript != null)
+        {
+            turretScript.SetIsPreviewObject(true); // Set as a preview object
+        }
         PreparePreview(previewObject);
         PrepareCursor(size);
         cellIndicator.SetActive(true);
     }
+
 
     private void PrepareCursor(Vector2Int size)
     {
