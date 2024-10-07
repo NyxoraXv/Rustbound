@@ -181,7 +181,7 @@ MonoBehaviour:
   isFollowTuretHead: 1
   directionX: -45
   directionY: 90
-  directionMinZ: 85
+  directionMinZ: 90
   directionMaxZ: 90
   detectionRadius: 10.5
   detectionAngle: 360
