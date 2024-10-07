@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        
+
         _rigidbody = GetComponent<Rigidbody>();
         variableComponent = GetComponent<VariableComponent>();
         animator = GetComponent<Animator>();
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {   
+    {
         if (!shoot)
         {
 
@@ -99,9 +99,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    private void LateUpdate() 
+    private void LateUpdate()
     {
-        if (!shoot)    
+        if (!shoot)
         {
             HandleRotation(moveDirection);
         }
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentState.IsName("State"))
         // if (context.performed)
         {
-            Debug.Log( "tag ");
+            Debug.Log("tag ");
             _movementInput = context.ReadValue<Vector2>();
             // Debug.Log("move " + _movementInput);
             // Debug.Log("dir " + direction);
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        
+
         if (_movementInput.magnitude < 0.1f)
         {
             _movementInput = Vector2.zero;
@@ -141,12 +141,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation(Vector3 moveDirection)
     {
-        // if (moveDirection != Vector3.zero)
-        // {
-        //     Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-        //     transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        // }
-
         // Menentukan arah tembakan berdasarkan posisi mouse
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -155,12 +149,21 @@ public class PlayerMovement : MonoBehaviour
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
 
             targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
+
             // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
             direction = (targetPosition - shootPos.position).normalized;
 
-
+            // Hitung rotasi target yang diinginkan
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, toRotation, 0.5f);
+
+            // Dapatkan sudut Euler dari rotasi yang diinginkan
+            Vector3 eulerRotation = toRotation.eulerAngles;
+
+            // Batasi sudut rotasi Y ke dalam rentang 0 hingga 152 derajat
+            eulerRotation.y = Mathf.Clamp(eulerRotation.y, 0, 352);
+
+            // Terapkan rotasi baru yang sudah dibatasi
+            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
         }
     }
 
@@ -169,7 +172,8 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             shoot = true;
-            Invoke("DeactiveShoot", 0.35f);
+            // Invoke("DeactiveShoot", 0.35f);
+            DeactiveShoot();
             animator.SetTrigger(fireParam);
             GameObject bulletPush = GetPooledBullet();
             if (bulletPush != null)
@@ -215,9 +219,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
-            speed = variableComponent.speed + (variableComponent.speed * sprintWalkPercentage/100);
+            speed = variableComponent.speed + (variableComponent.speed * sprintWalkPercentage / 100);
             onSprint = true;
         }
         else if (context.canceled)

@@ -142,6 +142,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 127867265787259768, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 98f8b4763618b6d43a77524ec3314048, type: 2}
     - target: {fileID: 166469640031755043, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
         type: 3}
       propertyPath: m_Layer
@@ -518,10 +523,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 938608859}
-    - targetCorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 938608865}
     - targetCorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
         type: 3}
@@ -531,6 +532,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 938608863}
+    - targetCorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 938608868}
   m_SourcePrefab: {fileID: 100100000, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -1118,29 +1123,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 391717121}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &938608859
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938608858}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.17001438
-  m_Height: 2.1600375
-  m_Direction: 1
-  m_Center: {x: -1.975757e-14, y: 1.0496113, z: 7.293504e-14}
 --- !u!54 &938608860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1182,14 +1164,14 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &938608864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1205,27 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+--- !u!65 &938608868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938608858}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.2020638, z: 1}
+  m_Center: {x: 0, y: 1.0491205, z: 0}
 --- !u!1 &1204364815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,7 +1479,7 @@ Transform:
   m_GameObject: {fileID: 1248112013}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49997672, y: -0, z: -0, w: 0.8660389}
-  m_LocalPosition: {x: -1.6979244, y: 13.660002, z: -15.4}
+  m_LocalPosition: {x: 1, y: 5.6, z: -5.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1968,7 +1971,8 @@ PrefabInstance:
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Run Backward'\n\tFrom
-        animation clip 'Idle'"
+        animation clip 'Idle'\n\tFrom animation clip 'Run Backward'\n\tFrom animation
+        clip 'Idle'"
       objectReference: {fileID: 0}
     - target: {fileID: 6683349840718785332, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
