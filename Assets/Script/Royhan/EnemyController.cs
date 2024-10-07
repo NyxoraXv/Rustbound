@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class EnemyController : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     public TargetType currentTargetType = TargetType.None; // Set default target type
     private GameObject targetedEntity;
-
+    private NavMeshAgent navMeshAgent;
     public float damageDealt = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
@@ -38,6 +40,7 @@ public class EnemyController : MonoBehaviour
     {
         // Get the VariableComponent attached to this GameObject
         variableComponent = GetComponent<VariableComponent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         if (variableComponent == null)
         {
             Debug.LogError("VariableComponent not found on this GameObject.");
@@ -66,6 +69,10 @@ public class EnemyController : MonoBehaviour
         {
             SetTarget(); // Update the target
             nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
+        }
+        if (targetedEntity != null)
+        {
+            navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
         }
     }
 

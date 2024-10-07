@@ -248,7 +248,7 @@ MonoBehaviour:
     Source: 1
     NormalSamples: 1
     Intensity: 0.5
-    DirectLightingStrength: 0.316
+    DirectLightingStrength: 0.25
     Radius: 0.25
     Samples: 0
     BlurQuality: 0
@@ -282,8 +282,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: -6908154868879088664}
-  - {fileID: 4953966765465014174}
-  m_RendererFeatureMap: adc0de57c6d2eee5e8a3136bbf4d21a09e0fa2a48606c044
+  - {fileID: 0}
+  m_RendererFeatureMap: adc0de57c6d2eee5e8a3136bbf4d21a004de759d12ccd7f9
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
