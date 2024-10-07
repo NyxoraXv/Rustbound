@@ -4928,7 +4928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: 2
+  explosionVfx: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
   speed: 20
-  explosionRadius: 7.5
+  explosionRadius: 4.5
   explosionDamage: 210
   impactDamage: 10
