@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Main.meta
 guid: 533058196e0aca84b94162c64a15ed62
+========
+guid: c6acde63db4358c4a8c099bc412d504c
+>>>>>>>> 04a8a063f3c5c8757bc915137392e28f3c633614:Assets/Polygon zombie package/Animated/anim3.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
