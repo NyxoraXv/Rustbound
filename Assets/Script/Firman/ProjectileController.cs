@@ -10,6 +10,7 @@ public class ProjectileController : MonoBehaviour
     }
 
     public BulletType bulletType; // Select the type of bullet in the inspector
+    public ParticleSystem explosionVfx;
     public float speed = 20f;
     public float explosionRadius = 5f;
     public float explosionDamage = 50f;
@@ -54,6 +55,7 @@ public class ProjectileController : MonoBehaviour
 
     private void Explode()
     {
+        // Deal damage to enemies within the explosion radius
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (var hitCollider in hitColliders)
         {
@@ -64,8 +66,18 @@ public class ProjectileController : MonoBehaviour
             }
         }
 
+        // Instantiate explosion VFX
+        if (explosionVfx != null)
+        {
+            // Instantiate and destroy the VFX after 1 second
+            ParticleSystem vfxInstance = Instantiate(explosionVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance.gameObject, 1f);
+        }
+
+        // Destroy the projectile after explosion
         Destroy(gameObject);
     }
+
 
     private void ImpactDamage()
     {

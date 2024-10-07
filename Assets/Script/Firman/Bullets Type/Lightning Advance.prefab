@@ -4873,10 +4873,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: 0
+  explosionVfx: {fileID: 0}
   speed: 20
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 12
+  impactDamage: 15
 --- !u!1 &7563516080808768140
 GameObject:
   m_ObjectHideFlags: 0
