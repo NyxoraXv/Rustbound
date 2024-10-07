@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private Camera mainCamera; // Untuk mengambil posisi mouse
     private Vector3 direction;
     private Animator animator;
-    private int speedParam = Animator.StringToHash("Speed");
+    private int walkParam = Animator.StringToHash("IsWalk");
+    private int runParam = Animator.StringToHash("IsRun");
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
     private bool shoot = false;
@@ -78,25 +79,27 @@ public class PlayerMovement : MonoBehaviour
             if (dotProduct != 0)
             {
                 Debug.Log("maju");
-                if (!onSprint)
-                    animator.SetFloat(speedParam, 0.5f);
+                animator.SetBool(walkParam, true);
+                if (onSprint)
+                    animator.SetBool(runParam, true);
 
                 else
-                    animator.SetFloat(speedParam, 1f);
+                    animator.SetBool(runParam, false);
 
             }
             // else if (dotProduct < 0)
             // {
             //     Debug.Log("mundur");
             //     if (!onSprint)
-            //         animator.SetFloat(speedParam, -0.5f);
+            //         animator.SetFloat(walkParam, -0.5f);
 
             //     else
-            //         animator.SetFloat(speedParam, -1f);
+            //         animator.SetFloat(walkParam, -1f);
             // }
             else
             {
-                animator.SetFloat(speedParam, 0f);
+                animator.SetBool(runParam, false);
+                animator.SetBool(walkParam, false);
             }
         }
     }
@@ -110,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+        // AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         // if (currentState.IsName("State"))
         // // if (context.performed)
         // {
