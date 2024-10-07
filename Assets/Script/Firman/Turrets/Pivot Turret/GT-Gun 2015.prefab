@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: -8334330070694274501, guid: 68463368760bf6340916ca182b1a14c9,
         type: 3}
       propertyPath: maxSpawnTurret
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6052941085072812279, guid: 68463368760bf6340916ca182b1a14c9,
         type: 3}

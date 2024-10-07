@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
       propertyPath: maxSpawnTurret
-      value: 15
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
