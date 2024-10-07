@@ -40,10 +40,14 @@ public class EnemyController : MonoBehaviour
     {
         // Get the VariableComponent attached to this GameObject
         variableComponent = GetComponent<VariableComponent>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
         if (variableComponent == null)
         {
             Debug.LogError("VariableComponent not found on this GameObject.");
+        }
+
+        if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
+        {
+            navMeshAgent = nm;
         }
 
         // Get the Round component in the scene (make sure there's only one Round component or adjust accordingly)
