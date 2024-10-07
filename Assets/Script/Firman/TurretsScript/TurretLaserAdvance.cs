@@ -7,8 +7,6 @@ using JetBrains.Annotations;
 public class TurretLaserAdvance : MonoBehaviour, ITurret
 {
     [Header ("Max Spawn Turret")]
-    public int maxSpawnTurret = 1;
-    private static int currentSpawnedTurrets = 0;
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
@@ -43,15 +41,6 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
 
     void Start()
     {
-        // if (currentSpawnedTurrets >= maxSpawnTurret)
-        // {
-        //     Debug.Log("Max number of turrets already spawned. This turret will not be created.");
-        //     Destroy(gameObject); // Destroy this turret to prevent it from being active on the map
-        //     return; // Exit start if max is reached
-        // }
-
-        // Increment the static counter for spawned turrets
-        currentSpawnedTurrets++;
         // Get the VariableComponent attached to the turret
         variableComponent = GetComponent<VariableComponent>();
 
@@ -244,8 +233,6 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
     private void DestroyTurret()
     {
         Debug.Log("Turret destroyed!");
-
-        currentSpawnedTurrets--; // Decrement the static counter when the turret is destroyed
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

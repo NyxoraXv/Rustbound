@@ -54,14 +54,17 @@ public class PlacementSystem : MonoBehaviour
         StopPlacement();
         gridVisualization.SetActive(true);
 
+        // Ensure ID is being passed correctly
+        Debug.Log($"Starting placement for ID: {ID}");
+
         buildingState = new PlacementState(ID,
-                                        grid,
-                                        preview,
-                                        database,
-                                        floorData,
-                                        furnitureData,
-                                        objectPlacer,
-                                        soundFeedback);
+                                            grid,
+                                            preview,
+                                            database,
+                                            floorData,
+                                            furnitureData,
+                                            objectPlacer,
+                                            soundFeedback);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }
@@ -76,46 +79,50 @@ public class PlacementSystem : MonoBehaviour
     }
 
     private void PlaceStructure()
+{
+    if (inputManager.IsPointerOverUI())
     {
-        if (inputManager.IsPointerOverUI())
-        {
-            return;
-        }
-
-        Vector3 mousePosition = inputManager.GetSelectedMapPosition();
-        Vector3Int gridPosition = grid.WorldToCell(mousePosition);
-
-        // Get the currently selected object data from the database
-        int selectedObjectID = ((PlacementState)buildingState).ID;
-        ObjectData selectedObjectData = database.objectsData[selectedObjectID];
-
-        // Debug log to check the placement attempt
-        Debug.Log($"Attempting to place turret. Current: {selectedObjectData.currentSpawnedTurret}, Max: {selectedObjectData.maxSpawnTurret}");
-
-        // Check if the max number of turrets is reached
-        if (selectedObjectData.currentSpawnedTurret >= selectedObjectData.maxSpawnTurret)
-        {
-            Debug.Log("Max turrets reached. Cannot place any more turrets.");
-            source.PlayOneShot(wrongPlacementClip); // Play feedback for invalid placement
-            return;
-        }
-
-        // Check if the grid position is occupied
-        if (IsGridPositionOccupied(gridPosition))
-        {
-            Debug.Log("Grid position is already occupied. Cannot place turret.");
-            source.PlayOneShot(wrongPlacementClip); // Play feedback for invalid placement
-            return;
-        }
-
-        // Place the turret if the limit has not been reached
-        buildingState.OnAction(gridPosition);
-
-        // Increment the count of currently spawned turrets
-        selectedObjectData.currentSpawnedTurret++;
-        Debug.Log($"Turret placed. New count: {selectedObjectData.currentSpawnedTurret}");
-        source.PlayOneShot(correctPlacementClip); // Play feedback for valid placement
+        return;
     }
+
+    Vector3 mousePosition = inputManager.GetSelectedMapPosition();
+    Vector3Int gridPosition = grid.WorldToCell(mousePosition);
+
+    // Get the currently selected object data from the database
+    int selectedObjectID = ((PlacementState)buildingState).ID;
+    ObjectData selectedObjectData = database.objectsData[selectedObjectID];
+
+    // // Log the selected object data for debugging
+    // Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
+    //           $"Name: {selectedObjectData.Name}, " +
+    //           $"Current: {selectedObjectData.currentSpawnedTurret}, " +
+    //           $"Max: {selectedObjectData.maxSpawnTurret}");
+
+    // Check if the max number of turrets is reached
+    if (selectedObjectData.currentSpawnedTurret >= selectedObjectData.maxSpawnTurret)
+    {
+        Debug.Log("Max turrets reached. Cannot place any more turrets.");
+        source.PlayOneShot(wrongPlacementClip);
+        return;
+    }
+
+    // Check if the grid position is occupied
+    if (IsGridPositionOccupied(gridPosition))
+    {
+        Debug.Log("Grid position is already occupied. Cannot place turret.");
+        source.PlayOneShot(wrongPlacementClip);
+        return;
+    }
+
+    // Place the turret if the limit has not been reached
+    buildingState.OnAction(gridPosition);
+
+    // Increment the count of currently spawned turrets
+    selectedObjectData.currentSpawnedTurret++;
+    Debug.Log($"Turret placed. New count: {selectedObjectData.currentSpawnedTurret}");
+    source.PlayOneShot(correctPlacementClip);
+}
+
 
     // Method to check if the grid position is occupied
     private bool IsGridPositionOccupied(Vector3Int gridPosition)
