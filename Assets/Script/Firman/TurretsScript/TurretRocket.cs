@@ -23,6 +23,9 @@ public class TurretRocket : MonoBehaviour, ITurret
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
 
+    [Header("Explosion After Dead")]
+    public ParticleSystem explosionVFX;
+
     private Transform target;
     private float lastFireTime;
 
@@ -154,6 +157,16 @@ public class TurretRocket : MonoBehaviour, ITurret
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
+
+            int[] sfxOptions = { 6, 7, 8 };
+
+            // Pick a random SFX
+            int randomIndex = Random.Range(0, sfxOptions.Length);
+            int randomSFX = sfxOptions[randomIndex];
+
+            // Play the randomly selected SFX
+            soundManager.PlaySFX(randomSFX);
+            
             Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
             if (variableComponent.GetCurrentHealth() <= 0)
@@ -166,6 +179,12 @@ public class TurretRocket : MonoBehaviour, ITurret
     private void DestroyTurret()
     {
         Debug.Log("Turret destroyed!");
+        if (explosionVFX != null)
+        {
+            ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            Destroy(vfxInstance.gameObject, 4f);
+        }
+        soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

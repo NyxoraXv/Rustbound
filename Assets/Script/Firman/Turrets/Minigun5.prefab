@@ -29569,7 +29569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnTurret: 1
   isMinigun: 1
   directionX: 0
   directionY: -90
@@ -29604,6 +29603,8 @@ MonoBehaviour:
   rapidFireDelay: 0.15
   gunEffect: {fileID: 3459709860018964526}
   targetingMode: 0
+  explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
 --- !u!114 &1039754459946675413
 MonoBehaviour:
   m_ObjectHideFlags: 0
