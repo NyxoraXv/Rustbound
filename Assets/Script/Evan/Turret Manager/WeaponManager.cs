@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TurretManager : MonoBehaviour
 {
-    public static WeaponManager Instance { get; private set; }
+    public static TurretManager Instance { get; private set; }
 
     public WeaponDatabase weaponDatabase; // Assign this in the Inspector.
 
