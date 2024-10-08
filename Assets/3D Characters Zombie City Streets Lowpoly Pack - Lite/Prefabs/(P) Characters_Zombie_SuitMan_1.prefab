@@ -1422,6 +1422,10 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 3
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1032
 --- !u!114 &2889534188086988076
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -197,16 +197,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: (P) Characters_Zombie_SuitMan_1
       objectReference: {fileID: 0}
-    - target: {fileID: 7328410523625545977, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
-        type: 3}
-      propertyPath: attactRange
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328410523625545977, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
-        type: 3}
-      propertyPath: targetMask.m_Bits
-      value: 1032
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1555,6 +1545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997289696262974397, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: maxHealth
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
