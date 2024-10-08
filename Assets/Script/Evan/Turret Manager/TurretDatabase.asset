@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e47a580651719c44b9d44962eded6ae, type: 3}
   m_Name: TurretDatabase
   m_EditorClassIdentifier: 
-  weapons: []
+  turrets:
+  - Name: adasda
+    Prefab: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d,
+      type: 3}
+    Image: {fileID: 21300000, guid: 19373cad3483e834e84eff28fc851ea0, type: 3}
+    ID: 0
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: dasd
+    Prefab: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d,
+      type: 3}
+    Image: {fileID: 21300000, guid: 19373cad3483e834e84eff28fc851ea0, type: 3}
+    ID: 2
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
