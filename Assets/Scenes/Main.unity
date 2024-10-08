@@ -15845,6 +15845,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!114 &1957463234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16033,7 +16034,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 334.0811}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1990403123
 MonoBehaviour:
@@ -16993,13 +16994,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2121871125}
+  - component: {fileID: 2121871126}
   m_Layer: 7
   m_Name: Turret Blueprint Market
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2121871125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17023,6 +17025,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2121871126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121871124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4522092000af2c64dba4107551b21132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponContainerPrefab: {fileID: 0}
+  weaponContainerParent: {fileID: 0}
+  posAddition: {x: 0, y: 0}
 --- !u!1001 &2126302772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17463,12 +17480,12 @@ PrefabInstance:
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 984.1655
+      value: 624.1159
       objectReference: {fileID: 0}
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 334.0811
+      value: 714.0389
       objectReference: {fileID: 0}
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}
@@ -17508,12 +17525,12 @@ PrefabInstance:
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 492.08276
+      value: 312.05795
       objectReference: {fileID: 0}
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167.04054
+      value: -357.01944
       objectReference: {fileID: 0}
     - target: {fileID: 754024679749304545, guid: e90a3c97c624a394a9e560656026ea57,
         type: 3}

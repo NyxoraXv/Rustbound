@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.895}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 155.32114, y: -245.3742}
+  m_AnchoredPosition: {x: 125.72116, y: -242.57428}
   m_SizeDelta: {x: 67.5537, y: 42.4167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8180308871359020347
@@ -897,7 +897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754024679749304545}
-  - component: {fileID: 4494748689896401028}
+  - component: {fileID: 3345569419893200492}
   m_Layer: 7
   m_Name: Turret Container
   m_TagString: Untagged
@@ -925,7 +925,7 @@ RectTransform:
   m_AnchoredPosition: {x: 492.08276, y: -167.04054}
   m_SizeDelta: {x: 984.1655, y: 334.0811}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4494748689896401028
+--- !u!114 &3345569419893200492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -934,14 +934,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3243420370473635203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84ab6c4e10971af49ae7bfb23ce1cbd7, type: 3}
+  m_Script: {fileID: 11500000, guid: bd18bb4e4c34e6f4280a9f7eee87d5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 3238248500304816053}
   price: {fileID: 3015368617034158565}
-  damage: {fileID: 8406991181043895448}
-  rateOfFire: {fileID: 932288374096225212}
-  accuracy: {fileID: 42212219993445879}
+  damage: {fileID: 6937229433609003713}
+  rateOfFire: {fileID: 2788617538682970174}
+  accuracy: {fileID: 1278229551763673924}
   icon: {fileID: 4048434143740722519}
   buyButton: {fileID: 8607370324506178093}
 --- !u!1 &4291059936918795551
@@ -983,7 +983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: -180}
+  m_AnchoredPosition: {x: -24.333, y: -0.000011444}
   m_SizeDelta: {x: 575.45, y: 680.0189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1948364919001266529
@@ -1619,7 +1619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.011}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196.6, y: -301.8}
+  m_AnchoredPosition: {x: 167, y: -299}
   m_SizeDelta: {x: 313.0079, y: 134.2849}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1094968825682229797
