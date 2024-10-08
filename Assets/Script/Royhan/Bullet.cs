@@ -21,9 +21,13 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
         }
+        else
+        {
+            gameObject.SetActive(false);
+
+        }
         Debug.Log("destroy");
         // Destroy(gameObject);
-        gameObject.SetActive(false);
         // }
     }
 }

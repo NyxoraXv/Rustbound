@@ -52,7 +52,7 @@ public class VariableComponent : MonoBehaviour
 
 
     // Handle the enemy death.
-    private void Die()
+    protected virtual void Die()
     {
         // Add death logic here (e.g., play an animation, drop loot, etc.)
         Destroy(gameObject);  // Destroy the object when it dies.

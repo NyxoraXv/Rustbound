@@ -567,6 +567,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 2889534188086988076, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3047155074783520386, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1437,6 +1442,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.00000022351742
       objectReference: {fileID: 0}
+    - target: {fileID: 7328410523625545977, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7412596883055478076, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1717,7 +1727,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.044462115
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2889534188086988076, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3013,6 +3024,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
+      propertyPath: speed
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
       propertyPath: shootForce
       value: 80
       objectReference: {fileID: 0}
@@ -3071,7 +3092,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7997289696262974397, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7997289696262974397, guid: c529607493801d34fba5de493b0377f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
