@@ -176,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Terapkan rotasi baru yang sudah dibatasi
             rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
+            Debug.Log(Quaternion.Euler(eulerRotation));
 
             if (moveDirection != Vector3.zero)
             {

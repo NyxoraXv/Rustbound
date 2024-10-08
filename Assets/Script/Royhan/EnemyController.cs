@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
     private Round round; // Reference to the Round class
     private Animator animator;
     private int attackParam = Animator.StringToHash("Attack");
+    private int caseParam = Animator.StringToHash("Casing");
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
@@ -106,6 +107,16 @@ public class EnemyController : MonoBehaviour
         }
 
         if (navMeshAgent.velocity != Vector3.zero)
+        {
+            animator.SetBool(attackParam, false);
+            animator.SetBool(caseParam, true);
+        }
+        else
+        {
+            animator.SetBool(caseParam, false);
+        }
+
+        if (!detectPlayer)
         {
             animator.SetBool(attackParam, false);
         }

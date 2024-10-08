@@ -747,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 10
+  maxHealth: 200
 --- !u!95 &6666946901883765497
 Animator:
   serializedVersion: 5
@@ -766,7 +766,8 @@ Animator:
   m_StabilizeFeet: 0
   m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
     are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Idle'"
+    by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Idle'\n\tFrom
+    animation clip 'Idle'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
