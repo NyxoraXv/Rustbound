@@ -130,11 +130,15 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        else
+        {
+            _movementInput = Vector2.zero;
+        }
 
         if (_movementInput.magnitude < 1f)
         {
             _movementInput = Vector2.zero;
-        }   
+        }
         Debug.Log(_movementInput);
 
         // if (context.canceled)
@@ -171,18 +175,18 @@ public class PlayerMovement : MonoBehaviour
             Vector3 eulerRotation = toRotation.eulerAngles;
 
             // Biarkan rotasi Y tidak terbatas atau clamp ke rentang 0 hingga 360 jika diperlukan
-            eulerRotation.y = Mathf.Repeat(eulerRotation.y, 360);
+            // eulerRotation.y *= 1.6f;
 
 
             // Terapkan rotasi baru yang sudah dibatasi
-            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
-            Debug.Log(Quaternion.Euler(eulerRotation));
+            rotateBody.rotation = Quaternion.Euler(eulerRotation);
+            // Debug.Log(Quaternion.Euler(eulerRotation));
 
             if (moveDirection != Vector3.zero)
             {
                 transform.rotation = Quaternion.Slerp(
-                    transform.rotation, 
-                    Quaternion.LookRotation(moveDirection), 
+                    transform.rotation,
+                    Quaternion.LookRotation(moveDirection),
                     rotationSpeed * Time.deltaTime
                 );
                 // leftFoot.rotation = Quaternion.Slerp(
@@ -202,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
             // Invoke("DeactiveShoot", 0.35f);
             // DeactiveShoot();
             animator.SetTrigger(fireParam);
-            
+
         }
     }
     public void Shoot()
