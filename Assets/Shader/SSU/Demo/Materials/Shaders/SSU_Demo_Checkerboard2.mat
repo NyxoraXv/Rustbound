@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - ETC1_EXTERNAL_ALPHA
-  - _ENABLECHECKERBOARD_ON
+  - _ENABLESINESCALE_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
   - _STRONGTINTCONTRASTTOGGLE_ON
@@ -225,7 +225,7 @@ Material:
     - _EnableBrightness: 0
     - _EnableBurn: 0
     - _EnableCamouflage: 0
-    - _EnableCheckerboard: 1
+    - _EnableCheckerboard: 0
     - _EnableColorReplace: 0
     - _EnableContrast: 0
     - _EnableCustomFade: 0
@@ -265,7 +265,7 @@ Material:
     - _EnableSineGlow: 0
     - _EnableSineMove: 0
     - _EnableSineRotate: 0
-    - _EnableSineScale: 0
+    - _EnableSineScale: 1
     - _EnableSmoke: 0
     - _EnableSmoothPixelArt: 0
     - _EnableSourceAlphaDissolve: 0
@@ -660,7 +660,7 @@ Material:
     - _UVRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _UVScalePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _UVScaleScale: {r: 1, g: 1, b: 0, a: 0}
-    - _UVScrollSpeed: {r: 0.2, g: 0, b: 0, a: 0}
+    - _UVScrollSpeed: {r: 0.2, g: 6.62, b: 0, a: 0}
     - _WorldTilingOffset: {r: 0, g: 0, b: 0, a: 0}
     - _WorldTilingScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
