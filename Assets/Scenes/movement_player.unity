@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: (P) Characters_Zombie_SuitMan_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7328410523625545977, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: attactRange
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
