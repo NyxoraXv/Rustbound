@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPos: {fileID: 6683349840718785332}
-  rotateBody: {fileID: 5338675373124951838}
+  rotateBody: {fileID: 6683349840718785332}
   bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
   shootForce: 120
@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c220ec525af56d94684d8b57297e3e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4.3
   rotationSpeed: 5
   maxHealth: 200
 --- !u!95 &6666946901883765497
