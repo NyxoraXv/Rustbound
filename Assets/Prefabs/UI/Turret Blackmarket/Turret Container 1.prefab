@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 754024679749304545}
   - component: {fileID: 3345569419893200492}
   m_Layer: 7
-  m_Name: Turret Container
+  m_Name: Turret Container 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -920,10 +920,10 @@ RectTransform:
   - {fileID: 3160991758773124598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 492.08276, y: -167.04054}
-  m_SizeDelta: {x: 984.1655, y: 334.0811}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 644.7429, y: 787.2157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3345569419893200492
 MonoBehaviour:
@@ -939,9 +939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 3238248500304816053}
   price: {fileID: 3015368617034158565}
-  damage: {fileID: 6937229433609003713}
-  rateOfFire: {fileID: 2788617538682970174}
-  accuracy: {fileID: 1278229551763673924}
+  damage: {fileID: 8406991181043895448}
+  rateOfFire: {fileID: 932288374096225212}
+  accuracy: {fileID: 42212219993445879}
   icon: {fileID: 4048434143740722519}
   buyButton: {fileID: 8607370324506178093}
 --- !u!1 &4291059936918795551
