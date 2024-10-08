@@ -105,10 +105,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (!shoot)
-        {
-            HandleRotation(moveDirection);
-        }
+        // if (!shoot)
+        // {
+        HandleRotation(moveDirection);
+        // }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -116,7 +116,8 @@ public class PlayerMovement : MonoBehaviour
         // AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         // if (currentState.IsName("State"))
         // // if (context.performed)
-        // {
+        if (!shoot)
+        {
             Debug.Log("tag ");
             _movementInput = context.ReadValue<Vector2>();
             // Debug.Log("move " + _movementInput);
@@ -128,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 _rigidbody.freezeRotation = true;
             }
 
-        // }
+        }
 
         if (_movementInput.magnitude < 1f)
         {
@@ -198,31 +199,36 @@ public class PlayerMovement : MonoBehaviour
         {
             shoot = true;
             // Invoke("DeactiveShoot", 0.35f);
-            DeactiveShoot();
+            // DeactiveShoot();
             animator.SetTrigger(fireParam);
-            GameObject bulletPush = GetPooledBullet();
-            if (bulletPush != null)
-            {
-
-                // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
-                // print("dir" + direction);
-                // print("target" + targetPosition);
-                // print("hit" + hit.point.normalized);
-
-                bulletPush.transform.position = shootPos.position;
-
-                // Mengatur rotasi peluru agar tidak mengubah sumbu Y
-                bulletPush.transform.rotation = Quaternion.LookRotation(direction);
-
-                bulletPush.SetActive(true);
-                bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
-                bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
-
-                StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
-            }
+            
         }
     }
-    private void DeactiveShoot() => shoot = false;
+    public void Shoot()
+    {
+        GameObject bulletPush = GetPooledBullet();
+        if (bulletPush != null)
+        {
+
+            // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
+            // print("dir" + direction);
+            // print("target" + targetPosition);
+            // print("hit" + hit.point.normalized);
+
+            bulletPush.transform.position = shootPos.position;
+
+            // Mengatur rotasi peluru agar tidak mengubah sumbu Y
+            bulletPush.transform.rotation = Quaternion.LookRotation(direction);
+
+            bulletPush.SetActive(true);
+            bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
+            bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
+
+            StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
+        }
+    }
+
+    public void DeactiveShoot() => shoot = false;
 
     private GameObject GetPooledBullet()
     {

@@ -1546,6 +1546,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6666946901883765497, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Idle'\n\tFrom
+        animation clip 'Idle'"
+      objectReference: {fileID: 0}
     - target: {fileID: 7997289696262974397, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
       propertyPath: maxHealth
