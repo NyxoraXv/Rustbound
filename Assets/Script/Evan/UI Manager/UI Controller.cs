@@ -12,19 +12,19 @@ public class UIController : MonoBehaviour
     private int currentState;
     public GameObject HUD, WeaponMarket, TurretMarket, Inventory, PlacementUI;
 
+    private bool isHUDAnimating = false; // Track if the HUD is currently animating
+
     private void Start()
     {
-        HUDSetactive(false);
-
-        DOVirtual.DelayedCall(5f, () => { HUDSetactive(true); });
         globalVolume.profile.TryGet<Vignette>(out vignette);
         globalVolume.profile.TryGet<DepthOfField>(out depthOfField);
     }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.O)) {
-        setUIState(currentState+1);
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            setUIState(currentState + 1);
         }
     }
 
@@ -58,14 +58,23 @@ public class UIController : MonoBehaviour
         depthOfField.focusDistance.value = targetFocusDistance;
     }
 
-    public void HUDSetactive(bool setActive)
+    public IEnumerator HUDSetactive(bool setActive)
     {
+        if (isHUDAnimating) yield break; // Exit if the HUD is already animating
+
+        isHUDAnimating = true; // Mark HUD as animating
+
         if (!setActive)
         {
             HUD.transform.DOScale(2f, 1f).OnStart(() =>
             {
-                HUD.GetComponent<CanvasGroup>().DOFade(0f, 0.2f);
-            }).OnComplete(() => { HUD.SetActive(false); });
+                HUD.GetComponent<CanvasGroup>().DOFade(0f, 1f);
+            }).OnComplete(() =>
+            {
+                HUD.SetActive(false);
+                isHUDAnimating = false; // Reset the animating flag
+            });
+            yield return new WaitForSeconds(1f); // Wait for the scaling animation to finish
         }
         else
         {
@@ -73,7 +82,11 @@ public class UIController : MonoBehaviour
             HUD.transform.DOScale(1f, 1f).OnStart(() =>
             {
                 HUD.GetComponent<CanvasGroup>().DOFade(1f, 2f);
+            }).OnComplete(() =>
+            {
+                isHUDAnimating = false; // Reset the animating flag
             });
+            yield return new WaitForSeconds(2f); // Wait for the fade-in animation to finish
         }
     }
 
@@ -91,6 +104,12 @@ public class UIController : MonoBehaviour
 
     public void setUIState(int stateID)
     {
+        // If HUD is animating, wait for it to finish
+        if (isHUDAnimating)
+        {
+            return; // Prevent state change if HUD is animating
+        }
+
         currentState = stateID;
 
         // Deactivate global volume if outside states 1, 2, or 3
@@ -99,48 +118,49 @@ public class UIController : MonoBehaviour
             triggerGlobalVolume(false);
         }
 
+        // Start the HUD animation based on the current state
         switch (currentState)
         {
             case 0:
-                HUD.SetActive(true);
+                StartCoroutine(HUDSetactive(true));
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 1:
-                triggerGlobalVolume(true);  // Trigger for state 1
-                HUD.SetActive(false);
+                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
+                triggerGlobalVolume(true); // Trigger for state 1
                 WeaponMarket.SetActive(true);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 2:
-                triggerGlobalVolume(true);  // Trigger for state 2
-                HUD.SetActive(false);
+                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
+                triggerGlobalVolume(true); // Trigger for state 2
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(true);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 3:
-                triggerGlobalVolume(true);  // Trigger for state 3
-                HUD.SetActive(false);
+                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
+                triggerGlobalVolume(true); // Trigger for state 3
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(true);
                 PlacementUI.SetActive(false);
                 break;
             case 4:
-                HUD.SetActive(false);
+                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(true);
                 break;
             default:
-                HUD.SetActive(true);
+                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
@@ -148,5 +168,4 @@ public class UIController : MonoBehaviour
                 break;
         }
     }
-
 }
