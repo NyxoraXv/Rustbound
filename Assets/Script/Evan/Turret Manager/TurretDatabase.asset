@@ -13,20 +13,83 @@ MonoBehaviour:
   m_Name: TurretDatabase
   m_EditorClassIdentifier: 
   turrets:
-  - Name: adasda
-    Prefab: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d,
+  - Name: T-132
+    Prefab: {fileID: 6661780400189700398, guid: 2a5b8945a167ee34c91ba83e0f6251e4,
       type: 3}
-    Image: {fileID: 21300000, guid: 19373cad3483e834e84eff28fc851ea0, type: 3}
+    Image: {fileID: 21300000, guid: b920d1343090f954b9f5a89c3b6e1dde, type: 3}
     ID: 0
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
     price: 0
-  - Name: dasd
-    Prefab: {fileID: 4619081630930541923, guid: 7fce93322762b32499985fcaaa43cb0d,
+  - Name: T-145
+    Prefab: {fileID: 1287796884402699263, guid: 8085d418f499a214da33871be37f907f,
       type: 3}
-    Image: {fileID: 21300000, guid: 19373cad3483e834e84eff28fc851ea0, type: 3}
+    Image: {fileID: 21300000, guid: 7e78bf05580eb214b95713032daa330e, type: 3}
+    ID: 1
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: RAY-200
+    Prefab: {fileID: 1225695144971036340, guid: eaa51df6f2f4f6f47899b9b89b482e8c,
+      type: 3}
+    Image: {fileID: 21300000, guid: e8df3ed2dfe0ad54db81ae53fe1a7875, type: 3}
     ID: 2
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: RAY-300
+    Prefab: {fileID: 5554163016575847230, guid: e44b3856662d3c343af5a8b6601a37a0,
+      type: 3}
+    Image: {fileID: 21300000, guid: 3b6081b43ab563e41b4d8ea5910d336f, type: 3}
+    ID: 3
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: L-5000
+    Prefab: {fileID: 4357588046153101256, guid: c8e85bc6f0885e745994cbdd88fd9705,
+      type: 3}
+    Image: {fileID: 21300000, guid: f6bbc5e9ef8862840a3a024c2284af66, type: 3}
+    ID: 4
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: L-10000
+    Prefab: {fileID: 6570756096919733836, guid: f03fdb412d3df3e42aa05027522d91a5,
+      type: 3}
+    Image: {fileID: 21300000, guid: 7013c1869bf92ee4d8d9f359a27f95f6, type: 3}
+    ID: 5
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: GT-GUN 1988
+    Prefab: {fileID: 8267046036068752686, guid: d20d00aed4ac1c5458ba1b7e03db6b21,
+      type: 3}
+    Image: {fileID: 21300000, guid: d33154d7d48453841acc84b8f8138799, type: 3}
+    ID: 6
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: GT-GUN 2004
+    Prefab: {fileID: 1901075721596580542, guid: 16bacba3d4c770a46a578c61a810788a,
+      type: 3}
+    Image: {fileID: 21300000, guid: 2053590585dbd684b8ac548ee49934b5, type: 3}
+    ID: 7
+    Damage: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 0
+  - Name: GT-GUN 2015
+    Prefab: {fileID: 9215277367735509922, guid: b5e88f26208f3c94db4e97f5a1e91d89,
+      type: 3}
+    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    ID: 8
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
