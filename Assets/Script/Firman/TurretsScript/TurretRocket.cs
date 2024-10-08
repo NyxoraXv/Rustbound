@@ -31,6 +31,8 @@ public class TurretRocket : MonoBehaviour, ITurret
     private float nextTargetUpdateTime = 0f;
     private bool isPreviewObject;
 
+    private SoundManager soundManager;
+
     void Start()
     {
         // Initialize the VariableComponent if it's on the same GameObject
@@ -41,6 +43,8 @@ public class TurretRocket : MonoBehaviour, ITurret
         {
             Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
+
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
     
     void Update()
@@ -140,6 +144,7 @@ public class TurretRocket : MonoBehaviour, ITurret
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
+                soundManager.PlaySFX(3);
             }
         }
     }

@@ -102,6 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
+      propertyPath: fireCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105757630462839571, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
       propertyPath: maxSpawnTurret
       value: 2
       objectReference: {fileID: 0}

@@ -17,9 +17,16 @@ public class ProjectileController : MonoBehaviour
     public float impactDamage = 10f;
     private Transform target;
 
+    private SoundManager soundManager;
+
     public void SetTarget(Transform target)
     {
         this.target = target;
+    }
+
+    void Start()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     void Update()
@@ -63,6 +70,7 @@ public class ProjectileController : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(explosionDamage, bulletType);
+                soundManager.PlaySFX(4);
             }
         }
 

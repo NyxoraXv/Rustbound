@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 
 public class TurretLaserAdvance : MonoBehaviour, ITurret
 {
-    [Header ("Max Spawn Turret")]
+    [Header("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
@@ -39,6 +39,8 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
     private float nextTargetUpdateTime = 0f;
     private bool isPreviewObject;
 
+    private SoundManager soundManager;
+
     void Start()
     {
         // Get the VariableComponent attached to the turret
@@ -48,6 +50,8 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
         {
             Debug.LogError("VariableComponent not found on turret!");
         }
+
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     void Update()
@@ -156,6 +160,7 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
         if (projectileController != null)
         {
             projectileController.SetTarget(target);
+            soundManager.PlaySFX(1);
         }
     }
 
@@ -193,7 +198,6 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
 
         yield return new WaitForSeconds(lastShoot);
 
-
         if (target != null && lastShootBeforePause != null)
         {
             AimAtTarget();
@@ -202,6 +206,7 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
+                soundManager.PlaySFX(2);
             }
         }
 
@@ -212,7 +217,7 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
 
         canFire = true;
     }
-    
+
     public void TakeDamage(float damage)
     {
         if (variableComponent != null)

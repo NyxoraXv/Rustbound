@@ -46,6 +46,7 @@ public class TurretBasic : MonoBehaviour, ITurret
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool isPreviewObject;
+    private SoundManager soundManager;
 
     void Start()
     {
@@ -82,6 +83,8 @@ public class TurretBasic : MonoBehaviour, ITurret
         {
             Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
+
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     void Update()
@@ -235,6 +238,7 @@ public class TurretBasic : MonoBehaviour, ITurret
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
+                soundManager.PlaySFX(0);
             }
         }
     }

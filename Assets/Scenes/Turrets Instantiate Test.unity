@@ -671,6 +671,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &236617989
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +813,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2245081990711482829, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: laserSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e4ee695997a4ec84bbadd5cd593b2212, type: 3}
+    - target: {fileID: 2245081990711482829, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: fireCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3901723522905647971, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
       propertyPath: m_Name
@@ -1475,6 +1486,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &479943537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1627,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &483121272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +1970,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &574670442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2111,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &686383871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2358,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &706483017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2530,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &814592728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,6 +3150,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &1214663601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,6 +3425,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 1
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &1291900306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3566,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &1363990735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,6 +4057,75 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
+--- !u!1001 &1689057352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.6648602
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.16605633
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.525552
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374466941428863180, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945484923296553265, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b0328222d339e1418722c947f9e4231, type: 3}
 --- !u!1 &1692203467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,6 +4430,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &1740509463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,6 +4736,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1 &1941988984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +4908,7 @@ MonoBehaviour:
   damageDealt: 10
   resistances: 0
   resistanceMultiplier: 0.5
+  attactRange: 5
 --- !u!1001 &4445492442632237673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5099,3 +5191,4 @@ SceneRoots:
   - {fileID: 1363990736}
   - {fileID: 58105469}
   - {fileID: 500861966}
+  - {fileID: 1689057352}
