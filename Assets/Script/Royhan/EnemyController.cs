@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
-
+    public LayerMask targetMask;
     private VariableComponent variableComponent;
     private GameObject targetedEntity;
     private NavMeshAgent navMeshAgent;
@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
             navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
         }
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetedEntity.layer);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
 
         foreach (Collider collider in hitColliders)
         {

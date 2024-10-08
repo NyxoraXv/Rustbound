@@ -14657,7 +14657,7 @@ GameObject:
   - component: {fileID: 2990582322009449133}
   - component: {fileID: 3777346532333844135}
   - component: {fileID: 2916955276603784629}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Minigun5
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -14693,7 +14693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9f70ab6c3272f428319f1d3f51769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnTurret: 2
   isMinigun: 1
   directionX: 0
   directionY: -90

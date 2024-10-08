@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 6582540289449329071}
   - component: {fileID: 8503405518585439304}
   - component: {fileID: 2511604692408965600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun3
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee391407971a014b933f2811f637329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnTurret: 3
   isFollowTuretHead: 0
   directionX: -90
   directionY: 260
