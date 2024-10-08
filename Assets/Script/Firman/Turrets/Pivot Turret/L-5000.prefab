@@ -95,6 +95,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartingMechanism1
       objectReference: {fileID: 0}
+    - target: {fileID: 3591375948646511082, guid: aeb69ac83ae139545803cffd10cff942,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7471677859842510385, guid: aeb69ac83ae139545803cffd10cff942,
         type: 3}
       propertyPath: maxSpawnTurret

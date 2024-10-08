@@ -28,14 +28,16 @@ public class EnemyController : MonoBehaviour
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
-
+    public LayerMask targetMask;
     private VariableComponent variableComponent;
     private GameObject targetedEntity;
     private NavMeshAgent navMeshAgent;
     private Round round; // Reference to the Round class
-
+    private Animator animator;
+    private int attackParam = Animator.StringToHash("Attack");
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
+    private bool detectPlayer = false;
 
     private void Start()
     {
@@ -67,7 +69,10 @@ public class EnemyController : MonoBehaviour
             StartCoroutine(RegenerateHealth());
         }
 
-
+        if (TryGetComponent<Animator>(out Animator anim))
+        {
+            animator = anim;
+        }
     }
 
     private void Update()
@@ -82,8 +87,8 @@ public class EnemyController : MonoBehaviour
             navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
         }
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetedEntity.layer);
-
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
+        detectPlayer = false;
         foreach (Collider collider in hitColliders)
         {
             if (collider.gameObject == targetedEntity)
@@ -91,10 +96,18 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("collide");
                 if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
                 {
-                    vc.TakeDamage(damageDealt);
+                    detectPlayer = true;
+                    animator.SetBool(attackParam, true);
+                    // vc.TakeDamage(damageDealt);
                     Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
                 }
+           
             }
+        }
+
+        if (navMeshAgent.velocity != Vector3.zero)
+        {
+            animator.SetBool(attackParam, false);
         }
     }
 
@@ -117,18 +130,18 @@ public class EnemyController : MonoBehaviour
         return nearestEntity; // Returns the nearest entity or null if none found
     }
 
-    // public void Attack()
-    // {
-    //     if (targetedEntity != null)
-    //     {
-    //         VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
-    //         if (targetHealth != null)
-    //         {
-    //             targetHealth.TakeDamage(damageDealt); // Apply damage
-    //             Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
-    //         }
-    //     }
-    // }
+    public void Attack()
+    {
+        if (targetedEntity != null)
+        {
+            VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
+            if (targetHealth != null)
+            {
+                targetHealth.TakeDamage(damageDealt); // Apply damage
+                Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+            }
+        }
+    }
 
     // Method to take damage, checking for resistance
     public void TakeDamage(float damage, ProjectileController.BulletType bulletType)

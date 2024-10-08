@@ -55,6 +55,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shocker5
       objectReference: {fileID: 0}
+    - target: {fileID: 3901723522905647971, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3901723522905683779, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
       propertyPath: m_LocalPosition.x

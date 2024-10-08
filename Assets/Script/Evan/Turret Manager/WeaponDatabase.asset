@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd330c2501c9b2449e34000fdad83eb, type: 3}
+  m_Name: WeaponDatabase
+  m_EditorClassIdentifier: 
+  weapons:
+  - weaponName: AK47
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: 26785d11fa995e546ad659a92a8fc051, type: 3}
+    weaponID: 0
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: -20
+  - weaponName: Benelli M4
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: a7c56146d54f8b9468a0db3acc27f07e, type: 3}
+    weaponID: 1
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: -20
+  - weaponName: M4
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: 7c0de5710a5e6d34ea334db8da5af75f, type: 3}
+    weaponID: 2
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: 0
+  - weaponName: M107
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: 00bf065747b717b4c8a1a3ddb4c702f8, type: 3}
+    weaponID: 3
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: 0
+  - weaponName: M249
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
+    weaponID: 4
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: 0
+  - weaponName: M1911
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: b11e4b82e68ec064eb658bc08c55f053, type: 3}
+    weaponID: 5
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: 1500
+  - weaponName: UZI
+    weaponPrefab: {fileID: 0}
+    weaponImage: {fileID: 21300000, guid: 212288eae649a2449b52d773880d4e65, type: 3}
+    weaponID: 6
+    weaponDamage: 0
+    weaponRateOfFire: 0
+    weaponAccuracy: 0
+    price: 2500
