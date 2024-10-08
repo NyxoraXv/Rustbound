@@ -23,6 +23,9 @@ public class TurretCone : MonoBehaviour, ITurret
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
 
+    [Header("Explosion After Dead")]
+    public ParticleSystem explosionVFX;
+
     private Transform target;
     private float lastFireTime;
 
@@ -165,6 +168,12 @@ public class TurretCone : MonoBehaviour, ITurret
     private void DestroyTurret()
     {
         Debug.Log("Turret destroyed!");
+        if (explosionVFX != null)
+        {
+            ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            Destroy(vfxInstance.gameObject, 4f);
+        }
+        soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
