@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class TurretCone : MonoBehaviour, ITurret
 {
-    [Header ("Max Spawn Turret")]
+    [Header("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
@@ -30,19 +30,22 @@ public class TurretCone : MonoBehaviour, ITurret
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool isPreviewObject;
+    private SoundManager soundManager;
 
     void Start()
     {
         // Initialize the VariableComponent if it's on the same GameObject
         variableComponent = GetComponent<VariableComponent>();
-        
+
         // Optionally, log an error if the component is missing
         if (variableComponent == null)
         {
             Debug.LogError("VariableComponent is missing from the Turret GameObject!");
         }
+
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
-    
+
     void Update()
     {
         if (Time.time >= nextTargetUpdateTime)
@@ -140,6 +143,7 @@ public class TurretCone : MonoBehaviour, ITurret
             if (projectileController != null)
             {
                 projectileController.SetTarget(target);
+                soundManager.PlaySFX(3);
             }
         }
     }

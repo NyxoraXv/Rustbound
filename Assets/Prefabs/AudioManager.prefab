@@ -52,11 +52,11 @@ MonoBehaviour:
   SFXSource: {fileID: 2273756373308054985}
   Background: {fileID: 0}
   SFXClips:
-  - {fileID: 8300000, guid: f7d3a3ee232ecb246a3b982db825e7d6, type: 3}
+  - {fileID: 8300000, guid: a166ce9914ac5f04cbe2781444cc6293, type: 3}
   - {fileID: 8300000, guid: 3e3e863b7bb222242852879a34215ba1, type: 3}
-  - {fileID: 8300000, guid: 938f2602cd3249d408c9c820a85dd7e3, type: 3}
-  - {fileID: 8300000, guid: fc59a874157a056489d86d59ba18b9b6, type: 3}
-  - {fileID: 8300000, guid: 4e350f24b163bcf409b4f6b0a4f1f0a9, type: 3}
+  - {fileID: 8300000, guid: fbc203f605fc6d1469f1e9ba6afebfe7, type: 3}
+  - {fileID: 8300000, guid: 2b1c5dcdf18d7e64ea8d53f1283f9d8c, type: 3}
+  - {fileID: 8300000, guid: 0a6d2ff367ac40a4c822226ac95abfa3, type: 3}
 --- !u!82 &2604704319275419775
 AudioSource:
   m_ObjectHideFlags: 0
