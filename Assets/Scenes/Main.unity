@@ -3303,12 +3303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de865cdfce2c2674f8be07ee18b49666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 332187629}
-  parent: {fileID: 1546074381}
-  moveDistance: 2190
-  midDistance: 1492
-  moveDuration: 5
-  startPoint: {x: 0, y: 735, z: 0}
 --- !u!114 &332187631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6438,7 +6432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &721395152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8518,12 +8512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de865cdfce2c2674f8be07ee18b49666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 933468465}
-  parent: {fileID: 1546074381}
-  moveDistance: 2190
-  midDistance: 1492
-  moveDuration: 5
-  startPoint: {x: 0, y: 735, z: 0}
 --- !u!1 &948368820
 GameObject:
   m_ObjectHideFlags: 0
@@ -9096,7 +9084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1004077067
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10968,6 +10956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6e041c7dc347e47a8b6a1bdcc03ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalVolume: {fileID: 832575518}
   HUD: {fileID: 1004077066}
   WeaponMarket: {fileID: 721395151}
   TurretMarket: {fileID: 2121871124}
@@ -12922,12 +12911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de865cdfce2c2674f8be07ee18b49666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 0}
-  parent: {fileID: 0}
-  moveDistance: 10
-  midDistance: 0
-  moveDuration: 2
-  startPoint: {x: 0, y: 0, z: 0}
 --- !u!4 &1542429071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 636cb627739652c418fcc4f683a138b1,
