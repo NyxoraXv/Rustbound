@@ -250,6 +250,16 @@ public class TurretBasic : MonoBehaviour, ITurret
         if (variableComponent != null)
         {
             variableComponent.TakeDamage(damage);
+
+            int[] sfxOptions = { 6, 7, 8 };
+
+            // Pick a random SFX
+            int randomIndex = Random.Range(0, sfxOptions.Length);
+            int randomSFX = sfxOptions[randomIndex];
+
+            // Play the randomly selected SFX
+            soundManager.PlaySFX(randomSFX);
+            
             Debug.Log($"TurretMinigun took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
             if (variableComponent.GetCurrentHealth() <= 0)

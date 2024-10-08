@@ -225,6 +225,15 @@ public class TurretLaser : MonoBehaviour, ITurret
         {
             variableComponent.TakeDamage(damage);
 
+            int[] sfxOptions = { 6, 7, 8 };
+
+            // Pick a random SFX
+            int randomIndex = Random.Range(0, sfxOptions.Length);
+            int randomSFX = sfxOptions[randomIndex];
+
+            // Play the randomly selected SFX
+            soundManager.PlaySFX(randomSFX);
+            
             // Optional: Log turret health
             Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
 
