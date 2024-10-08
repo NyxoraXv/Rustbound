@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : VariableComponent
 {
     public bool isBoss = false;
     public float regenerationHealthPerSecond = 10f;
@@ -29,13 +29,14 @@ public class EnemyController : MonoBehaviour
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
     public LayerMask targetMask;
-    private VariableComponent variableComponent;
+    // private VariableComponent variableComponent;
     private GameObject targetedEntity;
     private NavMeshAgent navMeshAgent;
     private Round round; // Reference to the Round class
     private Animator animator;
     private int attackParam = Animator.StringToHash("Attack");
     private int caseParam = Animator.StringToHash("Casing");
+    private int dieParam = Animator.StringToHash("Die");
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
@@ -43,11 +44,11 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         // Get the VariableComponent attached to this GameObject
-        variableComponent = GetComponent<VariableComponent>();
-        if (variableComponent == null)
-        {
-            Debug.LogError("VariableComponent not found on this GameObject.");
-        }
+        // variableComponent = GetComponent<VariableComponent>();
+        // if (variableComponent == null)
+        // {
+        //     Debug.LogError("VariableComponent not found on this GameObject.");
+        // }
 
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
         {
@@ -121,6 +122,12 @@ public class EnemyController : MonoBehaviour
             animator.SetBool(attackParam, false);
         }
     }
+    public void Del () => Destroy(gameObject, 0.2f);
+    protected override void Die ()
+    {
+        navMeshAgent.speed = 0;
+        animator.SetTrigger(dieParam);
+    }
 
     private GameObject FindNearestEntityWithTag(string tag)
     {
@@ -157,26 +164,23 @@ public class EnemyController : MonoBehaviour
     // Method to take damage, checking for resistance
     public void TakeDamage(float damage, ProjectileController.BulletType bulletType)
     {
-        if (variableComponent != null)
+        // Check if the enemy has resistance to the bullet type and apply damage reduction if resistant
+        if (IsResistantTo(bulletType))
         {
-            // Check if the enemy has resistance to the bullet type and apply damage reduction if resistant
-            if (IsResistantTo(bulletType))
-            {
-                damage *= (1 - resistanceMultiplier); // Apply the resistance multiplier
-            }
+            damage *= (1 - resistanceMultiplier); // Apply the resistance multiplier
+        }
 
-            variableComponent.TakeDamage(damage);
+        TakeDamage(damage);
 
-            // Optional: Check if the enemy is dead and handle accordingly
-            if (!IsAlive())
+        // Optional: Check if the enemy is dead and handle accordingly
+        if (!IsAlive())
+        {
+            // Decrease total zombies in the Round
+            if (round != null)
             {
-                // Decrease total zombies in the Round
-                if (round != null)
-                {
-                    round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
-                }
-                Debug.Log("Enemy is dead!");
+                round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
             }
+            Debug.Log("Enemy is dead!");
         }
     }
 
@@ -242,7 +246,7 @@ public class EnemyController : MonoBehaviour
     // Optional: Method to check if the enemy is alive
     public bool IsAlive()
     {
-        return variableComponent != null && variableComponent.GetCurrentHealth() > 0;
+        return GetCurrentHealth() > 0;
     }
 
     private System.Collections.IEnumerator RegenerateHealth()
@@ -260,10 +264,10 @@ public class EnemyController : MonoBehaviour
             }
 
             // Heal the boss if current health is less than max health
-            if (variableComponent.GetCurrentHealth() < variableComponent.GetMaxHealth())
+            if (GetCurrentHealth() < GetMaxHealth())
             {
-                variableComponent.Heal(regenerationHealthPerSecond); // Heal by the specified amount
-                Debug.Log($"Boss healed for {regenerationHealthPerSecond} HP! Current Health: {variableComponent.GetCurrentHealth()}");
+                Heal(regenerationHealthPerSecond); // Heal by the specified amount
+                Debug.Log($"Boss healed for {regenerationHealthPerSecond} HP! Current Health: {GetCurrentHealth()}");
             }
             else
             {

@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 7860219862772561926}
   - component: {fileID: 6893100435387069248}
   m_Layer: 7
-  m_Name: Turret Container
+  m_Name: Weapon Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

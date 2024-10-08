@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : VariableComponent
 {
     [SerializeField] private Transform shootPos;
     [SerializeField] private Transform rotateBody;
@@ -14,17 +14,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
-    private float speed = 5f;
-    private float rotationSpeed = 5f;
     private Transform cameraTransform;
 
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
-    private VariableComponent variableComponent;
 
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
+    private float _speed;
+    private int dieParam = Animator.StringToHash("Die");
     private Vector3 direction;
     private Animator animator;
     private int walkParam = Animator.StringToHash("IsWalk");
@@ -37,14 +36,12 @@ public class PlayerMovement : MonoBehaviour
     {
 
         _rigidbody = GetComponent<Rigidbody>();
-        variableComponent = GetComponent<VariableComponent>();
         animator = GetComponent<Animator>();
 
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
         mainCamera = Camera.main;
 
-        speed = variableComponent.speed;
-        rotationSpeed = variableComponent.rotationSpeed;
+        _speed = speed;
 
         // Inisialisasi pooling
         bulletPool = new List<GameObject>();
@@ -71,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             right.Normalize();
 
             moveDirection = forward * _movementInput.y + right * _movementInput.x;
-            _rigidbody.velocity = new Vector3(moveDirection.x * speed, _rigidbody.velocity.y, moveDirection.z * speed);
+            _rigidbody.velocity = new Vector3(moveDirection.x * _speed, _rigidbody.velocity.y, moveDirection.z * _speed);
 
             // Mengecek apakah player bergerak maju atau mundur
             float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
@@ -110,6 +107,15 @@ public class PlayerMovement : MonoBehaviour
         HandleRotation(moveDirection);
         // }
     }
+    // public void Del () => Destroy(gameObject, 0.2f);
+    protected override void Die ()
+    {
+        Debug.Log("player Die");
+        // Destroy(_rigidbody);
+        Destroy(this);
+        // Destroy
+        animator.SetTrigger(dieParam);
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -130,11 +136,15 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        else
+        {
+            _movementInput = Vector2.zero;
+        }
 
         if (_movementInput.magnitude < 1f)
         {
             _movementInput = Vector2.zero;
-        }   
+        }
         Debug.Log(_movementInput);
 
         // if (context.canceled)
@@ -171,18 +181,18 @@ public class PlayerMovement : MonoBehaviour
             Vector3 eulerRotation = toRotation.eulerAngles;
 
             // Biarkan rotasi Y tidak terbatas atau clamp ke rentang 0 hingga 360 jika diperlukan
-            eulerRotation.y = Mathf.Repeat(eulerRotation.y, 360);
+            // eulerRotation.y *= 1.6f;
 
 
             // Terapkan rotasi baru yang sudah dibatasi
-            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, Quaternion.Euler(eulerRotation), 0.5f);
-            Debug.Log(Quaternion.Euler(eulerRotation));
+            rotateBody.rotation = Quaternion.Euler(eulerRotation);
+            // Debug.Log(Quaternion.Euler(eulerRotation));
 
             if (moveDirection != Vector3.zero)
             {
                 transform.rotation = Quaternion.Slerp(
-                    transform.rotation, 
-                    Quaternion.LookRotation(moveDirection), 
+                    transform.rotation,
+                    Quaternion.LookRotation(moveDirection),
                     rotationSpeed * Time.deltaTime
                 );
                 // leftFoot.rotation = Quaternion.Slerp(
@@ -202,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
             // Invoke("DeactiveShoot", 0.35f);
             // DeactiveShoot();
             animator.SetTrigger(fireParam);
-            
+
         }
     }
     public void Shoot()
@@ -253,12 +263,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            speed = variableComponent.speed + (variableComponent.speed * sprintWalkPercentage / 100);
+            _speed = speed + (speed * sprintWalkPercentage / 100);
             onSprint = true;
         }
         else if (context.canceled)
         {
-            speed = variableComponent.speed;
+            _speed = speed;
             onSprint = false;
         }
     }
