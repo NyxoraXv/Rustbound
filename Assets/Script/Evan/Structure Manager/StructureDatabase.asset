@@ -12,4 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c791379ed86b0524b913857f4dd0cab7, type: 3}
   m_Name: StructureDatabase
   m_EditorClassIdentifier: 
-  structure: []
+  structure:
+  - Name: wqe
+    Prefab: {fileID: 5921367157248738129, guid: f94c577fdd00e594abc50fdff8f3ff17,
+      type: 3}
+    Image: {fileID: 21300000, guid: af9e83bff66613f46a3ffd86dffb95b8, type: 3}
+    ID: 0
+    hp: 0
+    price: 0
+  - Name: we
+    Prefab: {fileID: 6307603911910959352, guid: 03f02d77942baae43ad9474ac479b6d4,
+      type: 3}
+    Image: {fileID: 21300000, guid: 80ee7bcea44532b43b7927ea08405a43, type: 3}
+    ID: 1
+    hp: 0
+    price: 0

@@ -183,7 +183,7 @@ public class TurretCone : MonoBehaviour, ITurret
             ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 4f);
         }
-        soundManager.PlaySFX(5);
+        //soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour
     private WeaponData equippedWeaponSlot1;
     private WeaponData equippedWeaponSlot2;
 
+    [SerializeField] private InventoryUIAnimator UIanim;
+
     public Image weaponSlot1Image; // UI Image for equipped weapon slot 1
     public Image weaponSlot2Image; // UI Image for equipped weapon slot 2
 
@@ -62,6 +64,14 @@ public class WeaponManager : MonoBehaviour
     {
         isSelectingWeapon = true;
         currentSelectionSlot = slot; // Set the current selection slot
+        if(slot == 1)
+        {
+            UIanim.TriggerPrimarySlot(true);
+        }
+        else
+        {
+            UIanim.TriggerSecondarySlot(true);
+        }
         Debug.Log("Entering weapon selection mode for Slot " + slot);
         // Additional UI setup can be done here, such as opening a weapon selection screen
         // Here you might want to show available weapons for selection
@@ -92,6 +102,7 @@ public class WeaponManager : MonoBehaviour
                 equippedWeaponSlot1 = weaponToEquip; // Equip the new weapon
                 weaponSlot1Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 1
                 Debug.Log("Weapon equipped in Slot 1: " + equippedWeaponSlot1.weaponName);
+                
             }
             else if (slot == 2)
             {
@@ -106,6 +117,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             ExitSelectWeapon(); // Exit selection mode after equipping
+
         }
         else
         {
@@ -117,6 +129,8 @@ public class WeaponManager : MonoBehaviour
     public void ExitSelectWeapon()
     {
         isSelectingWeapon = false;
+        UIanim.TriggerPrimarySlot(false);
+        UIanim.TriggerSecondarySlot(false);
         Debug.Log("Exiting weapon selection mode.");
         // Additional UI teardown can be done here, such as closing the weapon selection screen
     }
