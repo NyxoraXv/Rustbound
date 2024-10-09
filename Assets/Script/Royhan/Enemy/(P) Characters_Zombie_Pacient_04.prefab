@@ -1163,10 +1163,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442184458774354411}
   - component: {fileID: 1118881133962216337}
-  - component: {fileID: 1951936835823765395}
   - component: {fileID: -1547555312103795704}
   - component: {fileID: 7315041584615637255}
-  - component: {fileID: -1445128629426152008}
+  - component: {fileID: 7584278672072223587}
+  - component: {fileID: 1951936835823765395}
   m_Layer: 6
   m_Name: (P) Characters_Zombie_Pacient_04
   m_TagString: Enemy
@@ -1212,31 +1212,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1951936835823765395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921367157248738129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 10
-  isBoss: 0
-  regenerationHealthPerSecond: 10
-  currentTargetType: 0
-  damageDealt: 10
-  resistances: 0
-  resistanceMultiplier: 0.5
-  attactRange: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1032
 --- !u!54 &-1547555312103795704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1246,8 +1221,8 @@ Rigidbody:
   m_GameObject: {fileID: 5921367157248738129}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.3
+  m_AngularDrag: 3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1277,17 +1252,17 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_AngularSpeed: 80
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
---- !u!65 &-1445128629426152008
-BoxCollider:
+  m_ObstacleAvoidanceType: 2
+--- !u!136 &7584278672072223587
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1304,9 +1279,36 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.2020638, z: 1}
-  m_Center: {x: 0, y: 1.0491205, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.0944192
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0361291, z: 0}
+--- !u!114 &1951936835823765395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921367157248738129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 10
+  isBoss: 0
+  regenerationHealthPerSecond: 10
+  currentTargetType: 0
+  damageDealt: 10
+  resistances: 0
+  resistanceMultiplier: 0.5
+  attactRange: 3
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1032
 --- !u!1 &5942593079275722547
 GameObject:
   m_ObjectHideFlags: 0

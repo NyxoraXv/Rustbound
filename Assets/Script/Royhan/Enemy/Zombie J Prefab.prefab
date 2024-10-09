@@ -1484,11 +1484,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4235561257354128}
-  - component: {fileID: -3501445626815244834}
   - component: {fileID: -5547661198032788540}
   - component: {fileID: 4928374018308344883}
-  - component: {fileID: -5365309446369483947}
   - component: {fileID: 4137040143076929123}
+  - component: {fileID: 2520230981491879612}
+  - component: {fileID: -3501445626815244834}
   m_Layer: 6
   m_Name: Zombie J Prefab
   m_TagString: Enemy
@@ -1512,31 +1512,6 @@ Transform:
   - {fileID: 4320560562556272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3501445626815244834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733385212409402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 10
-  isBoss: 0
-  regenerationHealthPerSecond: 10
-  currentTargetType: 0
-  damageDealt: 10
-  resistances: 0
-  resistanceMultiplier: 0.5
-  attactRange: 3
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1032
 --- !u!54 &-5547661198032788540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1546,8 +1521,8 @@ Rigidbody:
   m_GameObject: {fileID: 1733385212409402}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.3
+  m_AngularDrag: 3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1577,36 +1552,15 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_AngularSpeed: 80
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
---- !u!65 &-5365309446369483947
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733385212409402}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.2020638, z: 1}
-  m_Center: {x: 0, y: 1.0491205, z: 0}
+  m_ObstacleAvoidanceType: 2
 --- !u!95 &4137040143076929123
 Animator:
   serializedVersion: 5
@@ -1628,6 +1582,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &2520230981491879612
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733385212409402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8532741
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.91555655, z: 0}
+--- !u!114 &-3501445626815244834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733385212409402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 10
+  isBoss: 0
+  regenerationHealthPerSecond: 10
+  currentTargetType: 0
+  damageDealt: 10
+  resistances: 0
+  resistanceMultiplier: 0.5
+  attactRange: 3
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1032
 --- !u!1 &1739592522691396
 GameObject:
   m_ObjectHideFlags: 0

@@ -121,6 +121,8 @@ public class EnemyController : VariableComponent
         {
             animator.SetBool(attackParam, false);
         }
+
+        // if (_currentHealth <= 0)   Die();
     }
     public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()
