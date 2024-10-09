@@ -564,10 +564,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7997289696262974397}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6666946901883765497}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
@@ -619,11 +615,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7e7c0ddaf1f09498e850fcefb046dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4.3
+  rotationSpeed: 5
+  maxHealth: 30
   shootPos: {fileID: 6683349840718785332}
   rotateBody: {fileID: 6683349840718785332}
   bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
-  shootForce: 120
+  shootForce: 80
   poolSize: 10
   sprintWalkPercentage: 40
 --- !u!114 &8505413646065514719
@@ -733,21 +732,6 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7997289696262974397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5235488416651757668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c220ec525af56d94684d8b57297e3e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4.3
-  rotationSpeed: 5
-  maxHealth: 200
 --- !u!95 &6666946901883765497
 Animator:
   serializedVersion: 5
