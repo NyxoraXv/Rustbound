@@ -25,6 +25,7 @@ public class PlacementSystem : MonoBehaviour
     private AudioSource source;
 
     private GridData floorData, furnitureData;
+    private int currentID;
 
     [SerializeField]
     private PreviewSystem preview;
@@ -60,6 +61,7 @@ public class PlacementSystem : MonoBehaviour
 
         // Ensure ID is being passed correctly
         Debug.Log($"Starting placement for ID: {ID}");
+        currentID = ID;
 
         buildingState = new PlacementState(ID,
                                             grid,
@@ -110,6 +112,11 @@ public class PlacementSystem : MonoBehaviour
         return;
     }
 
+        if(!CurrencyManager.Instance.SpendCurrency(TurretManager.Instance.turretDatabase.GetTurretByID(currentID).price))
+        {
+            Debug.Log("broke");
+            return;
+        }
     // Check if the grid position is occupied
     if (IsGridPositionOccupied(gridPosition))
     {
