@@ -8,6 +8,7 @@ public class ObjectPlacer : MonoBehaviour
 
     public int PlaceObject(GameObject prefab, Vector3 position)
     {
+        position.y = position.y + 0.5f;
         GameObject newObject = Instantiate(prefab);
         newObject.transform.position = position;
         placedGameObjects.Add(newObject);
