@@ -29,6 +29,7 @@ public class EnemyController : VariableComponent
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
     public LayerMask targetMask;
+    public int state = 0;
     // private VariableComponent variableComponent;
     private GameObject targetedEntity;
     private NavMeshAgent navMeshAgent;
@@ -37,12 +38,15 @@ public class EnemyController : VariableComponent
     private int attackParam = Animator.StringToHash("Attack");
     private int caseParam = Animator.StringToHash("Casing");
     private int dieParam = Animator.StringToHash("Die");
+    private int stateParam = Animator.StringToHash("Anim State");
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
+    private int animationState = 0;
 
     private void Start()
     {
+        // animationState = Random.Range();
         // Get the VariableComponent attached to this GameObject
         // variableComponent = GetComponent<VariableComponent>();
         // if (variableComponent == null)
@@ -74,6 +78,7 @@ public class EnemyController : VariableComponent
         if (TryGetComponent<Animator>(out Animator anim))
         {
             animator = anim;
+            animator.SetInteger(stateParam,state);
         }
     }
 
