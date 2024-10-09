@@ -147,4 +147,17 @@ public class PlacementUIInitiator : MonoBehaviour
         wallColorBlock.selectedColor = wallColorBlock.normalColor;
         showWallButton.colors = wallColorBlock;
     }
+
+    private Color32 targetColor = new Color32();
+    private Color32 defaultColor = new Color32();
+
+    public void turretState1()
+    {
+
+    }
+
+    public void turretState2()
+    {
+
+    }
 }
