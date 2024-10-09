@@ -198,14 +198,6 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
-    private void OnDestroy()
-    {
-        if (!isPreviewObject)
-        {
-            DestroyTurret(); // Call DestroyTurret if it's not a preview object
-        }
-    }
-
     public void SetIsPreviewObject(bool isPreview)
     {
         isPreviewObject = isPreview; // Method to set the preview object flag
