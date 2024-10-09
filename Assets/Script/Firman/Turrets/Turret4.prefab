@@ -14857,7 +14857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 1000
+  maxHealth: 500
 --- !u!4 &6052941085073110227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 991fa4da127de394daa722a182514fac,
