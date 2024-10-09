@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4697810888236957296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 924262099366359936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6805380082942543340}
   - component: {fileID: 8711231570536077344}
   - component: {fileID: 5139428680645211716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4806,7 +4806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562437054581744399}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 5133294305276005048}
   - component: {fileID: 978905916641609396}
   - component: {fileID: 765197576385960453}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9602,7 +9602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7065826491833549369}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9635,7 +9635,7 @@ GameObject:
   - component: {fileID: 7445377843869740235}
   - component: {fileID: 5019955562423283274}
   - component: {fileID: 5444752880474756459}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14533,7 +14533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 242222147302942654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14566,6 +14566,14 @@ PrefabInstance:
     - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Name
       value: BulletImpactStoneEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011512443876, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010197676760, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_LocalScale.x
@@ -14697,6 +14705,10 @@ PrefabInstance:
       value: Turret5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -14704,9 +14716,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
       propertyPath: m_LocalScale.x
@@ -14796,14 +14816,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -488076033768836247}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: a8dcf308c391de14180e9ead38296ced,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7466627063437866958}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: a8dcf308c391de14180e9ead38296ced,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5419826831179744339}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: a8dcf308c391de14180e9ead38296ced,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8209501148633918700}
   m_SourcePrefab: {fileID: 100100000, guid: a8dcf308c391de14180e9ead38296ced, type: 3}
 --- !u!4 &9168491504708215983 stripped
 Transform:
@@ -14876,7 +14896,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 692787065392757746, guid: 403a7758cd8f5d44ebc2c5e863f786ea,
     type: 3}
   initialFireCooldown: 0.175
-  rapidFireDelay: 0.125
+  rapidFireDelay: 0.175
   gunEffect: {fileID: 8711231570536077344}
   targetingMode: 0
   explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
@@ -14895,20 +14915,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 2000
---- !u!1 &9168491504708515983 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: a8dcf308c391de14180e9ead38296ced,
-    type: 3}
-  m_PrefabInstance: {fileID: 9168491504708615723}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &8209501148633918700
+  maxHealth: 1000
+--- !u!65 &7466627063437866958
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168491504708515983}
+  m_GameObject: {fileID: 9168491504708515979}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -14921,5 +14935,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003655084, y: 0.009408466, z: 0.0039955317}
-  m_Center: {x: -0.0013605148, y: -0.0019830635, z: -0.00003777632}
+  m_Size: {x: 0.68947285, y: 0.41662514, z: 0.41256}
+  m_Center: {x: 0.003789584, y: 0.18936986, z: -0.049688816}

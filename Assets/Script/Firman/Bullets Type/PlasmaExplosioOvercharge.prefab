@@ -4785,6 +4785,7 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 50
   impactDamage: 60
+  accuracy: 0.9
 --- !u!1001 &4754092928840903310
 PrefabInstance:
   m_ObjectHideFlags: 0

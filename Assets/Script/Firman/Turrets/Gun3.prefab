@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8417578649110696969}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,10 @@ PrefabInstance:
       value: Gun3
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -51,9 +55,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
       propertyPath: m_LocalScale.x
@@ -163,14 +175,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7238892229240309631}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 2057bc528a273ef46990a4a58efc36ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1986712017785197848}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 2057bc528a273ef46990a4a58efc36ee,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3713368773445909583}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: 2057bc528a273ef46990a4a58efc36ee,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9113254790367547347}
   m_SourcePrefab: {fileID: 100100000, guid: 2057bc528a273ef46990a4a58efc36ee, type: 3}
 --- !u!4 &2159287507833511732 stripped
 Transform:
@@ -228,7 +240,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 800
+  maxHealth: 400
+--- !u!65 &1986712017785197848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159287507833668368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.74529314, y: 0.26260027, z: 0.32621375}
+  m_Center: {x: -0.023323774, y: 0.12474562, z: 0.0028771907}
 --- !u!1 &2159287507833668370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 2057bc528a273ef46990a4a58efc36ee,
@@ -256,30 +289,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07760344, y: 0.17840451, z: 0.039332}
   m_Center: {x: 0.0020694758, y: 0.0012922069, z: -0.017659254}
---- !u!1 &2159287507833668372 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: 2057bc528a273ef46990a4a58efc36ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 2159287507833636272}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &9113254790367547347
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2159287507833668372}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.18172424, y: 0.059173692, z: 0.050311316}
-  m_Center: {x: 0.046257388, y: 0.0007188655, z: -0.023594437}

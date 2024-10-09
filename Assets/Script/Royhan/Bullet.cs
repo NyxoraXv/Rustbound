@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [Header("Peluru ini akan hilang jika menabrak layer ini")]
     [SerializeField] private float bulletDamage = 5;
     [SerializeField] private LayerMask objLayerCol;
-    [SerializeField] private Rigidbody _rigidbody;
+    private Rigidbody _rigidbody;
 
     private void Awake() 
     {

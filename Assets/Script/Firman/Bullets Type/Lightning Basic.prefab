@@ -4878,6 +4878,7 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 50
   impactDamage: 5
+  accuracy: 0.9
 --- !u!1 &7563516080808768140
 GameObject:
   m_ObjectHideFlags: 0

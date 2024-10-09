@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,6 +30,8 @@ public class EnemyController : VariableComponent
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
     public LayerMask targetMask;
+    public bool setState = false;
+    public int state = 0;
     // private VariableComponent variableComponent;
     private GameObject targetedEntity;
     private NavMeshAgent navMeshAgent;
@@ -37,6 +40,7 @@ public class EnemyController : VariableComponent
     private int attackParam = Animator.StringToHash("Attack");
     private int caseParam = Animator.StringToHash("Casing");
     private int dieParam = Animator.StringToHash("Die");
+    private int stateParam = Animator.StringToHash("Anim State");
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
@@ -50,6 +54,13 @@ public class EnemyController : VariableComponent
         //     Debug.LogError("VariableComponent not found on this GameObject.");
         // }
 
+        if (!setState)
+        {
+            state = UnityEngine.Random.Range(0, 5);
+        }
+
+        _currentHealth = maxHealth;
+        
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
         {
             navMeshAgent = nm;
@@ -67,13 +78,13 @@ public class EnemyController : VariableComponent
         // Start health regeneration coroutine if the enemy is a boss
         if (isBoss)
         {
-            Debug.Log("Boss detected. Starting health regeneration.");
             StartCoroutine(RegenerateHealth());
         }
 
         if (TryGetComponent<Animator>(out Animator anim))
         {
             animator = anim;
+            animator.SetInteger(stateParam,state);
         }
     }
 
@@ -86,47 +97,60 @@ public class EnemyController : VariableComponent
         }
         if (targetedEntity != null)
         {
-            navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
-        }
+            try{
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
-        detectPlayer = false;
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.gameObject == targetedEntity)
+                navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
+            }
+            catch(MissingReferenceException)
             {
-                Debug.Log("collide");
-                if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
+                
+            }
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
+            detectPlayer = false;
+            foreach (Collider collider in hitColliders)
+            {
+                if (collider.gameObject == targetedEntity)
                 {
-                    detectPlayer = true;
-                    animator.SetBool(attackParam, true);
-                    // vc.TakeDamage(damageDealt);
-                    Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+                    Debug.Log("collide");
+                    if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
+                    {
+                        detectPlayer = true;
+                        animator.SetBool(attackParam, true);
+                        // vc.TakeDamage(damageDealt);
+                        Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+                    }
+            
                 }
-           
+            }
+
+
+            if (navMeshAgent.velocity != Vector3.zero)
+            {
+                animator.SetBool(attackParam, false);
+                animator.SetBool(caseParam, true);
+            }
+            else
+            {
+                animator.SetBool(caseParam, false);
+            }
+
+            if (!detectPlayer)
+            {
+                animator.SetBool(attackParam, false);
             }
         }
 
-        if (navMeshAgent.velocity != Vector3.zero)
-        {
-            animator.SetBool(attackParam, false);
-            animator.SetBool(caseParam, true);
-        }
-        else
-        {
-            animator.SetBool(caseParam, false);
-        }
-
-        if (!detectPlayer)
-        {
-            animator.SetBool(attackParam, false);
-        }
+        // if (_currentHealth <= 0)   Die();
     }
     public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()
     {
         navMeshAgent.speed = 0;
         animator.SetTrigger(dieParam);
+        GetComponent<Collider>().enabled = false;
+        // Destroy(navMeshAgent);
+        Destroy(GetComponent<Rigidbody>());
     }
 
     private GameObject FindNearestEntityWithTag(string tag)
@@ -156,7 +180,6 @@ public class EnemyController : VariableComponent
             if (targetHealth != null)
             {
                 targetHealth.TakeDamage(damageDealt); // Apply damage
-                Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
             }
         }
     }
@@ -180,7 +203,6 @@ public class EnemyController : VariableComponent
             {
                 round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
             }
-            Debug.Log("Enemy is dead!");
         }
     }
 
@@ -251,7 +273,6 @@ public class EnemyController : VariableComponent
 
     private System.Collections.IEnumerator RegenerateHealth()
     {
-        Debug.Log("Health regeneration coroutine started.");
         while (true) // Keep this loop running indefinitely
         {
             yield return new WaitForSeconds(1f); // Wait for 1 second
@@ -259,7 +280,6 @@ public class EnemyController : VariableComponent
             // Check if the boss is still alive
             if (!IsAlive())
             {
-                Debug.Log("Boss is dead. Stopping regeneration.");
                 yield break; // Stop the coroutine if the boss is dead
             }
 
@@ -267,11 +287,6 @@ public class EnemyController : VariableComponent
             if (GetCurrentHealth() < GetMaxHealth())
             {
                 Heal(regenerationHealthPerSecond); // Heal by the specified amount
-                Debug.Log($"Boss healed for {regenerationHealthPerSecond} HP! Current Health: {GetCurrentHealth()}");
-            }
-            else
-            {
-                Debug.Log("Boss is at max health. No healing performed.");
             }
         }
     }

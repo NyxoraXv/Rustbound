@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7955125722846479797}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,10 @@ PrefabInstance:
       value: Shocker5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -51,9 +55,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
       propertyPath: m_LocalScale.x
@@ -123,14 +135,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4383149510699662338}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: d6adb0fe9c4c0094e8dc340929e55995,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7326682020390770215}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: d6adb0fe9c4c0094e8dc340929e55995,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4803474682828204540}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: d6adb0fe9c4c0094e8dc340929e55995,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8338472067095632155}
   m_SourcePrefab: {fileID: 100100000, guid: d6adb0fe9c4c0094e8dc340929e55995, type: 3}
 --- !u!1 &3901723522905647969 stripped
 GameObject:
@@ -214,20 +226,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 2000
---- !u!1 &3901723522905647975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: d6adb0fe9c4c0094e8dc340929e55995,
-    type: 3}
-  m_PrefabInstance: {fileID: 3901723522905550275}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &8338472067095632155
+  maxHealth: 1000
+--- !u!65 &7326682020390770215
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3901723522905647975}
+  m_GameObject: {fileID: 3901723522905647971}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -240,8 +246,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.09398342, y: 0.21905784, z: 0.088876724}
-  m_Center: {x: 0.017871924, y: 0.009653031, z: 0.017593728}
+  m_Size: {x: 0.3042315, y: 0.2975497, z: 0.4378027}
+  m_Center: {x: -0.00046002865, y: 0.1516094, z: -0.024712516}
 --- !u!4 &3901723522905683783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: d6adb0fe9c4c0094e8dc340929e55995,
