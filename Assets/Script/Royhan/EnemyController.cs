@@ -132,8 +132,10 @@ public class EnemyController : VariableComponent
     public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()
     {
-        navMeshAgent.speed = 0;
         animator.SetTrigger(dieParam);
+        GetComponent<Collider>().enabled = false;
+        Destroy(navMeshAgent);
+        Destroy(GetComponent<Rigidbody>());
     }
 
     private GameObject FindNearestEntityWithTag(string tag)
