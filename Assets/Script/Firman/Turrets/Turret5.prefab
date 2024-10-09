@@ -14896,7 +14896,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 692787065392757746, guid: 403a7758cd8f5d44ebc2c5e863f786ea,
     type: 3}
   initialFireCooldown: 0.175
-  rapidFireDelay: 0.125
+  rapidFireDelay: 0.175
   gunEffect: {fileID: 8711231570536077344}
   targetingMode: 0
   explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,

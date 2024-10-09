@@ -63,8 +63,8 @@ MonoBehaviour:
   firePoint3: {fileID: 6546643043442472445}
   projectilePrefab: {fileID: 692787065392757746, guid: 58eaa464a0f35bd47a87e6431067d4e2,
     type: 3}
-  fireCooldown: 8.5
-  targetingMode: 1
+  fireCooldown: 5.5
+  targetingMode: 0
   explosionVFX: {fileID: 0}
 --- !u!114 &5263640417734614785
 MonoBehaviour:

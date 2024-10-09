@@ -74,11 +74,11 @@ public class TurretOverpowerDouble : MonoBehaviour, ITurret
 
         // First fire point shoots
         ShootFromFirePoint(firePoint1);
-        yield return new WaitForSeconds(1f); // 1-second delay between shots
+        yield return new WaitForSeconds(0.5f); // 1-second delay between shots
 
         // Second fire point shoots
         ShootFromFirePoint(firePoint2);
-        yield return new WaitForSeconds(5f); // 5-second delay before next round
+        yield return new WaitForSeconds(fireCooldown); // 5-second delay before next round
 
         isFiring = false;
     }
@@ -172,7 +172,7 @@ public class TurretOverpowerDouble : MonoBehaviour, ITurret
             int randomIndex = Random.Range(0, sfxOptions.Length);
             int randomSFX = sfxOptions[randomIndex];
             soundManager.PlaySFX(randomSFX);
-        
+
             if (variableComponent.GetCurrentHealth() <= 0)
             {
                 DestroyTurret();
