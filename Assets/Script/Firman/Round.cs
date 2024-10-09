@@ -70,8 +70,8 @@ public class Round : MonoBehaviour
 
         // Update the text
         UpdateRoundText(currentRound); // For example, "ROUND 1"
-        
-        StartCoroutine(StartSpawningZombies());
+
+        // StartCoroutine(StartSpawningZombies());
     }
 
     void Update()

@@ -1088,25 +1088,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 1618939511}
   textTotalZombie: {fileID: 1137910122}
-  currentRound: 1
+  currentRound: 9
   zombiesToSpawn: 5
-  Boss1: {fileID: 0}
-  Boss2: {fileID: 0}
-  Boss3: {fileID: 0}
-  Boss4: {fileID: 0}
-  Boss5: {fileID: 0}
-  specialZombieRound9: {fileID: 0}
-  specialZombieRound13: {fileID: 0}
-  specialZombieRound18: {fileID: 0}
-  specialZombieRound23: {fileID: 0}
-  specialZombie: []
+  Boss1: {fileID: 4127960938634840145, guid: a5295e78cd3f41f4d9ccd1f82ccb9e0e, type: 3}
+  Boss2: {fileID: 4127960938634840145, guid: 48f1b31ea6bada048935687ddba47ad0, type: 3}
+  Boss3: {fileID: 4127960938634840145, guid: c498d27134071b64496af78cc4a67616, type: 3}
+  Boss4: {fileID: 4127960938634840145, guid: 15aa4341b604202438ba1af9cf99f2e4, type: 3}
+  Boss5: {fileID: 4127960938634840145, guid: 64283554bea95714fb14a3dc67ecaa0b, type: 3}
+  specialZombieRound9: {fileID: 1733385212409402, guid: 33cbcf74ed6448e40b9fb87827ca0ddd,
+    type: 3}
+  specialZombieRound13: {fileID: 1733385212409402, guid: 3aae8f08ac936f74dabb775d120d8c6f,
+    type: 3}
+  specialZombieRound18: {fileID: 1733385212409402, guid: 57b4b85bbcfc74d4dae845d09fec9508,
+    type: 3}
+  specialZombieRound23: {fileID: 1733385212409402, guid: 1dd3c5cc83540d2439aa747feff85c71,
+    type: 3}
+  specialZombie:
+  - {fileID: 1733385212409402, guid: 1dd3c5cc83540d2439aa747feff85c71, type: 3}
   unbeatableZombies: []
   zombiePrefabs:
   - {fileID: 992872293614820932, guid: 27fb17d2455922844aec615844f2755b, type: 3}
   - {fileID: 7803411478936568010, guid: 3ccb5e59815b21c4a84e52c72766c748, type: 3}
   - {fileID: 6028982480729606108, guid: cac784fab13ee2c4e97c3319a4c7f833, type: 3}
-  - {fileID: 4127960938634840145, guid: a5295e78cd3f41f4d9ccd1f82ccb9e0e, type: 3}
-  - {fileID: 4127960938634840145, guid: 48f1b31ea6bada048935687ddba47ad0, type: 3}
   - {fileID: 3170052297267817369, guid: ef26b2dc882f2d741b1e5521ca67f8ef, type: 3}
   - {fileID: 3170052297267817369, guid: a69702cf4a38b184ab6b50b8ef7e8603, type: 3}
   - {fileID: 1352753540370996, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
@@ -9774,7 +9777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1004077067
 RectTransform:
   m_ObjectHideFlags: 0

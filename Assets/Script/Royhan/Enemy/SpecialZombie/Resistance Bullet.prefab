@@ -921,6 +921,7 @@ Transform:
   m_Children:
   - {fileID: 4779282625125608}
   - {fileID: 4344059943714724}
+  - {fileID: 1483082760214307506}
   m_Father: {fileID: 4235561257354128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472053355091300
@@ -1490,7 +1491,7 @@ GameObject:
   - component: {fileID: 2520230981491879612}
   - component: {fileID: -3501445626815244834}
   m_Layer: 6
-  m_Name: Zombie J Prefab
+  m_Name: Resistance Bullet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1624,12 +1625,13 @@ MonoBehaviour:
   regenerationHealthPerSecond: 10
   currentTargetType: 0
   damageDealt: 10
-  resistances: 0
+  resistances: 2
   resistanceMultiplier: 0.5
   attactRange: 3
   targetMask:
     serializedVersion: 2
     m_Bits: 1032
+  state: 0
 --- !u!1 &1739592522691396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,3 +2442,77 @@ Transform:
   - {fileID: 4134040063998650}
   m_Father: {fileID: 4128395367310032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &209689378079691131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4320560562556272}
+    m_Modifications:
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776491111488830266, guid: 00a0bd2ade37d10449db199f108b4066,
+        type: 3}
+      propertyPath: m_Name
+      value: Resistance Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00a0bd2ade37d10449db199f108b4066, type: 3}
+--- !u!4 &1483082760214307506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1620170556412834761, guid: 00a0bd2ade37d10449db199f108b4066,
+    type: 3}
+  m_PrefabInstance: {fileID: 209689378079691131}
+  m_PrefabAsset: {fileID: 0}
