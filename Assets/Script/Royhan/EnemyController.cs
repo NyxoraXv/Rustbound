@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,6 +30,7 @@ public class EnemyController : VariableComponent
     [Range(0, 1)] public float resistanceMultiplier = 0.5f; // Adjustable resistance percentage (0.5 means 50% damage reduction)
     public float attactRange = 5f;
     public LayerMask targetMask;
+    public bool setState = false;
     public int state = 0;
     // private VariableComponent variableComponent;
     private GameObject targetedEntity;
@@ -42,17 +44,21 @@ public class EnemyController : VariableComponent
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
-    private int animationState = 0;
 
     private void Start()
     {
-        // animationState = Random.Range();
         // Get the VariableComponent attached to this GameObject
         // variableComponent = GetComponent<VariableComponent>();
         // if (variableComponent == null)
         // {
         //     Debug.LogError("VariableComponent not found on this GameObject.");
         // }
+
+        if (!setState)
+        {
+            state = UnityEngine.Random.Range(0, 5);
+        }
+
         _currentHealth = maxHealth;
         
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
@@ -91,38 +97,48 @@ public class EnemyController : VariableComponent
         }
         if (targetedEntity != null)
         {
-            navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
-        }
+            try{
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
-        detectPlayer = false;
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.gameObject == targetedEntity)
-            {
-                if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
-                {
-                    detectPlayer = true;
-                    animator.SetBool(attackParam, true);
-                    // vc.TakeDamage(damageDealt);
-                }
-           
+                navMeshAgent.SetDestination(targetedEntity.transform.position); // Move towards the target
             }
-        }
+            catch(MissingReferenceException)
+            {
+                
+            }
 
-        if (navMeshAgent.velocity != Vector3.zero)
-        {
-            animator.SetBool(attackParam, false);
-            animator.SetBool(caseParam, true);
-        }
-        else
-        {
-            animator.SetBool(caseParam, false);
-        }
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attactRange, targetMask);
+            detectPlayer = false;
+            foreach (Collider collider in hitColliders)
+            {
+                if (collider.gameObject == targetedEntity)
+                {
+                    Debug.Log("collide");
+                    if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
+                    {
+                        detectPlayer = true;
+                        animator.SetBool(attackParam, true);
+                        // vc.TakeDamage(damageDealt);
+                        Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
+                    }
+            
+                }
+            }
 
-        if (!detectPlayer)
-        {
-            animator.SetBool(attackParam, false);
+
+            if (navMeshAgent.velocity != Vector3.zero)
+            {
+                animator.SetBool(attackParam, false);
+                animator.SetBool(caseParam, true);
+            }
+            else
+            {
+                animator.SetBool(caseParam, false);
+            }
+
+            if (!detectPlayer)
+            {
+                animator.SetBool(attackParam, false);
+            }
         }
 
         // if (_currentHealth <= 0)   Die();
@@ -130,9 +146,10 @@ public class EnemyController : VariableComponent
     public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()
     {
+        navMeshAgent.speed = 0;
         animator.SetTrigger(dieParam);
         GetComponent<Collider>().enabled = false;
-        Destroy(navMeshAgent);
+        // Destroy(navMeshAgent);
         Destroy(GetComponent<Rigidbody>());
     }
 

@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : VariableComponent
 {
     [SerializeField] private Transform shootPos;
+    [SerializeField] private Transform weaponGrab;
+    [SerializeField] private GameObject[] weapons;
     [SerializeField] private Transform rotateBody;
     // [SerializeField] private Transform body;
     // [SerializeField] private Transform leftFoot;
@@ -15,7 +17,7 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     private Transform cameraTransform;
-
+    private List<GameObject> weaponCollection = new List<GameObject>();
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
@@ -31,6 +33,7 @@ public class PlayerMovement : VariableComponent
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
     private bool shoot = false;
+    private int indexWeapon = 0; 
 
     private void Awake()
     {
@@ -52,7 +55,17 @@ public class PlayerMovement : VariableComponent
             obj.SetActive(false);
             bulletPool.Add(obj);
         }
+
+        
+        foreach (GameObject obj in weapons)
+        {
+            GameObject objec = Instantiate(obj, weaponGrab);
+            objec.SetActive(false);
+            weaponCollection.Add(objec);
+        }
+        weaponCollection[indexWeapon].SetActive(true);
     }
+    
 
     private void FixedUpdate()
     {
@@ -99,8 +112,33 @@ public class PlayerMovement : VariableComponent
                 animator.SetBool(runParam, false);
                 animator.SetBool(walkParam, false);
             }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                SelectWeapon(1);
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                SelectWeapon(2);
+            }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                SelectWeapon(3);
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                SelectWeapon(4);
+            }
         }
     }
+
+    public void SelectWeapon(int index)
+    {
+        weaponCollection[indexWeapon].SetActive(false);
+        indexWeapon = index;
+        weaponCollection[indexWeapon].SetActive(true);
+
+    }
+
     private void LateUpdate()
     {
         // if (!shoot)
@@ -182,7 +220,7 @@ public class PlayerMovement : VariableComponent
             Vector3 eulerRotation = toRotation.eulerAngles;
 
             // Biarkan rotasi Y tidak terbatas atau clamp ke rentang 0 hingga 360 jika diperlukan
-            // eulerRotation.y *= 1.6f;
+            eulerRotation.y += 60.378f;
 
 
             // Terapkan rotasi baru yang sudah dibatasi
