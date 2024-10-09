@@ -236,9 +236,6 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
             // Play the randomly selected SFX
             soundManager.PlaySFX(randomSFX);
 
-            // Optional: Log turret health
-            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
-
             // Check if turret is destroyed
             if (variableComponent.GetCurrentHealth() <= 0)
             {
@@ -249,7 +246,6 @@ public class TurretLaserAdvance : MonoBehaviour, ITurret
 
     private void DestroyTurret()
     {
-        Debug.Log("Turret destroyed!");
         if (explosionVFX != null)
         {
             ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
