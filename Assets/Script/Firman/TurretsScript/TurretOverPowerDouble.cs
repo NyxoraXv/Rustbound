@@ -172,9 +172,7 @@ public class TurretOverpowerDouble : MonoBehaviour, ITurret
             int randomIndex = Random.Range(0, sfxOptions.Length);
             int randomSFX = sfxOptions[randomIndex];
             soundManager.PlaySFX(randomSFX);
-            
-            Debug.Log($"TurretCone took damage: {damage}, Current Health: {variableComponent.GetCurrentHealth()}");
-
+        
             if (variableComponent.GetCurrentHealth() <= 0)
             {
                 DestroyTurret();
@@ -184,7 +182,6 @@ public class TurretOverpowerDouble : MonoBehaviour, ITurret
 
     private void DestroyTurret()
     {
-        Debug.Log("Turret destroyed!");
         if (explosionVFX != null)
         {
             ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);

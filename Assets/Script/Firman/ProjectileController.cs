@@ -15,6 +15,7 @@ public class ProjectileController : MonoBehaviour
     public float explosionRadius = 5f;
     public float explosionDamage = 50f;
     public float impactDamage = 10f;
+    public float accuracy = 1f; // 0 to 1, where 1 is 100% accurate
     private Transform target;
 
     private SoundManager soundManager;
@@ -69,7 +70,8 @@ public class ProjectileController : MonoBehaviour
             EnemyController enemy = hitCollider.GetComponent<EnemyController>();
             if (enemy != null)
             {
-                enemy.TakeDamage(explosionDamage, bulletType);
+                float damageDealt = CalculateDamage(explosionDamage);
+                enemy.TakeDamage(damageDealt, bulletType);
                 soundManager.PlaySFX(4);
             }
         }
@@ -86,7 +88,6 @@ public class ProjectileController : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     private void ImpactDamage()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.2f);
@@ -95,7 +96,8 @@ public class ProjectileController : MonoBehaviour
             EnemyController enemy = hitCollider.GetComponent<EnemyController>();
             if (enemy != null)
             {
-                enemy.TakeDamage(impactDamage, bulletType);
+                float damageDealt = CalculateDamage(impactDamage);
+                enemy.TakeDamage(damageDealt, bulletType);
                 break;
             }
         }
@@ -103,9 +105,18 @@ public class ProjectileController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(transform.position, explosionRadius);
-    // }
+    private float CalculateDamage(float baseDamage)
+    {
+        // Randomly determine if the shot is accurate based on the accuracy value
+        bool isAccurate = Random.value <= accuracy;
+
+        if (isAccurate)
+        {
+            return baseDamage; // Full damage if accurate
+        }
+        else
+        {
+            return baseDamage / 2f; // Half damage if not accurate
+        }
+    }
 }
