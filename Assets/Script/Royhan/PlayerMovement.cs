@@ -89,7 +89,7 @@ public class PlayerMovement : VariableComponent
 
             if (dotProduct != 0)
             {
-                Debug.Log("maju");
+                // Debug.Log("maju");
                 animator.SetBool(walkParam, true);
                 if (onSprint)
                     animator.SetBool(runParam, true);
@@ -163,7 +163,7 @@ public class PlayerMovement : VariableComponent
         // // if (context.performed)
         if (!shoot)
         {
-            Debug.Log("tag ");
+            // Debug.Log("tag ");
             _movementInput = context.ReadValue<Vector2>();
             // Debug.Log("move " + _movementInput);
             // Debug.Log("dir " + direction);
