@@ -4950,4 +4950,5 @@ MonoBehaviour:
   speed: 25
   explosionRadius: 5
   explosionDamage: 50
-  impactDamage: 25
+  impactDamage: 30
+  accuracy: 0.8

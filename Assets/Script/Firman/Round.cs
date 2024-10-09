@@ -70,9 +70,8 @@ public class Round : MonoBehaviour
 
         // Update the text
         UpdateRoundText(currentRound); // For example, "ROUND 1"
-
-        // Start spawning zombies
-        // StartCoroutine(StartSpawningZombies());
+        
+        StartCoroutine(StartSpawningZombies());
     }
 
     void Update()
@@ -94,11 +93,11 @@ public class Round : MonoBehaviour
                 healthMultiplier += 1f;
             }
 
-            // // Spawn special zombies with a delay
-            // StartCoroutine(SpawnSpecialZombiesWithDelay());
+            // Spawn special zombies with a delay
+            StartCoroutine(SpawnSpecialZombiesWithDelay());
 
-            // // Start spawning zombies for the next round
-            // StartCoroutine(StartSpawningZombies());
+            // Start spawning zombies for the next round
+            StartCoroutine(StartSpawningZombies());
         }
     }
 
@@ -134,7 +133,7 @@ public class Round : MonoBehaviour
 
         if (textTotalZombie != null)
         {
-            textTotalZombie.text = "Total Zombies: " + totalZombies;
+            textTotalZombie.text = "ZOMBIES " + totalZombies;
         }
         else
         {

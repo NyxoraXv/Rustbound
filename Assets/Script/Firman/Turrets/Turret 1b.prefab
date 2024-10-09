@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4000013728231090}
   - component: {fileID: 33000010862666412}
   - component: {fileID: 23000012567119702}
-  m_Layer: 0
+  - component: {fileID: 3532187907985789141}
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,6 +86,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3532187907985789141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010357398462}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.5772524, y: 3.0978794, z: 3.6371102}
+  m_Center: {x: -0.18394868, y: -0.5102377, z: -0.00212717}
 --- !u!1 &1000011229739270
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +118,8 @@ GameObject:
   - component: {fileID: 4000012873752494}
   - component: {fileID: 33000013188202568}
   - component: {fileID: 23000012453719126}
-  m_Layer: 0
+  - component: {fileID: 3275247721768577330}
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +193,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3275247721768577330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011229739270}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.165848, y: 1.669754, z: 11.165848}
+  m_Center: {x: 0, y: 0.5804993, z: 4.124696e-15}
 --- !u!1 &1000011402687602
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +225,8 @@ GameObject:
   - component: {fileID: 4000010603721010}
   - component: {fileID: 33000010508583926}
   - component: {fileID: 23000010387872522}
-  m_Layer: 0
+  - component: {fileID: 6829336832190007883}
+  m_Layer: 10
   m_Name: Pylon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +300,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6829336832190007883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011402687602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8030516, y: 4.4123507, z: 1.8030517}
+  m_Center: {x: 0.00071334856, y: 2.2061753, z: -0.0026620924}
 --- !u!1 &1000012258839112
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +332,8 @@ GameObject:
   - component: {fileID: 4000010324646232}
   - component: {fileID: 7815395308830252213}
   - component: {fileID: 221882503182218618}
-  m_Layer: 0
+  - component: {fileID: 4242615283982086759}
+  m_Layer: 10
   m_Name: Turret 1b
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -316,8 +383,8 @@ MonoBehaviour:
   firePoint2: {fileID: 8636047583576030841}
   projectilePrefab: {fileID: 692787065392757746, guid: 58eaa464a0f35bd47a87e6431067d4e2,
     type: 3}
-  fireCooldown: 6.5
-  targetingMode: 1
+  fireCooldown: 4
+  targetingMode: 0
   explosionVFX: {fileID: 0}
 --- !u!114 &221882503182218618
 MonoBehaviour:
@@ -334,6 +401,27 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+--- !u!65 &4242615283982086759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012258839112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.063455, y: 8.436962, z: 11.040704}
+  m_Center: {x: -0.12961565, y: 3.7184799, z: 0.06410926}
 --- !u!1 &1000013319699188
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +433,8 @@ GameObject:
   - component: {fileID: 4000012460860938}
   - component: {fileID: 33000013193771768}
   - component: {fileID: 23000013286920992}
-  m_Layer: 0
+  - component: {fileID: 1456315658069904010}
+  m_Layer: 10
   m_Name: Gun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,6 +507,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!61 &1456315658069904010
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013319699188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.8393705, y: 0.00000044703484}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.6787405, y: 0.58716995}
+  m_EdgeRadius: 0
 --- !u!1 &1000013376629398
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +563,8 @@ GameObject:
   - component: {fileID: 4000010968000880}
   - component: {fileID: 33000012729191388}
   - component: {fileID: 23000012245765408}
-  m_Layer: 0
+  - component: {fileID: 874822932460377301}
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,6 +637,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!61 &874822932460377301
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013376629398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.8393705, y: 0.00000044703484}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.6787405, y: 0.58716995}
+  m_EdgeRadius: 0
 --- !u!1 &1000013882330188
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +693,8 @@ GameObject:
   - component: {fileID: 4000013756302172}
   - component: {fileID: 33000013703035548}
   - component: {fileID: 23000013598274414}
-  m_Layer: 0
+  - component: {fileID: 8389423409851920245}
+  m_Layer: 10
   m_Name: PylonElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,6 +766,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!61 &8389423409851920245
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013882330188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.910383e-10, y: 0.5974317}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3371398, y: 1.1948634}
+  m_EdgeRadius: 0
 --- !u!1 &1000014190511582
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +822,8 @@ GameObject:
   - component: {fileID: 4000011049073420}
   - component: {fileID: 33000010250911268}
   - component: {fileID: 23000012721662426}
-  m_Layer: 0
+  - component: {fileID: 1286971466800544074}
+  m_Layer: 10
   m_Name: BaseElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,6 +895,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1286971466800544074
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014190511582}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.9048855, y: 1.010172, z: 3.9048855}
+  m_Center: {x: 0, y: 0.50508606, z: 1.06942805e-14}
 --- !u!1 &97135213392628088
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8529042572492799964}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8636047583576030841}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

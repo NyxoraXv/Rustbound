@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4000010162871280}
   - component: {fileID: 33000012750234134}
   - component: {fileID: 23000010287297114}
-  m_Layer: 0
+  - component: {fileID: 217446121259357557}
+  m_Layer: 10
   m_Name: BaseElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &217446121259357557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010186546986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.9048855, y: 1.010172, z: 3.9048855}
+  m_Center: {x: 0, y: 0.50508606, z: 3.5888523e-15}
 --- !u!1 &1000010528715726
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +116,8 @@ GameObject:
   - component: {fileID: 4000012160861286}
   - component: {fileID: 33000011395804654}
   - component: {fileID: 23000010227302234}
-  m_Layer: 0
+  - component: {fileID: 3055077960319309488}
+  m_Layer: 10
   m_Name: PylonElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +189,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3055077960319309488
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010528715726}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3371398, y: 1.1948634, z: 2.3714108}
+  m_Center: {x: 0, y: 0.5974317, z: 0.00000005948825}
 --- !u!1 &1000011222192992
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +221,8 @@ GameObject:
   - component: {fileID: 4000013081111600}
   - component: {fileID: 6320425332804617625}
   - component: {fileID: 5165489773974151136}
-  m_Layer: 0
+  - component: {fileID: 6615877098900533600}
+  m_Layer: 10
   m_Name: Turret 1d
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -229,8 +274,8 @@ MonoBehaviour:
   firePoint4: {fileID: 7185374750401386978}
   projectilePrefab: {fileID: 692787065392757746, guid: 58eaa464a0f35bd47a87e6431067d4e2,
     type: 3}
-  fireCooldown: 10
-  targetingMode: 1
+  fireCooldown: 7
+  targetingMode: 0
   explosionVFX: {fileID: 0}
 --- !u!114 &5165489773974151136
 MonoBehaviour:
@@ -247,6 +292,27 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+--- !u!65 &6615877098900533600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011222192992}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.063455, y: 8.436962, z: 11.040704}
+  m_Center: {x: -0.12961565, y: 3.7184799, z: 0.06410926}
 --- !u!1 &1000012439138410
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +324,8 @@ GameObject:
   - component: {fileID: 4000010388087656}
   - component: {fileID: 33000011683049640}
   - component: {fileID: 23000011548952378}
-  m_Layer: 0
+  - component: {fileID: 3677517708189347481}
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,6 +398,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3677517708189347481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012439138410}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.7469883, y: 3.056252, z: 3.9019988}
+  m_Center: {x: -0.66115016, y: -0.40234917, z: 0.0009274485}
 --- !u!1 &1000012663579438
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +430,8 @@ GameObject:
   - component: {fileID: 4000013059129458}
   - component: {fileID: 33000010257972514}
   - component: {fileID: 23000010958846116}
-  m_Layer: 0
+  - component: {fileID: 3469686952703357766}
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,6 +505,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3469686952703357766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012663579438}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.165848, y: 1.669754, z: 11.165848}
+  m_Center: {x: 0, y: 0.5804993, z: 4.124696e-15}
 --- !u!1 &1000012782717092
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +537,8 @@ GameObject:
   - component: {fileID: 4000012378430878}
   - component: {fileID: 33000010842429210}
   - component: {fileID: 23000011049462226}
-  m_Layer: 0
+  - component: {fileID: 7570390252813933479}
+  m_Layer: 10
   m_Name: RotatingGuns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,6 +614,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7570390252813933479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012782717092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.4010215, y: 1.8924177, z: 1.8924189}
+  m_Center: {x: 3.0839002, y: 0.0000011622906, z: -0.0000032484538}
 --- !u!1 &1000013045632560
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +646,8 @@ GameObject:
   - component: {fileID: 4000010725104898}
   - component: {fileID: 33000012914581740}
   - component: {fileID: 23000013136009870}
-  m_Layer: 0
+  - component: {fileID: 7404474689165043104}
+  m_Layer: 10
   m_Name: Pylon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,6 +721,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7404474689165043104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013045632560}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8030516, y: 4.4123507, z: 1.8030517}
+  m_Center: {x: 0.00071334856, y: 2.2061753, z: -0.0026620922}
 --- !u!1 &1660389746159569940
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667073803115847528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8505737571995655730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7185374750401386978}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4998417173217010576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

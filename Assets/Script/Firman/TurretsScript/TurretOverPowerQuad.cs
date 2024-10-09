@@ -76,17 +76,17 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
 
         // First fire point shoots
         ShootFromFirePoint(firePoint1);
-        yield return new WaitForSeconds(1f); // 1-second delay between shots
+        yield return new WaitForSeconds(0.5f); // 1-second delay between shots
 
         // Second fire point shoots
         ShootFromFirePoint(firePoint2);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         ShootFromFirePoint(firePoint3);
-        yield return new WaitForSeconds(1f);
-        
+        yield return new WaitForSeconds(0.5f);
+
         ShootFromFirePoint(firePoint4);
-        yield return new WaitForSeconds(5f); // 5-second delay before next round
+        yield return new WaitForSeconds(fireCooldown); // 5-second delay before next round
 
         isFiring = false;
     }
