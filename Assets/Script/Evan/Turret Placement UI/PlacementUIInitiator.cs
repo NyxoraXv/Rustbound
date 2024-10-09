@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Ensure you include this for Button and Image
 
 public class PlacementUIInitiator : MonoBehaviour
 {
@@ -11,13 +12,26 @@ public class PlacementUIInitiator : MonoBehaviour
     private StructureManager structureManager; // Reference to the StructureManager
     private TurretManager turretManager; // Reference to the TurretManager
 
-    [SerializeField] private bool showStructures = true; // Flag to toggle between structures and turrets
+    [SerializeField] private Button showTurretButton; // Button to show turrets
+    [SerializeField] private Button showWallButton;   // Button to show structures
+
+    private Color activeColor = new Color(1f, 1f, 1f); // Color when active (white)
+    private Color inactiveColor = new Color(0.588f, 0.588f, 0.588f); // Color when inactive (grey)
+
+    private bool showStructures = true; // Flag to toggle between structures and turrets
 
     private void OnEnable()
     {
         structureManager = StructureManager.Instance; // Get the StructureManager instance
         turretManager = TurretManager.Instance; // Get the TurretManager instance
         PopulateInventory();
+
+        // Set up button listeners
+        showTurretButton.onClick.AddListener(() => UpdateUI(0)); // Show turrets
+        showWallButton.onClick.AddListener(() => UpdateUI(1));   // Show structures
+
+        // Update button colors based on the initial state
+        UpdateButtonColors();
     }
 
     private void PopulateInventory()
@@ -115,5 +129,22 @@ public class PlacementUIInitiator : MonoBehaviour
 
         // Refresh the UI
         PopulateInventory();
+        UpdateButtonColors(); // Update button colors after changing the state
+    }
+
+    // Method to update button colors based on the current state
+    private void UpdateButtonColors()
+    {
+        ColorBlock turretColorBlock = showTurretButton.colors;
+        ColorBlock wallColorBlock = showWallButton.colors;
+
+        // Set the button colors
+        turretColorBlock.normalColor = showStructures ? inactiveColor : activeColor;
+        turretColorBlock.selectedColor = turretColorBlock.normalColor;
+        showTurretButton.colors = turretColorBlock;
+
+        wallColorBlock.normalColor = showStructures ? activeColor : inactiveColor;
+        wallColorBlock.selectedColor = wallColorBlock.normalColor;
+        showWallButton.colors = wallColorBlock;
     }
 }
