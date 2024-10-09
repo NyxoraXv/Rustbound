@@ -60,7 +60,7 @@ public class PlacementSystem : MonoBehaviour
         gridVisualization.SetActive(true);
 
         // Ensure ID is being passed correctly
-        Debug.Log($"Starting placement for ID: {ID}");
+        // Debug.Log($"Starting placement for ID: {ID}");
         currentID = ID;
 
         buildingState = new PlacementState(ID,
@@ -99,15 +99,15 @@ public class PlacementSystem : MonoBehaviour
     ObjectData selectedObjectData = database.objectsData[selectedObjectID];
 
     // Log the selected object data for debugging
-    Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
-              $"Name: {selectedObjectData.Name}, " +
-              $"Current: {selectedObjectData.currentSpawnedTurret}, " +
-              $"Max: {selectedObjectData.maxSpawnTurret}");
+    // Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
+    //           $"Name: {selectedObjectData.Name}, " +
+    //           $"Current: {selectedObjectData.currentSpawnedTurret}, " +
+    //           $"Max: {selectedObjectData.maxSpawnTurret}");
 
     // Check if the max number of turrets is reached
     if (selectedObjectData.currentSpawnedTurret >= selectedObjectData.maxSpawnTurret)
     {
-        Debug.Log("Max turrets reached. Cannot place any more turrets.");
+        // Debug.Log("Max turrets reached. Cannot place any more turrets.");
         source.PlayOneShot(wrongPlacementClip);
         return;
     }
@@ -120,7 +120,7 @@ public class PlacementSystem : MonoBehaviour
     // Check if the grid position is occupied
     if (IsGridPositionOccupied(gridPosition))
     {
-        Debug.Log("Grid position is already occupied. Cannot place turret.");
+        // Debug.Log("Grid position is already occupied. Cannot place turret.");
         source.PlayOneShot(wrongPlacementClip);
         return;
     }
@@ -130,7 +130,7 @@ public class PlacementSystem : MonoBehaviour
 
     // Increment the count of currently spawned turrets
     selectedObjectData.currentSpawnedTurret++;
-    Debug.Log($"Turret placed. New count: {selectedObjectData.currentSpawnedTurret}");
+    // Debug.Log($"Turret placed. New count: {selectedObjectData.currentSpawnedTurret}");
     source.PlayOneShot(correctPlacementClip);
 }
 
@@ -176,9 +176,9 @@ public class PlacementSystem : MonoBehaviour
         if (buildingState == null)
             return;
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
-        Debug.Log(mousePosition);
+        // Debug.Log(mousePosition);
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);
-        Debug.Log(gridPosition);
+        // Debug.Log(gridPosition);
         if(lastDetectedPosition != gridPosition)
         {
             buildingState.UpdateState(gridPosition);
