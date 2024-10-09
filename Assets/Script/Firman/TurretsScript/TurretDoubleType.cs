@@ -68,6 +68,7 @@ public class TurretDoubleType : MonoBehaviour, ITurret
             if (Time.time >= lastFireTime + fireCooldown)
             {
                 ShootAtTarget();
+                Debug.Log("Fire");
                 lastFireTime = Time.time;
             }
         }

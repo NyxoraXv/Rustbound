@@ -98,11 +98,11 @@ public class PlacementSystem : MonoBehaviour
     int selectedObjectID = ((PlacementState)buildingState).ID;
     ObjectData selectedObjectData = database.objectsData[selectedObjectID];
 
-    // // Log the selected object data for debugging
-    // Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
-    //           $"Name: {selectedObjectData.Name}, " +
-    //           $"Current: {selectedObjectData.currentSpawnedTurret}, " +
-    //           $"Max: {selectedObjectData.maxSpawnTurret}");
+    // Log the selected object data for debugging
+    Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
+              $"Name: {selectedObjectData.Name}, " +
+              $"Current: {selectedObjectData.currentSpawnedTurret}, " +
+              $"Max: {selectedObjectData.maxSpawnTurret}");
 
     // Check if the max number of turrets is reached
     if (selectedObjectData.currentSpawnedTurret >= selectedObjectData.maxSpawnTurret)
