@@ -665,6 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -672,6 +675,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &236617989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -1487,6 +1496,87 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!1001 &467812819
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.3654156
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      propertyPath: m_Name
+      value: (P) Characters_Zombie_SuitMan_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 847423023}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
+--- !u!4 &467812820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6279823610682781954, guid: 970a0e0414fa8be4695cbe8c3d95afd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 467812819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &479943537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -1628,6 +1721,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &483121272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +2060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 1
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -1971,6 +2070,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &574670442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,6 +2207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -2112,6 +2217,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &686383871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -2359,6 +2470,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &706483017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +2638,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -2531,6 +2648,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &814592728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,6 +2834,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &847423022
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 467812820}
+    m_Modifications:
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324742470870163485, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776491111488830266, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc, type: 3}
+--- !u!4 &847423023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1620170556412834761, guid: 6c56987a158f3c146b1ba8c2cc6fc8bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 847423022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &929684517 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 103719759185016750, guid: 83ce49cf53477dd41bd441adeb95c234,
@@ -3144,6 +3358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -3151,6 +3368,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1214663601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -3426,6 +3649,9 @@ MonoBehaviour:
   resistances: 1
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1291900306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,6 +3786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -3567,6 +3796,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1363990735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +4283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -4058,6 +4293,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1689057352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4424,6 +4662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -4431,6 +4672,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1740509463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4730,6 +4974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -4737,6 +4984,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1941988984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,6 +5152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472899a6171d9484a8df6fcd9959a821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 0
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
@@ -4909,6 +5162,9 @@ MonoBehaviour:
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 5
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &4445492442632237673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5192,3 +5448,4 @@ SceneRoots:
   - {fileID: 58105469}
   - {fileID: 500861966}
   - {fileID: 1689057352}
+  - {fileID: 467812819}

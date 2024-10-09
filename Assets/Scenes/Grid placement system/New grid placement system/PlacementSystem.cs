@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
 {
+    public static PlacementSystem Instance;
+
     [SerializeField]
     private InputManager inputManager;
     [SerializeField]
@@ -39,6 +41,8 @@ public class PlacementSystem : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
+
         gridVisualization.SetActive(false);
         floorData = new();
         furnitureData = new();

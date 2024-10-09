@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e20c7d56e0236438a706f29a4e40c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnTurret: 2
   isFollowTuretHead: 1
   directionX: -90
   directionY: 0
@@ -201,6 +200,8 @@ MonoBehaviour:
     type: 3}
   fireCooldown: 4
   targetingMode: 0
+  explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
 --- !u!114 &-9032593045869109503
 MonoBehaviour:
   m_ObjectHideFlags: 0

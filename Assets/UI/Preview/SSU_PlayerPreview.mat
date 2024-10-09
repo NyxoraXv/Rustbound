@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ENABLEDIRECTIONALALPHAFADE_ON
   - _ENABLESATURATION_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
@@ -210,11 +211,11 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DirectionalAlphaFadeFade: 0
+    - _DirectionalAlphaFadeFade: 20
     - _DirectionalAlphaFadeInvert: 0
     - _DirectionalAlphaFadeNoiseFactor: 0.2
-    - _DirectionalAlphaFadeRotation: 0
-    - _DirectionalAlphaFadeWidth: 0.2
+    - _DirectionalAlphaFadeRotation: 180
+    - _DirectionalAlphaFadeWidth: 5.24
     - _DirectionalDistortionFade: -0.63
     - _DirectionalDistortionInvert: 0
     - _DirectionalDistortionNoiseFactor: 0.2
@@ -239,7 +240,7 @@ Material:
     - _EnableColorReplace: 0
     - _EnableContrast: 0
     - _EnableCustomFade: 0
-    - _EnableDirectionalAlphaFade: 0
+    - _EnableDirectionalAlphaFade: 1
     - _EnableDirectionalDistortion: 0
     - _EnableDirectionalGlowFade: 0
     - _EnableEnchanted: 0

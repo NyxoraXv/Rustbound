@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.895}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.72116, y: -242.57428}
+  m_AnchoredPosition: {x: 147.69995, y: -260.7}
   m_SizeDelta: {x: 67.5537, y: 42.4167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8180308871359020347
@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.4, y: 2.471}
-  m_SizeDelta: {x: 72.025, y: 41.73}
+  m_AnchoredPosition: {x: 169.09256, y: 2.471}
+  m_SizeDelta: {x: 205.4101, y: 41.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3723940597690005609
 CanvasRenderer:
@@ -380,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.722}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60.508034, y: -3.3001072}
+  m_AnchoredPosition: {x: -72.2, y: 0.7}
   m_SizeDelta: {x: 70.2686, y: 27.0965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2246586841017371778
@@ -439,8 +439,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.7
-  m_fontSizeBase: 18.7
+  m_fontSize: 22.79
+  m_fontSizeBase: 22.79
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -778,17 +778,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2577161799960022643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.026840324, w: 0.99963975}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5753276138883155530}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.076}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1, y: -6.3}
-  m_SizeDelta: {x: 114.026, y: 50}
+  m_AnchoredPosition: {x: 1.8449, y: -5.4364}
+  m_SizeDelta: {x: 270.3619, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5008462366406991465
 CanvasRenderer:
@@ -853,8 +853,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -898,6 +898,8 @@ GameObject:
   m_Component:
   - component: {fileID: 754024679749304545}
   - component: {fileID: 3345569419893200492}
+  - component: {fileID: 2169398796804524413}
+  - component: {fileID: 6242013901958200697}
   m_Layer: 7
   m_Name: Turret Container 1
   m_TagString: Untagged
@@ -944,6 +946,38 @@ MonoBehaviour:
   accuracy: {fileID: 42212219993445879}
   icon: {fileID: 4048434143740722519}
   buyButton: {fileID: 8607370324506178093}
+--- !u!225 &2169398796804524413
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243420370473635203}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &6242013901958200697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243420370473635203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bca9dcc238af04a9bb9768afe1f312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponImage: {fileID: 4048434143740722519}
+  decoratorImage: {fileID: 8225887451319901939}
+  statsLine: {fileID: 4487200695689783258}
+  BuyButton: {fileID: 8268251488150826589}
+  hoverOffset: {x: 0, y: 10, z: 0}
+  buttonHoverScale: 1.1
+  buttonClickScale: 0.9
+  duration: 0.3
 --- !u!1 &4291059936918795551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,8 +1170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96.6, y: 2.172}
-  m_SizeDelta: {x: 72.025, y: 28.306}
+  m_AnchoredPosition: {x: 156.9133, y: 2.172}
+  m_SizeDelta: {x: 192.6478, y: 28.306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1686459736881579396
 CanvasRenderer:
@@ -1384,6 +1418,7 @@ GameObject:
   - component: {fileID: 7727845153563308388}
   - component: {fileID: 2440391407368428775}
   - component: {fileID: 4048434143740722519}
+  - component: {fileID: 595058939603029805}
   m_Layer: 7
   m_Name: Turret Image
   m_TagString: Untagged
@@ -1431,7 +1466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1448,6 +1483,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &595058939603029805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677312390530921951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8117529189400338911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,8 +1532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 139.8, y: 2.6}
-  m_SizeDelta: {x: 72.025, y: 41.73}
+  m_AnchoredPosition: {x: 173.43636, y: 2.6}
+  m_SizeDelta: {x: 139.2976, y: 41.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7903844154989580433
 CanvasRenderer:
@@ -1595,6 +1645,7 @@ GameObject:
   - component: {fileID: 1094968825682229797}
   - component: {fileID: 341917589359592503}
   - component: {fileID: 8607370324506178093}
+  - component: {fileID: 5768765342140438506}
   m_Layer: 7
   m_Name: Buy button
   m_TagString: Untagged
@@ -1619,7 +1670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.011}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 167, y: -299}
+  m_AnchoredPosition: {x: 165.7, y: -314.6}
   m_SizeDelta: {x: 313.0079, y: 134.2849}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1094968825682229797
@@ -1704,3 +1755,48 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5768765342140438506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268251488150826589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6242013901958200697}
+          m_TargetAssemblyTypeName: TurretHoverEffect, Assembly-CSharp
+          m_MethodName: OnBuyButtonHoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6242013901958200697}
+          m_TargetAssemblyTypeName: TurretHoverEffect, Assembly-CSharp
+          m_MethodName: OnBuyButtonHoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

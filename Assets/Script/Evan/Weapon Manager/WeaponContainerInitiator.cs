@@ -9,10 +9,14 @@ public class WeaponContainerInitiator : MonoBehaviour
     [SerializeField] private Button buyButton;
 
     private WeaponManager weaponManager;
+    private TextMeshProUGUI buyButtonText;
 
     private void OnEnable()
     {
         weaponManager = WeaponManager.Instance;
+
+        // Get the TextMeshProUGUI component in the buyButton's children
+        buyButtonText = buyButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Initialize the weapon UI with the given weapon data
@@ -26,8 +30,17 @@ public class WeaponContainerInitiator : MonoBehaviour
         accuracy.text = weapon.weaponAccuracy.ToString("F2"); // Assuming accuracy is a float
         icon.sprite = weapon.weaponImage;
 
-        // Add a listener to the buy button to handle weapon purchase
-        buyButton.onClick.AddListener(() => TryBuyWeapon(weapon));
+        // Check if the weapon is owned
+        if (weaponManager.IsWeaponOwned(weapon.weaponID))
+        {
+            // Set the color to 666666 (grey) for disabled UI elements
+            SetOwnedState();
+        }
+        else
+        {
+            // Add a listener to the buy button to handle weapon purchase
+            buyButton.onClick.AddListener(() => TryBuyWeapon(weapon));
+        }
     }
 
     // Method to handle weapon purchase
@@ -38,10 +51,25 @@ public class WeaponContainerInitiator : MonoBehaviour
         if (success)
         {
             Debug.Log("Purchased weapon: " + weapon.weaponName);
+            SetOwnedState();
         }
         else
         {
             Debug.Log("Failed to purchase weapon: " + weapon.weaponName);
         }
+    }
+
+    // Set the UI elements to indicate the weapon is owned
+    private void SetOwnedState()
+    {
+        // Change the color to grey (hex: #666666)
+        Color greyColor = new Color32(102, 102, 102, 255); // #666666 in RGBA
+        buyButton.image.color = greyColor;
+
+        // Change the buy button text to "Owned"
+        buyButtonText.text = "Owned";
+
+        // Disable the buy button
+        buyButton.interactable = false;
     }
 }
