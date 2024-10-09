@@ -50,7 +50,7 @@ public class Round : MonoBehaviour
     [Header("Zombie Type")]
     public GameObject[] zombiePrefabs; // Array to hold different zombie prefabs
 
-    [Header("HealthIncreaseStartAtRound-15")]
+    [Header("HealthIncreaseStartAtRound-21")]
     public int healthIncreaseEachRound;
     private float healthMultiplier = 0;
 
@@ -89,7 +89,7 @@ public class Round : MonoBehaviour
             zombiesToSpawn += 2;
 
             // Increase health multiplier starting from wave 11
-            if (currentRound >= 16)
+            if (currentRound >= 21)
             {
                 healthMultiplier += 1f;
             }
@@ -114,7 +114,7 @@ public class Round : MonoBehaviour
             Debug.LogError("TextMeshPro component is missing!");
         }
     }
-    
+
 
     // Coroutine to start spawning zombies
     public IEnumerator StartSpawningZombies()
@@ -202,7 +202,7 @@ public class Round : MonoBehaviour
         // Update the total zombies text
         UpdateTotalZombieText();
     }
-    
+
     // Coroutine to spawn special zombies with a delay between each
     public IEnumerator SpawnSpecialZombiesWithDelay()
     {
@@ -231,7 +231,7 @@ public class Round : MonoBehaviour
         // Determine the number of special zombies to spawn based on the current round
         if (currentRound == 9)
         {
-           specialZombiesToSpawn = 1;
+            specialZombiesToSpawn = 1;
         }
         else if (currentRound == 13)
         {
@@ -264,7 +264,7 @@ public class Round : MonoBehaviour
     // Method to spawn a special zombie
     private void SpawnSpecialZombie()
     {
-       GameObject specialZombiePrefab;
+        GameObject specialZombiePrefab;
 
         // Check if it's one of the special rounds (9, 13, 18, or 23)
         if (currentRound == 9)
@@ -307,7 +307,7 @@ public class Round : MonoBehaviour
     private Transform GetSpawnPointWithDelay()
     {
         Transform spawnPoint;
-        
+
         // Check for cooldowns and remove any that are expired
         List<Transform> expiredPoints = new List<Transform>();
         foreach (var kvp in spawnPointCooldowns)
@@ -317,7 +317,7 @@ public class Round : MonoBehaviour
                 expiredPoints.Add(kvp.Key);
             }
         }
-        
+
         foreach (var expiredPoint in expiredPoints)
         {
             spawnPointCooldowns.Remove(expiredPoint);
@@ -370,7 +370,7 @@ public class Round : MonoBehaviour
             GameObject bossInstance = Instantiate(boss, spawnPoint.position, spawnPoint.rotation);
             bossInstance.transform.SetParent(spawnPoint);
             bossList.Add(bossInstance);
-           
+
             IncreaseZombieMaxHealth(bossInstance, healthIncreaseEachRound * healthMultiplier);
 
             UpdateTotalZombieText();

@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 800
+  maxHealth: 400
 --- !u!1 &3591375948646511086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: af5e3983bffc63e4aaf5ed495653f8ad,
