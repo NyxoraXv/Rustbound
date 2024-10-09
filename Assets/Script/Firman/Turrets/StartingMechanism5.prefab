@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989410331529154846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,10 @@ PrefabInstance:
       value: StartingMechanism5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -51,9 +55,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
       propertyPath: m_LocalScale.x
@@ -124,14 +136,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -9032593045869109503}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: b3570e0c2bb311a47bd63d92a70c747e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4700398869582548135}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: b3570e0c2bb311a47bd63d92a70c747e,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 604674620658560632}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: b3570e0c2bb311a47bd63d92a70c747e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5843808930278447799}
   m_SourcePrefab: {fileID: 100100000, guid: b3570e0c2bb311a47bd63d92a70c747e, type: 3}
 --- !u!4 &5409564507108296688 stripped
 Transform:
@@ -139,33 +151,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5409564507108695412}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5409564507108793296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: b3570e0c2bb311a47bd63d92a70c747e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5409564507108695412}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5843808930278447799
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5409564507108793296}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.066937506, y: 0.25996146, z: 0.081830025}
-  m_Center: {x: 0.0027318867, y: -0.0499515, z: 0.030236557}
 --- !u!1 &5409564507108793300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b3570e0c2bb311a47bd63d92a70c747e,
@@ -217,6 +202,27 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 600
+--- !u!65 &4700398869582548135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409564507108793300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7990583, y: 1.1269486, z: 1.0752062}
+  m_Center: {x: -0.034581505, y: 0.45452017, z: -0.027166128}
 --- !u!1 &5409564507108793302 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: b3570e0c2bb311a47bd63d92a70c747e,

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413424364178472209}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2074619141811614312}
   - component: {fileID: 8164101584252481808}
   - component: {fileID: 9198640219862934628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: d (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4775,7 +4775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094336480103452378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4806,7 +4806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8586314300605277435}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4837,7 +4837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248754507741778120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4868,7 +4868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5436606586730481992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4901,7 +4901,7 @@ GameObject:
   - component: {fileID: 2158705495989074305}
   - component: {fileID: 708768865842689884}
   - component: {fileID: 843280428613865298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9799,7 +9799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3793514803700490305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9832,7 +9832,7 @@ GameObject:
   - component: {fileID: 4165909202151387867}
   - component: {fileID: 4054313769079167189}
   - component: {fileID: 6258120822781733585}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14595,7 +14595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6767061246603287690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14628,7 +14628,7 @@ GameObject:
   - component: {fileID: 3014767731446658077}
   - component: {fileID: 4007130654575109897}
   - component: {fileID: 2240145806464571294}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19528,7 +19528,7 @@ GameObject:
   - component: {fileID: 3414944267548405782}
   - component: {fileID: 740358443496139869}
   - component: {fileID: 7091042830602012601}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24291,7 +24291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3510330685837386731}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24322,7 +24322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692778547745521403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24353,7 +24353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2652544109317243645}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24384,7 +24384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4984503903722497837}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24417,7 +24417,7 @@ GameObject:
   - component: {fileID: 1607333101908636579}
   - component: {fileID: 3459709860018964526}
   - component: {fileID: 8490507066387436163}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29151,7 +29151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583615790018917458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29182,7 +29182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7910157826195616462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29213,7 +29213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6938160891639220430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29244,7 +29244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6039598620297542159}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29275,7 +29275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5301892214768807915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29310,6 +29310,10 @@ PrefabInstance:
       value: Minigun5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -29317,9 +29321,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
       propertyPath: m_LocalScale.x
@@ -29509,14 +29521,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1039754459946675413}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5272696497050644153}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: e2711c43d1dd73e498dde7cebd35fa73,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5856904333599424945}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: e2711c43d1dd73e498dde7cebd35fa73,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2239860514734057569}
   m_SourcePrefab: {fileID: 100100000, guid: e2711c43d1dd73e498dde7cebd35fa73, type: 3}
 --- !u!4 &1123162897191220169 stripped
 Transform:
@@ -29524,33 +29536,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1123162897191348557}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1123162897191317481 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: e2711c43d1dd73e498dde7cebd35fa73,
-    type: 3}
-  m_PrefabInstance: {fileID: 1123162897191348557}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2239860514734057569
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123162897191317481}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.004089042, y: 0.008776783, z: 0.00408082}
-  m_Center: {x: -0.00168267, y: -0.0025993963, z: -0.00028609764}
 --- !u!1 &1123162897191317485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: e2711c43d1dd73e498dde7cebd35fa73,
@@ -29620,6 +29605,27 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+--- !u!65 &5272696497050644153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123162897191317485}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.44668117, y: 0.42111176, z: 0.38518253}
+  m_Center: {x: -0.021807143, y: 0.19729999, z: 0.009744304}
 --- !u!1 &1123162897191317487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: e2711c43d1dd73e498dde7cebd35fa73,
@@ -29658,6 +29664,14 @@ PrefabInstance:
     - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Name
       value: BulletImpactStoneEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011512443876, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010197676760, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_LocalScale.x
@@ -29768,6 +29782,14 @@ PrefabInstance:
     - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Name
       value: BulletImpactStoneEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011512443876, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010197676760, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_LocalScale.x

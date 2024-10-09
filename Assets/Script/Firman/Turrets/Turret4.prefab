@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1722626049715273523}
   - component: {fileID: 6923710193368815513}
   - component: {fileID: 7154588488760207983}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4746,7 +4746,7 @@ GameObject:
   - component: {fileID: 2521325697420996542}
   - component: {fileID: 5800564974185330063}
   - component: {fileID: 3508947753257970324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9644,7 +9644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6603060205665269144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9675,7 +9675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7547340654127326739}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9706,7 +9706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7544636054894867042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9739,7 +9739,7 @@ GameObject:
   - component: {fileID: 2019102237933723607}
   - component: {fileID: 7486762280631717001}
   - component: {fileID: 1746702422605344430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14502,7 +14502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392573051358241116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14535,6 +14535,14 @@ PrefabInstance:
     - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Name
       value: BulletImpactStoneEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011512443876, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010197676760, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_LocalScale.x
@@ -14642,6 +14650,10 @@ PrefabInstance:
       value: Turret4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac, type: 3}
       propertyPath: m_TagString
       value: Turret
       objectReference: {fileID: 0}
@@ -14649,9 +14661,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 991fa4da127de394daa722a182514fac, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 991fa4da127de394daa722a182514fac, type: 3}
       propertyPath: m_Name
       value: TurretHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 991fa4da127de394daa722a182514fac, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 991fa4da127de394daa722a182514fac, type: 3}
       propertyPath: m_LocalScale.x
@@ -14737,42 +14757,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2283970515468675917}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6160569770687254277}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 991fa4da127de394daa722a182514fac,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 205738010662225452}
-    - targetCorrespondingSourceObject: {fileID: 100004, guid: 991fa4da127de394daa722a182514fac,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2907943156175365651}
   m_SourcePrefab: {fileID: 100100000, guid: 991fa4da127de394daa722a182514fac, type: 3}
---- !u!1 &6052941085072812275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: 991fa4da127de394daa722a182514fac,
-    type: 3}
-  m_PrefabInstance: {fileID: 6052941085072715351}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2907943156175365651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6052941085072812275}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0037917607, y: 0.008025554, z: 0.0041516284}
-  m_Center: {x: -0.0014288531, y: -0.002674519, z: -0.00019328916}
 --- !u!1 &6052941085072812277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 991fa4da127de394daa722a182514fac,
@@ -14858,6 +14851,27 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 500
+--- !u!65 &6160569770687254277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052941085072812279}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.68947285, y: 0.41662514, z: 0.36281165}
+  m_Center: {x: 0.003789584, y: 0.18936986, z: -0.024814647}
 --- !u!4 &6052941085073110227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 991fa4da127de394daa722a182514fac,

@@ -49,7 +49,8 @@ public class EnemyController : VariableComponent
         // {
         //     Debug.LogError("VariableComponent not found on this GameObject.");
         // }
-
+        _currentHealth = maxHealth;
+        
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
         {
             navMeshAgent = nm;
@@ -67,7 +68,6 @@ public class EnemyController : VariableComponent
         // Start health regeneration coroutine if the enemy is a boss
         if (isBoss)
         {
-            Debug.Log("Boss detected. Starting health regeneration.");
             StartCoroutine(RegenerateHealth());
         }
 
@@ -95,13 +95,11 @@ public class EnemyController : VariableComponent
         {
             if (collider.gameObject == targetedEntity)
             {
-                Debug.Log("collide");
                 if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
                 {
                     detectPlayer = true;
                     animator.SetBool(attackParam, true);
                     // vc.TakeDamage(damageDealt);
-                    Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
                 }
            
             }
@@ -158,7 +156,6 @@ public class EnemyController : VariableComponent
             if (targetHealth != null)
             {
                 targetHealth.TakeDamage(damageDealt); // Apply damage
-                Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
             }
         }
     }
@@ -182,7 +179,6 @@ public class EnemyController : VariableComponent
             {
                 round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
             }
-            Debug.Log("Enemy is dead!");
         }
     }
 
@@ -253,7 +249,6 @@ public class EnemyController : VariableComponent
 
     private System.Collections.IEnumerator RegenerateHealth()
     {
-        Debug.Log("Health regeneration coroutine started.");
         while (true) // Keep this loop running indefinitely
         {
             yield return new WaitForSeconds(1f); // Wait for 1 second
@@ -261,7 +256,6 @@ public class EnemyController : VariableComponent
             // Check if the boss is still alive
             if (!IsAlive())
             {
-                Debug.Log("Boss is dead. Stopping regeneration.");
                 yield break; // Stop the coroutine if the boss is dead
             }
 
@@ -269,11 +263,6 @@ public class EnemyController : VariableComponent
             if (GetCurrentHealth() < GetMaxHealth())
             {
                 Heal(regenerationHealthPerSecond); // Heal by the specified amount
-                Debug.Log($"Boss healed for {regenerationHealthPerSecond} HP! Current Health: {GetCurrentHealth()}");
-            }
-            else
-            {
-                Debug.Log("Boss is at max health. No healing performed.");
             }
         }
     }

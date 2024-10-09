@@ -4951,3 +4951,4 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 50
   impactDamage: 25
+  accuracy: 0.8

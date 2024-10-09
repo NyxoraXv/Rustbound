@@ -37,7 +37,8 @@ public class PlayerMovement : VariableComponent
 
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-
+        _currentHealth = maxHealth;
+        
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
         mainCamera = Camera.main;
 
