@@ -818,12 +818,7 @@ MonoBehaviour:
   maxHealth: 100
   shootPos: {fileID: 3783290917606168080}
   weaponGrab: {fileID: 3783290917606168080}
-  weapons:
-  - {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
-  - {fileID: 1236257789494122, guid: 8b0b86b42def11849a8eba21f4a6a684, type: 3}
-  - {fileID: 1117582899397640, guid: 689946d975a0e55449b1e7ae41933e73, type: 3}
-  - {fileID: 1829597508155286, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
-  - {fileID: 1261748888023320, guid: 432643b6e5110004083fdff3e33e490b, type: 3}
+  weapons: {fileID: 11400000, guid: ef89875c2278b6c418ffee05bcbb64d2, type: 2}
   rotateBody: {fileID: 5338675373124951838}
   shootForce: 120
   poolSize: 10
