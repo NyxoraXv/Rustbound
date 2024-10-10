@@ -176,10 +176,65 @@ public class EnemyController : VariableComponent
     {
         if (targetedEntity != null)
         {
-            VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
-            if (targetHealth != null)
+            if (targetedEntity.TryGetComponent<TurretCone>(out TurretCone turretCone))
             {
-                targetHealth.TakeDamage(damageDealt); // Apply damage
+                turretCone.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretAdvance>(out TurretAdvance turretAdvance))
+            {
+                turretAdvance.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretBasic>(out TurretBasic turretBasic))
+            {
+                turretBasic.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretDoubleType>(out TurretDoubleType turretDoubleType))
+            {
+                turretDoubleType.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretLaser>(out TurretLaser turretLaser))
+            {
+                turretLaser.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretLaserAdvance>(out TurretLaserAdvance turretLaserAdvance))
+            {
+                turretLaserAdvance.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretMinigun>(out TurretMinigun turretMinigun))
+            {
+                turretMinigun.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretOverpower>(out TurretOverpower turretOverpower))
+            {
+                turretOverpower.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretOverpowerDouble>(out TurretOverpowerDouble turretOverpowerDouble))
+            {
+                turretOverpowerDouble.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretOverpowerQuad>(out TurretOverpowerQuad turretOverpowerQuad))
+            {
+                turretOverpowerQuad.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretOverpowerTriple>(out TurretOverpowerTriple turretOverpowerTriple))
+            {
+                turretOverpowerTriple.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretRocket>(out TurretRocket turretRocket))
+            {
+                turretRocket.TakeDamage(damageDealt);
+            }
+            else if (targetedEntity.TryGetComponent<TurretRocketAdvance>(out TurretRocketAdvance turretRocketAdvance))
+            {
+                turretRocketAdvance.TakeDamage(damageDealt);
+            }
+            else
+            {
+                VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
+                if (targetHealth != null)
+                {
+                    targetHealth.TakeDamage(damageDealt); // Apply damage
+                }
             }
         }
     }

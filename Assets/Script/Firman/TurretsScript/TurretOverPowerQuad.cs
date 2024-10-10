@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretOverpowerQuad : MonoBehaviour, ITurret
+public class TurretOverpowerQuad : VariableComponent, ITurret
 {
     [Header("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
@@ -32,7 +32,6 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
     private Transform target;
     private float lastFireTime;
 
-    private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool isPreviewObject;
@@ -42,12 +41,8 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
 
     void Start()
     {
-        variableComponent = GetComponent<VariableComponent>();
-        if (variableComponent == null)
-        {
-            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
-        }
-
+        _currentHealth = maxHealth;
+        
         soundManager = FindAnyObjectByType<SoundManager>();
     }
 
@@ -170,23 +165,25 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
         }
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        if (variableComponent != null)
+        base.TakeDamage(damage);
+
+        int[] sfxOptions = { 6, 7, 8 };
+
+        // Pick a random SFX
+        int randomIndex = Random.Range(0, sfxOptions.Length);
+        int randomSFX = sfxOptions[randomIndex];
+
+        // Play the randomly selected SFX
+        soundManager.PlaySFX(randomSFX);
+
+        if (GetCurrentHealth() <= 0)
         {
-            variableComponent.TakeDamage(damage);
-
-            int[] sfxOptions = { 6, 7, 8 };
-            int randomIndex = Random.Range(0, sfxOptions.Length);
-            int randomSFX = sfxOptions[randomIndex];
-            soundManager.PlaySFX(randomSFX);
-
-            if (variableComponent.GetCurrentHealth() <= 0)
-            {
-                DestroyTurret();
-            }
+            DestroyTurret();
         }
     }
+
 
     private void DestroyTurret()
     {
@@ -195,6 +192,7 @@ public class TurretOverpowerQuad : MonoBehaviour, ITurret
             ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 4f);
         }
+        soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

@@ -1446,7 +1446,7 @@ GameObject:
   - component: {fileID: 8728599196167121385}
   - component: {fileID: 6107273326720602112}
   m_Layer: 6
-  m_Name: Zombie
+  m_Name: ToughZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1577,11 +1577,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
-  damageDealt: 10
+  damageDealt: 1000
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3

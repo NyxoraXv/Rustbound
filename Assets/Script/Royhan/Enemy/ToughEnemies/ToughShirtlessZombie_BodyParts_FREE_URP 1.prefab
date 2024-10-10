@@ -1189,7 +1189,7 @@ GameObject:
   - component: {fileID: 2593895004314963582}
   - component: {fileID: 853906644735792083}
   m_Layer: 6
-  m_Name: ShirtlessZombie_BodyParts_FREE_URP 1
+  m_Name: ToughShirtlessZombie_BodyParts_FREE_URP 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,11 +1334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
-  damageDealt: 10
+  damageDealt: 1000
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3

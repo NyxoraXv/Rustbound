@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textRound: {fileID: 1618939511}
   textTotalZombie: {fileID: 1137910122}
-  currentRound: 9
+  currentRound: 1
   zombiesToSpawn: 5
   Boss1: {fileID: 4127960938634840145, guid: a5295e78cd3f41f4d9ccd1f82ccb9e0e, type: 3}
   Boss2: {fileID: 4127960938634840145, guid: 48f1b31ea6bada048935687ddba47ad0, type: 3}
@@ -1106,7 +1106,13 @@ MonoBehaviour:
     type: 3}
   specialZombie:
   - {fileID: 1733385212409402, guid: 1dd3c5cc83540d2439aa747feff85c71, type: 3}
-  unbeatableZombies: []
+  unbeatableZombies:
+  - {fileID: 992872293614820932, guid: b690f5e57c340a24f9a89ed7dc1d7941, type: 3}
+  - {fileID: 7803411478936568010, guid: 52f8be82250dc1c48b30636bd2482170, type: 3}
+  - {fileID: 6028982480729606108, guid: b39d1185dbb055748a2d878257dc47b5, type: 3}
+  - {fileID: 3170052297267817369, guid: 903fd4891caa54b458fdcfc59f23b82b, type: 3}
+  - {fileID: 3170052297267817369, guid: 8eccbe881b555b947a27cd5f3056ff89, type: 3}
+  - {fileID: 1352753540370996, guid: 1e7e010dbddb8b9479c2d88345e358c5, type: 3}
   zombiePrefabs:
   - {fileID: 992872293614820932, guid: 27fb17d2455922844aec615844f2755b, type: 3}
   - {fileID: 7803411478936568010, guid: 3ccb5e59815b21c4a84e52c72766c748, type: 3}
@@ -1114,7 +1120,7 @@ MonoBehaviour:
   - {fileID: 3170052297267817369, guid: ef26b2dc882f2d741b1e5521ca67f8ef, type: 3}
   - {fileID: 3170052297267817369, guid: a69702cf4a38b184ab6b50b8ef7e8603, type: 3}
   - {fileID: 1352753540370996, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
-  healthIncreaseEachRound: 200
+  healthIncreaseEachRound: 250
   spawnPoints:
   - {fileID: 596227732}
   - {fileID: 163784574}

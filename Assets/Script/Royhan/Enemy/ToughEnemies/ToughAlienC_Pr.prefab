@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 4106951894418711418}
   - component: {fileID: 3668284254380749755}
   m_Layer: 6
-  m_Name: AlienC_Pr
+  m_Name: ToughAlienC_Pr
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1539,11 +1539,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 10000
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0
-  damageDealt: 10
+  damageDealt: 1000
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3
