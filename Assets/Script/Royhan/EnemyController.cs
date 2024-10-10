@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyController : VariableComponent
 {
+    [Header("Add Currency")]
+    public int currencyAdd = 1;
+
     public bool isBoss = false;
     public float regenerationHealthPerSecond = 10f;
 
@@ -42,6 +45,7 @@ public class EnemyController : VariableComponent
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
+    private CurrencyManager currencyManager;
 
     private void Start()
     {
@@ -77,6 +81,8 @@ public class EnemyController : VariableComponent
             animator = anim;
             animator.SetInteger(stateParam,state);
         }
+
+        currencyManager = FindAnyObjectByType<CurrencyManager>();
     }
 
     private void Update()
@@ -132,7 +138,11 @@ public class EnemyController : VariableComponent
 
         if (_currentHealth <= 0)   Die();
     }
-    public void Del () => Destroy(gameObject, 1.5f);
+    public void Del () 
+    {
+        Destroy(gameObject, 1.5f);
+        currencyManager.AddCurrency(currencyAdd);
+    }
     protected override void Die ()
     {
         navMeshAgent.speed = 0;

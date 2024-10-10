@@ -1979,6 +1979,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+  currencyAdd: 20
   isBoss: 1
   regenerationHealthPerSecond: 50
   currentTargetType: 0

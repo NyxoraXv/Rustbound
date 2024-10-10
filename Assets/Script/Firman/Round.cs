@@ -56,8 +56,10 @@ public class Round : MonoBehaviour
 
     [Header("Enemy Spawn")]
     public Transform[] spawnPoints; // Array to hold different spawn points
+    private CurrencyManager currencyManager;
 
     private Dictionary<Transform, float> spawnPointCooldowns = new Dictionary<Transform, float>();
+    private int currencyMultiplier = 0;
 
     void Start()
     {
@@ -67,9 +69,11 @@ public class Round : MonoBehaviour
             // Try to find the TextMeshPro component if not assigned
             textRound = GetComponent<TextMeshProUGUI>();
         }
-
         // Update the text
         UpdateRoundText(currentRound); // For example, "ROUND 1"
+
+        currencyManager = FindObjectOfType<CurrencyManager>();
+        currencyManager.AddCurrency(10);
 
         StartCoroutine(StartSpawningZombies());
     }
@@ -87,17 +91,21 @@ public class Round : MonoBehaviour
             // Increment zombies to spawn by 2 for the next round
             zombiesToSpawn += 2;
 
+            int currencyMultiply = currencyMultiplier += 1;
+        
+            currencyManager.AddCurrency(10 * currencyMultiply);
+
             // Increase health multiplier starting from wave 11
             if (currentRound >= 25)
             {
                 healthMultiplier += 1f;
             }
 
-            // Spawn special zombies with a delay
-            StartCoroutine(SpawnSpecialZombiesWithDelay());
+            // // Spawn special zombies with a delay
+            // StartCoroutine(SpawnSpecialZombiesWithDelay());
 
-            // Start spawning zombies for the next round
-            StartCoroutine(StartSpawningZombies());
+            // // Start spawning zombies for the next round
+            // StartCoroutine(StartSpawningZombies());
         }
     }
 
