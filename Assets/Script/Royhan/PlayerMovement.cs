@@ -15,6 +15,7 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
+    [SerializeField] private LayerMask layerRaycast;
     public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
     private Transform cameraTransform;
@@ -34,7 +35,7 @@ public class PlayerMovement : VariableComponent
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
     private bool shoot = false;
-    private int indexWeapon = 0; 
+    private int indexWeapon = 0;
 
     private void Awake()
     {
@@ -204,7 +205,7 @@ public class PlayerMovement : VariableComponent
     {
         // Menentukan arah tembakan berdasarkan posisi mouse
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
         {
             // Hit point berdasarkan mouse tanpa mengubah posisi Y dari peluru
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
@@ -216,6 +217,7 @@ public class PlayerMovement : VariableComponent
 
             // Hitung rotasi target yang diinginkan
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+            // toRotation.w = 0;
 
             // Dapatkan sudut Euler dari rotasi yang diinginkan
             Vector3 eulerRotation = toRotation.eulerAngles;
@@ -226,7 +228,7 @@ public class PlayerMovement : VariableComponent
 
             // Terapkan rotasi baru yang sudah dibatasi
             rotateBody.rotation = Quaternion.Euler(eulerRotation);
-            // Debug.Log(Quaternion.Euler(eulerRotation));
+            Debug.Log(Quaternion.Euler(eulerRotation));
 
             if (moveDirection != Vector3.zero)
             {
