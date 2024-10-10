@@ -12,10 +12,11 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private Transform rotateBody;
     // [SerializeField] private Transform body;
     // [SerializeField] private Transform leftFoot;
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
+    public GameObject bulletPrefab;
+    [HideInInspector] public float bulletDamage;
     private Transform cameraTransform;
     private List<GameObject> weaponCollection = new List<GameObject>();
     private Vector3 moveDirection;
@@ -37,7 +38,6 @@ public class PlayerMovement : VariableComponent
 
     private void Awake()
     {
-
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         _currentHealth = maxHealth;
@@ -60,6 +60,7 @@ public class PlayerMovement : VariableComponent
         foreach (GameObject obj in weapons)
         {
             GameObject objec = Instantiate(obj, weaponGrab);
+            objec.GetComponent<WeaponComponent>().playerMovement = this;
             objec.SetActive(false);
             weaponCollection.Add(objec);
         }
@@ -259,7 +260,7 @@ public class PlayerMovement : VariableComponent
         GameObject bulletPush = GetPooledBullet();
         if (bulletPush != null)
         {
-
+            bulletPush.GetComponent<Bullet>().bulletDamage = bulletDamage;
             // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
             // print("dir" + direction);
             // print("target" + targetPosition);
