@@ -45,13 +45,6 @@ public class EnemyController : VariableComponent
 
     private void Start()
     {
-        // Get the VariableComponent attached to this GameObject
-        // variableComponent = GetComponent<VariableComponent>();
-        // if (variableComponent == null)
-        // {
-        //     Debug.LogError("VariableComponent not found on this GameObject.");
-        // }
-
         if (!setState)
         {
             state = UnityEngine.Random.Range(0, 5);
@@ -110,13 +103,11 @@ public class EnemyController : VariableComponent
             {
                 if (collider.gameObject == targetedEntity)
                 {
-                    Debug.Log("collide");
                     if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
                     {
                         detectPlayer = true;
                         animator.SetBool(attackParam, true);
                         // vc.TakeDamage(damageDealt);
-                        Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
                     }
             
                 }
