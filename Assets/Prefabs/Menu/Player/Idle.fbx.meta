@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_Magician_RIO
-    second: {fileID: 2100000, guid: 626ba0449b00a1e42a62293fe6d22158, type: 2}
+    second: {fileID: 2100000, guid: b2eacfecc4de52a45b2bbd8331b758ae, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_Magician_RIO_Cloak
-    second: {fileID: 2100000, guid: eb3f8096f7681b74a9296cd61c3ac672, type: 2}
+    second: {fileID: 2100000, guid: b2eacfecc4de52a45b2bbd8331b758ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
