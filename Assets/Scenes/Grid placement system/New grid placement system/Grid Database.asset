@@ -67,3 +67,27 @@ MonoBehaviour:
     <maxSpawnTurret>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 9215277367735509922, guid: b5e88f26208f3c94db4e97f5a1e91d89,
       type: 3}
+  - <Name>k__BackingField: AA-Single
+    <ID>k__BackingField: 9
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 4206958949730962340, guid: 0a0ec8c94fadadc45a719d317d82fc03,
+      type: 3}
+  - <Name>k__BackingField: AA-Dual
+    <ID>k__BackingField: 10
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
+      type: 3}
+  - <Name>k__BackingField: AA-Triplet
+    <ID>k__BackingField: 11
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
+      type: 3}
+  - <Name>k__BackingField: AA-Quadra
+    <ID>k__BackingField: 12
+    <Size>k__BackingField: {x: 3, y: 3}
+    <maxSpawnTurret>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
+      type: 3}
