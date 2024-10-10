@@ -155,7 +155,7 @@ public class PlayerMovement : VariableComponent
         // Destroy(_rigidbody);
         Destroy(this);
         // Destroy
-        animator.SetTrigger(dieParam);
+        animator.SetBool(dieParam, true);
     }
 
     public void OnMove(InputAction.CallbackContext context)

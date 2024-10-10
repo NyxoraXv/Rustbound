@@ -12075,6 +12075,7 @@ GameObject:
   - component: {fileID: 1165002353}
   - component: {fileID: 1165002352}
   - component: {fileID: 1165002351}
+  - component: {fileID: 1165002356}
   - component: {fileID: 1165002355}
   m_Layer: 7
   m_Name: UI Canvas
@@ -12188,6 +12189,27 @@ MonoBehaviour:
   TurretMarket: {fileID: 2121871124}
   Inventory: {fileID: 1875677584}
   PlacementUI: {fileID: 1305670325}
+--- !u!114 &1165002356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165002350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8caca05c40f16cf4db84dec0950974a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: {fileID: 653448346}
+  sp: {fileID: 0}
+  current_ammo: {fileID: 0}
+  max_ammo: {fileID: 0}
+  level: {fileID: 0}
+  first_slot: {fileID: 0}
+  second_slot: {fileID: 0}
+  healthImage: {fileID: 1592334945}
+  playerMovement: {fileID: 1938057172}
 --- !u!4 &1173548803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6843009160552232294, guid: d5cd845de5e81f847b5a29267132626e,
@@ -14517,10 +14539,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 8f9e7a8104c08954c9b09b0f3f1e0549, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
