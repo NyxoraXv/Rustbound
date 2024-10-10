@@ -15,6 +15,8 @@ public class VariableComponent : MonoBehaviour
     // Method to take damage.
     public virtual void TakeDamage(float damage)
     {
+        Debug.Log("damaging");
+        Debug.Log(Bullet.bulletDamage);
         _currentHealth -= damage;
         if (_currentHealth <= 0f)
         {

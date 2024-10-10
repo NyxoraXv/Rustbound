@@ -70,11 +70,14 @@ public class PlayerMovement : VariableComponent
             weaponCollection.Add(objec);
         }
         weaponCollection[indexWeapon].SetActive(true);
+        Bullet.bulletDamage = weapons.weapons[indexWeapon].weaponDamage;
+        Bullet.rangeAttack = weapons.weapons[indexWeapon].weaponAccuracy;
     }
     
 
     private void FixedUpdate()
     {
+
         if (!shoot)
         {
 
@@ -142,7 +145,7 @@ public class PlayerMovement : VariableComponent
         }
     }
 
-    public static void SetWeapon(int index, bool isPrimary)
+    public void SetWeapon(int index, bool isPrimary)
     {
         if (isPrimary)
         {
@@ -153,13 +156,17 @@ public class PlayerMovement : VariableComponent
         {
             weaponIndex[1] = index;
         }
+        
     }
 
-    private static void SelectWeapon(int index)
+    private  void SelectWeapon(int index)
     {
+
         weaponCollection[indexWeapon].SetActive(false);
         indexWeapon = index;
         weaponCollection[indexWeapon].SetActive(true);
+        Bullet.bulletDamage = weapons.weapons[indexWeapon].weaponDamage;
+        Bullet.rangeAttack = weapons.weapons[indexWeapon].weaponAccuracy;
 
     }
 
@@ -284,7 +291,6 @@ public class PlayerMovement : VariableComponent
         GameObject bulletPush = GetPooledBullet();
         if (bulletPush != null)
         {
-            bulletPush.GetComponent<Bullet>().bulletDamage = bulletDamage;
             // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
             // print("dir" + direction);
             // print("target" + targetPosition);

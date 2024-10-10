@@ -10,6 +10,7 @@ public class WeaponData
     public int weaponID;
     public int weaponDamage;
     public float weaponRateOfFire;
+    [Range(0, 1.5f)]
     public float weaponAccuracy;
     public int price; // Add a price if you need it for purchasing.
 

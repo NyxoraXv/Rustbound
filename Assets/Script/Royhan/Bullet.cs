@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletDamage = 5;
+    public static float bulletDamage = 5;
+    public static float rangeAttack = 10;
     [Header("Peluru ini akan hilang jika menabrak layer ini")]
     [SerializeField] private LayerMask objLayerCol;
     private Rigidbody _rigidbody;
@@ -13,21 +14,26 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();     
     }
-    private void OnCollisionEnter(Collision other) 
+    private void Update() 
     {
         // if (objLayerCol.Equals(other.gameObject.layer))
         // {
-        if (other.gameObject.CompareTag("Enemy"))
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, rangeAttack, objLayerCol);
+        foreach (var hitCollider in hitColliders)
         {
-            other.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
-            gameObject.SetActive(false);
+            if (hitCollider.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log(hitCollider.gameObject.name);
+                hitCollider.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log(hitCollider.tag);
+                gameObject.SetActive(false);
+            }
+            Debug.Log("destroy");
         }
-        else
-        {
-            gameObject.SetActive(false);
-
-        }
-        Debug.Log("destroy");
         // Destroy(gameObject);
         // }
     }

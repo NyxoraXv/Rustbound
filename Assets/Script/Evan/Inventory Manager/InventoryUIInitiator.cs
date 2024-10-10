@@ -10,6 +10,11 @@ public class InventoryUIInitiator : MonoBehaviour
     // [SerializeField] private bool isPrimary;
 
     private WeaponManager weaponManager;
+    private PlayerMovement playerMovement;
+    private void Awake() 
+    {
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();    
+    }
 
     private void OnEnable()
     {
@@ -44,7 +49,7 @@ public class InventoryUIInitiator : MonoBehaviour
             {
                 weaponManager.OnWeaponSelected(weapon.weaponID); // Select the weapon
                 Debug.Log("Selected weapon: " + weapon.weaponName);
-                PlayerMovement.SetWeapon(weapon.weaponID, WeaponManager.Instance.isPrimary);
+                playerMovement.SetWeapon(weapon.weaponID, WeaponManager.Instance.isPrimary);
             }
             
         }
