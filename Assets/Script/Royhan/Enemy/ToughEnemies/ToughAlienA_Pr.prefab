@@ -435,6 +435,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+  currencyAdd: 100
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0

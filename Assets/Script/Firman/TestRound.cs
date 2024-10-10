@@ -13,6 +13,7 @@ public class TestRound : MonoBehaviour
 
     public void StartRound()
     {
+        Debug.Log("Start New Round");
         StartCoroutine(round.StartSpawningZombies());
         StartCoroutine(round.SpawnSpecialZombiesWithDelay());
     }
