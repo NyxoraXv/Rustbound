@@ -132,12 +132,12 @@ public class EnemyController : VariableComponent
 
         if (_currentHealth <= 0)   Die();
     }
-    public void Del () => Destroy(gameObject, 0.2f);
+    public void Del () => Destroy(gameObject, 1.5f);
     protected override void Die ()
     {
         navMeshAgent.speed = 0;
         animator.SetTrigger(dieParam);
-        GetComponent<Collider>().enabled = false;
+        Destroy(GetComponent<Collider>());
         // Destroy(navMeshAgent);
         Destroy(GetComponent<Rigidbody>());
     }
