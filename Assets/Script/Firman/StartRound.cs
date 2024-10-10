@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestRound : MonoBehaviour
+public class StartRound : MonoBehaviour
 {
     private Round round;
     // Start is called before the first frame update
@@ -11,7 +11,7 @@ public class TestRound : MonoBehaviour
         round = FindObjectOfType<Round>();
     }
 
-    public void StartRound()
+    public void StartNewRound()
     {
         Debug.Log("Start New Round");
         StartCoroutine(round.StartSpawningZombies());

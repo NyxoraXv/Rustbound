@@ -173,7 +173,7 @@ MonoBehaviour:
   directionY: 0
   directionMinZ: 0
   directionMaxZ: 0
-  detectionRadius: 13
+  detectionRadius: 15
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2

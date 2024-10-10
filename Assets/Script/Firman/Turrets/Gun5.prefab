@@ -19509,7 +19509,7 @@ MonoBehaviour:
   directionY: 260
   directionMinZ: -10
   directionMaxZ: -10
-  detectionRadius: 13
+  detectionRadius: 15
   detectionAngle: 360
   enemyLayer:
     serializedVersion: 2

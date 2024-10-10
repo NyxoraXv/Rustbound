@@ -1978,12 +1978,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 1500
-  currencyAdd: 20
+  maxHealth: 10000
+  currencyAdd: 400
   isBoss: 1
   regenerationHealthPerSecond: 50
   currentTargetType: 0
-  damageDealt: 10
+  damageDealt: 25
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3
