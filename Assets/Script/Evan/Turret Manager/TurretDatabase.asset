@@ -97,7 +97,7 @@ MonoBehaviour:
   - Name: AA-Single
     Prefab: {fileID: 4206958949730962340, guid: 0a0ec8c94fadadc45a719d317d82fc03,
       type: 3}
-    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    Image: {fileID: 21300000, guid: b4d6c509b0947f047b2d08c82a4f3c30, type: 3}
     ID: 9
     Damage: 2000
     RateOfFire: 2.5
@@ -106,7 +106,7 @@ MonoBehaviour:
   - Name: AA-Dual
     Prefab: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
       type: 3}
-    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    Image: {fileID: 21300000, guid: c94dce8b8637c424ca41cae33e5f33db, type: 3}
     ID: 10
     Damage: 4000
     RateOfFire: 4
@@ -115,7 +115,7 @@ MonoBehaviour:
   - Name: AA-Triplet
     Prefab: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
       type: 3}
-    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    Image: {fileID: 21300000, guid: 7637d920aa8ce3f43818463d1f3c9f8d, type: 3}
     ID: 11
     Damage: 6000
     RateOfFire: 5.5
@@ -124,7 +124,7 @@ MonoBehaviour:
   - Name: AA-Quadra
     Prefab: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
       type: 3}
-    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    Image: {fileID: 21300000, guid: 695e145161f40d3409059ee25da6ab60, type: 3}
     ID: 12
     Damage: 8000
     RateOfFire: 7
