@@ -47,10 +47,10 @@ public class Round : MonoBehaviour
     [Header("UnBeatable Zombies Round 51+")]
     public GameObject[] unbeatableZombies;
 
-    [Header("Zombie Type")]
+    [Header("Normal Zombies")]
     public GameObject[] zombiePrefabs; // Array to hold different zombie prefabs
 
-    [Header("HealthIncreaseStartAtRound-21")]
+    [Header("HealthIncreaseStartAtRound-25")]
     public int healthIncreaseEachRound;
     private float healthMultiplier = 0;
 
@@ -88,7 +88,7 @@ public class Round : MonoBehaviour
             zombiesToSpawn += 2;
 
             // Increase health multiplier starting from wave 11
-            if (currentRound >= 21)
+            if (currentRound >= 25)
             {
                 healthMultiplier += 1f;
             }

@@ -1978,9 +1978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 10
-  isBoss: 0
-  regenerationHealthPerSecond: 100
+  maxHealth: 3000
+  isBoss: 1
+  regenerationHealthPerSecond: 300
   currentTargetType: 0
   damageDealt: 10
   resistances: 0
@@ -1989,6 +1989,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 1032
+  setState: 0
   state: 0
 --- !u!1 &4466354536818247646
 GameObject:
