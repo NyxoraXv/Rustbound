@@ -327,7 +327,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4000010737274380}
   - component: {fileID: 199888494206944183}
-  - component: {fileID: 1671705289265261559}
   - component: {fileID: 3057982923702963508}
   m_Layer: 10
   m_Name: Turret 1a
@@ -364,6 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09b4088bb3fdb44eb794f5b6649b179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 1000
   isFollowTuretHead: 0
   directionX: 0
   directionY: 90
@@ -381,21 +383,6 @@ MonoBehaviour:
   fireCooldown: 2.5
   targetingMode: 0
   explosionVFX: {fileID: 0}
---- !u!114 &1671705289265261559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012174300454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c220ec525af56d94684d8b57297e3e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 1000
 --- !u!65 &3057982923702963508
 BoxCollider:
   m_ObjectHideFlags: 0
