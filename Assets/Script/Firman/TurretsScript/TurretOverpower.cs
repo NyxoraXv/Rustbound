@@ -119,7 +119,7 @@ public class TurretOverpower : VariableComponent, ITurret
 
         euler.y -= directionY;
 
-        turretHead.DORotate(euler, 0.5f);
+        turretHead.DORotate(euler, 0.25f);
 
 
 
