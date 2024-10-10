@@ -142,10 +142,10 @@ public class PlayerMovement : VariableComponent
 
     private void LateUpdate()
     {
-        // if (!shoot)
-        // {
-        HandleRotation(moveDirection);
-        // }
+        if (Time.timeScale != 0)
+        {
+            HandleRotation(moveDirection);
+        }
     }
     // public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()
@@ -170,10 +170,10 @@ public class PlayerMovement : VariableComponent
             // Debug.Log("dir " + direction);
             // Debug.Log("dis " + Vector2.Distance(new Vector2 (direction.x, direction.z).normalized, _movementInput));
 
-            if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
-            {
-                _rigidbody.freezeRotation = true;
-            }
+            // if (_movementInput != Vector2.zero && !_rigidbody.freezeRotation)
+            // {
+            //     _rigidbody.freezeRotation = true;
+            // }
 
         }
         else
