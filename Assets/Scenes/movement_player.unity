@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 6028982480729606108, guid: cac784fab13ee2c4e97c3319a4c7f833,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6404381672615271782, guid: cac784fab13ee2c4e97c3319a4c7f833,
         type: 3}
@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 3170052297267817369, guid: ef26b2dc882f2d741b1e5521ca67f8ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -346,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 992872293614820932, guid: 27fb17d2455922844aec615844f2755b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4519369127975559831, guid: 27fb17d2455922844aec615844f2755b,
         type: 3}
@@ -542,7 +542,7 @@ PrefabInstance:
     - target: {fileID: 4127960938634840145, guid: 48f1b31ea6bada048935687ddba47ad0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -560,6 +560,10 @@ PrefabInstance:
     - target: {fileID: 1352753540370996, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352753540370996, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932267959246028, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1468,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 3170052297267817369, guid: a69702cf4a38b184ab6b50b8ef7e8603,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1787,6 +1791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShirtlessZombie_BodyParts_FREE
       objectReference: {fileID: 0}
+    - target: {fileID: 2487525497416342208, guid: e22e7c76866038c438b53c40d7f17bbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3415157021864780913, guid: e22e7c76866038c438b53c40d7f17bbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1905,6 +1914,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlienB_Pr
       objectReference: {fileID: 0}
+    - target: {fileID: 2637589198105932810, guid: b9fb9563f1092fd4bb4f28a8d3ad6b4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7229665023806122971, guid: b9fb9563f1092fd4bb4f28a8d3ad6b4d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2014,7 +2028,7 @@ PrefabInstance:
     - target: {fileID: 4892000278053851870, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.06
+      value: -6.49
       objectReference: {fileID: 0}
     - target: {fileID: 4892000278053851870, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
