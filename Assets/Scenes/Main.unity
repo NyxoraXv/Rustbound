@@ -9908,7 +9908,7 @@ PrefabInstance:
     - target: {fileID: 109924871972073913, guid: e35da8d7fcee0ca40b53460c6fd0caf8,
         type: 3}
       propertyPath: previewYOffset
-      value: 0.06
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 109924871972073913, guid: e35da8d7fcee0ca40b53460c6fd0caf8,
         type: 3}
