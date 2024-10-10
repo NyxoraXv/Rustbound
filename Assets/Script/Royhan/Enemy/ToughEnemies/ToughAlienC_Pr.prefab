@@ -1409,7 +1409,7 @@ GameObject:
   - component: {fileID: 4106951894418711418}
   - component: {fileID: 3668284254380749755}
   m_Layer: 6
-  m_Name: AlienC_Pr
+  m_Name: ToughAlienC_Pr
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
