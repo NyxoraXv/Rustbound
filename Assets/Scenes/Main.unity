@@ -1120,7 +1120,7 @@ MonoBehaviour:
   - {fileID: 3170052297267817369, guid: ef26b2dc882f2d741b1e5521ca67f8ef, type: 3}
   - {fileID: 3170052297267817369, guid: a69702cf4a38b184ab6b50b8ef7e8603, type: 3}
   - {fileID: 1352753540370996, guid: 43b3bfc3c2f2ff146a8d85e63d0a4e26, type: 3}
-  healthIncreaseEachRound: 50
+  healthIncreaseEachRound: 25
   spawnPoints:
   - {fileID: 596227732}
   - {fileID: 163784574}

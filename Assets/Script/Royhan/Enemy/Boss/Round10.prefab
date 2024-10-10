@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 200
+  maxHealth: 100
   isBoss: 1
   regenerationHealthPerSecond: 10
   currentTargetType: 0
