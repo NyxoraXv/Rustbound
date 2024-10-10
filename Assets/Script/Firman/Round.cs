@@ -403,7 +403,7 @@ public class Round : MonoBehaviour
     }
 
     // Method to check if all zombies are dead
-    private bool AreAllZombiesDead()
+    public bool AreAllZombiesDead()
     {
         // Check if all regular zombies are dead
         foreach (GameObject zombie in zombieList)
