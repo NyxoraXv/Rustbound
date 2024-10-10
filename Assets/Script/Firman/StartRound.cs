@@ -48,11 +48,11 @@ public class StartRound : MonoBehaviour
 
     private void FadeInUI()
     {
-        canvasGroup.DOFade(1f, 1f); // Fade in over 1 second
+        canvasGroup.DOFade(1f, 3f); // Fade in over 1 second
     }
 
     private void FadeOutUI()
     {
-        canvasGroup.DOFade(0f, 1f); // Fade out over 1 second
+        canvasGroup.DOFade(0f, 3f); // Fade out over 1 second
     }
 }
