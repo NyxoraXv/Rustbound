@@ -94,3 +94,39 @@ MonoBehaviour:
     RateOfFire: 0.3
     Accuracy: 80
     price: 0
+  - Name: AA-Single
+    Prefab: {fileID: 4206958949730962340, guid: 0a0ec8c94fadadc45a719d317d82fc03,
+      type: 3}
+    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    ID: 9
+    Damage: 2000
+    RateOfFire: 2.5
+    Accuracy: 50
+    price: 0
+  - Name: AA-Dual
+    Prefab: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
+      type: 3}
+    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    ID: 10
+    Damage: 4000
+    RateOfFire: 4
+    Accuracy: 50
+    price: 0
+  - Name: AA-Triplet
+    Prefab: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
+      type: 3}
+    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    ID: 11
+    Damage: 6000
+    RateOfFire: 5.5
+    Accuracy: 50
+    price: 0
+  - Name: AA-Quadra
+    Prefab: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
+      type: 3}
+    Image: {fileID: 21300000, guid: b925fc71a53f34141a28c8c39f52e682, type: 3}
+    ID: 12
+    Damage: 8000
+    RateOfFire: 7
+    Accuracy: 50
+    price: 0

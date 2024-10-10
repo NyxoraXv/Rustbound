@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Building : VariableComponent
+public class Building : VariableComponent, ITurret
 {
+    [Header("SFX")]
     public int SoundToChoose = 9; // Variable to choose sound
+
+    [Header("VFX")]
+    public ParticleSystem destroyVFX;
     private SoundManager soundManager;
+    private bool isPreviewObject;
 
     public void Start()
     {
@@ -23,7 +28,23 @@ public class Building : VariableComponent
         
         if (GetCurrentHealth() <= 0)
         {
-            Destroy(gameObject);
+            DestroyBuilding();
         }
+    }
+
+    private void DestroyBuilding()
+    {
+        if (destroyVFX != null)
+        {
+            ParticleSystem vfxInstance = Instantiate(destroyVFX, transform.position, Quaternion.identity);
+            Destroy(vfxInstance.gameObject, 1f);
+        }
+        soundManager.PlaySFX(5);
+        Destroy(gameObject); // Destroy the turret GameObject
+    }
+
+    public void SetIsPreviewObject(bool isPreview)
+    {
+        isPreviewObject = isPreview; // Method to set the preview object flag
     }
 }
