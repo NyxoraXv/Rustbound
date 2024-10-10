@@ -25,6 +25,7 @@ public class PlayerMovement : VariableComponent
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
+    private Vector2 _scrollWeapon;
 
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
@@ -36,9 +37,21 @@ public class PlayerMovement : VariableComponent
     private int runParam = Animator.StringToHash("IsRun");
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
-    private bool shoot = false;
     private static int indexWeapon = 0;
+    private WeaponHandler activeWeaponHandler;
+    private bool isFiring = false;
+
+    private int weaponSlot = 1; // Only 1 and 2
+
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
+
+    public void EquipWeapon(WeaponHandler newWeaponHandler)
+    {
+        activeWeaponHandler = newWeaponHandler;
+        // Set position, parent, etc., of the weapon based on the player's weapon holding position (e.g., hands).
+        activeWeaponHandler.transform.SetParent(weaponGrab); // Attach to player's hand or weapon holding position
+        activeWeaponHandler.transform.localPosition = Vector3.zero; // Adjust for correct positioning
+    }
 
     private void Awake()
     {
@@ -50,35 +63,36 @@ public class PlayerMovement : VariableComponent
         mainCamera = Camera.main;
 
         _speed = speed;
-
-        // Inisialisasi pooling
-        bulletPool = new List<GameObject>();
-        for (int i = 0; i < poolSize; i++)
-        {
-            GameObject obj = Instantiate(bulletPrefab);
-            obj.SetActive(false);
-            bulletPool.Add(obj);
-        }
-
-        
-        foreach (GameObject obj in weapons.GetAllWeaponObject())
-        {
-            GameObject objec = Instantiate(obj, weaponGrab);
-            objec.GetComponent<WeaponComponent>().playerMovement = this;
-            objec.SetActive(false);
-            // weaponIndexes.Add(objec.name, weaponCollection.Count);
-            weaponCollection.Add(objec);
-        }
-        weaponCollection[indexWeapon].SetActive(true);
-        Bullet.bulletDamage = weapons.weapons[indexWeapon].weaponDamage;
-        Bullet.rangeAttack = weapons.weapons[indexWeapon].weaponAccuracy;
     }
 
+    private void Update()
+    {
+        HandleWeaponScroll();
+        HandleFiring();
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isFiring = true; // Start firing
+        }
+        else if (context.canceled)
+        {
+            isFiring = false; // Stop firing
+        }
+    }
+
+    private void HandleFiring()
+    {
+        if (isFiring && activeWeaponHandler != null)
+        {
+            activeWeaponHandler.Fire(); // Call the Fire method on the active weapon
+        }
+    }
 
     private void FixedUpdate()
     {
-        if (!shoot)
-        {
             // Get forward and right directions relative to the camera
             Vector3 forward = cameraTransform.forward;
             Vector3 right = cameraTransform.right;
@@ -100,30 +114,6 @@ public class PlayerMovement : VariableComponent
 
             // Call the movement animation update function
             UpdateMovementAnimations(moveDirection, direction, onSprint);
-
-            // Weapon selection based on key inputs
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                SelectWeapon(1);
-            }
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                SelectWeapon(2);
-            }
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                SelectWeapon(3);
-            }
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                SelectWeapon(4);
-            }
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Array.Reverse(weaponIndex);
-                SelectWeapon(weaponIndex[0]);
-            }
-        }
     }
 
 
@@ -164,32 +154,6 @@ public class PlayerMovement : VariableComponent
         }
     }
 
-
-    public void SetWeapon(int index, bool isPrimary)
-    {
-        if (isPrimary)
-        {
-            weaponIndex[0] = index;
-            SelectWeapon(index);
-        }
-        else
-        {
-            weaponIndex[1] = index;
-        }
-        
-    }
-
-    private  void SelectWeapon(int index)
-    {
-
-        weaponCollection[indexWeapon].SetActive(false);
-        indexWeapon = index;
-        weaponCollection[indexWeapon].SetActive(true);
-        Bullet.bulletDamage = weapons.weapons[indexWeapon].weaponDamage;
-        Bullet.rangeAttack = weapons.weapons[indexWeapon].weaponAccuracy;
-
-    }
-
     private void LateUpdate()
     {
         if (Time.timeScale != 0)
@@ -209,11 +173,6 @@ public class PlayerMovement : VariableComponent
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        // AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        // if (currentState.IsName("State"))
-        // // if (context.performed)
-        if (!shoot)
-        {
             // Debug.Log("tag ");
             _movementInput = context.ReadValue<Vector2>();
             // Debug.Log("move " + _movementInput);
@@ -224,12 +183,6 @@ public class PlayerMovement : VariableComponent
             // {
             //     _rigidbody.freezeRotation = true;
             // }
-
-        }
-        else
-        {
-            _movementInput = Vector2.zero;
-        }
 
         if (_movementInput.magnitude < 1f)
         {
@@ -294,60 +247,52 @@ public class PlayerMovement : VariableComponent
         }
     }
 
-
-    public void OnShoot(InputAction.CallbackContext context)
+    private void HandleWeaponScroll()
     {
-        if (context.performed)
-        {
-            shoot = true;
-            // Invoke("DeactiveShoot", 0.35f);
-            // DeactiveShoot();
-            animator.SetTrigger(fireParam);
+        // Check for mouse scroll input
+        float scrollValue = Input.GetAxis("Mouse ScrollWheel");
 
+        // Set weaponSlot based on scroll direction
+        if (scrollValue > 0)
+        {
+            weaponSlot = 1; // Scroll up sets weapon slot to 1
         }
-    }
-    public void Shoot()
-    {
-        GameObject bulletPush = GetPooledBullet();
-        if (bulletPush != null)
+        else if (scrollValue < 0)
         {
-            // Instantiate(bulletPush, hit.point, quaternion.identity).SetActive(true);
-            // print("dir" + direction);
-            // print("target" + targetPosition);
-            // print("hit" + hit.point.normalized);
+            weaponSlot = 2; // Scroll down sets weapon slot to 2
+        }
 
-            bulletPush.transform.position = shootPos.position;
-
-            // Mengatur rotasi peluru agar tidak mengubah sumbu Y
-            bulletPush.transform.rotation = Quaternion.LookRotation(direction);
-
-            bulletPush.SetActive(true);
-            bulletPush.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity sebelum menembak
-            bulletPush.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
-
-            StartCoroutine(DisableBulletAfterTime(bulletPush, 4f));
+        // Only call SwitchWeapon if the weapon slot has changed
+        if (weaponSlot != previousWeaponSlot)
+        {
+            Debug.Log("Weapon Slot: " + weaponSlot);
+            SwitchWeapon(weaponSlot);
+            previousWeaponSlot = weaponSlot; // Update the previous weapon slot
         }
     }
 
-    public void DeactiveShoot() => shoot = false;
-
-    private GameObject GetPooledBullet()
+    private void SwitchWeapon(int slot)
     {
-        foreach (GameObject bullet in bulletPool)
+        // Implement your weapon switching logic here
+        // For example, using the WeaponDatabase to get the active weapon based on the slot
+        foreach (WeaponHandler wh in WeaponManager.Instance.weaponCache.GetComponentsInChildren<WeaponHandler>())
         {
-            if (!bullet.activeInHierarchy)
+            if (wh.currentSlot == slot)
             {
-                return bullet;
+                if(activeWeaponHandler!= null)
+                {
+                    activeWeaponHandler.transform.localPosition = new Vector3(999, 999);
+                    activeWeaponHandler.transform.parent = WeaponManager.Instance.weaponCache.transform;
+                }
+                wh.transform.parent = weaponGrab;
+                wh.transform.localPosition = Vector3.zero;
+                wh.transform.localRotation = Quaternion.identity;
+                activeWeaponHandler = wh;
             }
         }
-        return null;
     }
 
-    private IEnumerator DisableBulletAfterTime(GameObject bullet, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        bullet.SetActive(false);
-    }
+    private int previousWeaponSlot = 1;
 
     public void OnSprint(InputAction.CallbackContext context)
     {

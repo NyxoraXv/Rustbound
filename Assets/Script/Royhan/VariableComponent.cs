@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class VariableComponent : MonoBehaviour
 {
@@ -7,9 +8,18 @@ public class VariableComponent : MonoBehaviour
     public float maxHealth;
     public float _currentHealth { get; protected set; }
 
-    private void Start() 
+    // UnityEvent for taking damage
+    public UnityEvent<float> OnTakeDamage; // Pass the amount of damage taken as a float parameter
+
+    private void Start()
     {
-        _currentHealth = maxHealth;    
+        _currentHealth = maxHealth;
+
+        // Initialize the event if it has no listeners
+        if (OnTakeDamage == null)
+        {
+            OnTakeDamage = new UnityEvent<float>();
+        }
     }
 
     // Method to take damage.
@@ -18,6 +28,10 @@ public class VariableComponent : MonoBehaviour
         Debug.Log("damaging");
         Debug.Log(Bullet.bulletDamage);
         _currentHealth -= damage;
+
+        // Trigger the damage event
+        OnTakeDamage.Invoke(damage);
+
         if (_currentHealth <= 0f)
         {
             Die();
@@ -35,28 +49,22 @@ public class VariableComponent : MonoBehaviour
     {
         return maxHealth;
     }
-    
+
     public void Heal(float amount)
     {
-        _currentHealth += amount; // Assume currentHealth is a float variable
-        // Clamp the health to the maximum health value if needed
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth); // Assuming you have maxHealth defined
+        _currentHealth += amount;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
     }
 
-    
     public void IncreaseMaxHealth(float amount)
     {
         maxHealth += amount;
-        // Optionally, reset the current health to max if desired
         _currentHealth = maxHealth;
         Debug.Log($"Max health increased to: {maxHealth}");
     }
 
-
-    // Handle the enemy death.
     protected virtual void Die()
     {
-        // Add death logic here (e.g., play an animation, drop loot, etc.)
-        Destroy(gameObject);  // Destroy the object when it dies.
+        Destroy(gameObject);
     }
 }

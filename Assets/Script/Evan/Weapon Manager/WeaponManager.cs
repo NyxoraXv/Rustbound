@@ -18,6 +18,8 @@ public class WeaponManager : MonoBehaviour
     public Image weaponSlot1Image; // UI Image for equipped weapon slot 1
     public Image weaponSlot2Image; // UI Image for equipped weapon slot 2
 
+    public GameObject weaponCache;
+
     private List<int> ownedWeapons = new List<int>(); // Store owned weapon IDs
 
     public bool isSelectingWeapon = false; // Indicates whether the player is in weapon selection mode
@@ -99,6 +101,22 @@ public class WeaponManager : MonoBehaviour
                 {
                     Debug.Log("Replacing weapon in Slot 1: " + equippedWeaponSlot1.weaponName);
                 }
+                if (equippedWeaponSlot1 != null)
+                {
+                    foreach (WeaponHandler handler in weaponCache.GetComponentsInChildren<WeaponHandler>())
+                    {
+                        if (handler.currentSlot == 1)
+                        {
+                            Destroy(handler.gameObject);
+                        }
+                    }
+                }
+
+                GameObject weapon = Instantiate(weaponToEquip.weaponPrefab);
+                weapon.transform.parent = weaponCache.transform;
+                weapon.GetComponent<WeaponHandler>().init(weaponToEquip, 1);
+
+
                 isPrimary = true;
                 equippedWeaponSlot1 = weaponToEquip; // Equip the new weapon
                 weaponSlot1Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 1
@@ -111,7 +129,20 @@ public class WeaponManager : MonoBehaviour
                 {
                     Debug.Log("Replacing weapon in Slot 2: " + equippedWeaponSlot2.weaponName);
                 }
+                if (equippedWeaponSlot2 != null)
+                {
+                    foreach (WeaponHandler handler in weaponCache.GetComponentsInChildren<WeaponHandler>())
+                    {
+                        if (handler.currentSlot == 2)
+                        {
+                            Destroy(handler.gameObject);
+                        }
+                    }
+                }
 
+                GameObject weapon = Instantiate(weaponToEquip.weaponPrefab);
+                weapon.transform.parent = weaponCache.transform;
+                weapon.GetComponent<WeaponHandler>().init(weaponToEquip, 2);
                 isPrimary = false;
                 equippedWeaponSlot2 = weaponToEquip; // Equip the new weapon
                 weaponSlot2Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 2

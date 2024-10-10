@@ -49,7 +49,7 @@ public class InventoryUIInitiator : MonoBehaviour
             {
                 weaponManager.OnWeaponSelected(weapon.weaponID); // Select the weapon
                 Debug.Log("Selected weapon: " + weapon.weaponName);
-                playerMovement.SetWeapon(weapon.weaponID, WeaponManager.Instance.isPrimary);
+                //playerMovement.SetWeapon(weapon.weaponID, WeaponManager.Instance.isPrimary);
             }
             
         }

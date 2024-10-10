@@ -14,25 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - weaponName: AK47
-    weaponPrefab: {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6,
+    weaponPrefab: {fileID: 1487774384131766, guid: b431a900805770e4cb7f0047244cbca4,
       type: 3}
     weaponImage: {fileID: 21300000, guid: 26785d11fa995e546ad659a92a8fc051, type: 3}
     weaponID: 0
     weaponDamage: 5
-    weaponRateOfFire: 0
-    weaponAccuracy: 0
-    price: -20
+    weaponRateOfFire: 20
+    weaponAccuracy: 1.243
+    price: 0
+    reloadTime: 1
+    magazineSize: 30
+    currentAmmo: 180
+    shootForce: 10
+    shootingType: 0
   - weaponName: Benelli M4
-    weaponPrefab: {fileID: 1236257789494122, guid: 8b0b86b42def11849a8eba21f4a6a684,
+    weaponPrefab: {fileID: 1236257789494122, guid: b99167b03615f404cbd44aafc48d4491,
       type: 3}
     weaponImage: {fileID: 21300000, guid: a7c56146d54f8b9468a0db3acc27f07e, type: 3}
     weaponID: 1
     weaponDamage: 5
-    weaponRateOfFire: 0
+    weaponRateOfFire: 40
     weaponAccuracy: 0
     price: -20
+    reloadTime: 0
+    magazineSize: 0
+    currentAmmo: 0
+    shootForce: 0
+    shootingType: 0
   - weaponName: M4
-    weaponPrefab: {fileID: 1117582899397640, guid: 689946d975a0e55449b1e7ae41933e73,
+    weaponPrefab: {fileID: 1117582899397640, guid: f21265e2f7f588648b0c7db8bbf33b73,
       type: 3}
     weaponImage: {fileID: 21300000, guid: 7c0de5710a5e6d34ea334db8da5af75f, type: 3}
     weaponID: 2
@@ -40,8 +50,13 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
+    reloadTime: 0
+    magazineSize: 0
+    currentAmmo: 0
+    shootForce: 0
+    shootingType: 0
   - weaponName: M107
-    weaponPrefab: {fileID: 1829597508155286, guid: 7359baf27e84aa44cafac3788c8be0f1,
+    weaponPrefab: {fileID: 1829597508155286, guid: 71cc5ba3eef4824479d18cbfb55fb630,
       type: 3}
     weaponImage: {fileID: 21300000, guid: 00bf065747b717b4c8a1a3ddb4c702f8, type: 3}
     weaponID: 3
@@ -49,8 +64,13 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
+    reloadTime: 0
+    magazineSize: 0
+    currentAmmo: 0
+    shootForce: 0
+    shootingType: 0
   - weaponName: M249
-    weaponPrefab: {fileID: 1261748888023320, guid: 432643b6e5110004083fdff3e33e490b,
+    weaponPrefab: {fileID: 1261748888023320, guid: 35e3c742471b7194bb0cc6c2b0cf0030,
       type: 3}
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
     weaponID: 4
@@ -58,3 +78,8 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
+    reloadTime: 0
+    magazineSize: 0
+    currentAmmo: 0
+    shootForce: 0
+    shootingType: 0
