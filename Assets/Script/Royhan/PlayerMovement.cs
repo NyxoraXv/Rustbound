@@ -73,54 +73,35 @@ public class PlayerMovement : VariableComponent
         Bullet.bulletDamage = weapons.weapons[indexWeapon].weaponDamage;
         Bullet.rangeAttack = weapons.weapons[indexWeapon].weaponAccuracy;
     }
-    
+
 
     private void FixedUpdate()
     {
-
         if (!shoot)
         {
-
+            // Get forward and right directions relative to the camera
             Vector3 forward = cameraTransform.forward;
             Vector3 right = cameraTransform.right;
 
+            // Flatten the Y axis (ignore vertical movement)
             forward.y = 0f;
             right.y = 0f;
 
+            // Normalize directions
             forward.Normalize();
             right.Normalize();
 
+            // Calculate move direction based on input
             moveDirection = forward * _movementInput.y + right * _movementInput.x;
             _rigidbody.velocity = new Vector3(moveDirection.x * _speed, _rigidbody.velocity.y, moveDirection.z * _speed);
 
-            // Mengecek apakah player bergerak maju atau mundur
+            // Check if the player is moving (dot product logic)
             float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
 
-            if (dotProduct != 0)
-            {
-                // Debug.Log("maju");
-                animator.SetBool(walkParam, true);
-                if (onSprint)
-                    animator.SetBool(runParam, true);
+            // Call the movement animation update function
+            UpdateMovementAnimations(moveDirection, direction, onSprint);
 
-                else
-                    animator.SetBool(runParam, false);
-
-            }
-            // else if (dotProduct < 0)
-            // {
-            //     Debug.Log("mundur");
-            //     if (!onSprint)
-            //         animator.SetFloat(walkParam, -0.5f);
-
-            //     else
-            //         animator.SetFloat(walkParam, -1f);
-            // }
-            else
-            {
-                animator.SetBool(runParam, false);
-                animator.SetBool(walkParam, false);
-            }
+            // Weapon selection based on key inputs
             if (Input.GetKeyDown(KeyCode.X))
             {
                 SelectWeapon(1);
@@ -144,6 +125,45 @@ public class PlayerMovement : VariableComponent
             }
         }
     }
+
+
+    // Function to update movement animations
+    // Function to update movement animations
+    void UpdateMovementAnimations(Vector3 moveDirection, Vector3 direction, bool onSprint)
+    {
+        // Calculate the dot product between movement direction and facing direction
+        float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
+
+        if (dotProduct > 0)
+        {
+            // Moving forward
+            animator.SetBool("IsWalk", true);       // Walking forward
+            animator.SetBool("isBackward", false);  // Not moving backward
+        }
+        else if (dotProduct < 0)
+        {
+            // Moving backward
+            animator.SetBool("IsWalk", true);       // Walking backward
+            animator.SetBool("isBackward", true);   // Set backward movement
+        }
+        else
+        {
+            // Stationary (not moving)
+            animator.SetBool("IsWalk", false);      // No walking
+            animator.SetBool("isBackward", false);  // No backward movement
+        }
+
+        // Apply sprinting logic regardless of direction
+        if (onSprint)
+        {
+            animator.SetBool("IsRun", true);  // Set sprinting animation
+        }
+        else
+        {
+            animator.SetBool("IsRun", false); // Turn off sprinting
+        }
+    }
+
 
     public void SetWeapon(int index, bool isPrimary)
     {
@@ -232,48 +252,48 @@ public class PlayerMovement : VariableComponent
 
     private void HandleRotation(Vector3 moveDirection)
     {
-        // Menentukan arah tembakan berdasarkan posisi mouse
+        // Raycast to determine aiming direction based on mouse position
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
         {
-            // Hit point berdasarkan mouse tanpa mengubah posisi Y dari peluru
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
-
             targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
-
-            // Menghitung arah tembakan dengan mempertahankan posisi Y peluru
             direction = (targetPosition - shootPos.position).normalized;
 
-            // Hitung rotasi target yang diinginkan
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-            // toRotation.w = 0;
+            // Calculate desired upper body rotation
+            Quaternion upperBodyRotation = Quaternion.LookRotation(direction, Vector3.up);
+            Vector3 eulerRotation = upperBodyRotation.eulerAngles;
+            eulerRotation.y += 60.378f;  // Adjust for offset
 
-            // Dapatkan sudut Euler dari rotasi yang diinginkan
-            Vector3 eulerRotation = toRotation.eulerAngles;
-
-            // Biarkan rotasi Y tidak terbatas atau clamp ke rentang 0 hingga 360 jika diperlukan
-            eulerRotation.y += 60.378f;
-
-
-            // Terapkan rotasi baru yang sudah dibatasi
+            // Apply the upper body rotation
             rotateBody.rotation = Quaternion.Euler(eulerRotation);
-            // Debug.Log(Quaternion.Euler(eulerRotation));
 
+            // Handle lower body rotation
             if (moveDirection != Vector3.zero)
             {
-                transform.rotation = Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(moveDirection),
-                    rotationSpeed * Time.deltaTime
-                );
-                // leftFoot.rotation = Quaternion.Slerp(
-                //     leftFoot.rotation, 
-                //     Quaternion.LookRotation(moveDirection), 
-                //     rotationSpeed * Time.deltaTime
-                // );
+                // If moving backward, align lower body with upper body's rotation
+                float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
+                if (dotProduct < 0)  // Moving backward
+                {
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        rotateBody.rotation, // Match lower body to upper body's rotation
+                        rotationSpeed * Time.deltaTime
+                    );
+                }
+                else
+                {
+                    // Normal forward movement rotation
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        Quaternion.LookRotation(moveDirection),
+                        rotationSpeed * Time.deltaTime
+                    );
+                }
             }
         }
     }
+
 
     public void OnShoot(InputAction.CallbackContext context)
     {
