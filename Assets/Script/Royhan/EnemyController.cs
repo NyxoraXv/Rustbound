@@ -20,8 +20,6 @@ public class EnemyController : VariableComponent
     public enum TargetType
     {
         None,          // Target both player and turret
-        NearestTurret, // Target only the nearest turret
-        NearestPlayer   // Target only the nearest player
     }
 
     public TargetType currentTargetType = TargetType.None; // Set default target type
@@ -47,13 +45,6 @@ public class EnemyController : VariableComponent
 
     private void Start()
     {
-        // Get the VariableComponent attached to this GameObject
-        // variableComponent = GetComponent<VariableComponent>();
-        // if (variableComponent == null)
-        // {
-        //     Debug.LogError("VariableComponent not found on this GameObject.");
-        // }
-
         if (!setState)
         {
             state = UnityEngine.Random.Range(0, 5);
@@ -112,13 +103,11 @@ public class EnemyController : VariableComponent
             {
                 if (collider.gameObject == targetedEntity)
                 {
-                    Debug.Log("collide");
                     if (targetedEntity.TryGetComponent<VariableComponent>(out VariableComponent vc)) // Bisa gunakan tag atau cek komponen spesifik
                     {
                         detectPlayer = true;
                         animator.SetBool(attackParam, true);
                         // vc.TakeDamage(damageDealt);
-                        Debug.Log($"{targetedEntity.name} attacked! Damage dealt: {damageDealt}");
                     }
             
                 }
@@ -228,6 +217,10 @@ public class EnemyController : VariableComponent
             {
                 turretRocketAdvance.TakeDamage(damageDealt);
             }
+            else if (targetedEntity.TryGetComponent<Building>(out Building building))
+            {
+                building.TakeDamage(damageDealt);
+            }
             else
             {
                 VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
@@ -267,35 +260,62 @@ public class EnemyController : VariableComponent
         switch (currentTargetType)
         {
             case TargetType.None:
-                // Find the nearest player and turret
+                // Find the nearest player, turret, and building
                 GameObject nearestPlayer = FindNearestEntityWithTag("Player");
                 GameObject nearestTurret = FindNearestEntityWithTag("Turret");
+                GameObject nearestBuilding = FindNearestEntityWithTag("Building");
 
-                // Choose the closest entity between player and turret
-                if (nearestPlayer != null && nearestTurret != null)
+                // Choose the closest entity between player, turret, and building
+                if (nearestPlayer != null || nearestTurret != null || nearestBuilding != null)
                 {
-                    // Compare distances and choose the closest
-                    float distanceToPlayer = Vector3.Distance(transform.position, nearestPlayer.transform.position);
-                    float distanceToTurret = Vector3.Distance(transform.position, nearestTurret.transform.position);
+                    // Initialize minimum distance and closest entity
+                    float minDistance = Mathf.Infinity;
+                    GameObject closestEntity = null;
 
-                    targetedEntity = (distanceToPlayer < distanceToTurret) ? nearestPlayer : nearestTurret;
+                    // Check the distance to the player
+                    if (nearestPlayer != null)
+                    {
+                        float distanceToPlayer = Vector3.Distance(transform.position, nearestPlayer.transform.position);
+                        if (distanceToPlayer < minDistance)
+                        {
+                            minDistance = distanceToPlayer;
+                            closestEntity = nearestPlayer;
+                        }
+                    }
+
+                    // Check the distance to the turret
+                    if (nearestTurret != null)
+                    {
+                        float distanceToTurret = Vector3.Distance(transform.position, nearestTurret.transform.position);
+                        if (distanceToTurret < minDistance)
+                        {
+                            minDistance = distanceToTurret;
+                            closestEntity = nearestTurret;
+                        }
+                    }
+
+                    // Check the distance to the building
+                    if (nearestBuilding != null)
+                    {
+                        float distanceToBuilding = Vector3.Distance(transform.position, nearestBuilding.transform.position);
+                        if (distanceToBuilding < minDistance)
+                        {
+                            minDistance = distanceToBuilding;
+                            closestEntity = nearestBuilding;
+                        }
+                    }
+
+                    // Set the closest entity as the target
+                    targetedEntity = closestEntity;
                 }
                 else
                 {
-                    // If only one exists, target that one
-                    targetedEntity = nearestPlayer ?? nearestTurret;
+                    // If none of the entities exist, keep the target as null
+                    targetedEntity = null;
                 }
                 break;
-
-            case TargetType.NearestTurret:
-                targetedEntity = FindNearestEntityWithTag("Turret") ?? FindNearestEntityWithTag("Player");
-                break;
-
-            case TargetType.NearestPlayer:
-                targetedEntity = FindNearestEntityWithTag("Player") ?? FindNearestEntityWithTag("Turret");
-                break;
         }
-    }
+}
 
     // Check if the bullet type matches any of the enemy's resistance types
     private bool IsResistantTo(ProjectileController.BulletType bulletType)
