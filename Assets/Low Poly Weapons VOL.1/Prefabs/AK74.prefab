@@ -266,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  bulletPref: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
+    type: 3}
   playerMovement: {fileID: 0}
 --- !u!1 &1927369336514790
 GameObject:

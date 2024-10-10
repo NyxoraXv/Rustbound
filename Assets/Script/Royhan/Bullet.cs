@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
+            gameObject.SetActive(false);
         }
         else
         {

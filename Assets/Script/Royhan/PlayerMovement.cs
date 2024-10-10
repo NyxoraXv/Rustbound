@@ -12,10 +12,10 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private Transform rotateBody;
     // [SerializeField] private Transform body;
     // [SerializeField] private Transform leftFoot;
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float shootForce = 5f;
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
+    public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
     private Transform cameraTransform;
     private List<GameObject> weaponCollection = new List<GameObject>();
