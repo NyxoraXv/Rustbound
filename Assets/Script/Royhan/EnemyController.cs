@@ -141,7 +141,7 @@ public class EnemyController : VariableComponent
             }
         }
 
-        // if (_currentHealth <= 0)   Die();
+        if (_currentHealth <= 0)   Die();
     }
     public void Del () => Destroy(gameObject, 0.2f);
     protected override void Die ()

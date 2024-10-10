@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e94c90971abe04eb49b4de0ac48f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  playerMovement: {fileID: 0}
 --- !u!1 &1927369336514790
 GameObject:
   m_ObjectHideFlags: 0
