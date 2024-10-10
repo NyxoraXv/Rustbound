@@ -7,6 +7,7 @@ public class WeaponManager : MonoBehaviour
     public static WeaponManager Instance { get; private set; }
 
     public WeaponDatabase weaponDatabase; // Assign this in the Inspector.
+    public bool isPrimary;
 
     // Equipped weapon slots (2 slots)
     private WeaponData equippedWeaponSlot1;
@@ -98,7 +99,7 @@ public class WeaponManager : MonoBehaviour
                 {
                     Debug.Log("Replacing weapon in Slot 1: " + equippedWeaponSlot1.weaponName);
                 }
-
+                isPrimary = true;
                 equippedWeaponSlot1 = weaponToEquip; // Equip the new weapon
                 weaponSlot1Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 1
                 Debug.Log("Weapon equipped in Slot 1: " + equippedWeaponSlot1.weaponName);
@@ -111,6 +112,7 @@ public class WeaponManager : MonoBehaviour
                     Debug.Log("Replacing weapon in Slot 2: " + equippedWeaponSlot2.weaponName);
                 }
 
+                isPrimary = false;
                 equippedWeaponSlot2 = weaponToEquip; // Equip the new weapon
                 weaponSlot2Image.sprite = weaponToEquip.weaponImage; // Update UI for slot 2
                 Debug.Log("Weapon equipped in Slot 2: " + equippedWeaponSlot2.weaponName);

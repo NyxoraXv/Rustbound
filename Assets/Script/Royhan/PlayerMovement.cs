@@ -9,7 +9,7 @@ public class PlayerMovement : VariableComponent
 {
     [SerializeField] private Transform shootPos;
     [SerializeField] private Transform weaponGrab;
-    [SerializeField] private GameObject[] weapons;
+    [SerializeField] private WeaponDatabase weapons;
     [SerializeField] private Transform rotateBody;
     // [SerializeField] private Transform body;
     // [SerializeField] private Transform leftFoot;
@@ -17,9 +17,9 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     [SerializeField] private LayerMask layerRaycast;
-    [SerializeField] private int[] weaponIndex = {0, 1};
     public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
+    private static int[] weaponIndex = {0, 0};
     private Transform cameraTransform;
     private List<GameObject> weaponCollection = new List<GameObject>();
     private Vector3 moveDirection;
@@ -38,6 +38,7 @@ public class PlayerMovement : VariableComponent
     private bool onSprint = false;
     private bool shoot = false;
     private int indexWeapon = 0;
+    // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
     private void Awake()
     {
@@ -60,11 +61,12 @@ public class PlayerMovement : VariableComponent
         }
 
         
-        foreach (GameObject obj in weapons)
+        foreach (GameObject obj in weapons.GetAllWeaponObject())
         {
             GameObject objec = Instantiate(obj, weaponGrab);
             objec.GetComponent<WeaponComponent>().playerMovement = this;
             objec.SetActive(false);
+            // weaponIndexes.Add(objec.name, weaponCollection.Count);
             weaponCollection.Add(objec);
         }
         weaponCollection[indexWeapon].SetActive(true);
@@ -137,6 +139,18 @@ public class PlayerMovement : VariableComponent
                 Array.Reverse(weaponIndex);
                 SelectWeapon(weaponIndex[0]);
             }
+        }
+    }
+
+    public static void SetWeapon(int index, bool isPrimary)
+    {
+        if (isPrimary)
+        {
+            weaponIndex[0] = index;
+        }
+        else
+        {
+            weaponIndex[1] = index;
         }
     }
 
@@ -235,7 +249,7 @@ public class PlayerMovement : VariableComponent
 
             // Terapkan rotasi baru yang sudah dibatasi
             rotateBody.rotation = Quaternion.Euler(eulerRotation);
-            Debug.Log(Quaternion.Euler(eulerRotation));
+            // Debug.Log(Quaternion.Euler(eulerRotation));
 
             if (moveDirection != Vector3.zero)
             {

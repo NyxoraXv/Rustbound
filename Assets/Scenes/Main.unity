@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDatabase: {fileID: 11400000, guid: ef89875c2278b6c418ffee05bcbb64d2, type: 2}
+  isPrimary: 0
   UIanim: {fileID: 1875677587}
   weaponSlot1Image: {fileID: 283479353}
   weaponSlot2Image: {fileID: 1350587031}
