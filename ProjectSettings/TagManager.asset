@@ -8,6 +8,7 @@ TagManager:
   - Lightning
   - Enemy
   - Audio
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Preview Player
   - Turret
   - Border
-  - 
+  - Building
   - 
   - 
   - 
