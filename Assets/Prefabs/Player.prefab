@@ -57,12 +57,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919746013025734420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16759482, y: -0.1924627, z: 0.20664665, w: 0.94454604}
-  m_LocalPosition: {x: 0.028, y: -0.198, z: 0.226}
+  m_LocalRotation: {x: -0.16759494, y: -0.19246273, z: 0.20664673, w: 0.944546}
+  m_LocalPosition: {x: 0.028000006, y: -0.19799964, z: 0.22599995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3079205090790157809}
+  m_Father: {fileID: 4055860114896556433}
   m_LocalEulerAnglesHint: {x: -13.713, y: -26.458, z: 27.92}
 --- !u!108 &3062117713927268898
 Light:
@@ -175,13 +175,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140732560550467610}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.384303, y: -0.23553394, z: 0.15578254, w: 0.87895775}
-  m_LocalPosition: {x: 0.028, y: -0.198, z: 0.226}
+  m_LocalRotation: {x: -0.3130435, y: -0.11826162, z: 0.18309776, w: 0.92438793}
+  m_LocalPosition: {x: 0.028015312, y: -0.19796188, z: 0.22599655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3079205090790157809}
-  m_LocalEulerAnglesHint: {x: -37.027, y: -41.96, z: 34.735}
+  m_Father: {fileID: 4055860114896556433}
+  m_LocalEulerAnglesHint: {x: -32.374, y: -23.241, z: 29.24}
 --- !u!108 &1682657019668701341
 Light:
   m_ObjectHideFlags: 0
@@ -267,6 +267,39 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &7590500809217679974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4055860114896556433}
+  m_Layer: 3
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4055860114896556433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590500809217679974}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.024654351, y: -0.119261, z: 0.20093861, w: 0.9720045}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6333031198514499123}
+  - {fileID: 3428301931019685704}
+  m_Father: {fileID: 3079205090790157809}
+  m_LocalEulerAnglesHint: {x: 0, y: -13.99, z: 23.36}
 --- !u!1001 &4929569295471375669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,12 +331,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.96
+      value: 11.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
@@ -696,11 +729,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7985675571103357124, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6333031198514499123}
-    - targetCorrespondingSourceObject: {fileID: 7985675571103357124, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3428301931019685704}
+      addedObject: {fileID: 4055860114896556433}
     - targetCorrespondingSourceObject: {fileID: 7954396459722972638, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       insertIndex: -1
@@ -786,7 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.3
   rotationSpeed: 5
-  maxHealth: 30
+  maxHealth: 100
   shootPos: {fileID: 3783290917606168080}
   weaponGrab: {fileID: 3783290917606168080}
   weapons:
@@ -796,7 +825,7 @@ MonoBehaviour:
   - {fileID: 1829597508155286, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
   - {fileID: 1261748888023320, guid: 432643b6e5110004083fdff3e33e490b, type: 3}
   rotateBody: {fileID: 5338675373124951838}
-  shootForce: 60
+  shootForce: 120
   poolSize: 10
   sprintWalkPercentage: 40
   layerRaycast:

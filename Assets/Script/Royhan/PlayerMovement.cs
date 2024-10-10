@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -16,6 +17,7 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     [SerializeField] private LayerMask layerRaycast;
+    [SerializeField] private int[] weaponIndex = {0, 1};
     public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
     private Transform cameraTransform;
@@ -129,6 +131,11 @@ public class PlayerMovement : VariableComponent
             if (Input.GetKeyDown(KeyCode.B))
             {
                 SelectWeapon(4);
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Array.Reverse(weaponIndex);
+                SelectWeapon(weaponIndex[0]);
             }
         }
     }
