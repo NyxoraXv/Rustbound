@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class TurretDoubleType : MonoBehaviour, ITurret
+public class TurretDoubleType : VariableComponent, ITurret
 {
     [Header ("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
@@ -32,7 +32,6 @@ public class TurretDoubleType : MonoBehaviour, ITurret
     private Transform target;
     private float lastFireTime;
 
-    private VariableComponent variableComponent;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
 
@@ -41,14 +40,7 @@ public class TurretDoubleType : MonoBehaviour, ITurret
 
     void Start()
     {
-        // Initialize the VariableComponent if it's on the same GameObject
-        variableComponent = GetComponent<VariableComponent>();
-        
-        // Optionally, log an error if the component is missing
-        if (variableComponent == null)
-        {
-            Debug.LogError("VariableComponent is missing from the Turret GameObject!");
-        }
+        _currentHealth = maxHealth;
 
         soundManager = FindObjectOfType<SoundManager>();
     }
@@ -177,25 +169,22 @@ public class TurretDoubleType : MonoBehaviour, ITurret
         }
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        if (variableComponent != null)
+        base.TakeDamage(damage);
+
+        int[] sfxOptions = { 6, 7, 8 };
+
+        // Pick a random SFX
+        int randomIndex = Random.Range(0, sfxOptions.Length);
+        int randomSFX = sfxOptions[randomIndex];
+
+        // Play the randomly selected SFX
+        soundManager.PlaySFX(randomSFX);
+
+        if (GetCurrentHealth() <= 0)
         {
-            variableComponent.TakeDamage(damage);
-
-            int[] sfxOptions = { 6, 7, 8 };
-
-            // Pick a random SFX
-            int randomIndex = Random.Range(0, sfxOptions.Length);
-            int randomSFX = sfxOptions[randomIndex];
-
-            // Play the randomly selected SFX
-            soundManager.PlaySFX(randomSFX);
-            
-            if (variableComponent.GetCurrentHealth() <= 0)
-            {
-                DestroyTurret();
-            }
+            DestroyTurret();
         }
     }
 

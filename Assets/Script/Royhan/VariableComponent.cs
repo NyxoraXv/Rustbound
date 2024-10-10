@@ -13,7 +13,7 @@ public class VariableComponent : MonoBehaviour
     }
 
     // Method to take damage.
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0f)
