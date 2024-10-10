@@ -24,8 +24,8 @@ public class Building : VariableComponent, ITurret
     {
         base.TakeDamage(damage);
 
-        soundManager.PlaySFX(SoundToChoose); 
-        
+        // soundManager.PlaySFX(SoundToChoose); 
+
         if (GetCurrentHealth() <= 0)
         {
             DestroyBuilding();
@@ -39,7 +39,6 @@ public class Building : VariableComponent, ITurret
             ParticleSystem vfxInstance = Instantiate(destroyVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 1f);
         }
-        soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
