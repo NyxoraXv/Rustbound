@@ -21,7 +21,7 @@ public class PlayerMovement : VariableComponent
     [HideInInspector] public float bulletDamage;
     private static int[] weaponIndex = {0, 0};
     private Transform cameraTransform;
-    private List<GameObject> weaponCollection = new List<GameObject>();
+    private static List<GameObject> weaponCollection = new List<GameObject>();
     private Vector3 moveDirection;
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
@@ -37,7 +37,7 @@ public class PlayerMovement : VariableComponent
     private int fireParam = Animator.StringToHash("Fire");
     private bool onSprint = false;
     private bool shoot = false;
-    private int indexWeapon = 0;
+    private static int indexWeapon = 0;
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
     private void Awake()
@@ -147,6 +147,7 @@ public class PlayerMovement : VariableComponent
         if (isPrimary)
         {
             weaponIndex[0] = index;
+            SelectWeapon(index);
         }
         else
         {
@@ -154,7 +155,7 @@ public class PlayerMovement : VariableComponent
         }
     }
 
-    public void SelectWeapon(int index)
+    private static void SelectWeapon(int index)
     {
         weaponCollection[indexWeapon].SetActive(false);
         indexWeapon = index;
