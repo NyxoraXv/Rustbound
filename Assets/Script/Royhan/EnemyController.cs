@@ -217,6 +217,10 @@ public class EnemyController : VariableComponent
             {
                 turretRocketAdvance.TakeDamage(damageDealt);
             }
+            else if (targetedEntity.TryGetComponent<Building>(out Building building))
+            {
+                building.TakeDamage(damageDealt);
+            }
             else
             {
                 VariableComponent targetHealth = targetedEntity.GetComponent<VariableComponent>();
