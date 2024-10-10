@@ -14756,10 +14756,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2283970515468675917}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 991fa4da127de394daa722a182514fac,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6160569770687254277}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 991fa4da127de394daa722a182514fac,
         type: 3}
@@ -14811,6 +14807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68f10b9fe07dd84d98c55efe44230af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 500
   isMinigun: 0
   directionX: 0
   directionY: -90
@@ -14836,21 +14835,6 @@ MonoBehaviour:
   targetingMode: 0
   explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 3}
---- !u!114 &2283970515468675917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6052941085072812279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c220ec525af56d94684d8b57297e3e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 500
 --- !u!65 &6160569770687254277
 BoxCollider:
   m_ObjectHideFlags: 0

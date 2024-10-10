@@ -1628,7 +1628,7 @@ MonoBehaviour:
   currentTargetType: 0
   damageDealt: 10
   resistances: -1
-  resistanceMultiplier: 0.5
+  resistanceMultiplier: 0.8
   attactRange: 3
   targetMask:
     serializedVersion: 2

@@ -1980,7 +1980,7 @@ MonoBehaviour:
   rotationSpeed: 5
   maxHealth: 1000
   isBoss: 1
-  regenerationHealthPerSecond: 100
+  regenerationHealthPerSecond: 50
   currentTargetType: 0
   damageDealt: 10
   resistances: 0

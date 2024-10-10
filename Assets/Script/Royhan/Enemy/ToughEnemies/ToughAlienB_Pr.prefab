@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 10000
+  maxHealth: 1000
   isBoss: 0
   regenerationHealthPerSecond: 10
   currentTargetType: 0

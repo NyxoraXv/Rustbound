@@ -174,10 +174,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 2057bc528a273ef46990a4a58efc36ee,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7238892229240309631}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 2057bc528a273ef46990a4a58efc36ee,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1986712017785197848}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 2057bc528a273ef46990a4a58efc36ee,
         type: 3}
@@ -208,6 +204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee391407971a014b933f2811f637329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 400
   isFollowTuretHead: 0
   directionX: -90
   directionY: 260
@@ -226,21 +225,6 @@ MonoBehaviour:
   targetingMode: 0
   explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 3}
---- !u!114 &7238892229240309631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2159287507833668368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c220ec525af56d94684d8b57297e3e32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 400
 --- !u!65 &1986712017785197848
 BoxCollider:
   m_ObjectHideFlags: 0
