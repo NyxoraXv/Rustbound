@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3758623784090273370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GT-Gun 1988
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3758623784090273370}
     m_Modifications:
+    - target: {fileID: 45829001119623984, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 174959766367913995, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 723756337445234454, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 750944119163611705, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 981123325193871102, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045418552225166275, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1123162897191220173, guid: 4f17101356d90194d8b198d99e3a9152,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,10 +120,125 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1123162897191317481, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1123162897191317485, guid: 4f17101356d90194d8b198d99e3a9152,
         type: 3}
       propertyPath: m_Name
       value: Minigun5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123162897191317485, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123162897191317487, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017712170175821969, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2400597089635343640, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002824063881640384, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359683660409701960, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849578019565100892, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652816352824513163, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107994746418971233, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191858170701134800, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302730465535721283, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568222666807678574, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803412762366256777, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479828781371359066, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508498647197934463, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701537646529387454, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701537646953746552, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935608183274688641, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406887983626196592, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715018669375484417, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020524726276188425, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020524727471350479, guid: 4f17101356d90194d8b198d99e3a9152,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

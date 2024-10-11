@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5615233133626819989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GT-Gun 2004
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5615233133626819989}
     m_Modifications:
+    - target: {fileID: 2633061532054752, guid: 6a3782f25f77e184daf1c68341688570, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 531417377913896900, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413524872081218749, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602380316371260294, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661636512783482020, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978326630429664987, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937577952993428502, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937577953368608720, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376958665150469542, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010839568628505770, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9168491504708215979, guid: 6a3782f25f77e184daf1c68341688570,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -90,10 +139,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9168491504708515977, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9168491504708515979, guid: 6a3782f25f77e184daf1c68341688570,
         type: 3}
       propertyPath: m_Name
       value: Turret5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168491504708515979, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168491504708515983, guid: 6a3782f25f77e184daf1c68341688570,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

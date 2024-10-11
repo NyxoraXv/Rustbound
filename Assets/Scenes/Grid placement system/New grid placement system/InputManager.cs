@@ -29,14 +29,16 @@ public class InputManager : MonoBehaviour
 
     public Vector3 GetSelectedMapPosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = sceneCamera.nearClipPlane;
-        Ray ray = sceneCamera.ScreenPointToRay(mousePos);
+        Ray ray = sceneCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100, placementLayermask))
+
+        if (Physics.Raycast(ray, out hit, 100f, placementLayermask))
         {
-            lastPosition = hit.point;
+            lastPosition = hit.point;  // Update the last valid position
+            return lastPosition;       // Return hit position
         }
-        return lastPosition;
+
+        return lastPosition;  // Return the last known valid position if nothing is hit
     }
+
 }

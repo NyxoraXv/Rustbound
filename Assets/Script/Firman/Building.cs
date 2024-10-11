@@ -42,9 +42,6 @@ public class Building : VariableComponent, ITurret
             ParticleSystem vfxInstance = Instantiate(destroyVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 1f);
         }
-        Vector3Int gridPosition = PlacementSystem.Instance.grid.WorldToCell(transform.position);
-
-        PlacementSystem.Instance.RemoveTurret(buildingID, gridPosition);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

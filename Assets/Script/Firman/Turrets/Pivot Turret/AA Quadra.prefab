@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3058348014005697425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AA Quadra
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3058348014005697425}
     m_Modifications:
+    - target: {fileID: 1000010186546986, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010528715726, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1000011222192992, guid: 9b3a643ca887918468955b42c4531666, type: 3}
       propertyPath: m_Name
       value: Turret 1d
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011222192992, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012439138410, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012663579438, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012782717092, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013045632560, guid: 9b3a643ca887918468955b42c4531666, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013081111600, guid: 9b3a643ca887918468955b42c4531666, type: 3}
       propertyPath: m_LocalScale.x
@@ -91,6 +119,26 @@ PrefabInstance:
     - target: {fileID: 4000013081111600, guid: 9b3a643ca887918468955b42c4531666, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660389746159569940, guid: 9b3a643ca887918468955b42c4531666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885438469007046942, guid: 9b3a643ca887918468955b42c4531666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577446951740514273, guid: 9b3a643ca887918468955b42c4531666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882454591856612619, guid: 9b3a643ca887918468955b42c4531666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
