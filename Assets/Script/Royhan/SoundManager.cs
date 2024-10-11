@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -12,39 +11,64 @@ public class SoundManager : MonoBehaviour
     public AudioClip BgmFight;
     public AudioClip BGMMainMenu;
     public AudioClip[] SFXClips; // Array of sound effects audio clips
-    private StartRound startRound;
+
     private bool fightPlayed = true;
+    public float fadeDuration = 1.0f; // Durasi fade-out dan fade-in
 
     private void Start()
     {
         MusicSource.clip = BgmFight;
         MusicSource.loop = true;
         MusicSource.Play();
-
     }
 
-    private void Update() 
-    {
-
-    }
-
+    // Switch BGM to Main Menu with Fade Out/In
     public void SwitchBGMMainMenu()
     {
-        Debug.Log("Switch");
-        MusicSource.Stop();
-        MusicSource.clip = BGMMainMenu;
-        fightPlayed = false;
+        if (!fightPlayed) return; // Cegah jika sudah di MainMenu
 
-        MusicSource.Play();
+        StartCoroutine(FadeOutAndSwitch(MusicSource, BGMMainMenu));
+        fightPlayed = false;
     }
+
+    // Switch BGM to Fight with Fade Out/In
     public void SwitchBGMFight()
     {
-        MusicSource.Stop();
-        MusicSource.clip = BgmFight;
+        if (fightPlayed) return; // Cegah jika sudah di Fight mode
+
+        StartCoroutine(FadeOutAndSwitch(MusicSource, BgmFight));
         fightPlayed = true;
-        MusicSource.Play();
     }
 
+    // Coroutine to fade out, switch BGM, and fade in
+    private IEnumerator FadeOutAndSwitch(AudioSource audioSource, AudioClip newClip)
+    {
+        // Fade out
+        float startVolume = audioSource.volume;
+
+        // Gradually decrease the volume
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, 0, t / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.volume = 0;
+        audioSource.Stop(); // Stop the audio before switching clip
+        audioSource.clip = newClip;
+        audioSource.Play(); // Play the new BGM
+
+        // Fade in
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(0, startVolume, t / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.volume = startVolume; // Ensure the volume is fully restored
+    }
+
+    // Play sound effects (SFX)
     public void PlaySFX(int index)
     {
         if (index >= 0 && index < SFXClips.Length)
