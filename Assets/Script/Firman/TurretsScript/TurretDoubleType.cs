@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class TurretDoubleType : VariableComponent, ITurret
 {
-    [Header ("Max Spawn Turret")]
+    [Header("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
     public float directionY = 0f;
@@ -17,8 +17,8 @@ public class TurretDoubleType : VariableComponent, ITurret
     public Transform turretHead;
     public Transform firePoint1;
     public Transform firePoint2;
-    public GameObject projectilePrefab1; 
-    public GameObject projectilePrefab2; 
+    public GameObject projectilePrefab1;
+    public GameObject projectilePrefab2;
 
     public ParticleSystem particle;
     public float fireCooldown = 2f;
@@ -73,13 +73,13 @@ public class TurretDoubleType : VariableComponent, ITurret
 
         foreach (Collider col in colliders)
         {
-            
+
             VariableComponent variableComponent = col.GetComponent<VariableComponent>();
-            if (variableComponent == null) continue; 
+            if (variableComponent == null) continue;
 
             Vector3 directionToTarget = (col.transform.position - transform.position).normalized;
             float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-            
+
             if (angleToTarget <= detectionAngle / 2f)
             {
                 validTargets.Add(col.transform);
@@ -109,7 +109,7 @@ public class TurretDoubleType : VariableComponent, ITurret
             return validTargets[0];
         }
 
-        return null; 
+        return null;
     }
 
 
@@ -122,16 +122,16 @@ public class TurretDoubleType : VariableComponent, ITurret
         euler.x = directionX;
         euler.z = Mathf.Clamp(euler.z, directionMinZ, directionMaxZ);
 
-        
+
         euler.y -= directionY;
 
         turretHead.DORotate(euler, 0.5f);
 
-        
+
         if (isFollowTuretHead)
         {
             firePoint1.rotation = turretHead.rotation;
-            firePoint2.rotation = turretHead.rotation; 
+            firePoint2.rotation = turretHead.rotation;
         }
     }
 
@@ -139,7 +139,7 @@ public class TurretDoubleType : VariableComponent, ITurret
     {
         if (projectilePrefab1 != null && firePoint1 != null)
         {
-            
+
             GameObject projectile1 = Instantiate(projectilePrefab1, firePoint1.position, firePoint1.rotation);
             ProjectileController projectileController1 = projectile1.GetComponent<ProjectileController>();
             if (projectileController1 != null)
@@ -149,15 +149,15 @@ public class TurretDoubleType : VariableComponent, ITurret
             }
         }
 
-        
-        Invoke("ShootFromFirePoint2", 0.2f); 
+
+        Invoke("ShootFromFirePoint2", 0.2f);
     }
 
     void ShootFromFirePoint2()
     {
         if (projectilePrefab2 != null && firePoint2 != null)
         {
-            
+
             GameObject projectile2 = Instantiate(projectilePrefab2, firePoint2.position, firePoint2.rotation);
             particle.Play();
             ProjectileController projectileController2 = projectile2.GetComponent<ProjectileController>();
@@ -196,6 +196,9 @@ public class TurretDoubleType : VariableComponent, ITurret
             Destroy(vfxInstance.gameObject, 4f);
         }
         soundManager.PlaySFX(5);
+        Vector3Int gridPosition = PlacementSystem.Instance.grid.WorldToCell(transform.position);
+
+        PlacementSystem.Instance.RemoveTurret(1, gridPosition);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
