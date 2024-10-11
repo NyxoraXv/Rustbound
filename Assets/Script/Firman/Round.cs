@@ -4,10 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 
 public class Round : MonoBehaviour
 {
+    [Header("Round Finish")]
+    public GameObject roundFinish;
+
     [Header("Round Information")]
     public TextMeshProUGUI textRound; // Public variable to assign in the Inspector
     public TextMeshProUGUI textTotalZombie; // Public variable to assign in the Inspector
@@ -62,6 +67,7 @@ public class Round : MonoBehaviour
     private Dictionary<Transform, float> spawnPointCooldowns = new Dictionary<Transform, float>();
     private int currencyMultiplier = 0;
     private SoundManager soundManager;
+    private StartRound startRound;
 
     void Start()
     {
@@ -76,8 +82,10 @@ public class Round : MonoBehaviour
         UpdateRoundText(currentRound); // For example, "ROUND 1"
 
         currencyManager = FindObjectOfType<CurrencyManager>();
+        startRound = FindAnyObjectByType<StartRound>();
 
-        //StartCoroutine(StartSpawningZombies());
+        StartCoroutine(StartSpawningZombies());
+        startRound.TriggerRoundBegin();
     }
 
     void Update()
@@ -85,7 +93,30 @@ public class Round : MonoBehaviour
         // Check if all zombies are dead
         if (spawnedZombies == zombiesToSpawn && AreAllZombiesDead())
         {
-            UnityEngine.Debug.Log("s");
+            CanvasGroup canvasGroup = roundFinish.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = roundFinish.AddComponent<CanvasGroup>(); // Add CanvasGroup if not present
+            }
+
+            roundFinish.SetActive(true);  // Step 1: Set active
+            
+            canvasGroup.alpha = 0f;
+        
+            canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+            {
+                // Step 3: Optional delay after fading in
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    // Step 4: Fade out the roundFinish
+                    canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+                    {
+                        // Step 5: Set inactive after fade out
+                        roundFinish.SetActive(false);
+                    });
+                });
+            });
+
             soundManager.SwitchBGMMainMenu();
             // Increment round
             currentRound++;

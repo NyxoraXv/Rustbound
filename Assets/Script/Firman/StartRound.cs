@@ -5,6 +5,9 @@ using DG.Tweening; // Import DoTween
 
 public class StartRound : MonoBehaviour
 {
+    [Header("Round Begin")]
+    public GameObject roundBegin;
+
     public GameObject uiToFade;
     private SoundManager soundManager;
     private Round round;
@@ -38,10 +41,38 @@ public class StartRound : MonoBehaviour
             nextTargetUpdateTime = Time.time + targetUpdateInterval; // Schedule next update
         }
     }
+    public void TriggerRoundBegin()
+    {
+        CanvasGroup canvasGroup = roundBegin.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = roundBegin.AddComponent<CanvasGroup>(); // Add CanvasGroup if not present
+        }
+
+        roundBegin.SetActive(true);  // Step 1: Set active
+
+        canvasGroup.alpha = 0f;
+        
+            canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+            {
+                // Step 3: Optional delay after fading in
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    // Step 4: Fade out the roundFinish
+                    canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+                    {
+                        // Step 5: Set inactive after fade out
+                        roundBegin.SetActive(false);
+                    });
+                });
+            });
+
+    }
 
     public void StartNewRound()
     {
         Debug.Log("Start New Round");
+        TriggerRoundBegin();
         soundManager.SwitchBGMFight();
         StartCoroutine(round.StartSpawningZombies());
         StartCoroutine(round.SpawnSpecialZombiesWithDelay());

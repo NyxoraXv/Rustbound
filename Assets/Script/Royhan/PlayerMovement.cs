@@ -5,9 +5,13 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerMovement : VariableComponent
 {
+    [Header("Player Died")]
+    public GameObject playerDied;
+
     [SerializeField] private Transform shootPos;
     [SerializeField] private Transform weaponGrab;
     [SerializeField] private WeaponDatabase weapons;
@@ -195,6 +199,30 @@ public class PlayerMovement : VariableComponent
     protected override void Die ()
     {
         Debug.Log("player Die");
+        CanvasGroup canvasGroup = playerDied.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                canvasGroup = playerDied.AddComponent<CanvasGroup>(); // Add CanvasGroup if not present
+            }
+
+            playerDied.SetActive(true);  // Step 1: Set active
+            
+            canvasGroup.alpha = 0f;
+        
+            canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+            {
+                // Step 3: Optional delay after fading in
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    // Step 4: Fade out the roundFinish
+                    canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
+                    {
+                        // Step 5: Set inactive after fade out
+                        playerDied.SetActive(false);
+                    });
+                });
+            });
+
         // Destroy(_rigidbody);
         Destroy(this);
         // Destroy
