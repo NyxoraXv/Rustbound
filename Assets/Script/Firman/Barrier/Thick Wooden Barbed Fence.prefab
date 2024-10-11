@@ -180,7 +180,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 14
-  SoundToChoose: 9
+  soundDestroy: 9
+  soundTakeDamage: 13
   destroyVFX: {fileID: 0}
 --- !u!4 &5470885791064386514 stripped
 Transform:

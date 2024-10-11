@@ -160,5 +160,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 20
-  SoundToChoose: 9
+  soundDestroy: 9
+  soundTakeDamage: 13
   destroyVFX: {fileID: 0}
