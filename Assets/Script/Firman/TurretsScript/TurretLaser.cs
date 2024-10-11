@@ -238,6 +238,7 @@ public class TurretLaser : VariableComponent, ITurret
             ParticleSystem vfxInstance = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 4f);
         }
+        PlacementSystem.Instance.RemoveObject(2);
         soundManager.PlaySFX(5);
         Destroy(gameObject); // Destroy the turret GameObject
     }
