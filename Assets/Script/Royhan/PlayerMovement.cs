@@ -18,6 +18,9 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     [SerializeField] private LayerMask layerRaycast;
+    [SerializeField] private float maxStamina = 100f;  // Maksimum stamina
+    [SerializeField] private float staminaDecreaseRate = 10f;  // Pengurangan stamina per detik saat berlari
+    [SerializeField] private float staminaRecoveryRate = 5f;   // Pemulihan stamina per detik saat tidak berlari
     public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
     private static int[] weaponIndex = {0, 0};
@@ -44,6 +47,10 @@ public class PlayerMovement : VariableComponent
 
     private int weaponSlot = 1; // Only 1 and 2
 
+    private float currentStamina;  // Stamina saat ini
+    
+    private bool isSprinting = false; // Status apakah sedang berlari
+
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
     public void EquipWeapon(WeaponHandler newWeaponHandler)
@@ -64,15 +71,19 @@ public class PlayerMovement : VariableComponent
         mainCamera = Camera.main;
 
         _speed = speed;
+
+        currentStamina = maxStamina;
     }
 
     private void Update()
     {
-        HandleWeaponScroll();
+        HandleStamina();
         HandleFiring();
+        HandleWeaponScroll();
     }
 
     public void OnFire(InputAction.CallbackContext context)
+
     {
         if (context.performed)
         {
@@ -299,15 +310,42 @@ public class PlayerMovement : VariableComponent
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && currentStamina > 0)
         {
             _speed = speed + (speed * sprintWalkPercentage / 100);
-            onSprint = true;
+            isSprinting = true;
         }
-        else if (context.canceled)
+        else if (context.canceled || currentStamina <= 0)
         {
             _speed = speed;
-            onSprint = false;
+            isSprinting = false;
         }
+    }
+
+    private void HandleStamina()
+    {
+        if (currentStamina <= 0)
+        {
+            _speed = speed;
+            isSprinting = false;
+        }
+        
+        if (isSprinting && currentStamina > 0)
+        {
+            // Kurangi stamina saat berlari
+            currentStamina -= staminaDecreaseRate * Time.deltaTime;
+            Debug.Log("berkurang...");
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Pastikan stamina tidak di bawah 0
+        }
+        else
+        {
+            // Pulihkan stamina saat tidak berlari
+            currentStamina += staminaRecoveryRate * Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Pastikan stamina tidak melebihi maksimum
+        }
+
+
+        // Opsional: Debug log untuk melihat nilai stamina
+        Debug.Log("Stamina: " + currentStamina);
     }
 }

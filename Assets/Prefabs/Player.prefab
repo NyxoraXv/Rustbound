@@ -331,12 +331,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.37
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
@@ -815,17 +815,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.3
   rotationSpeed: 5
-  maxHealth: 100
+  maxHealth: 2000
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   shootPos: {fileID: 3783290917606168080}
   weaponGrab: {fileID: 3783290917606168080}
   weapons: {fileID: 11400000, guid: ef89875c2278b6c418ffee05bcbb64d2, type: 2}
   rotateBody: {fileID: 5338675373124951838}
-  shootForce: 120
+  shootForce: 80
   poolSize: 10
   sprintWalkPercentage: 40
   layerRaycast:
     serializedVersion: 2
     m_Bits: 2047
+  maxStamina: 100
+  staminaDecreaseRate: 10
+  staminaRecoveryRate: 5
   bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
   bulletDamage: 0
@@ -955,7 +961,7 @@ Animator:
   m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
     are already bound by a Humanoid avatar. These transforms can only be changed
     by Humanoid clips.\n\tTransform 'root'\n\tFrom animation clip 'Idle'\n\tFrom
-    animation clip 'Idle'"
+    animation clip 'Idle'\n\tFrom animation clip 'Run Backward'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
