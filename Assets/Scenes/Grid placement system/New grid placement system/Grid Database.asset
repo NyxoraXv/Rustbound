@@ -94,60 +94,60 @@ MonoBehaviour:
   - <Name>k__BackingField: Thin Wooden Barbed Fence
     <ID>k__BackingField: 13
     <Size>k__BackingField: {x: 1, y: 4}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 1142075414440139418, guid: d8ddaeea68ddfe944a35ef1babe3676a,
       type: 3}
   - <Name>k__BackingField: Thick Wooden Barbed Fence
     <ID>k__BackingField: 14
     <Size>k__BackingField: {x: 1, y: 3}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 1264226503161392077, guid: 194a112ec44b1894b9e6c6778f81b9fa,
       type: 3}
-  - <Name>k__BackingField: Thin Wooden Barrier
+  - <Name>k__BackingField: Wooden Barrier 2
     <ID>k__BackingField: 15
     <Size>k__BackingField: {x: 2, y: 2}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 9027144199331876429, guid: 0810d76d4405de643aa339d10f9b5bcd,
       type: 3}
-  - <Name>k__BackingField: Thick Wooden Barrier
+  - <Name>k__BackingField: Wooden Barrier
     <ID>k__BackingField: 16
     <Size>k__BackingField: {x: 1, y: 3}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 7842527275457968204, guid: a869514a4e03e1f41916055392b38537,
       type: 3}
   - <Name>k__BackingField: Low Sandbag Barrier
     <ID>k__BackingField: 17
     <Size>k__BackingField: {x: 1, y: 2}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 5033200218056488977, guid: 36802aaecfec2414d94387a297bdc2c2,
       type: 3}
   - <Name>k__BackingField: High Sandbag Barrier
     <ID>k__BackingField: 18
     <Size>k__BackingField: {x: 1, y: 3}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 3861417948511013242, guid: 86fd2e6a90e73234897e4d9f0a2af4ec,
       type: 3}
   - <Name>k__BackingField: Sandbag Decoy
     <ID>k__BackingField: 19
     <Size>k__BackingField: {x: 2, y: 2}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 4929622195713046706, guid: 1252bc114f3d90b44addaf2e659ccac2,
       type: 3}
   - <Name>k__BackingField: Metal Barbed Fence
     <ID>k__BackingField: 20
     <Size>k__BackingField: {x: 1, y: 4}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 5316611382278635583, guid: e84b01ee2b66146489a1f1cd6d3ca8d5,
       type: 3}
   - <Name>k__BackingField: Low Concrete Barrier
     <ID>k__BackingField: 21
     <Size>k__BackingField: {x: 1, y: 2}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 325647218637157111, guid: 9818ee40b41f92c4a913f369232dd0d2,
       type: 3}
   - <Name>k__BackingField: High Concrete Barrier
     <ID>k__BackingField: 22
     <Size>k__BackingField: {x: 1, y: 2}
-    <maxSpawnTurret>k__BackingField: 1
+    <maxSpawnTurret>k__BackingField: 5
     <Prefab>k__BackingField: {fileID: 3753458862759498381, guid: 64f8da2fc4d7af7498f042d2c9f8e381,
       type: 3}
