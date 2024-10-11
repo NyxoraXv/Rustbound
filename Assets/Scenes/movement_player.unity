@@ -2020,6 +2020,11 @@ PrefabInstance:
       propertyPath: shootForce
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: sprintWalkPercentage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4892000278053851870, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
       propertyPath: m_LocalPosition.x
