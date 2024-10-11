@@ -75,7 +75,7 @@ MonoBehaviour:
     Damage: 30
     RateOfFire: 0.15
     Accuracy: 80
-    price: 250
+    price: 350
   - Name: GT-GUN 2004
     Prefab: {fileID: 1901075721596580542, guid: 16bacba3d4c770a46a578c61a810788a,
       type: 3}
@@ -102,7 +102,7 @@ MonoBehaviour:
     Damage: 2000
     RateOfFire: 2.5
     Accuracy: 50
-    price: 350
+    price: 500
   - Name: AA-Dual
     Prefab: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
       type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
     Damage: 4000
     RateOfFire: 4
     Accuracy: 50
-    price: 550
+    price: 750
   - Name: AA-Triplet
     Prefab: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
       type: 3}
@@ -120,7 +120,7 @@ MonoBehaviour:
     Damage: 6000
     RateOfFire: 5.5
     Accuracy: 50
-    price: 750
+    price: 1000
   - Name: AA-Quadra
     Prefab: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
       type: 3}
@@ -129,7 +129,7 @@ MonoBehaviour:
     Damage: 8000
     RateOfFire: 7
     Accuracy: 50
-    price: 1000
+    price: 1250
   - Name: Thin Wooden Barbed Fence
     Prefab: {fileID: 1142075414440139418, guid: d8ddaeea68ddfe944a35ef1babe3676a,
       type: 3}
@@ -192,7 +192,7 @@ MonoBehaviour:
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
-    price: 150
+    price: 300
   - Name: Metal Barbed Fence
     Prefab: {fileID: 5316611382278635583, guid: e84b01ee2b66146489a1f1cd6d3ca8d5,
       type: 3}
@@ -201,7 +201,7 @@ MonoBehaviour:
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
-    price: 150
+    price: 125
   - Name: Low Concrete Barrier
     Prefab: {fileID: 325647218637157111, guid: 9818ee40b41f92c4a913f369232dd0d2, type: 3}
     Image: {fileID: 21300000, guid: dddeb6f67950ccd47bb136811ed5e750, type: 3}
@@ -209,7 +209,7 @@ MonoBehaviour:
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
-    price: 125
+    price: 100
   - Name: High Concrete Barrier
     Prefab: {fileID: 3753458862759498381, guid: 64f8da2fc4d7af7498f042d2c9f8e381,
       type: 3}
@@ -218,4 +218,4 @@ MonoBehaviour:
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
-    price: 150
+    price: 125
