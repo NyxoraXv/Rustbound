@@ -26,6 +26,12 @@ public class PreviewSystem : MonoBehaviour
     public void StartShowingPlacementPreview(GameObject prefab, Vector2Int size)
     {
         previewObject = Instantiate(prefab);
+        //dimatikan
+        Collider[] colliders = previewObject.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
         ITurret turretScript = previewObject.GetComponent<ITurret>();
         if (turretScript != null)
         {
