@@ -7,6 +7,12 @@ public class PopupUI : MonoBehaviour
     [SerializeField] private int UIID;
     [SerializeField] private KeyCode popUpKey;
     [SerializeField] private bool collide;
+    [SerializeField] private GameObject UI;
+
+    private void Awake()
+    {
+        UI.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +20,7 @@ public class PopupUI : MonoBehaviour
         {
             Debug.Log("Player Colliding");
             collide = true;
+            UI.SetActive(true);
         }
     }
 
@@ -22,6 +29,8 @@ public class PopupUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             collide = false;
+            UI.SetActive(false);
+            UIController.instance.setUIState(0);
         }
     }
 

@@ -68,11 +68,9 @@ public class PlayerMovement : VariableComponent
         CurrencyManager.Instance.AddCurrency(2000);
         WeaponManager.Instance.BuyWeapon(0); // Purchase the first weapon (or select the default one)
         WeaponManager.Instance.EquipWeapon(0, 1); // Equip the first weapon in slot 1
+        WeaponManager.Instance.EquipWeapon(0, 2);
         TurretManager.Instance.buyTurret(0);
         SwitchWeapon(1); // Switch to weapon in slot 1
-
-        // Set "None" for slot 2 as no weapon is equipped there initially
-        HUDController.instance.SwapWeaponImagesSlot2(WeaponManager.Instance.None);
     }
 
     private void Awake()

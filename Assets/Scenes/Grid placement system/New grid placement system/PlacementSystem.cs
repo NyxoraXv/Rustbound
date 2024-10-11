@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;  // DoTween for smooth animations
+using DG.Tweening;
+using System.Net;  // DoTween for smooth animations
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private float yOffset = 0.5f;       // Offset for y-axis placement
     [SerializeField] private KeyCode rotateKey = KeyCode.R;  // Key to rotate preview object
     [SerializeField] private Vector3 rotationAmount = new Vector3(0, 45, 0); // Rotation angle for preview
+    private float fixedYPosition = 0f;
 
     private GameObject previewObject;
     private ObjectData currentObjectData;
@@ -74,7 +76,6 @@ public class PlacementSystem : MonoBehaviour
         }
     }
 
-    // Called to start the placement of a new object based on its ID
     public void StartPlacement(int id)
     {
         if (id < 0 || id >= objectsDatabase.objectsData.Count) return;
@@ -97,6 +98,9 @@ public class PlacementSystem : MonoBehaviour
         // Create the preview object
         previewObject = Instantiate(currentObjectData.Prefab);
         ApplyPreviewMaterial(previewObject, previewMaterial);
+
+        // Freeze the Y position of the preview object
+        fixedYPosition = previewObject.transform.position.y;
 
         // Disable all scripts in the preview object
         DisableScriptsInPreview(previewObject);
@@ -153,7 +157,14 @@ public class PlacementSystem : MonoBehaviour
         {
             if (IsPlacementValid())
             {
-                StartCoroutine(PlaceObjectWithDelay(0f));  // Add delay before placing (e.g., 0.5 seconds)
+                if (CurrencyManager.Instance.SpendCurrency((TurretManager.Instance.turretDatabase.GetTurretByID(currentObjectData.ID).price)))
+                {
+                    StartCoroutine(PlaceObjectWithDelay(0f));  // Add delay before placing (e.g., 0.5 seconds)
+                }
+                else
+                {
+                    Debug.LogWarning("Failed to spend currency.");
+                }
             }
         }
         else if (isRemoving)
@@ -174,7 +185,9 @@ public class PlacementSystem : MonoBehaviour
     private void UpdatePlacementPreview()
     {
         Vector3 position = inputManager.GetSelectedMapPosition();
-        position.y = yOffset;  // Set y position to the offset
+
+        // Maintain the fixed y position
+        position.y = fixedYPosition;  // Set y position to the fixed value
 
         if (previewObject != null)
         {
@@ -195,7 +208,9 @@ public class PlacementSystem : MonoBehaviour
     private void UpdateRemovePreview()
     {
         Vector3 position = inputManager.GetSelectedMapPosition();
-        position.y += yOffset;  // Apply y offset for the removal preview
+
+        // Maintain the fixed y position
+        position.y = fixedYPosition;  // Apply the fixed Y position
 
         if (previewObject != null)
         {
@@ -212,6 +227,7 @@ public class PlacementSystem : MonoBehaviour
             }
         }
     }
+
 
     // Check if the current removal is valid
     private bool IsRemovalValid()
@@ -285,6 +301,12 @@ public class PlacementSystem : MonoBehaviour
     // Check if the current placement is valid, ignoring its own colliders
     private bool IsPlacementValid()
     {
+       
+    if (!CurrencyManager.Instance.HasEnoughCurrency((TurretManager.Instance.turretDatabase.GetTurretByID(currentObjectData.ID).price)))
+        {
+            Debug.LogWarning("Not enough currency to place the object.");
+            return false;
+        }
         Collider[] colliders = Physics.OverlapSphere(previewObject.transform.position, 0.5f, objectLayerMask);
 
         foreach (var collider in colliders)

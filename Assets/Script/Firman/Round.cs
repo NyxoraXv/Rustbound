@@ -23,6 +23,9 @@ public class Round : MonoBehaviour
     private List<GameObject> specialZombieList = new List<GameObject>(); // List for special zombies
     private List<GameObject> bossList = new List<GameObject>();
 
+    public static Round Instance { get; private set; } // Singleton instance
+    public bool onWar;
+
     [Header("Bosses")]
     public GameObject Boss1; // Reference to Boss1 GameObject
     public GameObject Boss2; // Reference to Boss2 GameObject

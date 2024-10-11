@@ -17,7 +17,7 @@ public class CurrencyManager : MonoBehaviour
             return;
         }
         Instance = this;
-       // DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -41,7 +41,7 @@ public class CurrencyManager : MonoBehaviour
     // Method to spend currency
     public bool SpendCurrency(int amount)
     {
-        if (currentCurrency >= amount)
+        if (HasEnoughCurrency(amount))
         {
             currentCurrency -= amount;
             Debug.Log("Currency spent. Current currency: " + currentCurrency);
@@ -56,6 +56,12 @@ public class CurrencyManager : MonoBehaviour
             Debug.Log("Not enough currency.");
             return false;
         }
+    }
+
+    // Method to check if there is enough currency
+    public bool HasEnoughCurrency(int amount)
+    {
+        return currentCurrency >= amount;
     }
 
     // Method to check the current currency
