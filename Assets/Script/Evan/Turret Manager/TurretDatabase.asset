@@ -21,7 +21,7 @@ MonoBehaviour:
     Damage: 50
     RateOfFire: 3.5
     Accuracy: 75
-    price: 0
+    price: 50
   - Name: T-145
     Prefab: {fileID: 1287796884402699263, guid: 8085d418f499a214da33871be37f907f,
       type: 3}
@@ -30,7 +30,7 @@ MonoBehaviour:
     Damage: 150
     RateOfFire: 3
     Accuracy: 100
-    price: 0
+    price: 100
   - Name: RAY-200
     Prefab: {fileID: 1225695144971036340, guid: eaa51df6f2f4f6f47899b9b89b482e8c,
       type: 3}
@@ -39,7 +39,7 @@ MonoBehaviour:
     Damage: 5
     RateOfFire: 0.1
     Accuracy: 90
-    price: 0
+    price: 75
   - Name: RAY-300
     Prefab: {fileID: 5554163016575847230, guid: e44b3856662d3c343af5a8b6601a37a0,
       type: 3}
@@ -48,7 +48,7 @@ MonoBehaviour:
     Damage: 15
     RateOfFire: 0.1
     Accuracy: 90
-    price: 0
+    price: 150
   - Name: L-5000
     Prefab: {fileID: 4357588046153101256, guid: c8e85bc6f0885e745994cbdd88fd9705,
       type: 3}
@@ -57,7 +57,7 @@ MonoBehaviour:
     Damage: 100
     RateOfFire: 5
     Accuracy: 75
-    price: 0
+    price: 50
   - Name: L-10000
     Prefab: {fileID: 6570756096919733836, guid: f03fdb412d3df3e42aa05027522d91a5,
       type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
     Damage: 200
     RateOfFire: 4
     Accuracy: 100
-    price: 0
+    price: 100
   - Name: GT-GUN 1988
     Prefab: {fileID: 8267046036068752686, guid: d20d00aed4ac1c5458ba1b7e03db6b21,
       type: 3}
@@ -75,7 +75,7 @@ MonoBehaviour:
     Damage: 30
     RateOfFire: 0.15
     Accuracy: 80
-    price: 0
+    price: 350
   - Name: GT-GUN 2004
     Prefab: {fileID: 1901075721596580542, guid: 16bacba3d4c770a46a578c61a810788a,
       type: 3}
@@ -84,7 +84,7 @@ MonoBehaviour:
     Damage: 43
     RateOfFire: 0.175
     Accuracy: 80
-    price: 0
+    price: 150
   - Name: GT-GUN 2015
     Prefab: {fileID: 9215277367735509922, guid: b5e88f26208f3c94db4e97f5a1e91d89,
       type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
     Damage: 23
     RateOfFire: 0.3
     Accuracy: 80
-    price: 0
+    price: 75
   - Name: AA-Single
     Prefab: {fileID: 4206958949730962340, guid: 0a0ec8c94fadadc45a719d317d82fc03,
       type: 3}
@@ -102,7 +102,7 @@ MonoBehaviour:
     Damage: 2000
     RateOfFire: 2.5
     Accuracy: 50
-    price: 0
+    price: 500
   - Name: AA-Dual
     Prefab: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
       type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
     Damage: 4000
     RateOfFire: 4
     Accuracy: 50
-    price: 0
+    price: 750
   - Name: AA-Triplet
     Prefab: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
       type: 3}
@@ -120,7 +120,7 @@ MonoBehaviour:
     Damage: 6000
     RateOfFire: 5.5
     Accuracy: 50
-    price: 0
+    price: 1000
   - Name: AA-Quadra
     Prefab: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
       type: 3}
@@ -129,7 +129,7 @@ MonoBehaviour:
     Damage: 8000
     RateOfFire: 7
     Accuracy: 50
-    price: 0
+    price: 1250
   - Name: Thin Wooden Barbed Fence
     Prefab: {fileID: 1142075414440139418, guid: d8ddaeea68ddfe944a35ef1babe3676a,
       type: 3}
@@ -138,84 +138,84 @@ MonoBehaviour:
     Damage: 0
     RateOfFire: 0
     Accuracy: 0
-    price: 0
+    price: 100
   - Name: Thick Wooden Barbed Fence
     Prefab: {fileID: 1264226503161392077, guid: 194a112ec44b1894b9e6c6778f81b9fa,
       type: 3}
     Image: {fileID: 21300000, guid: c7daa85efd82d194db4a2decebd3cd86, type: 3}
     ID: 14
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 125
   - Name: Thin Wooden Barrier
     Prefab: {fileID: 9027144199331876429, guid: 0810d76d4405de643aa339d10f9b5bcd,
       type: 3}
     Image: {fileID: 21300000, guid: 63b2b48bfaad3eb458dfc2fa7a815032, type: 3}
     ID: 15
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 100
   - Name: Thick Wooden Barrier
     Prefab: {fileID: 7842527275457968204, guid: a869514a4e03e1f41916055392b38537,
       type: 3}
     Image: {fileID: 21300000, guid: fafee9417ff38b840a5fbd38167f36eb, type: 3}
     ID: 16
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 125
   - Name: Low Sandbag Barrier
     Prefab: {fileID: 5033200218056488977, guid: 36802aaecfec2414d94387a297bdc2c2,
       type: 3}
     Image: {fileID: 21300000, guid: bab647089b588f640a41b63672ee5d4a, type: 3}
     ID: 17
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 100
   - Name: High Sandbag Barrier
     Prefab: {fileID: 3861417948511013242, guid: 86fd2e6a90e73234897e4d9f0a2af4ec,
       type: 3}
     Image: {fileID: 21300000, guid: 8e36d8e4222fb7e4da51c2fcb638f3e4, type: 3}
     ID: 18
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 125
   - Name: Sandbag Decoy
     Prefab: {fileID: 4929622195713046706, guid: 1252bc114f3d90b44addaf2e659ccac2,
       type: 3}
     Image: {fileID: 21300000, guid: d7e9d0f0c58e43c4d94410b5c3cabd7c, type: 3}
     ID: 19
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 300
   - Name: Metal Barbed Fence
     Prefab: {fileID: 5316611382278635583, guid: e84b01ee2b66146489a1f1cd6d3ca8d5,
       type: 3}
     Image: {fileID: 21300000, guid: 22b3cc359f3b26542a68106eb1c592cd, type: 3}
     ID: 20
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 125
   - Name: Low Concrete Barrier
     Prefab: {fileID: 325647218637157111, guid: 9818ee40b41f92c4a913f369232dd0d2, type: 3}
     Image: {fileID: 21300000, guid: dddeb6f67950ccd47bb136811ed5e750, type: 3}
     ID: 21
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 100
   - Name: High Concrete Barrier
     Prefab: {fileID: 3753458862759498381, guid: 64f8da2fc4d7af7498f042d2c9f8e381,
       type: 3}
     Image: {fileID: 21300000, guid: 6fc89b0e75319704f8ec5f98266ffd40, type: 3}
     ID: 22
     Damage: 0
-    RateOfFire: 7
-    Accuracy: 50
-    price: 0
+    RateOfFire: 0
+    Accuracy: 0
+    price: 125

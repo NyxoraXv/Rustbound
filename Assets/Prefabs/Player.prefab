@@ -828,7 +828,7 @@ MonoBehaviour:
   weaponGrab: {fileID: 3783290917606168080}
   weapons: {fileID: 11400000, guid: ef89875c2278b6c418ffee05bcbb64d2, type: 2}
   rotateBody: {fileID: 5338675373124951838}
-  shootForce: 80
+  shootForce: 300
   poolSize: 10
   sprintWalkPercentage: 40
   layerRaycast:

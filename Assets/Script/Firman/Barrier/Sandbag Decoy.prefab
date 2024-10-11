@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118719000932846853}
-  - component: {fileID: 3833980589058114989}
   m_Layer: 0
   m_Name: Sandbag Decoy
   m_TagString: Untagged
@@ -33,28 +32,6 @@ Transform:
   - {fileID: 609760736541795641}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3833980589058114989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4929622195713046706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 250
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  buildingID: 19
-  SoundToChoose: 9
-  destroyVFX: {fileID: 8283121653926416167, guid: f67d61bc7a642d447b340f4904647119,
-    type: 3}
 --- !u!1001 &7109647132285168744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +44,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SandBarrier_28_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032112302698976235, guid: 0371f61bcdd2799478720637ee746b4f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032112302698976235, guid: 0371f61bcdd2799478720637ee746b4f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 7700245298789386577, guid: 0371f61bcdd2799478720637ee746b4f,
         type: 3}
@@ -142,6 +129,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1905876659846316717}
+    - targetCorrespondingSourceObject: {fileID: 7032112302698976235, guid: 0371f61bcdd2799478720637ee746b4f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 192008347231574354}
   m_SourcePrefab: {fileID: 100100000, guid: 0371f61bcdd2799478720637ee746b4f, type: 3}
 --- !u!1 &233517046963224451 stripped
 GameObject:
@@ -170,6 +161,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.368947, y: 1.7352215, z: 1.368506}
   m_Center: {x: 0.000045865774, y: 0.8501623, z: -0.00022652745}
+--- !u!114 &192008347231574354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233517046963224451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 300
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingID: 19
+  soundTakeDamage: 14
+  soundDestroy: 10
+  destroyVFX: {fileID: 0}
 --- !u!4 &609760736541795641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7700245298789386577, guid: 0371f61bcdd2799478720637ee746b4f,

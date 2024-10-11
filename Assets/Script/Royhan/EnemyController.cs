@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -25,6 +26,7 @@ public class EnemyController : VariableComponent
         None,          // Target both player and turret
     }
 
+    public Image healthBar;
     public TargetType currentTargetType = TargetType.None; // Set default target type
     public float damageDealt = 10f;
     public ResistanceType resistances = ResistanceType.None; // Set multiple resistances in the inspector
@@ -46,6 +48,7 @@ public class EnemyController : VariableComponent
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
     private CurrencyManager currencyManager;
+
 
     private void Start()
     {
@@ -136,12 +139,24 @@ public class EnemyController : VariableComponent
             }
         }
 
-        if (_currentHealth <= 0)   Die();
+        if (_currentHealth <= 0)   
+        {
+            Die();
+        }
+        UpdateHealth();
+    }
+    private void UpdateHealth()
+    {
+        healthBar.fillAmount = _currentHealth / maxHealth;
     }
     public void Del () 
     {
         Destroy(gameObject, 1.5f);
         currencyManager.AddCurrency(currencyAdd);
+        if (round != null)
+        {
+            round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
+        }
     }
     protected override void Die ()
     {
@@ -252,7 +267,6 @@ public class EnemyController : VariableComponent
         }
 
         TakeDamage(damage);
-
         // Optional: Check if the enemy is dead and handle accordingly
         if (!IsAlive())
         {
@@ -262,6 +276,7 @@ public class EnemyController : VariableComponent
                 round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
             }
         }
+
     }
 
     // Method to set the targeted turret

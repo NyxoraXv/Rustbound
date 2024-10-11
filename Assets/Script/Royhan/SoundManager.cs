@@ -9,13 +9,39 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("------- Audio Clip -------")]
-    public AudioClip Background;
+    public AudioClip BgmFight;
+    public AudioClip BGMMainMenu;
     public AudioClip[] SFXClips; // Array of sound effects audio clips
+    private StartRound startRound;
+    private bool fightPlayed = true;
 
     private void Start()
     {
-        MusicSource.clip = Background;
+        MusicSource.clip = BgmFight;
         MusicSource.loop = true;
+        MusicSource.Play();
+
+    }
+
+    private void Update() 
+    {
+
+    }
+
+    public void SwitchBGMMainMenu()
+    {
+        Debug.Log("Switch");
+        MusicSource.Stop();
+        MusicSource.clip = BGMMainMenu;
+        fightPlayed = false;
+
+        MusicSource.Play();
+    }
+    public void SwitchBGMFight()
+    {
+        MusicSource.Stop();
+        MusicSource.clip = BgmFight;
+        fightPlayed = true;
         MusicSource.Play();
     }
 
