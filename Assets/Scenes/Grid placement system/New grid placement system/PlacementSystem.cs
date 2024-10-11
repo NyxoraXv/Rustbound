@@ -28,7 +28,7 @@ public class PlacementSystem : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Optional: To persist across scenes
+            //DontDestroyOnLoad(gameObject);  // Optional: To persist across scenes
         }
     }
 

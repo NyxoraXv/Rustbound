@@ -35,7 +35,7 @@ MonoBehaviour:
     weaponDamage: 100
     weaponRateOfFire: 40
     weaponAccuracy: 1.2
-    price: -20
+    price: 40
     reloadTime: 0
     magazineSize: 30
     currentAmmo: 180
@@ -49,7 +49,7 @@ MonoBehaviour:
     weaponDamage: 5
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 0
+    price: 80
     reloadTime: 1
     magazineSize: 20
     currentAmmo: 180
@@ -63,7 +63,7 @@ MonoBehaviour:
     weaponDamage: 5
     weaponRateOfFire: 0
     weaponAccuracy: 0
-    price: 0
+    price: 120
     reloadTime: 1
     magazineSize: 20
     currentAmmo: 180
@@ -75,11 +75,11 @@ MonoBehaviour:
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
     weaponID: 4
     weaponDamage: 5
-    weaponRateOfFire: 0
-    weaponAccuracy: 0
-    price: 0
+    weaponRateOfFire: 100
+    weaponAccuracy: 1.2
+    price: 200
     reloadTime: 1
-    magazineSize: 20
+    magazineSize: 2000
     currentAmmo: 180
     shootForce: 80
     shootingType: 0

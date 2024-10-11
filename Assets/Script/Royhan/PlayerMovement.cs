@@ -30,6 +30,8 @@ public class PlayerMovement : VariableComponent
     private Vector2 _movementInput;
     private Rigidbody _rigidbody;
     private Vector2 _scrollWeapon;
+    private bool onBuilding;
+    private bool onMenu;
 
     private List<GameObject> bulletPool; // Pool untuk peluru
     private Camera mainCamera; // Untuk mengambil posisi mouse
@@ -65,6 +67,7 @@ public class PlayerMovement : VariableComponent
     {
         WeaponManager.Instance.BuyWeapon(0); // Purchase the first weapon (or select the default one)
         WeaponManager.Instance.EquipWeapon(0, 1); // Equip the first weapon in slot 1
+        TurretManager.Instance.buyTurret(0);
         SwitchWeapon(1); // Switch to weapon in slot 1
 
         // Set "None" for slot 2 as no weapon is equipped there initially
@@ -90,6 +93,8 @@ public class PlayerMovement : VariableComponent
 
     private void Update()
     {
+        if (onBuilding || onMenu)
+            return;
         HandleStamina();
         HandleFiring();
         HandleWeaponScroll();
