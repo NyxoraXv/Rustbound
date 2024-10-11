@@ -6,6 +6,7 @@ public class LaserScript : MonoBehaviour
 {
     [Header("Line Renderer Components")]
     public LineRenderer lineRenderer;
+    public Transform startPos;
     public Transform laserOrigin;  // Titik asal laser
     public float maxLaserDistance = 100f;  // Jarak maksimum laser
     public LayerMask collisionMask;  // Mask untuk layer yang ingin dideteksi
@@ -16,7 +17,7 @@ public class LaserScript : MonoBehaviour
         lineRenderer.positionCount = 2;
 
         // Set posisi awal Line Renderer
-        lineRenderer.SetPosition(0, Vector3.zero);
+        lineRenderer.SetPosition(0, startPos.position);
     }
 
     private void Update()
@@ -41,6 +42,7 @@ public class LaserScript : MonoBehaviour
         }
 
         // Set posisi awal di (0,0,0) dan posisi akhir hanya mengubah z axis
-        lineRenderer.SetPosition(1, new Vector3(0f, 0f, laserDistance));
+        // lineRenderer.SetPosition(0, startPos.position);
+        lineRenderer.SetPosition(1, new Vector3(0f, transform.parent.transform.position.y, laserDistance));
     }
 } 

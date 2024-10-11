@@ -597,13 +597,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5757206118089796653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.9624098, y: 0.2705405, z: -0.007188319, w: 0.022881819}
+  m_LocalPosition: {x: 0.08, y: -0.05, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 283725199264406353}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.747, y: 180.083, z: 148.6}
 --- !u!120 &155272701508740126
 LineRenderer:
   serializedVersion: 2
@@ -721,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 155272701508740126}
+  startPos: {fileID: 0}
   laserOrigin: {fileID: 2314650863475617233}
   maxLaserDistance: 100
   collisionMask:
