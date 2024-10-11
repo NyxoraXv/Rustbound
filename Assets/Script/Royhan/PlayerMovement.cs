@@ -40,7 +40,6 @@ public class PlayerMovement : VariableComponent
     private int walkParam = Animator.StringToHash("IsWalk");
     private int runParam = Animator.StringToHash("IsRun");
     private int fireParam = Animator.StringToHash("Fire");
-    private bool onSprint = false;
     private static int indexWeapon = 0;
     private WeaponHandler activeWeaponHandler;
     private bool isFiring = false;
@@ -125,7 +124,7 @@ public class PlayerMovement : VariableComponent
             float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
 
             // Call the movement animation update function
-            UpdateMovementAnimations(moveDirection, direction, onSprint);
+            UpdateMovementAnimations(moveDirection, direction, isSprinting);
     }
 
 
