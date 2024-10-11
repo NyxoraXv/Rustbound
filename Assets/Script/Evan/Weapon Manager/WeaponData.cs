@@ -10,7 +10,7 @@ public class WeaponData
     public int weaponID;
     public int weaponDamage;
     public float weaponRateOfFire;
-    [Range(0, 1.5f)]
+    [Range(0, 1.2f)]
     public float weaponAccuracy;
     public int price; // Price for purchasing
     public float reloadTime;     // Time to reload the weapon

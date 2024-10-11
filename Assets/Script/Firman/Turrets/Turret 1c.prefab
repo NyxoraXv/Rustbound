@@ -49,6 +49,9 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 1000
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   isFollowTuretHead: 0
   directionX: 0
   directionY: 90
@@ -67,7 +70,8 @@ MonoBehaviour:
     type: 3}
   fireCooldown: 5.5
   targetingMode: 0
-  explosionVFX: {fileID: 0}
+  explosionVFX: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
 --- !u!65 &2428344198786591953
 BoxCollider:
   m_ObjectHideFlags: 0

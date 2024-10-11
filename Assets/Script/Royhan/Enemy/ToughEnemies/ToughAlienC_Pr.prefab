@@ -1539,7 +1539,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 1000
+  maxHealth: 5000
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   currencyAdd: 100
   isBoss: 0
   regenerationHealthPerSecond: 10
@@ -1550,7 +1553,7 @@ MonoBehaviour:
   attactRange: 3
   targetMask:
     serializedVersion: 2
-    m_Bits: 1032
+    m_Bits: 5128
   setState: 0
   state: 0
 --- !u!1 &6131621454870654559

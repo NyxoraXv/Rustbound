@@ -9,7 +9,7 @@ public class HUDController : MonoBehaviour
     public static HUDController instance;
 
     [SerializeField] private TextMeshProUGUI hp, sp, current_ammo, max_ammo, level;
-    [SerializeField] private Image first_slot, second_slot, healthImage;
+    [SerializeField] private Image first_slot, second_slot, healthImage, staminaImage;
     [SerializeField] private PlayerMovement playerMovement; // PlayerMovement inherits from VariableComponent
     [SerializeField] private GameObject profile;
     [SerializeField] private Image icon; // Reference to the icon image
@@ -32,6 +32,7 @@ public class HUDController : MonoBehaviour
     private void Update()
     {
         UpdateHealthUI();
+        UpdateStaminaUI();
     }
 
     private void UpdateHealthUI()
@@ -55,6 +56,32 @@ public class HUDController : MonoBehaviour
         }
     }
 
+    private void UpdateStaminaUI()
+    {
+        // Tween the health bar fill amount smoothly
+        staminaImage.DOFillAmount(playerMovement.currentStamina / playerMovement.maxStamina, 0.5f);
+
+        // Tween the HP text change smoothly
+        DOTween.To(() => int.Parse(sp.text.Split('/')[0]), x => sp.text = $"{x}/{playerMovement.maxStamina}",
+                   Mathf.FloorToInt(playerMovement.currentStamina), 0.5f);
+
+        // Trigger low health effects if health is below 10%
+        if (playerMovement.currentStamina / playerMovement.maxStamina < 0.1f)
+        {
+            LoopLowStaminaColor();
+        }
+        else
+        {
+            // Reset the color to white if health is above 20%
+            sp.DOColor(new Color32(255, 255, 255, 255), 0.5f);
+        }
+    }
+
+    private void LoopLowStaminaColor()
+    {
+        // Loop the color between white and light grey
+        sp.DOColor(new Color32(210, 210, 210, 255), 0.5f).SetLoops(-1, LoopType.Yoyo);
+    }
     private void LoopLowHealthColor()
     {
         // Loop the color between white and light grey
