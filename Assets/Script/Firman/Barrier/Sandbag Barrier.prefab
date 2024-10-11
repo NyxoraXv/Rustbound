@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 327992893173769320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sandbag Barrier
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: 3052786145037884313, guid: 54d8b5f898d226149905f2836c474e9b,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3052786145037884313, guid: 54d8b5f898d226149905f2836c474e9b,
         type: 3}
@@ -186,6 +186,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 18
-  soundTakeDamage: 14
-  soundDestroy: 10
+  SoundToChoose: 9
   destroyVFX: {fileID: 0}

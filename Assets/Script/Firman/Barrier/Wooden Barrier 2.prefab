@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6613742762203314262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wooden Barrier 2
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ PrefabInstance:
     - target: {fileID: 8010174082899857812, guid: 3318a0dcc90627d4394e56a36f632ee6,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8010174082899857812, guid: 3318a0dcc90627d4394e56a36f632ee6,
         type: 3}
@@ -181,6 +181,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 15
-  soundTakeDamage: 16
-  soundDestroy: 12
+  SoundToChoose: 9
   destroyVFX: {fileID: 0}

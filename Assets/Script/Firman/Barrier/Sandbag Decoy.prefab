@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118719000932846853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sandbag Decoy
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 7032112302698976235, guid: 0371f61bcdd2799478720637ee746b4f,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7032112302698976235, guid: 0371f61bcdd2799478720637ee746b4f,
         type: 3}
@@ -180,8 +180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 19
-  soundTakeDamage: 14
-  soundDestroy: 10
+  SoundToChoose: 9
   destroyVFX: {fileID: 0}
 --- !u!4 &609760736541795641 stripped
 Transform:

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2278930166363647320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Thick Wooden Barbed Fence
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4,
         type: 3}
@@ -180,8 +180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 14
-  soundTakeDamage: 13
-  soundDestroy: 9
+  SoundToChoose: 9
   destroyVFX: {fileID: 0}
 --- !u!4 &5470885791064386514 stripped
 Transform:

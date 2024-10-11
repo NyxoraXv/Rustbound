@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962512197655593982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Metal Barbed Fence
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
         type: 3}
@@ -160,6 +160,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   buildingID: 20
-  soundTakeDamage: 13
-  soundDestroy: 9
+  SoundToChoose: 9
   destroyVFX: {fileID: 0}
