@@ -25,7 +25,7 @@ MonoBehaviour:
     reloadTime: 0
     magazineSize: 30
     currentAmmo: 180
-    shootForce: 80
+    shootForce: 10
     shootingType: 0
   - weaponName: Benelli M4
     weaponPrefab: {fileID: 1236257789494122, guid: b99167b03615f404cbd44aafc48d4491,
@@ -39,7 +39,7 @@ MonoBehaviour:
     reloadTime: 0
     magazineSize: 30
     currentAmmo: 180
-    shootForce: 80
+    shootForce: 10
     shootingType: 0
   - weaponName: M4
     weaponPrefab: {fileID: 1117582899397640, guid: f21265e2f7f588648b0c7db8bbf33b73,

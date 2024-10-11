@@ -124,26 +124,28 @@ public class WeaponHandler : MonoBehaviour
         GameObject bullet = GetPooledBullet();
         if (bullet != null)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
-            {
-                Vector3 direction = (hit.point - shootPos.position).normalized;
-                direction.y = 0;
+            // Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            // if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
+            // {
+            //     Vector3 direction = (hit.point - shootPos.position).normalized;
+            //     direction.y = 0;
 
-                bullet.transform.position = shootPos.position;
-                bullet.transform.rotation = Quaternion.LookRotation(direction);
-                Vector3 currentRotation = bullet.transform.eulerAngles;
-                currentRotation.x -= 180;
-                bullet.transform.eulerAngles = currentRotation;
+                bullet.transform.position = shootPos.position;   
+                bullet.transform.position = shootPos.position;   
+            //     bullet.transform.rotation = Quaternion.LookRotation(direction);
+            //     Vector3 currentRotation = bullet.transform.eulerAngles;
+            //     currentRotation.x -= 180;
+            //     bullet.transform.eulerAngles = currentRotation;
+                bullet.transform.rotation = shootPos.rotation;
                 bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
+                bullet.GetComponent<Rigidbody>().AddForce(-shootPos.forward * shootForce, ForceMode.Impulse);
 
                 // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
                 particleEffect.Play();
 
                 StartCoroutine(DisableBulletAfterTime(bullet, 4f));
-            }
+            // }
         }
     }
 
