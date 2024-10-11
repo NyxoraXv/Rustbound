@@ -130,7 +130,6 @@ public class PlayerMovement : VariableComponent
 
 
     // Function to update movement animations
-    // Function to update movement animations
     void UpdateMovementAnimations(Vector3 moveDirection, Vector3 direction, bool onSprint)
     {
         // Calculate the dot product between movement direction and facing direction

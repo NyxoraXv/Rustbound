@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464673ff0d290ed46b2171d5dec853d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
   weaponDamage: 0
   weaponRateOfFire: 0
   weaponAccuracy: 0
@@ -192,7 +193,8 @@ MonoBehaviour:
   currentAmmo: 0
   shootForce: 5
   shootingType: 0
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
+    type: 3}
   missilePrefab: {fileID: 0}
   particleEffectPrefab: {fileID: 0}
   shootPos: {fileID: 0}
@@ -201,6 +203,7 @@ MonoBehaviour:
     m_Bits: 0
   poolSize: 10
   spreadAmount: 5
+  currentSlot: 0
 --- !u!1 &1382682361031114
 GameObject:
   m_ObjectHideFlags: 0

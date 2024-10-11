@@ -276,7 +276,7 @@ MonoBehaviour:
   currentAmmo: 0
   shootForce: 5
   shootingType: 0
-  bulletPrefab: {fileID: 919132149155446097, guid: 2f57bc3af6f5bde4b9b40779ca60b4a1,
+  bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
   missilePrefab: {fileID: 0}
   particleEffectPrefab: {fileID: 0}
