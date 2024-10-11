@@ -45,6 +45,7 @@ public class Building : VariableComponent, ITurret
             ParticleSystem vfxInstance = Instantiate(destroyVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 1f);
         }
+        PlacementSystem.Instance.RemoveObject(buildingID);
         soundManager.PlaySFX(soundDestroy);
         Destroy(gameObject); // Destroy the turret GameObject
     }

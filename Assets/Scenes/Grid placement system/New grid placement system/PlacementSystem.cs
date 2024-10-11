@@ -103,7 +103,7 @@ public class PlacementSystem : MonoBehaviour
         }
         else if (isRemoving)
         {
-            RemoveObject();
+            RemoveObject(currentObjectData.ID);
         }
     }
 
@@ -189,8 +189,16 @@ public class PlacementSystem : MonoBehaviour
 
 
     // Remove an object from the world
-    private void RemoveObject()
+    public void RemoveObject(int turretID)
     {
+        ObjectData selectedObjectData = objectsDatabase.objectsData[turretID];
+        selectedObjectData.currentSpawnedTurret--;
+
+        if (selectedObjectData.currentSpawnedTurret > 0)
+        {
+            selectedObjectData.currentSpawnedTurret--;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
