@@ -34,7 +34,8 @@ public class WeaponHandler : MonoBehaviour
     [Header("References")]
     public GameObject bulletPrefab;        // Bullet prefab
     public GameObject missilePrefab;       // Missile prefab (for Missile shoot type)
-    public GameObject particleEffectPrefab;// Particle effect prefab for shooting
+    // public GameObject particleEffectPrefab;// Particle effect prefab for shooting
+    public ParticleSystem particleEffect;
     public Transform shootPos;             // Shoot position
     public LayerMask layerRaycast;         // Layer for raycasting targets
 
@@ -133,7 +134,8 @@ public class WeaponHandler : MonoBehaviour
                 bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
 
-                Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+                // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+                particleEffect.Play();
 
                 StartCoroutine(DisableBulletAfterTime(bullet, 4f));
             }
@@ -169,7 +171,9 @@ public class WeaponHandler : MonoBehaviour
                 }
             }
         }
-        Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+        // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+        particleEffect.Play();
+
     }
 
     // Missile shooting method
@@ -183,7 +187,9 @@ public class WeaponHandler : MonoBehaviour
             missile.GetComponent<Rigidbody>().velocity = direction * shootForce;
         }
 
-        Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+        // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+        particleEffect.Play();
+
     }
 
     // Method to handle bullet pooling
