@@ -35,6 +35,8 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private ObjectPlacer objectPlacer;
 
+    private bool placing;
+
     IBuildingState buildingState;
 
     [SerializeField]
@@ -56,7 +58,12 @@ public class PlacementSystem : MonoBehaviour
 
     public void StartPlacement(int ID)
     {
-        StopPlacement();
+        if (placing)
+        {
+            StopPlacement();
+        }
+        
+        Debug.Log("Placing...");
         gridVisualization.SetActive(true);
 
         // Ensure ID is being passed correctly
@@ -73,6 +80,7 @@ public class PlacementSystem : MonoBehaviour
                                             soundFeedback);
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
+        placing = true;
     }
 
     public void StartRemoving()
@@ -168,6 +176,7 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnClicked -= PlaceStructure;
         inputManager.OnExit -= StopPlacement;
         lastDetectedPosition = Vector3Int.zero;
+        placing = false;
         buildingState = null;
     }
 
