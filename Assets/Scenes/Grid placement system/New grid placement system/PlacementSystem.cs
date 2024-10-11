@@ -11,7 +11,7 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField]
     private InputManager inputManager;
     [SerializeField]
-    private Grid grid;
+    public Grid grid;
 
     [SerializeField]
     private ObjectsDatabaseSO database;
@@ -143,10 +143,33 @@ public class PlacementSystem : MonoBehaviour
     }
 
 
-    public void RemoveTurret(int turretID)
-    {
+    public void RemoveTurret(int turretID, Vector3Int gridPosition)
+    {   
         ObjectData selectedObjectData = database.objectsData[turretID];
-        selectedObjectData.currentSpawnedTurret--;
+        
+        if (selectedObjectData.currentSpawnedTurret > 0)
+        {
+            // Decrease the current spawned turret count
+            selectedObjectData.currentSpawnedTurret--;
+
+            // Update the grid data to mark this position as no longer occupied
+            if (furnitureData.IsOccupied(gridPosition))
+            {
+                furnitureData.RemoveObjectAt(gridPosition); // Clear the grid data for the turret
+            }
+            else if (floorData.IsOccupied(gridPosition))
+            {
+                floorData.RemoveObjectAt(gridPosition); // Clear grid data if it's floor data
+            }
+
+            // End the removing state if active
+            if (buildingState is RemovingState removingState)
+            {
+                removingState.EndState();
+            }
+        }
+
+        // Optionally: Add any additional logic for removing the turret GameObject, grid updates, etc.
     }
 
     //private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
