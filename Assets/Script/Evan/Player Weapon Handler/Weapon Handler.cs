@@ -87,10 +87,10 @@ public class WeaponHandler : MonoBehaviour
     // Method to fire the weapon
     public void Fire()
     {
-        Debug.Log("Firing 1" );
+        Debug.Log("Firing 1");
         if (currentAmmo > 0 && !isReloading)
         {
-            Debug.Log("Firing" );
+            Debug.Log("Firing");
             currentAmmo--;
 
             // Handle different shooting types
@@ -124,26 +124,28 @@ public class WeaponHandler : MonoBehaviour
         GameObject bullet = GetPooledBullet();
         if (bullet != null)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
-            {
-                Vector3 direction = (hit.point - shootPos.position).normalized;
-                direction.y = 0;
+            // Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            // if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
+            // {
+            //     Vector3 direction = (hit.point - shootPos.position).normalized;
+            //     direction.y = 0;
 
-                bullet.transform.position = shootPos.position;
-                bullet.transform.rotation = Quaternion.LookRotation(direction);
-                Vector3 currentRotation = bullet.transform.eulerAngles;
-                currentRotation.x -= 180;
-                bullet.transform.eulerAngles = currentRotation;
-                bullet.SetActive(true);
-                bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
+            bullet.transform.position = shootPos.position;
+            bullet.transform.position = shootPos.position;
+            bullet.transform.rotation = shootPos.rotation;
+            //     bullet.transform.rotation = Quaternion.LookRotation(direction);
+            //     Vector3 currentRotation = bullet.transform.eulerAngles;
+            //     currentRotation.x -= 180;
+            //     bullet.transform.eulerAngles = currentRotation;
+            bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            bullet.GetComponent<Rigidbody>().AddForce(-shootPos.forward * shootForce, ForceMode.Impulse);
 
-                // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
-                particleEffect.Play();
+            // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
+            particleEffect.Play();
 
-                StartCoroutine(DisableBulletAfterTime(bullet, 4f));
-            }
+            StartCoroutine(DisableBulletAfterTime(bullet, 4f));
+            // }
         }
     }
 
@@ -155,25 +157,27 @@ public class WeaponHandler : MonoBehaviour
             GameObject bullet = GetPooledBullet();
             if (bullet != null)
             {
-                Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
-                {
-                    Vector3 direction = (hit.point - shootPos.position).normalized;
+                // Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+                // if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
+                // {
+                // Vector3 direction = (hit.point - shootPos.position).normalized;
 
-                    // Randomize the spread angle for each pellet
-                    direction = Quaternion.Euler(
-                        UnityEngine.Random.Range(-weaponAccuracy, weaponAccuracy),
-                        UnityEngine.Random.Range(-weaponAccuracy, weaponAccuracy),
-                        0) * direction;
+                // Randomize the spread angle for each pellet
+                Vector3 direction = Quaternion.Euler(
+                    UnityEngine.Random.Range(-weaponAccuracy, weaponAccuracy),
+                    UnityEngine.Random.Range(-weaponAccuracy, weaponAccuracy),
+                    0) * -shootPos.forward;
 
-                    bullet.transform.position = shootPos.position;
-                    bullet.transform.rotation = Quaternion.LookRotation(direction);
-                    bullet.SetActive(true);
-                    bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
+                bullet.transform.position = shootPos.position;
+                bullet.transform.position = shootPos.position;
+                bullet.transform.rotation = shootPos.rotation;
+                // bullet.transform.rotation = Quaternion.LookRotation(direction);
+                bullet.SetActive(true);
+                bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
 
-                    StartCoroutine(DisableBulletAfterTime(bullet, 4f));
-                }
+                StartCoroutine(DisableBulletAfterTime(bullet, 4f));
+                // }
             }
         }
         // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
@@ -185,12 +189,12 @@ public class WeaponHandler : MonoBehaviour
     private void ShootMissile()
     {
         GameObject missile = Instantiate(missilePrefab, shootPos.position, shootPos.rotation);
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
-        {
-            Vector3 direction = (hit.point - shootPos.position).normalized;
-            missile.GetComponent<Rigidbody>().velocity = direction * shootForce;
-        }
+        // Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        // if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
+        // {
+        // Vector3 direction = (hit.point - shootPos.position).normalized;
+        missile.GetComponent<Rigidbody>().velocity = -shootPos.forward * shootForce;
+        // }
 
         // Instantiate(particleEffectPrefab, shootPos.position, Quaternion.identity); // Particle effect
         particleEffect.Play();

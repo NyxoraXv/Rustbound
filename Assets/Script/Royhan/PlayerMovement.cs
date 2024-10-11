@@ -55,6 +55,7 @@ public class PlayerMovement : VariableComponent
     public void EquipWeapon(WeaponHandler newWeaponHandler)
     {
         activeWeaponHandler = newWeaponHandler;
+
         // Set position, parent, etc., of the weapon based on the player's weapon holding position (e.g., hands).
         activeWeaponHandler.transform.SetParent(weaponGrab); // Attach to player's hand or weapon holding position
         activeWeaponHandler.transform.localPosition = Vector3.zero; // Adjust for correct positioning
