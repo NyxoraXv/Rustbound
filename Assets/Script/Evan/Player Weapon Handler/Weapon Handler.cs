@@ -227,7 +227,7 @@ public class WeaponHandler : MonoBehaviour
         if (!isReloading)
         {
             isReloading = true;
-            Debug.Log("Reloading...");
+            Debug.Log("Reloading " + reloadTime+ " seconds");
 
             yield return new WaitForSeconds(reloadTime);
 
