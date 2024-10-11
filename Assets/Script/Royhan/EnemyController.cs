@@ -153,6 +153,10 @@ public class EnemyController : VariableComponent
     {
         Destroy(gameObject, 1.5f);
         currencyManager.AddCurrency(currencyAdd);
+        if (round != null)
+        {
+            round.DecreaseZombieCount(gameObject); // Call the method to decrease total zombie count
+        }
     }
     protected override void Die ()
     {
