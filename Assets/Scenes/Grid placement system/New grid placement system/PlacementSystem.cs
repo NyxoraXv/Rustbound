@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +13,13 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private Material removeMaterial;    // Material for previewing removal
     [SerializeField] private LayerMask objectLayerMask;  // Mask for checking existing objects
     [SerializeField] private float yOffset = 0.5f;       // Offset for y-axis placement
+    [SerializeField] private KeyCode rotateKey = KeyCode.R;  // Key to rotate preview object
+    [SerializeField] private Vector3 rotationAmount = new Vector3(0, 45, 0); // Rotation angle for preview
 
     private GameObject previewObject;
     private ObjectData currentObjectData;
     private bool isPlacing, isRemoving;
+    private List<MonoBehaviour> previewScripts = new List<MonoBehaviour>(); // Store all disabled scripts
 
     private void Awake()
     {
@@ -28,13 +30,11 @@ public class PlacementSystem : MonoBehaviour
         else
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);  // Optional: To persist across scenes
         }
     }
 
     private void Start()
     {
-        // Initialize currentSpawnedTurret to 0 for all objects in the database
         foreach (var objectData in objectsDatabase.objectsData)
         {
             objectData.currentSpawnedTurret = 0; // Set to 0 at the start
@@ -56,15 +56,33 @@ public class PlacementSystem : MonoBehaviour
     private void Update()
     {
         if (isPlacing)
+        {
             UpdatePlacementPreview();
+
+            // Rotate the preview object if the rotate key is pressed
+            if (Input.GetKeyDown(rotateKey))
+            {
+                RotatePreviewObject();
+            }
+
+            // Animate the preview's movement (e.g., floating up and down)
+            AnimatePreviewMovement();
+        }
         else if (isRemoving)
+        {
             UpdateRemovePreview();
+        }
     }
 
     // Called to start the placement of a new object based on its ID
     public void StartPlacement(int id)
     {
         if (id < 0 || id >= objectsDatabase.objectsData.Count) return;
+
+        if (previewObject != null)
+        {
+            Destroy(previewObject);
+        }
 
         currentObjectData = objectsDatabase.objectsData[id];
         if (currentObjectData.currentSpawnedTurret >= currentObjectData.maxSpawnTurret)
@@ -80,9 +98,28 @@ public class PlacementSystem : MonoBehaviour
         previewObject = Instantiate(currentObjectData.Prefab);
         ApplyPreviewMaterial(previewObject, previewMaterial);
 
+        // Disable all scripts in the preview object
+        DisableScriptsInPreview(previewObject);
+
         // Animate preview object in with DoTween for smooth transition
         previewObject.transform.localScale = Vector3.zero;
         previewObject.transform.DOScale(Vector3.one, 0.3f);
+    }
+
+    // Disable all MonoBehaviour scripts in the preview object
+    private void DisableScriptsInPreview(GameObject obj)
+    {
+        previewScripts.Clear(); // Clear the list in case of new preview
+        MonoBehaviour[] scripts = obj.GetComponentsInChildren<MonoBehaviour>();
+
+        foreach (var script in scripts)
+        {
+            if (script.enabled)
+            {
+                script.enabled = false; // Disable the script
+                previewScripts.Add(script); // Add to the list for later re-enabling
+            }
+        }
     }
 
     // Called to start removing an object
@@ -90,6 +127,11 @@ public class PlacementSystem : MonoBehaviour
     {
         isRemoving = true;
         isPlacing = false;
+
+        if (previewObject != null)
+        {
+            Destroy(previewObject);
+        }
     }
 
     // Cancel current action
@@ -97,7 +139,11 @@ public class PlacementSystem : MonoBehaviour
     {
         isPlacing = false;
         isRemoving = false;
-        if (previewObject != null) Destroy(previewObject);
+
+        if (previewObject != null)
+        {
+            Destroy(previewObject);
+        }
     }
 
     // Handle clicking during placement or removal
@@ -107,7 +153,7 @@ public class PlacementSystem : MonoBehaviour
         {
             if (IsPlacementValid())
             {
-                StartCoroutine(PlaceObjectWithDelay(0.5f));  // Add delay before placing (e.g., 0.5 seconds)
+                StartCoroutine(PlaceObjectWithDelay(0f));  // Add delay before placing (e.g., 0.5 seconds)
             }
         }
         else if (isRemoving)
@@ -128,7 +174,7 @@ public class PlacementSystem : MonoBehaviour
     private void UpdatePlacementPreview()
     {
         Vector3 position = inputManager.GetSelectedMapPosition();
-        position.y += yOffset;  // Apply y offset for the preview as well
+        position.y = yOffset;  // Set y position to the offset
 
         if (previewObject != null)
         {
@@ -136,7 +182,7 @@ public class PlacementSystem : MonoBehaviour
 
             if (IsPlacementValid())
             {
-                SetPreviewColor(previewMaterial.color);  // Set valid color
+                SetPreviewColor(Color.gray);  // Set valid color
             }
             else
             {
@@ -145,102 +191,167 @@ public class PlacementSystem : MonoBehaviour
         }
     }
 
-    // Preview removal by highlighting object
+    // Update remove preview
     private void UpdateRemovePreview()
+    {
+        Vector3 position = inputManager.GetSelectedMapPosition();
+        position.y += yOffset;  // Apply y offset for the removal preview
+
+        if (previewObject != null)
+        {
+            previewObject.transform.position = position;
+
+            // Check if the object under the cursor can be removed
+            if (IsRemovalValid())
+            {
+                SetPreviewColor(removeMaterial.color);  // Set valid removal color
+            }
+            else
+            {
+                SetPreviewColor(Color.red);  // Set invalid removal color
+            }
+        }
+    }
+
+    // Check if the current removal is valid
+    private bool IsRemovalValid()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+
         if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
         {
-            GameObject target = hit.collider.gameObject;
-            ApplyPreviewMaterial(target, removeMaterial);  // Highlight the object to be removed
+            // You can check if the hit object is removable (has a specific tag or component)
+            return hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Building");
         }
+        return false;
     }
 
-    // Check if the current placement is valid
-    private bool IsPlacementValid()
+    // Animate preview movement (e.g., floating effect)
+    private void AnimatePreviewMovement()
     {
-        // Check for collisions with objects tagged as "Player", "Building", or "Turret"
-        Collider[] colliders = Physics.OverlapSphere(previewObject.transform.position, 0.5f, objectLayerMask);
-        foreach (var collider in colliders)
+        if (previewObject != null)
         {
-            if (collider.CompareTag("Player") || collider.CompareTag("Building") || collider.CompareTag("Turret"))
-            {
-                Debug.Log("Invalid placement: Colliding with " + collider.tag);  // Output debug message
-                return false;  // Invalid if it collides with Player, Building, or Turret
-            }
-        }
+            // Example: Rotate and float up and down
 
-        // If no invalid collisions are detected, placement is valid
-        return true;
+        }
     }
 
-    // Place the object in the world
+    // Rotate the preview object by the specified angle
+    // Rotate the preview object by 45 degrees using DoTween
+    private void RotatePreviewObject()
+    {
+        if (previewObject != null)
+        {
+            // Calculate the new rotation
+            Vector3 newRotation = previewObject.transform.rotation.eulerAngles + rotationAmount;
+
+            // Use DoTween to rotate to the new angle smoothly
+            previewObject.transform.DORotate(newRotation, 0.3f)  // Duration for the rotation
+                .SetEase(Ease.OutQuad);  // Choose an easing function for the animation
+        }
+    }
+
+
     // Place the object in the world
     private void PlaceObject()
     {
         Vector3 position = previewObject.transform.position;
+        Quaternion rotation = previewObject.transform.rotation;
 
         // Instantiate the placed object
-        GameObject placedObject = Instantiate(currentObjectData.Prefab, position, previewObject.transform.rotation);
+        GameObject placedObject = Instantiate(currentObjectData.Prefab, position, rotation);
         currentObjectData.currentSpawnedTurret++;
+
+        // Re-enable all scripts in the placed object
+        ReenableScripts(placedObject);
 
         // Activate all colliders in the placed object
         ActivateColliders(placedObject.transform);
 
-        // Destroy the preview object
-        Destroy(previewObject);
+        Destroy(previewObject);  // Destroy the preview
         isPlacing = false;
     }
 
-    // Activate all colliders in the given transform and its children
-    private void ActivateColliders(Transform objTransform)
+    // Re-enable all scripts after the object is placed
+    private void ReenableScripts(GameObject placedObject)
     {
-        // Get all colliders in the transform and its children
-        Collider[] colliders = objTransform.GetComponentsInChildren<Collider>(true);
-        foreach (Collider collider in colliders)
+        foreach (var script in previewScripts)
         {
-            collider.enabled = true; // Enable each collider
+            script.enabled = true;  // Re-enable each script
         }
     }
 
+    // Check if the current placement is valid, ignoring its own colliders
+    private bool IsPlacementValid()
+    {
+        Collider[] colliders = Physics.OverlapSphere(previewObject.transform.position, 0.5f, objectLayerMask);
 
-    // Remove an object from the world
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject == previewObject || collider.transform.IsChildOf(previewObject.transform))
+            {
+                continue;
+            }
+
+            if (collider.CompareTag("Player") || collider.CompareTag("Building") || collider.CompareTag("Turret"))
+            {
+                Debug.Log("Invalid placement: Colliding with " + collider.tag);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Remove an object by its turret ID
     public void RemoveObject(int turretID)
     {
         ObjectData selectedObjectData = objectsDatabase.objectsData[turretID];
 
         if (selectedObjectData.currentSpawnedTurret > 0)
         {
+            // Logic to find and destroy the corresponding turret game object
+            // Implement your logic here to find and remove the specific turret
             selectedObjectData.currentSpawnedTurret--;
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
-        {
-            Destroy(hit.collider.gameObject);
-            isRemoving = false;
-        }
+        Destroy(previewObject);  // Destroy the preview if it exists
     }
 
-    // Apply the preview material to an object
-    private void ApplyPreviewMaterial(GameObject obj, Material mat)
+    // Apply a material to the preview object
+    private void ApplyPreviewMaterial(GameObject obj, Material material)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        foreach (Renderer renderer in renderers)
+
+        foreach (var renderer in renderers)
         {
-            renderer.material = mat;
+            renderer.material = material;  // Set the preview material
         }
     }
 
-    // Set the preview object's color based on valid/invalid placement
+    // Set the color of the preview object
     private void SetPreviewColor(Color color)
     {
-        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
-        foreach (Renderer renderer in renderers)
+        if (previewObject != null)
         {
-            renderer.material.color = color;
+            Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+
+            foreach (var renderer in renderers)
+            {
+                renderer.material.color = color;  // Set the color
+            }
+        }
+    }
+
+    // Activate all colliders in the object hierarchy
+    private void ActivateColliders(Transform parent)
+    {
+        Collider[] colliders = parent.GetComponentsInChildren<Collider>();
+
+        foreach (var collider in colliders)
+        {
+            collider.enabled = true;  // Enable each collider
         }
     }
 }

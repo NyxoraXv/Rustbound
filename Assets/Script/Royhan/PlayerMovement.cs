@@ -65,6 +65,7 @@ public class PlayerMovement : VariableComponent
 
     private void initiator()
     {
+        CurrencyManager.Instance.AddCurrency(2000);
         WeaponManager.Instance.BuyWeapon(0); // Purchase the first weapon (or select the default one)
         WeaponManager.Instance.EquipWeapon(0, 1); // Equip the first weapon in slot 1
         TurretManager.Instance.buyTurret(0);
