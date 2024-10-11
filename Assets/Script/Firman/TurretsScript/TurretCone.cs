@@ -176,9 +176,6 @@ public class TurretCone : VariableComponent, ITurret
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
-    private void OnDestroy() {
-        DestroyTurret();
-    }
     public void SetIsPreviewObject(bool isPreview)
     {
         isPreviewObject = isPreview; // Method to set the preview object flag
