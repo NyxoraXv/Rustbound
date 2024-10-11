@@ -61,8 +61,20 @@ public class PlayerMovement : VariableComponent
         activeWeaponHandler.transform.localPosition = Vector3.zero; // Adjust for correct positioning
     }
 
+    private void initiator()
+    {
+        WeaponManager.Instance.BuyWeapon(0); // Purchase the first weapon (or select the default one)
+        WeaponManager.Instance.EquipWeapon(0, 1); // Equip the first weapon in slot 1
+        SwitchWeapon(1); // Switch to weapon in slot 1
+
+        // Set "None" for slot 2 as no weapon is equipped there initially
+        HUDController.instance.SwapWeaponImagesSlot2(WeaponManager.Instance.None);
+    }
+
     private void Awake()
     {
+
+        //CurrencyManager.Instance.AddCurrency(1200);
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         _currentHealth = maxHealth;
@@ -73,6 +85,7 @@ public class PlayerMovement : VariableComponent
         _speed = speed;
 
         currentStamina = maxStamina;
+        initiator();
     }
 
     private void Update()

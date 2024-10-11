@@ -52,11 +52,14 @@ public class TurretContainerInitiator : MonoBehaviour
         if (success)
         {
             Debug.Log("Purchased turret: " + turret.Name);
+            SoundManager.instance.PlaySFX(17);
             SetOwnedState();
         }
         else
         {
+            SoundManager.instance.PlaySFX(18);
             Debug.Log("Failed to purchase turret: " + turret.Name);
+            UIInformation.instance.ShowPopup(UIInformation.PopupMessageType.NotEnoughBalance);
         }
     }
 

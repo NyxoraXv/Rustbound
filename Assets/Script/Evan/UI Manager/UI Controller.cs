@@ -6,6 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class UIController : MonoBehaviour
 {
+    public static UIController instance;
+    
     [SerializeField] private Volume globalVolume;
     private Vignette vignette;
     private DepthOfField depthOfField;
@@ -13,6 +15,11 @@ public class UIController : MonoBehaviour
     public GameObject HUD, WeaponMarket, TurretMarket, Inventory, PlacementUI;
 
     private bool isHUDAnimating = false; // Track if the HUD is currently animating
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -22,9 +29,16 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            setUIState(currentState + 1);
+            setUIState(4);
+        }
+        if(Input.GetKeyDown(KeyCode.I)) {
+            setUIState(3);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape) && currentState!=0)
+        {
+            setUIState(0);
         }
     }
 
