@@ -20,7 +20,7 @@ public class WeaponHandler : MonoBehaviour
     [Header("Weapon Stats")]
     public int weaponDamage;               // Damage dealt by the weapon
     public float weaponRateOfFire;         // Rate of fire in shots per second
-    [Range(0, 1.5f)]
+    [Range(0, 1.2f)]
     public float weaponAccuracy;           // Weapon accuracy, higher values mean less spread
 
     [Header("Weapon Attributes")]
