@@ -32,6 +32,15 @@ public class PlacementSystem : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Initialize currentSpawnedTurret to 0 for all objects in the database
+        foreach (var objectData in objectsDatabase.objectsData)
+        {
+            objectData.currentSpawnedTurret = 0; // Set to 0 at the start
+        }
+    }
+
     private void OnEnable()
     {
         inputManager.OnClicked += HandleClick;
@@ -98,13 +107,21 @@ public class PlacementSystem : MonoBehaviour
         {
             if (IsPlacementValid())
             {
-                PlaceObject();
+                StartCoroutine(PlaceObjectWithDelay(0.5f));  // Add delay before placing (e.g., 0.5 seconds)
             }
         }
         else if (isRemoving)
         {
-            RemoveObject();
+            RemoveObject(currentObjectData.ID);
         }
+    }
+
+    // Coroutine to handle delayed placement
+    private IEnumerator PlaceObjectWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // Wait for the specified delay
+
+        PlaceObject();  // Call the original PlaceObject method
     }
 
     // Preview and update object placement
@@ -189,8 +206,15 @@ public class PlacementSystem : MonoBehaviour
 
 
     // Remove an object from the world
-    private void RemoveObject()
+    public void RemoveObject(int turretID)
     {
+        ObjectData selectedObjectData = objectsDatabase.objectsData[turretID];
+
+        if (selectedObjectData.currentSpawnedTurret > 0)
+        {
+            selectedObjectData.currentSpawnedTurret--;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100, objectLayerMask))

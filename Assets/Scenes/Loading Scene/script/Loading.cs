@@ -16,6 +16,7 @@ public class Loading : MonoBehaviour
 
         DOVirtual.DelayedCall(3f, () =>
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(2);
         });
     }
