@@ -1295,7 +1295,7 @@ MonoBehaviour:
   attactRange: 3
   targetMask:
     serializedVersion: 2
-    m_Bits: 5128
+    m_Bits: 5384
   setState: 1
   state: 4
 --- !u!1 &2524362084464425260
