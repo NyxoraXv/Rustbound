@@ -15,139 +15,116 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: T-132
     <ID>k__BackingField: 0
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 6661780400189700398, guid: 2a5b8945a167ee34c91ba83e0f6251e4,
+    <Prefab>k__BackingField: {fileID: 2159287507833668368, guid: a54dadffec01bd6429e501925c97de4e,
       type: 3}
   - <Name>k__BackingField: T-145
     <ID>k__BackingField: 1
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 1287796884402699263, guid: 8085d418f499a214da33871be37f907f,
+    <Prefab>k__BackingField: {fileID: 445760852530380848, guid: 22c4bcdc2720396439d52819fdb15e97,
       type: 3}
   - <Name>k__BackingField: Ray-200
     <ID>k__BackingField: 2
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 1225695144971036340, guid: eaa51df6f2f4f6f47899b9b89b482e8c,
+    <Prefab>k__BackingField: {fileID: 6197577030655037241, guid: f97299cddf1510e45893ce0213cd9bea,
       type: 3}
   - <Name>k__BackingField: Ray-300
     <ID>k__BackingField: 3
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 5554163016575847230, guid: e44b3856662d3c343af5a8b6601a37a0,
+    <Prefab>k__BackingField: {fileID: 3901723522905647971, guid: a97af5da26bb3f2468b53fbf3d2b3a98,
       type: 3}
   - <Name>k__BackingField: L-5000
     <ID>k__BackingField: 4
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 4357588046153101256, guid: c8e85bc6f0885e745994cbdd88fd9705,
+    <Prefab>k__BackingField: {fileID: 3591375948646511082, guid: e4c3c985b96da9546a74215c80c6f015,
       type: 3}
   - <Name>k__BackingField: L-10000
     <ID>k__BackingField: 5
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 6570756096919733836, guid: f03fdb412d3df3e42aa05027522d91a5,
+    <Prefab>k__BackingField: {fileID: 5409564507108793300, guid: b9f498bcac7e535468734492914d2686,
       type: 3}
   - <Name>k__BackingField: GT-Gun 1988
     <ID>k__BackingField: 6
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 8267046036068752686, guid: d20d00aed4ac1c5458ba1b7e03db6b21,
+    <Prefab>k__BackingField: {fileID: 1123162897191317485, guid: b743a1f8c5bf8ee478399cbd28f542ce,
       type: 3}
   - <Name>k__BackingField: GT-Gun 2004
     <ID>k__BackingField: 7
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 1901075721596580542, guid: 16bacba3d4c770a46a578c61a810788a,
+    <Prefab>k__BackingField: {fileID: 9168491504708515979, guid: 168f41be1e28cd44c8064d70cae686ec,
       type: 3}
   - <Name>k__BackingField: GT-Gun 2015
     <ID>k__BackingField: 8
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 9215277367735509922, guid: b5e88f26208f3c94db4e97f5a1e91d89,
+    <Prefab>k__BackingField: {fileID: 6052941085072812279, guid: 34bcac289d40e1a4bbe60d0fbcd3f922,
       type: 3}
   - <Name>k__BackingField: AA-Single
     <ID>k__BackingField: 9
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 4206958949730962340, guid: 0a0ec8c94fadadc45a719d317d82fc03,
+    <Prefab>k__BackingField: {fileID: 1000012174300454, guid: 300c5ba693e3b184995de7aa43458aaf,
       type: 3}
   - <Name>k__BackingField: AA-Dual
     <ID>k__BackingField: 10
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 9179176470788385595, guid: 1b314e80fc6409b429ba184dc481d114,
+    <Prefab>k__BackingField: {fileID: 1000012258839112, guid: bca2978543d5b934daa15c3ee90399ab,
       type: 3}
   - <Name>k__BackingField: AA-Triplet
     <ID>k__BackingField: 11
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
+    <Prefab>k__BackingField: {fileID: 1000010378282670, guid: ad952ea5e17c8794da2d96fbacb5b0dc,
       type: 3}
   - <Name>k__BackingField: AA-Quadra
     <ID>k__BackingField: 12
-    <Size>k__BackingField: {x: 3, y: 3}
     <maxSpawnTurret>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 3704401987781403846, guid: 048800ff38a09a348b2c1aa28553422a,
+    <Prefab>k__BackingField: {fileID: 1000011222192992, guid: d85895b54945fb84f878c5655f4a8f21,
       type: 3}
   - <Name>k__BackingField: Thin Wooden Barbed Fence
     <ID>k__BackingField: 13
-    <Size>k__BackingField: {x: 1, y: 4}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 1142075414440139418, guid: d8ddaeea68ddfe944a35ef1babe3676a,
+    <Prefab>k__BackingField: {fileID: 4008411147949755699, guid: e9a89f89ee4faec419cb276b224cf9d3,
       type: 3}
   - <Name>k__BackingField: Thick Wooden Barbed Fence
     <ID>k__BackingField: 14
-    <Size>k__BackingField: {x: 1, y: 3}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 1264226503161392077, guid: 194a112ec44b1894b9e6c6778f81b9fa,
+    <Prefab>k__BackingField: {fileID: 3179942725915170262, guid: e80c61ff6ead1944394f91b32d81fb50,
       type: 3}
   - <Name>k__BackingField: Wooden Barrier 2
     <ID>k__BackingField: 15
-    <Size>k__BackingField: {x: 2, y: 2}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 9027144199331876429, guid: 0810d76d4405de643aa339d10f9b5bcd,
+    <Prefab>k__BackingField: {fileID: 3887289977380092222, guid: 429b4d0cf71659343bc940b7adccf48e,
       type: 3}
   - <Name>k__BackingField: Wooden Barrier
     <ID>k__BackingField: 16
-    <Size>k__BackingField: {x: 1, y: 3}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 7842527275457968204, guid: a869514a4e03e1f41916055392b38537,
+    <Prefab>k__BackingField: {fileID: 5863240425847981801, guid: 9cdaaf99c5429f748b0128cf6369d8be,
       type: 3}
   - <Name>k__BackingField: Low Sandbag Barrier
     <ID>k__BackingField: 17
-    <Size>k__BackingField: {x: 1, y: 2}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 5033200218056488977, guid: 36802aaecfec2414d94387a297bdc2c2,
+    <Prefab>k__BackingField: {fileID: 7166041047924713610, guid: edcae4f488a21ed4380fe79f5451de17,
       type: 3}
   - <Name>k__BackingField: High Sandbag Barrier
     <ID>k__BackingField: 18
-    <Size>k__BackingField: {x: 1, y: 3}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 3861417948511013242, guid: 86fd2e6a90e73234897e4d9f0a2af4ec,
+    <Prefab>k__BackingField: {fileID: 7269495664193521041, guid: c230a95a444927047b946ad5ba669cee,
       type: 3}
   - <Name>k__BackingField: Sandbag Decoy
     <ID>k__BackingField: 19
-    <Size>k__BackingField: {x: 2, y: 2}
     <maxSpawnTurret>k__BackingField: 5
-    <Prefab>k__BackingField: {fileID: 4929622195713046706, guid: 1252bc114f3d90b44addaf2e659ccac2,
+    <Prefab>k__BackingField: {fileID: 386983338128149025, guid: ba132affebaeb564a8b43f0b76056605,
       type: 3}
   - <Name>k__BackingField: Metal Barbed Fence
     <ID>k__BackingField: 20
-    <Size>k__BackingField: {x: 1, y: 4}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 5316611382278635583, guid: e84b01ee2b66146489a1f1cd6d3ca8d5,
+    <Prefab>k__BackingField: {fileID: 75893554439138495, guid: a7a24aedeb5d7024cbdcdb66cee08758,
       type: 3}
   - <Name>k__BackingField: Low Concrete Barrier
     <ID>k__BackingField: 21
-    <Size>k__BackingField: {x: 1, y: 2}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 325647218637157111, guid: 9818ee40b41f92c4a913f369232dd0d2,
+    <Prefab>k__BackingField: {fileID: 5797918027539100359, guid: 50e5e442bebf92849b5dfb3327890b68,
       type: 3}
   - <Name>k__BackingField: High Concrete Barrier
     <ID>k__BackingField: 22
-    <Size>k__BackingField: {x: 1, y: 2}
     <maxSpawnTurret>k__BackingField: 10
-    <Prefab>k__BackingField: {fileID: 3753458862759498381, guid: 64f8da2fc4d7af7498f042d2c9f8e381,
+    <Prefab>k__BackingField: {fileID: 6183078857333036943, guid: ea5311b831d561b4e8dee4618c4afb10,
       type: 3}
