@@ -73,7 +73,7 @@ public class Round : MonoBehaviour
         UpdateRoundText(currentRound); // For example, "ROUND 1"
 
         currencyManager = FindObjectOfType<CurrencyManager>();
-        currencyManager.AddCurrency(10);
+        currencyManager.AddCurrency(100);
 
         StartCoroutine(StartSpawningZombies());
     }
