@@ -313,6 +313,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -9042587762045654420, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c4067abc530f3245b4cf76b45fb814e, type: 2}
     - target: {fileID: -8731732446107755495, guid: 9ddc0664fcf78ae45b28da8ce186b0cc,
         type: 3}
       propertyPath: m_Layer
@@ -829,9 +834,9 @@ MonoBehaviour:
   layerRaycast:
     serializedVersion: 2
     m_Bits: 2047
-  maxStamina: 100
   staminaDecreaseRate: 10
   staminaRecoveryRate: 5
+  maxStamina: 100
   bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
   bulletDamage: 0
@@ -937,6 +942,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 958a5af4-0903-4867-9d96-c529ffaf06a1
     m_ActionName: PlayerMovement/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c4f7aa8-2215-480b-8027-38adf1b39574
+    m_ActionName: PlayerMovement/ScrollWeapon[/Mouse/scroll]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
