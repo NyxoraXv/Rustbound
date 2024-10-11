@@ -18,9 +18,9 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     [SerializeField] private LayerMask layerRaycast;
-    [SerializeField] private float maxStamina = 100f;  // Maksimum stamina
     [SerializeField] private float staminaDecreaseRate = 10f;  // Pengurangan stamina per detik saat berlari
     [SerializeField] private float staminaRecoveryRate = 5f;   // Pemulihan stamina per detik saat tidak berlari
+    public float maxStamina = 100f;  // Maksimum stamina
     public GameObject bulletPrefab;
     [HideInInspector] public float bulletDamage;
     private static int[] weaponIndex = {0, 0};
@@ -47,7 +47,7 @@ public class PlayerMovement : VariableComponent
 
     private int weaponSlot = 1; // Only 1 and 2
 
-    private float currentStamina;  // Stamina saat ini
+    public float currentStamina {get; private set;}  // Stamina saat ini
     
     private bool isSprinting = false; // Status apakah sedang berlari
 
