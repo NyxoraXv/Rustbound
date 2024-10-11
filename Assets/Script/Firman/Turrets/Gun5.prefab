@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3401526410825590722}
   - component: {fileID: 4177100387569564366}
   - component: {fileID: 5959874912654305099}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4776,7 +4776,7 @@ GameObject:
   - component: {fileID: 5905648097864883281}
   - component: {fileID: 103719759185016750}
   - component: {fileID: 3744810641251987285}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9509,7 +9509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6193074131826482532}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9542,7 +9542,7 @@ GameObject:
   - component: {fileID: 1285419255853279934}
   - component: {fileID: 758631415493276185}
   - component: {fileID: 7444193853761765779}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14440,7 +14440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6035768219910417757}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14473,7 +14473,7 @@ GameObject:
   - component: {fileID: 526793954944212020}
   - component: {fileID: 3917500776084576492}
   - component: {fileID: 5656600219413943925}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19376,7 +19376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_TagString
@@ -19388,7 +19388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_Name
@@ -19396,7 +19396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cfc2320a5a9ddb640a97a28d5a252ffc, type: 3}
       propertyPath: m_LocalScale.x
@@ -19504,6 +19504,9 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 600
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   isFollowTuretHead: 0
   directionX: -90
   directionY: 260
@@ -19600,11 +19603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1000011512443876, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4000010197676760, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
       propertyPath: m_LocalScale.x

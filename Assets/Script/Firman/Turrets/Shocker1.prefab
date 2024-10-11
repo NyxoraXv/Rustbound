@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6300866610961809072}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_TagString
@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_Name
@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 09a7031439bbe91499a2881a5c569036, type: 3}
       propertyPath: m_LocalScale.x
@@ -197,6 +197,9 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 5
   maxHealth: 500
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   isFollowTuretHead: 1
   directionX: -45
   directionY: 90

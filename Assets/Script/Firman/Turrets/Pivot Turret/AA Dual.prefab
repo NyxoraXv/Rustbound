@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5159147437764364578}
   - component: {fileID: 6456434641579016196}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AA Dual
-  m_TagString: Turret
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33000012750234134}
   - component: {fileID: 23000010287297114}
   - component: {fileID: 217446121259357557}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: BaseElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 33000011395804654}
   - component: {fileID: 23000010227302234}
   - component: {fileID: 3055077960319309488}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PylonElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4000013081111600}
   - component: {fileID: 6320425332804617625}
   - component: {fileID: 6615877098900533600}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Turret 1d
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 33000011683049640}
   - component: {fileID: 23000011548952378}
   - component: {fileID: 3677517708189347481}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 33000010257972514}
   - component: {fileID: 23000010958846116}
   - component: {fileID: 3469686952703357766}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 33000010842429210}
   - component: {fileID: 23000011049462226}
   - component: {fileID: 7570390252813933479}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: RotatingGuns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 33000012914581740}
   - component: {fileID: 23000013136009870}
   - component: {fileID: 7404474689165043104}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Pylon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667073803115847528}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8505737571995655730}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7185374750401386978}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4998417173217010576}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

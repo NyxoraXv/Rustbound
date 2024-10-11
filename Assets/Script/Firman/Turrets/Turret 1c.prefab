@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000012355355172}
   - component: {fileID: 7472043576809348062}
   - component: {fileID: 2428344198786591953}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Turret 1c
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 33000011469617408}
   - component: {fileID: 23000014192122222}
   - component: {fileID: 3139285104138921066}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 33000014203560784}
   - component: {fileID: 23000011617580758}
   - component: {fileID: 7061645638472580643}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 33000010824123328}
   - component: {fileID: 23000012900828180}
   - component: {fileID: 1406871948304634171}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 33000011213160418}
   - component: {fileID: 23000012559847878}
   - component: {fileID: 6043463449426651416}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Gun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 33000011111901530}
   - component: {fileID: 23000011186315532}
   - component: {fileID: 2908955593636176845}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PylonElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 33000013984324620}
   - component: {fileID: 23000011018190066}
   - component: {fileID: 4060754226503249465}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Pylon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 33000013346405026}
   - component: {fileID: 23000011973510726}
   - component: {fileID: 1417602772105305724}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: BaseElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 33000014176989166}
   - component: {fileID: 23000010648854598}
   - component: {fileID: 6839132292127573432}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Gun 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6546643043442472445}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4003883741897896666}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8870415613090224388}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
