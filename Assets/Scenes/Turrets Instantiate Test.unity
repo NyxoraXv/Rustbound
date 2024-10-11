@@ -5759,6 +5759,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4292140395655047554, guid: 1afc6727257574c4db62714bc9e4ff68,
+        type: 3}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 4338172028881690232, guid: 1afc6727257574c4db62714bc9e4ff68,
         type: 3}
       propertyPath: m_Name
