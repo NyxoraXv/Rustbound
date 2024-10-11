@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3407296060166943065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GT-Gun 2015
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,51 @@ PrefabInstance:
       propertyPath: maxSpawnTurret
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 803522110430147268, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 803522111086999810, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415601057221295960, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688959669311361726, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161204917668770415, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878749001752669299, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312753263005255537, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052941085072812275, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052941085072812277, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6052941085072812279, guid: 68463368760bf6340916ca182b1a14c9,
         type: 3}
       propertyPath: m_Name
@@ -53,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 6052941085072812279, guid: 68463368760bf6340916ca182b1a14c9,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6052941085073110231, guid: 68463368760bf6340916ca182b1a14c9,
         type: 3}
@@ -104,6 +149,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769592885242164512, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210751104155047231, guid: 68463368760bf6340916ca182b1a14c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

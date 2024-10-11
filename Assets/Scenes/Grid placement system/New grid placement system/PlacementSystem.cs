@@ -1,221 +1,222 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;  // DoTween for smooth animations
 
 public class PlacementSystem : MonoBehaviour
 {
-    public static PlacementSystem Instance;
+    public static PlacementSystem Instance { get; private set; }
 
-    [SerializeField]
-    private InputManager inputManager;
-    [SerializeField]
-    public Grid grid;
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private ObjectsDatabaseSO objectsDatabase;
+    [SerializeField] private Material previewMaterial;   // Material for previewing placement
+    [SerializeField] private Material removeMaterial;    // Material for previewing removal
+    [SerializeField] private LayerMask objectLayerMask;  // Mask for checking existing objects
+    [SerializeField] private float yOffset = 0.5f;       // Offset for y-axis placement
 
-    [SerializeField]
-    private ObjectsDatabaseSO database;
+    private GameObject previewObject;
+    private ObjectData currentObjectData;
+    private bool isPlacing, isRemoving;
 
-    [SerializeField]
-    private GameObject gridVisualization;
-
-    [SerializeField]
-    private AudioClip correctPlacementClip, wrongPlacementClip;
-    [SerializeField]
-    private AudioSource source;
-
-    private GridData floorData, furnitureData;
-    private int currentID;
-
-    [SerializeField]
-    private PreviewSystem preview;
-
-    private Vector3Int lastDetectedPosition = Vector3Int.zero;
-
-    [SerializeField]
-    private ObjectPlacer objectPlacer;
-
-    private bool placing;
-
-    IBuildingState buildingState;
-
-    [SerializeField]
-    private SoundFeedback soundFeedback;
-
-    private void Start()
+    private void Awake()
     {
-        Instance = this;
-
-        gridVisualization.SetActive(false);
-        floorData = new();
-        furnitureData = new();
-
-        foreach (ObjectData objData in database.objectsData)
+        if (Instance != null && Instance != this)
         {
-            objData.currentSpawnedTurret = 0; // Reset the count to 0
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);  // Optional: To persist across scenes
         }
     }
 
-    public void StartPlacement(int ID)
+    private void OnEnable()
     {
-        if (placing)
-        {
-            StopPlacement();
-        }
-        
-        Debug.Log("Placing...");
-        gridVisualization.SetActive(true);
-
-        // Ensure ID is being passed correctly
-        // Debug.Log($"Starting placement for ID: {ID}");
-        currentID = ID;
-
-        buildingState = new PlacementState(ID,
-                                            grid,
-                                            preview,
-                                            database,
-                                            floorData,
-                                            furnitureData,
-                                            objectPlacer,
-                                            soundFeedback);
-        inputManager.OnClicked += PlaceStructure;
-        inputManager.OnExit += StopPlacement;
-        placing = true;
+        inputManager.OnClicked += HandleClick;
+        inputManager.OnExit += CancelAction;
     }
 
-    public void StartRemoving()
+    private void OnDisable()
     {
-        StopPlacement();
-        gridVisualization.SetActive(true) ;
-        buildingState = new RemovingState(grid, preview, floorData, furnitureData, objectPlacer, soundFeedback);
-        inputManager.OnClicked += PlaceStructure;
-        inputManager.OnExit += StopPlacement;
-    }
-
-    private void PlaceStructure()
-{
-    if (inputManager.IsPointerOverUI())
-    {
-        return;
-    }
-
-    Vector3 mousePosition = inputManager.GetSelectedMapPosition();
-    Vector3Int gridPosition = grid.WorldToCell(mousePosition);
-
-    // Get the currently selected object data from the database
-    int selectedObjectID = ((PlacementState)buildingState).ID;
-    ObjectData selectedObjectData = database.objectsData[selectedObjectID];
-
-    // Log the selected object data for debugging
-    // Debug.Log($"Placing Turret (ID: {selectedObjectID}) - " +
-    //           $"Name: {selectedObjectData.Name}, " +
-    //           $"Current: {selectedObjectData.currentSpawnedTurret}, " +
-    //           $"Max: {selectedObjectData.maxSpawnTurret}");
-
-    // Check if the max number of turrets is reached
-    if (selectedObjectData.currentSpawnedTurret >= selectedObjectData.maxSpawnTurret)
-    {
-        // Debug.Log("Max turrets reached. Cannot place any more turrets.");
-        source.PlayOneShot(wrongPlacementClip);
-        return;
-    }
-
-        if(!CurrencyManager.Instance.SpendCurrency(TurretManager.Instance.turretDatabase.GetTurretByID(currentID).price))
-        {
-            Debug.Log("broke");
-            return;
-        }
-    // Check if the grid position is occupied
-    if (IsGridPositionOccupied(gridPosition))
-    {
-        // Debug.Log("Grid position is already occupied. Cannot place turret.");
-        source.PlayOneShot(wrongPlacementClip);
-        return;
-    }
-
-    // Place the turret if the limit has not been reached
-    buildingState.OnAction(gridPosition);
-
-    // Increment the count of currently spawned turrets
-    selectedObjectData.currentSpawnedTurret++;
-    // Debug.Log($"Turret placed. New count: {selectedObjectData.currentSpawnedTurret}");
-    source.PlayOneShot(correctPlacementClip);
-}
-
-
-    // Method to check if the grid position is occupied
-    private bool IsGridPositionOccupied(Vector3Int gridPosition)
-    {
-        // Check the grid data for existing objects at the grid position
-        return floorData.IsOccupied(gridPosition) || furnitureData.IsOccupied(gridPosition);
-    }
-
-
-    public void RemoveTurret(int turretID, Vector3Int gridPosition)
-    {   
-        ObjectData selectedObjectData = database.objectsData[turretID];
-        
-        if (selectedObjectData.currentSpawnedTurret > 0)
-        {
-            // Decrease the current spawned turret count
-            selectedObjectData.currentSpawnedTurret--;
-
-            // Update the grid data to mark this position as no longer occupied
-            if (furnitureData.IsOccupied(gridPosition))
-            {
-                furnitureData.RemoveObjectAt(gridPosition); // Clear the grid data for the turret
-            }
-            else if (floorData.IsOccupied(gridPosition))
-            {
-                floorData.RemoveObjectAt(gridPosition); // Clear grid data if it's floor data
-            }
-
-            // End the removing state if active
-            if (buildingState is RemovingState removingState)
-            {
-                removingState.EndState();
-            }
-        }
-
-        // Optionally: Add any additional logic for removing the turret GameObject, grid updates, etc.
-    }
-
-    //private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
-    //{
-    //    GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ? 
-    //        floorData : 
-    //        furnitureData;
-
-    //    return selectedData.CanPlaceObejctAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
-    //}
-
-    private void StopPlacement()
-    {
-        soundFeedback.PlaySound(SoundType.Click);
-        if (buildingState == null)
-            return;
-        gridVisualization.SetActive(false);
-        buildingState.EndState();
-        inputManager.OnClicked -= PlaceStructure;
-        inputManager.OnExit -= StopPlacement;
-        lastDetectedPosition = Vector3Int.zero;
-        placing = false;
-        buildingState = null;
+        inputManager.OnClicked -= HandleClick;
+        inputManager.OnExit -= CancelAction;
     }
 
     private void Update()
     {
-        if (buildingState == null)
-            return;
-        Vector3 mousePosition = inputManager.GetSelectedMapPosition();
-        // Debug.Log(mousePosition);
-        Vector3Int gridPosition = grid.WorldToCell(mousePosition);
-        // Debug.Log(gridPosition);
-        if(lastDetectedPosition != gridPosition)
+        if (isPlacing)
+            UpdatePlacementPreview();
+        else if (isRemoving)
+            UpdateRemovePreview();
+    }
+
+    // Called to start the placement of a new object based on its ID
+    public void StartPlacement(int id)
+    {
+        if (id < 0 || id >= objectsDatabase.objectsData.Count) return;
+
+        currentObjectData = objectsDatabase.objectsData[id];
+        if (currentObjectData.currentSpawnedTurret >= currentObjectData.maxSpawnTurret)
         {
-            buildingState.UpdateState(gridPosition);
-            lastDetectedPosition = gridPosition;
+            Debug.LogWarning("Max turrets placed.");
+            return;
         }
-        
+
+        isPlacing = true;
+        isRemoving = false;
+
+        // Create the preview object
+        previewObject = Instantiate(currentObjectData.Prefab);
+        ApplyPreviewMaterial(previewObject, previewMaterial);
+
+        // Animate preview object in with DoTween for smooth transition
+        previewObject.transform.localScale = Vector3.zero;
+        previewObject.transform.DOScale(Vector3.one, 0.3f);
+    }
+
+    // Called to start removing an object
+    public void StartRemove()
+    {
+        isRemoving = true;
+        isPlacing = false;
+    }
+
+    // Cancel current action
+    private void CancelAction()
+    {
+        isPlacing = false;
+        isRemoving = false;
+        if (previewObject != null) Destroy(previewObject);
+    }
+
+    // Handle clicking during placement or removal
+    private void HandleClick()
+    {
+        if (isPlacing)
+        {
+            if (IsPlacementValid())
+            {
+                PlaceObject();
+            }
+        }
+        else if (isRemoving)
+        {
+            RemoveObject();
+        }
+    }
+
+    // Preview and update object placement
+    private void UpdatePlacementPreview()
+    {
+        Vector3 position = inputManager.GetSelectedMapPosition();
+        position.y += yOffset;  // Apply y offset for the preview as well
+
+        if (previewObject != null)
+        {
+            previewObject.transform.position = position;
+
+            if (IsPlacementValid())
+            {
+                SetPreviewColor(previewMaterial.color);  // Set valid color
+            }
+            else
+            {
+                SetPreviewColor(Color.red);  // Set invalid color
+            }
+        }
+    }
+
+    // Preview removal by highlighting object
+    private void UpdateRemovePreview()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
+        {
+            GameObject target = hit.collider.gameObject;
+            ApplyPreviewMaterial(target, removeMaterial);  // Highlight the object to be removed
+        }
+    }
+
+    // Check if the current placement is valid
+    private bool IsPlacementValid()
+    {
+        // Check for collisions with objects tagged as "Player", "Building", or "Turret"
+        Collider[] colliders = Physics.OverlapSphere(previewObject.transform.position, 0.5f, objectLayerMask);
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Player") || collider.CompareTag("Building") || collider.CompareTag("Turret"))
+            {
+                Debug.Log("Invalid placement: Colliding with " + collider.tag);  // Output debug message
+                return false;  // Invalid if it collides with Player, Building, or Turret
+            }
+        }
+
+        // If no invalid collisions are detected, placement is valid
+        return true;
+    }
+
+    // Place the object in the world
+    // Place the object in the world
+    private void PlaceObject()
+    {
+        Vector3 position = previewObject.transform.position;
+
+        // Instantiate the placed object
+        GameObject placedObject = Instantiate(currentObjectData.Prefab, position, previewObject.transform.rotation);
+        currentObjectData.currentSpawnedTurret++;
+
+        // Activate all colliders in the placed object
+        ActivateColliders(placedObject.transform);
+
+        // Destroy the preview object
+        Destroy(previewObject);
+        isPlacing = false;
+    }
+
+    // Activate all colliders in the given transform and its children
+    private void ActivateColliders(Transform objTransform)
+    {
+        // Get all colliders in the transform and its children
+        Collider[] colliders = objTransform.GetComponentsInChildren<Collider>(true);
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = true; // Enable each collider
+        }
+    }
+
+
+    // Remove an object from the world
+    private void RemoveObject()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
+        {
+            Destroy(hit.collider.gameObject);
+            isRemoving = false;
+        }
+    }
+
+    // Apply the preview material to an object
+    private void ApplyPreviewMaterial(GameObject obj, Material mat)
+    {
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material = mat;
+        }
+    }
+
+    // Set the preview object's color based on valid/invalid placement
+    private void SetPreviewColor(Color color)
+    {
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material.color = color;
+        }
     }
 }

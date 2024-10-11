@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9090827488461062071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ray-200
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9090827488461062071}
     m_Modifications:
+    - target: {fileID: 3112036791935606611, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6197577030655037241, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
       propertyPath: m_Name
@@ -48,7 +53,17 @@ PrefabInstance:
     - target: {fileID: 6197577030655037241, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197577030655037243, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6197577030655037245, guid: ebad10f4d08b8c04dba0bd61a4499875,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6197577030655529753, guid: ebad10f4d08b8c04dba0bd61a4499875,
         type: 3}

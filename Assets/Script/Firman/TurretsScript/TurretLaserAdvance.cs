@@ -240,9 +240,7 @@ public class TurretLaserAdvance : VariableComponent, ITurret
             Destroy(vfxInstance.gameObject, 4f);
         }
         soundManager.PlaySFX(5);
-        Vector3Int gridPosition = PlacementSystem.Instance.grid.WorldToCell(transform.position);
 
-        PlacementSystem.Instance.RemoveTurret(3, gridPosition);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 

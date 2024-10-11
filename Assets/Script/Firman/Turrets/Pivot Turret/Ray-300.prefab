@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935043293402314419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ray-300
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,11 @@ PrefabInstance:
       propertyPath: maxSpawnTurret
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3901723522905647969, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3901723522905647971, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
       propertyPath: m_Name
@@ -58,7 +63,12 @@ PrefabInstance:
     - target: {fileID: 3901723522905647971, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901723522905647975, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3901723522905683779, guid: 466f414be94b78d4697f02650fe391b2,
         type: 3}
@@ -119,6 +129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.00061299803
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749119983784039280, guid: 466f414be94b78d4697f02650fe391b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
