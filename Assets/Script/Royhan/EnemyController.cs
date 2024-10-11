@@ -147,7 +147,16 @@ public class EnemyController : VariableComponent
     }
     private void UpdateHealth()
     {
-        healthBar.fillAmount = _currentHealth / maxHealth;
+        float healthPercentage =_currentHealth / maxHealth;; 
+        if (healthPercentage<1)
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.fillAmount = healthPercentage;
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(false);
+        }
     }
     public void Del () 
     {

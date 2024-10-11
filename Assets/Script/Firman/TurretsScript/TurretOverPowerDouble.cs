@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class TurretOverpowerDouble : VariableComponent, ITurret
 {
@@ -24,6 +25,7 @@ public class TurretOverpowerDouble : VariableComponent, ITurret
 
     public enum TargetingMode { First, Strongest, Farthest }
     public TargetingMode targetingMode;
+    public Image healthBar;
 
     [Header("Explosion After Dead")]
     public ParticleSystem explosionVFX;
@@ -60,6 +62,16 @@ public class TurretOverpowerDouble : VariableComponent, ITurret
             {
                 StartCoroutine(FireSequence()); // Start firing sequence
             }
+        }
+        float healthPercentage =_currentHealth / maxHealth;; 
+        if (healthPercentage<1)
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.fillAmount = healthPercentage;
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(false);
         }
     }
 

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class TurretMinigun : VariableComponent, ITurret
 {
+    public Image healthBar;
     [Header ("Max Spawn Turret")]
     public bool isMinigun = true;
     public float directionX = 0f;
@@ -128,6 +130,16 @@ public class TurretMinigun : VariableComponent, ITurret
             isFiring = false;
             fireCooldown = initialFireCooldown;
             elapsedTime = 0f;
+        }
+        float healthPercentage =_currentHealth / maxHealth;; 
+        if (healthPercentage<1)
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.fillAmount = healthPercentage;
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(false);
         }
     }
     IEnumerator FireFromNotMinigun()

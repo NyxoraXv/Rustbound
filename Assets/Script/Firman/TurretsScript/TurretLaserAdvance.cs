@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class TurretLaserAdvance : VariableComponent, ITurret
 {
+    public Image healthBar;
     [Header("Max Spawn Turret")]
     public bool isFollowTuretHead = true;
     public float directionX = 0f;
@@ -61,6 +63,16 @@ public class TurretLaserAdvance : VariableComponent, ITurret
         {
 
             StartCoroutine(FiringSequence());
+        }
+        float healthPercentage =_currentHealth / maxHealth;; 
+        if (healthPercentage<1)
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.fillAmount = healthPercentage;
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(false);
         }
     }
 
