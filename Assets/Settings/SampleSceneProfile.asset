@@ -108,13 +108,13 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0
   smoothness:
     m_OverrideState: 1
     m_Value: 1
@@ -282,10 +282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb2952b95454955ba507c3d96778a76, type: 3}
   m_Name: VhsVol
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   _weight:
     m_OverrideState: 1
-    m_Value: 0.04
+    m_Value: 0.048
   _bleed:
     m_OverrideState: 1
     m_Value: 1.14

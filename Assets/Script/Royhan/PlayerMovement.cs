@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : VariableComponent
 {
@@ -281,6 +282,7 @@ public class PlayerMovement : VariableComponent
             {
                 if(activeWeaponHandler!= null)
                 {
+                    HUDController.instance.SwapWeaponImagesSlot2((WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage));
                     activeWeaponHandler.transform.localPosition = new Vector3(999, 999);
                     activeWeaponHandler.transform.parent = WeaponManager.Instance.weaponCache.transform;
                 }
@@ -288,6 +290,7 @@ public class PlayerMovement : VariableComponent
                 wh.transform.localPosition = Vector3.zero;
                 wh.transform.localRotation = Quaternion.identity;
                 activeWeaponHandler = wh;
+                HUDController.instance.SwapWeaponImagesSlot1((WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage));
             }
         }
     }

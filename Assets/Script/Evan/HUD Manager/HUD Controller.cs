@@ -13,12 +13,10 @@ public class HUDController : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement; // PlayerMovement inherits from VariableComponent
     [SerializeField] private GameObject profile;
     [SerializeField] private Image icon; // Reference to the icon image
-    [SerializeField] private Material iconMaterial; // Reference to the icon's material
-
-    private static readonly int GlitchFadeID = Shader.PropertyToID("_GlitchFade"); // Cache property ID for performance
 
     private void Awake()
     {
+        instance = this;
         if (playerMovement == null)
         {
             playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -77,27 +75,42 @@ public class HUDController : MonoBehaviour
 
     private IEnumerator AnimateIcon()
     {
-        // Set initial state of the material property and color
-        iconMaterial.SetFloat(GlitchFadeID, 0f);
-        Color originalColor = icon.color; // Get the original color of the icon
+        // Get the original color of the icon
+        Color originalColor = icon.color;
         Color fadedColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f); // Set to light gray
 
-        // Animate the material property from 0 to 1
-        iconMaterial.DOFloat(1f, GlitchFadeID, 0.5f).OnUpdate(() =>
+        // Change the icon color to light gray
+        icon.DOColor(fadedColor, 0.5f).OnComplete(() =>
         {
-            icon.color = Color.Lerp(originalColor, fadedColor, iconMaterial.GetFloat(GlitchFadeID)); // Change color while animating
+            // Change back to the original color
+            icon.DOColor(originalColor, 0.5f);
         });
 
-        // Animate the material property back from 1 to 0
-        yield return new WaitForSeconds(0.5f);
-        iconMaterial.DOFloat(0f, GlitchFadeID, 0.5f).OnUpdate(() =>
-        {
-            icon.color = Color.Lerp(fadedColor, originalColor, iconMaterial.GetFloat(GlitchFadeID)); // Change color back
-        });
-
-        // Wait until the animation is done
-        yield return new WaitForSeconds(0.5f);
+        // Wait for the color change to complete
+        yield return new WaitForSeconds(1f); // Wait for a total duration of the animation
     }
+
+    // New method to swap weapon images with animation
+    public void SwapWeaponImagesSlot1(Sprite newImage)
+    {
+        // Animate the scale of the first slot image to give a nice swap effect
+        first_slot.transform.DOScale(0.8f, 0.2f).OnComplete(() =>
+        {
+            first_slot.sprite = newImage; // Swap the image
+            first_slot.transform.DOScale(1f, 0.2f);
+        });
+    }
+
+    public void SwapWeaponImagesSlot2(Sprite newImage)
+    {
+        // Animate the scale of the second slot image to give a nice swap effect
+        second_slot.transform.DOScale(0.8f, 0.2f).OnComplete(() =>
+        {
+            second_slot.sprite = newImage; // Swap the image
+            second_slot.transform.DOScale(1f, 0.2f);
+        });
+    }
+
 
     private void OnDestroy()
     {

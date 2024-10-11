@@ -12,7 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ENABLEHOLOGRAM_ON
+  - _ENABLEBRIGHTNESS_ON
   - _SHADERFADING_NONE
   - _SHADERSPACE_UV
   - _TEXTURELAYER1SHEETTOGGLE_ON
@@ -177,7 +177,7 @@ Material:
     - _BlackTintPower: 4
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Brightness: 1
+    - _Brightness: 1.5
     - _BumpScale: 1
     - _BurnEdgeNoiseFactor: 0.5
     - _BurnFade: 1
@@ -232,7 +232,7 @@ Material:
     - _EnableAddHue: 0
     - _EnableAlphaTint: 0
     - _EnableBlackTint: 0
-    - _EnableBrightness: 0
+    - _EnableBrightness: 1
     - _EnableBurn: 0
     - _EnableCamouflage: 0
     - _EnableCheckerboard: 0
@@ -251,7 +251,7 @@ Material:
     - _EnableGaussianBlur: 0
     - _EnableGlitch: 0
     - _EnableHalftone: 0
-    - _EnableHologram: 1
+    - _EnableHologram: 0
     - _EnableHue: 0
     - _EnableInkSpread: 0
     - _EnableInnerOutline: 0
@@ -326,9 +326,9 @@ Material:
     - _GaussianBlurFade: 1
     - _GaussianBlurOffset: 0.5
     - _GlitchBrightness: 4
-    - _GlitchFade: 0.16
+    - _GlitchFade: 0
     - _GlitchHueSpeed: 1
-    - _GlitchMaskMin: 0.4
+    - _GlitchMaskMin: 0.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -341,7 +341,7 @@ Material:
     - _HologramDistortionOffset: 0.5
     - _HologramDistortionScale: 10
     - _HologramDistortionSpeed: 2
-    - _HologramFade: 0
+    - _HologramFade: 0.61
     - _HologramLineFrequency: 500
     - _HologramLineGap: 3
     - _HologramLineSpeed: 0.01
@@ -382,7 +382,7 @@ Material:
     - _PixelOutlineWidth: 1
     - _PixelPerfectSpace: 0
     - _PixelPerfectUV: 0
-    - _PixelateFade: 1
+    - _PixelateFade: 0
     - _PixelatePixelDensity: 16
     - _PixelatePixelsPerUnit: 100
     - _PixelsPerUnit: 100
@@ -600,7 +600,7 @@ Material:
     - _FullDistortionNoiseScale: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _FullGlowDissolveEdgeColor: {r: 11.98431, g: 0.627451, b: 0.627451, a: 0}
     - _FullGlowDissolveNoiseScale: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _GlitchDistortion: {r: 0.1, g: 0, b: 0, a: 0}
+    - _GlitchDistortion: {r: 0.3, g: 0, b: 0, a: 0}
     - _GlitchDistortionScale: {r: 0, g: 3, b: 0, a: 0}
     - _GlitchDistortionSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _GlitchMaskScale: {r: 0, g: 0.2, b: 0, a: 0}
@@ -608,7 +608,7 @@ Material:
     - _GlitchNoiseScale: {r: 0, g: 1, b: 0, a: 0}
     - _GlitchNoiseSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _HalftonePosition: {r: 0, g: 0, b: 0, a: 0}
-    - _HologramTint: {r: 0.3137255, g: 1.662745, b: 2.996078, a: 1}
+    - _HologramTint: {r: 3.9999998, g: 0, b: 0.08083724, a: 1}
     - _InkSpreadColor: {r: 8.47419, g: 5.013525, b: 0.08873497, a: 0}
     - _InkSpreadNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
     - _InkSpreadPosition: {r: 0.5, g: -1, b: 0, a: 0}
@@ -653,7 +653,7 @@ Material:
     - _ShadowOffset: {r: 0.05, g: -0.05, b: 0, a: 0}
     - _ShiftingColorA: {r: 1.498039, g: 0, b: 0, a: 0}
     - _ShiftingColorB: {r: 1.498039, g: 0.7490196, b: 0, a: 0}
-    - _ShineColor: {r: 11.98431, g: 11.98431, b: 11.98431, a: 0}
+    - _ShineColor: {r: 15.999997, g: 0, b: 0, a: 0}
     - _SineGlowColor: {r: 0, g: 2.007843, b: 2.996078, a: 0}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}

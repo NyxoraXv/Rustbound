@@ -32,7 +32,7 @@ public class UIController : MonoBehaviour
     {
         if (setActive)
         {
-            StartCoroutine(TweenGlobalVolume(0.5f, 20f, 1f)); // Tween to 0.5 and 20 over 1 second
+            StartCoroutine(TweenGlobalVolume(0.5f, 55f, 1f)); // Tween to 0.5 and 20 over 1 second
         }
         else
         {
@@ -43,19 +43,19 @@ public class UIController : MonoBehaviour
     private IEnumerator TweenGlobalVolume(float targetVignetteIntensity, float targetFocusDistance, float duration)
     {
         float startVignetteIntensity = vignette.intensity.value;
-        float startFocusDistance = depthOfField.focusDistance.value;
+        float startFocusDistance = depthOfField.focalLength.value;
 
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
             float normalizedTime = t / duration;
             vignette.intensity.value = Mathf.Lerp(startVignetteIntensity, targetVignetteIntensity, normalizedTime);
-            depthOfField.focusDistance.value = Mathf.Lerp(startFocusDistance, targetFocusDistance, normalizedTime);
+            depthOfField.focalLength.value = Mathf.Lerp(startFocusDistance, targetFocusDistance, normalizedTime);
             yield return null;
         }
 
         // Ensure we set to final value
         vignette.intensity.value = targetVignetteIntensity;
-        depthOfField.focusDistance.value = targetFocusDistance;
+        depthOfField.focalLength.value = targetFocusDistance;
     }
 
     public IEnumerator HUDSetactive(bool setActive)
