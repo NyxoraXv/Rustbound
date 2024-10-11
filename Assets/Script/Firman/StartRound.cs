@@ -14,7 +14,7 @@ public class StartRound : MonoBehaviour
     void Start()
     {
         round = FindObjectOfType<Round>();
-
+        
         // Ensure the GameObject has a CanvasGroup for fading
         canvasGroup = uiToFade.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
