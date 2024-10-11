@@ -78,7 +78,7 @@ public class PlayerMovement : VariableComponent
     {
         HandleStamina();
         HandleFiring();
-        // HandleWeaponScroll();
+        HandleWeaponScroll();
     }
 
     public void OnFire(InputAction.CallbackContext context)
