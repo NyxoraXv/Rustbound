@@ -10,6 +10,12 @@ public class ObjectPlacer : MonoBehaviour
     {
         position.y = position.y + 0.5f;
         GameObject newObject = Instantiate(prefab);
+        //diaktifkan
+        Collider[] colliders = newObject.GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = true;
+        }
         newObject.transform.position = position;
         placedGameObjects.Add(newObject);
 
