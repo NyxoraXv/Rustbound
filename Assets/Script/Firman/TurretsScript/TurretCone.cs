@@ -172,7 +172,6 @@ public class TurretCone : VariableComponent, ITurret
         soundManager.PlaySFX(5);
         Vector3Int gridPosition = PlacementSystem.Instance.grid.WorldToCell(transform.position);
 
-        // Call the PlacementSystem to decrease the spawned turret count and remove it from the grid
         PlacementSystem.Instance.RemoveTurret(0, gridPosition);
         Destroy(gameObject); // Destroy the turret GameObject
     }
