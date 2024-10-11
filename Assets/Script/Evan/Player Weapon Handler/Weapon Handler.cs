@@ -47,6 +47,7 @@ public class WeaponHandler : MonoBehaviour
     public int spreadAmount = 5;           // For Spread shooting (e.g., shotgun pellets)
 
     public int currentSlot;
+    private SoundManager soundManager;
 
     public void init(WeaponData weaponData, int slot)
     {
@@ -82,6 +83,7 @@ public class WeaponHandler : MonoBehaviour
         }
 
         mainCamera = Camera.main;
+        soundManager = FindAnyObjectByType<SoundManager>();
     }
 
     // Method to fire the weapon
@@ -138,6 +140,7 @@ public class WeaponHandler : MonoBehaviour
             //     currentRotation.x -= 180;
             //     bullet.transform.eulerAngles = currentRotation;
             bullet.SetActive(true);
+            SoundEffect();
             bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
             bullet.GetComponent<Rigidbody>().AddForce(-shootPos.forward * shootForce, ForceMode.Impulse);
 
@@ -173,6 +176,8 @@ public class WeaponHandler : MonoBehaviour
                 bullet.transform.rotation = shootPos.rotation;
                 // bullet.transform.rotation = Quaternion.LookRotation(direction);
                 bullet.SetActive(true);
+                SoundEffect();
+
                 bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);
 
@@ -221,13 +226,38 @@ public class WeaponHandler : MonoBehaviour
         bullet.SetActive(false);
     }
 
+    private void SoundEffect()
+    {
+        switch (weaponName)
+        {
+            case "AK47":
+                soundManager.PlaySFX(18);
+                break;
+            case "Benelli M4":
+                soundManager.PlaySFX(19);
+                break;
+            case "M4":
+                soundManager.PlaySFX(20);
+                break;
+            case "M107":
+                soundManager.PlaySFX(21);
+                break;
+            case "M249":
+                soundManager.PlaySFX(22);
+                break;
+            default:
+                soundManager.PlaySFX(18);
+                break;
+        }
+    }
+
     // Coroutine to reload the weapon
     private IEnumerator Reload()
     {
         if (!isReloading)
         {
             isReloading = true;
-            Debug.Log("Reloading " + reloadTime+ " seconds");
+            Debug.Log("Reloading " + reloadTime + " seconds");
 
             yield return new WaitForSeconds(reloadTime);
 
