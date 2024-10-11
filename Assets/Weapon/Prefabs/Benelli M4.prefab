@@ -116,7 +116,7 @@ MonoBehaviour:
   shootPos: {fileID: 8510882384478730140}
   layerRaycast:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 5441
   poolSize: 10
   spreadAmount: 5
   currentSlot: 0

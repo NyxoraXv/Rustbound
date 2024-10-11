@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public static float bulletDamage = 5;
-    public static float rangeAttack = 10;
+    public static float rangeAttack = 0;
     [Header("Peluru ini akan hilang jika menabrak layer ini")]
     [SerializeField] private LayerMask objLayerCol;
     private Rigidbody _rigidbody;
