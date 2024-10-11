@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
     [Header("------- Audio Source -------")]
     [SerializeField] AudioSource MusicSource;
     [SerializeField] AudioSource SFXSource;
@@ -14,6 +15,12 @@ public class SoundManager : MonoBehaviour
 
     private bool fightPlayed = true;
     public float fadeDuration = 1.0f; // Durasi fade-out dan fade-in
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     private void Start()
     {

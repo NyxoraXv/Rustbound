@@ -78,7 +78,7 @@ public class Round : MonoBehaviour
         currencyManager = FindObjectOfType<CurrencyManager>();
         currencyManager.AddCurrency(10000);
 
-        StartCoroutine(StartSpawningZombies());
+        //StartCoroutine(StartSpawningZombies());
     }
 
     void Update()

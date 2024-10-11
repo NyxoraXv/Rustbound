@@ -52,9 +52,11 @@ public class WeaponContainerInitiator : MonoBehaviour
         {
             Debug.Log("Purchased weapon: " + weapon.weaponName);
             SetOwnedState();
+            SoundManager.instance.PlaySFX(17);
         }
         else
         {
+            SoundManager.instance.PlaySFX(18);
             Debug.Log("Failed to purchase weapon: " + weapon.weaponName);
         }
     }

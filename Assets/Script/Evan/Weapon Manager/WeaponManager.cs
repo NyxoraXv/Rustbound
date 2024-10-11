@@ -17,6 +17,7 @@ public class WeaponManager : MonoBehaviour
 
     public Image weaponSlot1Image; // UI Image for equipped weapon slot 1
     public Image weaponSlot2Image; // UI Image for equipped weapon slot 2
+    public Sprite None;
 
     public GameObject weaponCache;
 
