@@ -50,7 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicSource: {fileID: 4376516355706114104}
   SFXSource: {fileID: 2273756373308054985}
-  Background: {fileID: 0}
+  BgmFight: {fileID: 8300000, guid: e3b04f499bd50584b8ede7703c504f24, type: 3}
+  BGMMainMenu: {fileID: 8300000, guid: e0f7afbe00218fd46bdb0cf2a7b61f95, type: 3}
   SFXClips:
   - {fileID: 8300000, guid: 6bf1fbb7bc784e94f93bf42fe6439e5a, type: 3}
   - {fileID: 8300000, guid: 470a6150697e4d4449aed706c24d1561, type: 3}

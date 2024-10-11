@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 
 public class Round : MonoBehaviour
@@ -60,9 +61,11 @@ public class Round : MonoBehaviour
 
     private Dictionary<Transform, float> spawnPointCooldowns = new Dictionary<Transform, float>();
     private int currencyMultiplier = 0;
+    private SoundManager soundManager;
 
     void Start()
     {
+        soundManager = FindAnyObjectByType<SoundManager>();
         // Check if textMeshPro is assigned
         if (textRound == null)
         {
@@ -83,6 +86,8 @@ public class Round : MonoBehaviour
         // Check if all zombies are dead
         if (spawnedZombies == zombiesToSpawn && AreAllZombiesDead())
         {
+            UnityEngine.Debug.Log("s");
+            soundManager.SwitchBGMMainMenu();
             // Increment round
             currentRound++;
             UpdateRoundText(currentRound); // Update the round text
@@ -118,7 +123,7 @@ public class Round : MonoBehaviour
         }
         else
         {
-            Debug.LogError("TextMeshPro component is missing!");
+            UnityEngine.Debug.LogError("TextMeshPro component is missing!");
         }
     }
 
@@ -145,7 +150,7 @@ public class Round : MonoBehaviour
         }
         else
         {
-            Debug.LogError("TextMeshPro component for total zombies is missing!");
+            UnityEngine.Debug.LogError("TextMeshPro component for total zombies is missing!");
         }
     }
     // Add this method in your Round class
@@ -384,7 +389,7 @@ public class Round : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Boss prefab is not assigned!");
+            UnityEngine.Debug.LogError("Boss prefab is not assigned!");
         }
     }
     private void IncreaseZombieMaxHealth(GameObject zombie, float healthIncrease)
@@ -398,7 +403,7 @@ public class Round : MonoBehaviour
         }
         else
         {
-            Debug.LogError("VariableComponent is missing on the zombie!");
+            UnityEngine.Debug.LogError("VariableComponent is missing on the zombie!");
         }
     }
 

@@ -6,6 +6,7 @@ using DG.Tweening; // Import DoTween
 public class StartRound : MonoBehaviour
 {
     public GameObject uiToFade;
+    private SoundManager soundManager;
     private Round round;
     private float targetUpdateInterval = 1f; // Update target every second
     private float nextTargetUpdateTime = 0f;
@@ -14,7 +15,8 @@ public class StartRound : MonoBehaviour
     void Start()
     {
         round = FindObjectOfType<Round>();
-        
+        soundManager = FindAnyObjectByType<SoundManager>();
+
         // Ensure the GameObject has a CanvasGroup for fading
         canvasGroup = uiToFade.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -40,6 +42,7 @@ public class StartRound : MonoBehaviour
     public void StartNewRound()
     {
         Debug.Log("Start New Round");
+        soundManager.SwitchBGMFight();
         StartCoroutine(round.StartSpawningZombies());
         StartCoroutine(round.SpawnSpecialZombiesWithDelay());
 
