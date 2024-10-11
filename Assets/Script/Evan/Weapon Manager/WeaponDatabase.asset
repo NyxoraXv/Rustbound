@@ -20,7 +20,7 @@ MonoBehaviour:
     weaponID: 0
     weaponDamage: 5
     weaponRateOfFire: 20
-    weaponAccuracy: 1.243
+    weaponAccuracy: 0
     price: 0
     reloadTime: 1
     magazineSize: 30
@@ -36,10 +36,10 @@ MonoBehaviour:
     weaponRateOfFire: 40
     weaponAccuracy: 0
     price: -20
-    reloadTime: 0
-    magazineSize: 0
-    currentAmmo: 0
-    shootForce: 0
+    reloadTime: 1
+    magazineSize: 30
+    currentAmmo: 180
+    shootForce: 10
     shootingType: 0
   - weaponName: M4
     weaponPrefab: {fileID: 1117582899397640, guid: f21265e2f7f588648b0c7db8bbf33b73,
@@ -50,10 +50,10 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
-    reloadTime: 0
-    magazineSize: 0
-    currentAmmo: 0
-    shootForce: 0
+    reloadTime: 1
+    magazineSize: 20
+    currentAmmo: 180
+    shootForce: 10
     shootingType: 0
   - weaponName: M107
     weaponPrefab: {fileID: 1829597508155286, guid: 71cc5ba3eef4824479d18cbfb55fb630,
@@ -64,10 +64,10 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
-    reloadTime: 0
-    magazineSize: 0
-    currentAmmo: 0
-    shootForce: 0
+    reloadTime: 1
+    magazineSize: 20
+    currentAmmo: 180
+    shootForce: 10
     shootingType: 0
   - weaponName: M249
     weaponPrefab: {fileID: 1261748888023320, guid: 35e3c742471b7194bb0cc6c2b0cf0030,
@@ -78,8 +78,8 @@ MonoBehaviour:
     weaponRateOfFire: 0
     weaponAccuracy: 0
     price: 0
-    reloadTime: 0
-    magazineSize: 0
-    currentAmmo: 0
-    shootForce: 0
+    reloadTime: 1
+    magazineSize: 20
+    currentAmmo: 180
+    shootForce: 10
     shootingType: 0

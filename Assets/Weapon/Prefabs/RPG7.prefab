@@ -194,11 +194,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8188089089216337501, guid: 1e5b2a246d93b8e4eb36a25b1c95b39f,
     type: 3}
   missilePrefab: {fileID: 0}
-  particleEffectPrefab: {fileID: 0}
+  particleEffect: {fileID: 0}
   shootPos: {fileID: 0}
   layerRaycast:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 5441
   poolSize: 10
   spreadAmount: 5
   currentSlot: 0

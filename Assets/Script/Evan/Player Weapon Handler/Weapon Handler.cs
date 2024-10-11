@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class WeaponHandler : MonoBehaviour
     [Header("Weapon Stats")]
     public int weaponDamage;               // Damage dealt by the weapon
     public float weaponRateOfFire;         // Rate of fire in shots per second
-    [Range(0, 1.5f)]
+    [Range(0, 1.2f)]
     public float weaponAccuracy;           // Weapon accuracy, higher values mean less spread
 
     [Header("Weapon Attributes")]
@@ -127,9 +128,13 @@ public class WeaponHandler : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
             {
                 Vector3 direction = (hit.point - shootPos.position).normalized;
+                direction.y = 0;
 
                 bullet.transform.position = shootPos.position;
                 bullet.transform.rotation = Quaternion.LookRotation(direction);
+                Vector3 currentRotation = bullet.transform.eulerAngles;
+                currentRotation.x -= 180;
+                bullet.transform.eulerAngles = currentRotation;
                 bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 bullet.GetComponent<Rigidbody>().AddForce(direction * shootForce, ForceMode.Impulse);

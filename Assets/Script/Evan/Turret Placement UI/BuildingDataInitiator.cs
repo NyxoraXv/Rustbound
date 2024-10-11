@@ -35,6 +35,7 @@ public class BuildingDataInitiator : MonoBehaviour
     private void OnClick()
     {
         // Find the PlacementSystem instance and start placement with the given ID
+        Debug.Log(id);
         PlacementSystem.Instance.StartPlacement(id);
     }
 }

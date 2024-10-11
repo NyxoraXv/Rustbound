@@ -333,7 +333,7 @@ public class PlayerMovement : VariableComponent
         {
             // Kurangi stamina saat berlari
             currentStamina -= staminaDecreaseRate * Time.deltaTime;
-            Debug.Log("berkurang...");
+            // Debug.Log("berkurang...");
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Pastikan stamina tidak di bawah 0
         }
         else
@@ -345,6 +345,6 @@ public class PlayerMovement : VariableComponent
 
 
         // Opsional: Debug log untuk melihat nilai stamina
-        Debug.Log("Stamina: " + currentStamina);
+        // Debug.Log("Stamina: " + currentStamina);
     }
 }
