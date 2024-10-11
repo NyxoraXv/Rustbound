@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class Building : VariableComponent, ITurret
 {
+    [Header("Building ID")]
+    public int buildingID;
+    
     [Header("SFX")]
     public int SoundToChoose = 9; // Variable to choose sound
 
@@ -39,6 +42,9 @@ public class Building : VariableComponent, ITurret
             ParticleSystem vfxInstance = Instantiate(destroyVFX, transform.position, Quaternion.identity);
             Destroy(vfxInstance.gameObject, 1f);
         }
+        Vector3Int gridPosition = PlacementSystem.Instance.grid.WorldToCell(transform.position);
+
+        PlacementSystem.Instance.RemoveTurret(buildingID, gridPosition);
         Destroy(gameObject); // Destroy the turret GameObject
     }
 
