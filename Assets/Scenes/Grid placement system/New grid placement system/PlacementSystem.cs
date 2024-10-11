@@ -189,13 +189,32 @@ public class PlacementSystem : MonoBehaviour
 
 
     // Remove an object from the world
+    // Remove an object from the world by ID
     private void RemoveObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
         {
-            Destroy(hit.collider.gameObject);
+            GameObject objectToRemove = hit.collider.gameObject;
+
+            // Check if the object implements ITurret interface
+            RemoveTurret turret = objectToRemove.GetComponent<RemoveTurret>();
+            if (turret != null)
+            {
+                // Find the ObjectData by ID
+                ObjectData objectData = objectsDatabase.objectsData.Find(obj => obj.ID == turret.ID);
+
+                if (objectData != null)
+                {
+                    // Decrease the currentSpawnedTurret count for the turret type
+                    objectData.currentSpawnedTurret--;
+                    Debug.Log($"Turret removed. Current count for {objectData.Name}: {objectData.currentSpawnedTurret}");
+                }
+            }
+
+            // Destroy the object
+            Destroy(objectToRemove);
             isRemoving = false;
         }
     }
