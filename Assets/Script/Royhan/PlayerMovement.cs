@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : VariableComponent
 {
@@ -210,13 +211,14 @@ public class PlayerMovement : VariableComponent
             canvasGroup.DOFade(1f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
             {
                 // Step 3: Optional delay after fading in
-                DOVirtual.DelayedCall(2f, () =>
+                DOVirtual.DelayedCall(3f, () =>
                 {
                     // Step 4: Fade out the roundFinish
                     canvasGroup.DOFade(0f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
                     {
                         // Step 5: Set inactive after fade out
                         playerDied.SetActive(false);
+                        
                     });
                 });
             });
