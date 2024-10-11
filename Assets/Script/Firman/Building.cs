@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class Building : VariableComponent, ITurret
@@ -16,6 +17,8 @@ public class Building : VariableComponent, ITurret
 
     [Header("VFX")]
     public ParticleSystem destroyVFX;
+    public Image healthBar;
+
     private SoundManager soundManager;
     private bool isPreviewObject;
 
@@ -24,6 +27,20 @@ public class Building : VariableComponent, ITurret
         _currentHealth = maxHealth;
 
         soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
+    private void Update() 
+    {
+        float healthPercentage =_currentHealth / maxHealth;; 
+        if (healthPercentage<1)
+        {
+            healthBar.gameObject.SetActive(true);
+            healthBar.fillAmount = healthPercentage;
+        }
+        else
+        {
+            healthBar.gameObject.SetActive(false);
+        }    
     }
 
     public override void TakeDamage(float damage)
