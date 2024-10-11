@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5922404075027071192}
-  - component: {fileID: 2596563221097313550}
   m_Layer: 0
   m_Name: Thin Wooden Barbed Fence
   m_TagString: Untagged
@@ -33,28 +32,6 @@ Transform:
   - {fileID: 411816454914725592}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2596563221097313550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142075414440139418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 100
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  buildingID: 13
-  SoundToChoose: 9
-  destroyVFX: {fileID: 8283121653926416167, guid: f67d61bc7a642d447b340f4904647119,
-    type: 3}
 --- !u!1001 &3008610816258203915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +44,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarbedWireFence_36_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827270825187339625, guid: 17ae22a8c221d254f84fbe0e68ed0705,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827270825187339625, guid: 17ae22a8c221d254f84fbe0e68ed0705,
+        type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 3169709538269680814, guid: 17ae22a8c221d254f84fbe0e68ed0705,
         type: 3}
@@ -141,7 +128,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2827270825187339625, guid: 17ae22a8c221d254f84fbe0e68ed0705,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7260737048242513804}
   m_SourcePrefab: {fileID: 100100000, guid: 17ae22a8c221d254f84fbe0e68ed0705, type: 3}
 --- !u!4 &411816454914725592 stripped
 Transform:
@@ -149,3 +140,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3008610816258203915}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1079949455549664354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2827270825187339625, guid: 17ae22a8c221d254f84fbe0e68ed0705,
+    type: 3}
+  m_PrefabInstance: {fileID: 3008610816258203915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7260737048242513804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079949455549664354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 100
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingID: 13
+  soundTakeDamage: 13
+  soundDestroy: 9
+  destroyVFX: {fileID: 0}

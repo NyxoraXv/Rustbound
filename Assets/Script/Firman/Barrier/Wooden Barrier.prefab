@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934992311234877831}
-  - component: {fileID: 890220121303744116}
   m_Layer: 0
   m_Name: Wooden Barrier
   m_TagString: Untagged
@@ -33,28 +32,6 @@ Transform:
   - {fileID: 4783118974259012764}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &890220121303744116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7842527275457968204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 150
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  buildingID: 16
-  SoundToChoose: 9
-  destroyVFX: {fileID: 8283121653926416167, guid: f67d61bc7a642d447b340f4904647119,
-    type: 3}
 --- !u!1001 &5716373003059701218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +44,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WoodenBarrier_09_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467951067566595012, guid: 4d77b47f753caf24493215b264f25ad6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 467951067566595012, guid: 4d77b47f753caf24493215b264f25ad6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 951860035974201726, guid: 4d77b47f753caf24493215b264f25ad6,
         type: 3}
@@ -137,6 +124,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4498029741669188581}
+    - targetCorrespondingSourceObject: {fileID: 467951067566595012, guid: 4d77b47f753caf24493215b264f25ad6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4977814629718803416}
   m_SourcePrefab: {fileID: 100100000, guid: 4d77b47f753caf24493215b264f25ad6, type: 3}
 --- !u!4 &4783118974259012764 stripped
 Transform:
@@ -171,3 +162,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.179134, y: 1.6066616, z: 1.2173299}
   m_Center: {x: -0.012066364, y: 0.6684139, z: -0.0046916604}
+--- !u!114 &4977814629718803416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272270344866233894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 150
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingID: 16
+  soundTakeDamage: 16
+  soundDestroy: 12
+  destroyVFX: {fileID: 0}

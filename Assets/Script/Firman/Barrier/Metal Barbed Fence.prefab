@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962512197655593982}
-  - component: {fileID: 6629102520351738250}
   m_Layer: 0
   m_Name: Metal Barbed Fence
   m_TagString: Untagged
@@ -33,28 +32,6 @@ Transform:
   - {fileID: 2836081818506899379}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6629102520351738250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5316611382278635583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 300
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  buildingID: 20
-  SoundToChoose: 9
-  destroyVFX: {fileID: 8283121653926416167, guid: f67d61bc7a642d447b340f4904647119,
-    type: 3}
 --- !u!1001 &98839026777665202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,10 +110,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbedWireMetalFence_26_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
+        type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2147072134074445794}
   m_SourcePrefab: {fileID: 100100000, guid: 4b3b356a77ccfe640a982b42b04ecd98, type: 3}
 --- !u!4 &2836081818506899379 stripped
 Transform:
@@ -144,3 +135,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 98839026777665202}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3175066117781353737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264894628783676347, guid: 4b3b356a77ccfe640a982b42b04ecd98,
+    type: 3}
+  m_PrefabInstance: {fileID: 98839026777665202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2147072134074445794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175066117781353737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 150
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingID: 20
+  soundTakeDamage: 13
+  soundDestroy: 9
+  destroyVFX: {fileID: 0}

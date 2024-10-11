@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2278930166363647320}
-  - component: {fileID: 6499418189034536214}
   m_Layer: 0
   m_Name: Thick Wooden Barbed Fence
   m_TagString: Untagged
@@ -33,28 +32,6 @@ Transform:
   - {fileID: 5470885791064386514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6499418189034536214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264226503161392077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rotationSpeed: 5
-  maxHealth: 150
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  buildingID: 14
-  SoundToChoose: 9
-  destroyVFX: {fileID: 8283121653926416167, guid: f67d61bc7a642d447b340f4904647119,
-    type: 3}
 --- !u!1001 &1193845104937767848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +44,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WoodenBarbedWireBarrier_33_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 6592458862164998266, guid: b4b7339fb3082864b8444ec917d80cf4,
         type: 3}
@@ -142,6 +129,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7137995579013278253}
+    - targetCorrespondingSourceObject: {fileID: 5780034516089840320, guid: b4b7339fb3082864b8444ec917d80cf4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1093901021560660016}
   m_SourcePrefab: {fileID: 100100000, guid: b4b7339fb3082864b8444ec917d80cf4, type: 3}
 --- !u!1 &4658882591786512744 stripped
 GameObject:
@@ -170,6 +161,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.3545504, y: 1.5213625, z: 1.5790304}
   m_Center: {x: 0.001305878, y: 0.5761652, z: 0.013951719}
+--- !u!114 &1093901021560660016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658882591786512744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e7e9e0df398c14984c48433a673452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5
+  maxHealth: 150
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  buildingID: 14
+  soundTakeDamage: 13
+  soundDestroy: 9
+  destroyVFX: {fileID: 0}
 --- !u!4 &5470885791064386514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592458862164998266, guid: b4b7339fb3082864b8444ec917d80cf4,
