@@ -380,6 +380,7 @@ public class PlayerMovement : VariableComponent
                 wh.transform.localPosition = Vector3.zero;
                 wh.transform.localRotation = Quaternion.identity;
                 activeWeaponHandler = wh;
+                rateFire = activeWeaponHandler.weaponRateOfFire;
 
                 // Update the primary weapon image
                 HUDController.instance.SwapWeaponImagesSlot1(

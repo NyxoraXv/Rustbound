@@ -367,7 +367,7 @@ MonoBehaviour:
   layerRaycast:
     serializedVersion: 2
     m_Bits: 5441
-  poolSize: 40
+  poolSize: 80
   spreadAmount: 5
   currentSlot: 0
 --- !u!1 &447825539612421235
