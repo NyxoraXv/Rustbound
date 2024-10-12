@@ -53,6 +53,7 @@ public class WeaponManager : MonoBehaviour
             else
             {
                 Debug.Log("Not enough currency to buy " + weaponToBuy.weaponName);
+                UIInformation.instance.ShowPopup(UIInformation.PopupMessageType.NotEnoughBalance);
                 return false;
             }
         }

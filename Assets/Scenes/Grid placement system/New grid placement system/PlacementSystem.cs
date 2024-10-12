@@ -169,10 +169,13 @@ public class PlacementSystem : MonoBehaviour
                 if (CurrencyManager.Instance.SpendCurrency((TurretManager.Instance.turretDatabase.GetTurretByID(currentObjectData.ID).price)))
                 {
                     StartCoroutine(PlaceObjectWithDelay(0f));  // Add delay before placing (e.g., 0.5 seconds)
+                    UIInformation.instance.ShowPopup(UIInformation.PopupMessageType.NotEnoughBalance);
+
                 }
                 else
                 {
                     Debug.LogWarning("Failed to spend currency.");
+                    
                 }
             }
         }
