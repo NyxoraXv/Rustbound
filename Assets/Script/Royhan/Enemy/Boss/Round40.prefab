@@ -1991,7 +1991,7 @@ MonoBehaviour:
   regenerationHealthPerSecond: 50
   healthBar: {fileID: 3624377512722313421}
   currentTargetType: 0
-  damageDealt: 25
+  damageDealt: 50
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3

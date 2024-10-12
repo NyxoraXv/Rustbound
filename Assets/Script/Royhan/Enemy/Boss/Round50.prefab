@@ -2078,7 +2078,7 @@ MonoBehaviour:
   regenerationHealthPerSecond: 100
   healthBar: {fileID: 2118032956563021802}
   currentTargetType: 0
-  damageDealt: 50
+  damageDealt: 150
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3
