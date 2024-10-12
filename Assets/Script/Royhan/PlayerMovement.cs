@@ -56,12 +56,15 @@ public class PlayerMovement : VariableComponent
     public float currentStamina {get; private set;}  // Stamina saat ini
     
     private bool isSprinting = false; // Status apakah sedang berlari
+    private float rateFire;
+    private float timeNow = 0;
 
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
     public void EquipWeapon(WeaponHandler newWeaponHandler)
     {
         activeWeaponHandler = newWeaponHandler;
+        rateFire = activeWeaponHandler.weaponRateOfFire;
 
         // Set position, parent, etc., of the weapon based on the player's weapon holding position (e.g., hands).
         activeWeaponHandler.transform.SetParent(weaponGrab); // Attach to player's hand or weapon holding position
@@ -102,6 +105,9 @@ public class PlayerMovement : VariableComponent
         HandleStamina();
         HandleFiring();
         HandleWeaponScroll();
+
+        // if (timeNow > rateFire)
+        //     timeNow = 0;
     }
 
     public void OnFire(InputAction.CallbackContext context)
@@ -113,14 +119,17 @@ public class PlayerMovement : VariableComponent
         }
         else if (context.canceled)
         {
+            timeNow = 0;
             isFiring = false; // Stop firing
         }
     }
 
     private void HandleFiring()
     {
-        if (isFiring && activeWeaponHandler != null)
+        timeNow += Time.deltaTime;
+        if (isFiring && activeWeaponHandler != null && timeNow > rateFire)
         {
+            timeNow = 0;
             activeWeaponHandler.Fire(); // Call the Fire method on the active weapon
         }
     }
@@ -347,6 +356,7 @@ public class PlayerMovement : VariableComponent
                 wh.transform.localPosition = Vector3.zero;
                 wh.transform.localRotation = Quaternion.identity;
                 activeWeaponHandler = wh;
+                rateFire = activeWeaponHandler.weaponRateOfFire;
                 HUDController.instance.SwapWeaponImagesSlot1((WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage));
             }
         }
