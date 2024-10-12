@@ -87,6 +87,6 @@ public class StartRound : MonoBehaviour
 
     private void FadeOutUI()
     {
-        canvasGroup.DOFade(0f, 3f); // Fade out over 1 second
+        canvasGroup.DOFade(0f, 6f); // Fade out over 1 second
     }
 }
