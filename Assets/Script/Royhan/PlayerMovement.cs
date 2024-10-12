@@ -275,26 +275,45 @@ public class PlayerMovement : VariableComponent
 
     private void HandleRotation(Vector3 moveDirection)
     {
-        if (UIController.instance.currentState != 0)
-            return;
-
         // Raycast to determine aiming direction based on mouse position
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
         {
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
+            targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
             direction = (targetPosition - shootPos.position).normalized;
 
-            // Calculate desired upper body rotation for aiming
+            // Calculate desired upper body rotation
             Quaternion upperBodyRotation = Quaternion.LookRotation(direction, Vector3.up);
-            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, upperBodyRotation, rotationSpeed * Time.deltaTime);
-        }
+            Vector3 eulerRotation = upperBodyRotation.eulerAngles;
+            eulerRotation.y += 60.378f;  // Adjust for offset
 
-        // Separate logic for movement rotation
-        if (moveDirection != Vector3.zero)
-        {
-            // Only rotate lower body towards movement direction
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), rotationSpeed * Time.deltaTime);
+            // Apply the upper body rotation
+            rotateBody.rotation = Quaternion.Euler(eulerRotation);
+
+            // Handle lower body rotation
+            if (moveDirection != Vector3.zero)
+            {
+                // If moving backward, align lower body with upper body's rotation
+                float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
+                if (dotProduct < 0)  // Moving backward
+                {
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        rotateBody.rotation, // Match lower body to upper body's rotation
+                        rotationSpeed * Time.deltaTime
+                    );
+                }
+                else
+                {
+                    // Normal forward movement rotation
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        Quaternion.LookRotation(moveDirection),
+                        rotationSpeed * Time.deltaTime
+                    );
+                }
+            }
         }
     }
 
