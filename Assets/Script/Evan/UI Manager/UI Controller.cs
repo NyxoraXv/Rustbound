@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     private Vignette vignette;
     private DepthOfField depthOfField;
-    private int currentState;
+    public int currentState;
     public GameObject HUD, WeaponMarket, TurretMarket, Inventory, PlacementUI, DeadUI; // Added DeadUI reference
     private bool onWar;
 
