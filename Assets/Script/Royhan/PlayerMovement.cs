@@ -61,6 +61,7 @@ public class PlayerMovement : VariableComponent
     private bool isSprinting = false; // Status apakah sedang berlari
     private float rateFire;
     private float timeNow = 0;
+     private SoundManager soundManager;
 
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
@@ -76,7 +77,7 @@ public class PlayerMovement : VariableComponent
 
     private void initiator()
     {
-        CurrencyManager.Instance.AddCurrency(2000);
+        CurrencyManager.Instance.AddCurrency(200);
         WeaponManager.Instance.BuyWeapon(0); // Purchase the first weapon (or select the default one)
         WeaponManager.Instance.EquipWeapon(0, 1); // Equip the first weapon in slot 1
         WeaponManager.Instance.EquipWeapon(0, 2);
@@ -98,6 +99,7 @@ public class PlayerMovement : VariableComponent
         _speed = speed;
 
         currentStamina = maxStamina;
+        soundManager = FindAnyObjectByType<SoundManager>(); 
         initiator();
     }
 
@@ -128,6 +130,11 @@ public class PlayerMovement : VariableComponent
             timeNow = 0;
             isFiring = false; // Stop firing
         }
+    }
+    public void stepSound()
+    {
+        int rand = UnityEngine.Random.Range(0,13);
+        soundManager.PlaySFX(40 + rand);
     }
 
     private void HandleFiring()

@@ -1981,7 +1981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 10000
+  maxHealth: 20000
+  _currentHealth: 0
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1990,7 +1991,7 @@ MonoBehaviour:
   regenerationHealthPerSecond: 50
   healthBar: {fileID: 3624377512722313421}
   currentTargetType: 0
-  damageDealt: 25
+  damageDealt: 50
   resistances: 0
   resistanceMultiplier: 0.5
   attactRange: 3
