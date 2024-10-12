@@ -228,6 +228,9 @@ public class WeaponHandler : MonoBehaviour
 
     private void SoundEffect()
     {
+        // int argh = UnityEngine.Random.Range(0,1);
+        // if (argh == 0)
+        //     return;
         switch (weaponName)
         {
             case "AK47":
