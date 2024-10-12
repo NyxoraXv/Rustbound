@@ -48,7 +48,7 @@ public class EnemyController : VariableComponent
     private float nextTargetUpdateTime = 0f;
     private bool detectPlayer = false;
     private CurrencyManager currencyManager;
-
+    private SoundManager soundManager;
 
     private void Start()
     {
@@ -58,6 +58,7 @@ public class EnemyController : VariableComponent
         }
 
         _currentHealth = maxHealth;
+        soundManager = FindAnyObjectByType<SoundManager>(); 
         
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent nm))
         {
@@ -160,6 +161,8 @@ public class EnemyController : VariableComponent
     }
     public void Del () 
     {
+        int kyah = UnityEngine.Random.Range(0,10);
+        soundManager.PlaySFX(27 + kyah);
         Destroy(gameObject, 1.5f);
         currencyManager.AddCurrency(currencyAdd);
         if (round != null)
@@ -174,6 +177,7 @@ public class EnemyController : VariableComponent
         Destroy(GetComponent<Collider>());
         // Destroy(navMeshAgent);
         Destroy(GetComponent<Rigidbody>());
+        
     }
 
     private GameObject FindNearestEntityWithTag(string tag)
