@@ -11,10 +11,12 @@ public class SoundManager : MonoBehaviour
     [Header("------- Audio Clip -------")]
     public AudioClip BgmFight;
     public AudioClip BGMMainMenu;
+    public AudioClip BGMMarket;
     public AudioClip[] SFXClips; // Array of sound effects audio clips
 
     private bool fightPlayed = true;
     public float fadeDuration = 1.0f; // Durasi fade-out dan fade-in
+    private AudioClip lastAudio;
 
     private void Awake()
     {
@@ -45,6 +47,20 @@ public class SoundManager : MonoBehaviour
 
         StartCoroutine(FadeOutAndSwitch(MusicSource, BgmFight));
         fightPlayed = true;
+    }
+    public void SwitchMarket()
+    {
+        if (MusicSource.clip != BGMMarket)
+        {
+            lastAudio = MusicSource.clip;
+            StartCoroutine(FadeOutAndSwitch(MusicSource, BGMMarket));
+        }
+    }
+
+    public void ReturnSwitchMarket()
+    {
+        if (MusicSource.clip == BGMMarket)
+            StartCoroutine(FadeOutAndSwitch(MusicSource, lastAudio));
     }
 
     // Coroutine to fade out, switch BGM, and fade in

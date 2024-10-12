@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     private bool onWar;
 
     private bool isHUDAnimating = false; // Track if the HUD is currently animating
+    private SoundManager soundManager;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
+        soundManager = FindAnyObjectByType<SoundManager>();
         globalVolume.profile.TryGet<Vignette>(out vignette);
         globalVolume.profile.TryGet<DepthOfField>(out depthOfField);
     }
@@ -170,6 +172,7 @@ public class UIController : MonoBehaviour
         currentState = stateID;
 
         // Deactivate global volume if outside states 1, 2, or 3
+
         if (stateID < 1 || stateID > 3)
         {
             triggerGlobalVolume(false);
@@ -185,6 +188,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
+                soundManager.ReturnSwitchMarket();
                 break;
             case 1:
                 StartCoroutine(HUDSetactive(false));
@@ -194,6 +198,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
+                soundManager.SwitchMarket();
                 break;
             case 2:
                 StartCoroutine(HUDSetactive(false));
@@ -203,6 +208,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(true);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
+                soundManager.SwitchMarket();
                 break;
             case 3:
                 StartCoroutine(HUDSetactive(false));
@@ -212,6 +218,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(true);
                 PlacementUI.SetActive(false);
+                soundManager.ReturnSwitchMarket();
                 break;
             case 4:
                 StartCoroutine(HUDSetactive(false));
@@ -220,6 +227,7 @@ public class UIController : MonoBehaviour
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(true);
                 DeadUI.SetActive(false);
+                soundManager.ReturnSwitchMarket();
                 break;
             case 5: // Dead UI state
                 StartCoroutine(HUDSetactive(false));
@@ -228,6 +236,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
+                soundManager.ReturnSwitchMarket();
                 break;
             default:
                 StartCoroutine(HUDSetactive(false));
@@ -236,6 +245,7 @@ public class UIController : MonoBehaviour
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
+                soundManager.ReturnSwitchMarket();
                 break;
         }
     }
