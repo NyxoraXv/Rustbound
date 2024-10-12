@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     private bool isHUDAnimating = false; // Track if the HUD is currently animating
     private SoundManager soundManager;
 
+    public GameObject help;
+
     private void Awake()
     {
         instance = this;
@@ -45,6 +47,10 @@ public class UIController : MonoBehaviour
             setUIState(0);
         }else if(Input.GetKeyDown(KeyCode.Escape) && currentState == 0) {
             setUIState(3);
+        }
+        if (Input.GetKeyDown(KeyCode.H) && currentState==0)
+        {
+            help.SetActive(true);
         }
     }
 
