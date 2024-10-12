@@ -61,6 +61,7 @@ public class PlayerMovement : VariableComponent
     private bool isSprinting = false; // Status apakah sedang berlari
     private float rateFire;
     private float timeNow = 0;
+     private SoundManager soundManager;
 
     // private static Dictionary<string, int> weaponIndexes = new Dictionary<string, int>();
 
@@ -98,6 +99,7 @@ public class PlayerMovement : VariableComponent
         _speed = speed;
 
         currentStamina = maxStamina;
+        soundManager = FindAnyObjectByType<SoundManager>(); 
         initiator();
     }
 
@@ -128,6 +130,11 @@ public class PlayerMovement : VariableComponent
             timeNow = 0;
             isFiring = false; // Stop firing
         }
+    }
+    public void stepSound()
+    {
+        int rand = UnityEngine.Random.Range(0,13);
+        soundManager.PlaySFX(40 + rand);
     }
 
     private void HandleFiring()
