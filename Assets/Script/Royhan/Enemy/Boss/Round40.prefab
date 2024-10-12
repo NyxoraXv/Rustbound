@@ -1981,7 +1981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5
-  maxHealth: 10000
+  maxHealth: 20000
+  _currentHealth: 0
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []

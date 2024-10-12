@@ -24,7 +24,12 @@ public class PlacementSystem : MonoBehaviour
 
     public void RemoveObject(int id)
     {
+        ObjectData selectedObjectData = objectsDatabase.objectsData[id];
 
+        if (selectedObjectData.currentSpawnedTurret > 0)
+        {
+            selectedObjectData.currentSpawnedTurret--;
+        }
     }
 
     private void Awake()
