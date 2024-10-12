@@ -1712,7 +1712,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d89944f4409b9214895845e9ba044a5e,
         type: 3}
       propertyPath: m_TagString
-      value: Building
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -7115,8 +7115,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.8170276, y: 7.612987, z: 20.542162}
-  m_Center: {x: 0.35459206, y: 3.3064933, z: -1.5937859}
+  m_Size: {x: 6.0366664, y: 7.612987, z: 15.413269}
+  m_Center: {x: 0.4049903, y: 3.3064933, z: -1.4072883}
 --- !u!1 &533198627
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,7 +7868,7 @@ GameObject:
   - component: {fileID: 606608335}
   m_Layer: 2
   m_Name: GameObject
-  m_TagString: Building
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7907,8 +7907,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7731824, y: 2.2549272, z: 3.5244083}
-  m_Center: {x: -0.14378518, y: -0.6274636, z: -0.55947304}
+  m_Size: {x: 1.5984334, y: 1.9805397, z: 3.056983}
+  m_Center: {x: 0.11362856, y: -0.7646573, z: -0.5394764}
 --- !u!4 &608607375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 717904950058035930, guid: 5aaf57c36abdcfb4fb2fcaae655a799d,
@@ -20783,7 +20783,7 @@ GameObject:
   - component: {fileID: 1838707223}
   m_Layer: 2
   m_Name: collider
-  m_TagString: Building
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20822,8 +20822,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.032220505, y: 0.049135707, z: 0.04882232}
-  m_Center: {x: 0.0018133478, y: 0.01956785, z: 0.0074979393}
+  m_Size: {x: 0.023076007, y: 0.049135707, z: 0.04574383}
+  m_Center: {x: 0.0016817058, y: 0.01956785, z: 0.0059586866}
 --- !u!1001 &1839187281
 PrefabInstance:
   m_ObjectHideFlags: 0
