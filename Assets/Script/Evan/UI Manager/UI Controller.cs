@@ -40,9 +40,11 @@ public class UIController : MonoBehaviour
         {
             setUIState(3);
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && currentState != 0)
+        if ((Input.GetKeyDown(KeyCode.Escape)) && currentState != 0)
         {
             setUIState(0);
+        }else if(Input.GetKeyDown(KeyCode.Escape) && currentState == 0) {
+            setUIState(3);
         }
     }
 
