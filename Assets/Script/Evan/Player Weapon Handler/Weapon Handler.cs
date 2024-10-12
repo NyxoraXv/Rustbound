@@ -241,7 +241,7 @@ public class WeaponHandler : MonoBehaviour
                 soundManager.PlaySFX(19);
                 break;
             case "M4":
-                soundManager.PlaySFX(20);
+                soundManager.PlaySFX(18);
                 break;
             case "M107":
                 soundManager.PlaySFX(21);
