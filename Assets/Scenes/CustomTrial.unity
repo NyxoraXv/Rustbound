@@ -1135,6 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8243c21850541594a9b9dce89b86e0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currencyText: {fileID: 0}
 --- !u!114 &91464114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,10 +1161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740d332026cfd9c47a59547df1822d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundFinish: {fileID: 0}
   textRound: {fileID: 1618939511}
   textTotalZombie: {fileID: 1137910122}
   currentRound: 1
   zombiesToSpawn: 5
+  onWar: 0
   Boss1: {fileID: 4127960938634840145, guid: a5295e78cd3f41f4d9ccd1f82ccb9e0e, type: 3}
   Boss2: {fileID: 4127960938634840145, guid: 48f1b31ea6bada048935687ddba47ad0, type: 3}
   Boss3: {fileID: 4127960938634840145, guid: c498d27134071b64496af78cc4a67616, type: 3}
@@ -11723,6 +11726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3cc218bf5591549b61f0f19995c5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundBegin: {fileID: 0}
   uiToFade: {fileID: 1835390981}
 --- !u!114 &1004077071
 MonoBehaviour:
@@ -11992,7 +11996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1016635139
 Transform:
   m_ObjectHideFlags: 0
@@ -14028,11 +14032,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 832575518}
+  currentState: 0
   HUD: {fileID: 1004077066}
   WeaponMarket: {fileID: 721395151}
   TurretMarket: {fileID: 2121871124}
   Inventory: {fileID: 1875677584}
   PlacementUI: {fileID: 1305670325}
+  DeadUI: {fileID: 0}
 --- !u!4 &1173548803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6843009160552232294, guid: d5cd845de5e81f847b5a29267132626e,
@@ -15227,7 +15233,6 @@ MonoBehaviour:
   itemContainerParent: {fileID: 955019266}
   startPos: {x: 0, y: 0}
   showTurretButton: {fileID: 1800733950}
-  showWallButton: {fileID: 233946756}
 --- !u!1 &1306222377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d34e8533c8de8ec45869f9144584d929,
