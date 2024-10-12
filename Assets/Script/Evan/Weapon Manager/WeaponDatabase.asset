@@ -18,7 +18,7 @@ MonoBehaviour:
       type: 3}
     weaponImage: {fileID: 21300000, guid: 26785d11fa995e546ad659a92a8fc051, type: 3}
     weaponID: 0
-    weaponDamage: 5000
+    weaponDamage: 20
     weaponRateOfFire: 0.1
     weaponAccuracy: 0.396
     price: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
       type: 3}
     weaponImage: {fileID: 21300000, guid: a7c56146d54f8b9468a0db3acc27f07e, type: 3}
     weaponID: 1
-    weaponDamage: 100
+    weaponDamage: 30
     weaponRateOfFire: 0.5
     weaponAccuracy: 0.446
     price: 40
@@ -46,7 +46,7 @@ MonoBehaviour:
       type: 3}
     weaponImage: {fileID: 21300000, guid: 7c0de5710a5e6d34ea334db8da5af75f, type: 3}
     weaponID: 2
-    weaponDamage: 5
+    weaponDamage: 40
     weaponRateOfFire: 0.08
     weaponAccuracy: 0.909
     price: 80
@@ -60,7 +60,7 @@ MonoBehaviour:
       type: 3}
     weaponImage: {fileID: 21300000, guid: 00bf065747b717b4c8a1a3ddb4c702f8, type: 3}
     weaponID: 3
-    weaponDamage: 5
+    weaponDamage: 50
     weaponRateOfFire: 0.6
     weaponAccuracy: 0.937
     price: 120
@@ -74,7 +74,7 @@ MonoBehaviour:
       type: 3}
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
     weaponID: 5
-    weaponDamage: 75
+    weaponDamage: 60
     weaponRateOfFire: 100
     weaponAccuracy: 1.2
     price: 200
