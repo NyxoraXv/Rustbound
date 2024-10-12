@@ -70,8 +70,7 @@ public class Round : MonoBehaviour
     private Dictionary<Transform, float> spawnPointCooldowns = new Dictionary<Transform, float>();
     private int currencyMultiplier = 0;
     private SoundManager soundManager;
-    private StartRound startRound;
-
+    
     void Start()
     {
         soundManager = FindAnyObjectByType<SoundManager>();
@@ -85,10 +84,12 @@ public class Round : MonoBehaviour
         UpdateRoundText(currentRound); // For example, "ROUND 1"
 
         currencyManager = FindObjectOfType<CurrencyManager>();
-        startRound = FindAnyObjectByType<StartRound>();
 
-        StartCoroutine(StartSpawningZombies());
-        startRound.TriggerRoundBegin();
+        // Round round = FindObjectOfType<Round>();
+        // StartRound startRound = FindAnyObjectByType<StartRound>();
+
+        // StartCoroutine(round.StartSpawningZombies());
+        // startRound.TriggerRoundBegin();
     }
 
     void Update()
