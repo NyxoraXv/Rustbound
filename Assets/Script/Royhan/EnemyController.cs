@@ -159,6 +159,13 @@ public class EnemyController : VariableComponent
             healthBar.gameObject.SetActive(false);
         }
     }
+
+    public void stepSound()
+    {
+        int rand = UnityEngine.Random.Range(0,13);
+        soundManager.PlaySFX(40 + rand);
+    }
+    
     public void Del () 
     {
         int kyah = UnityEngine.Random.Range(0,10);
