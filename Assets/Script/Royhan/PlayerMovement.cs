@@ -359,41 +359,30 @@ public class PlayerMovement : VariableComponent
 
     private void SwitchWeapon(int slot)
     {
-        // Implement your weapon switching logic here
-        // For example, using the WeaponDatabase to get the active weapon based on the slot
-        WeaponHandler newActiveWeapon = null; // To store the new active weapon for updating UI
-
         foreach (WeaponHandler wh in WeaponManager.Instance.weaponCache.GetComponentsInChildren<WeaponHandler>())
         {
             if (wh.currentSlot == slot)
             {
                 if (activeWeaponHandler != null)
                 {
-                    HUDController.instance.SwapWeaponImagesSlot2(WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage);
+                    // Update the secondary weapon image when switching away from primary
+                    HUDController.instance.SwapWeaponImagesSlot2(
+                        WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage);
+
+                    // Deactivate the current weapon (move it off-screen or disable it)
                     activeWeaponHandler.transform.localPosition = new Vector3(999, 999);
                     activeWeaponHandler.transform.parent = WeaponManager.Instance.weaponCache.transform;
                 }
+
+                // Set the new active weapon
                 wh.transform.parent = weaponGrab;
                 wh.transform.localPosition = Vector3.zero;
                 wh.transform.localRotation = Quaternion.identity;
-
-                newActiveWeapon = wh; // Store the new active weapon
                 activeWeaponHandler = wh;
-                rateFire = activeWeaponHandler.weaponRateOfFire;
-                HUDController.instance.SwapWeaponImagesSlot1(WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage);
-            }
-        }
 
-        // Update the inventory UI to reflect the current weapon slot
-        if (newActiveWeapon != null)
-        {
-            // Assuming you have a reference to your InventoryUIAnimator component
-            InventoryUIAnimator inventoryUIAnimator = FindObjectOfType<InventoryUIAnimator>();
-            if (inventoryUIAnimator != null)
-            {
-                Sprite primarySprite = WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage; // Update with your primary weapon
-                Sprite secondarySprite = WeaponManager.Instance.weaponDatabase.GetWeaponByID(1).weaponImage; // Assuming index 1 is your secondary weapon
-                inventoryUIAnimator.UpdateWeaponIcons(primarySprite, secondarySprite);
+                // Update the primary weapon image
+                HUDController.instance.SwapWeaponImagesSlot1(
+                    WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage);
             }
         }
     }
