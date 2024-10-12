@@ -163,6 +163,7 @@ public class UIController : MonoBehaviour
         // If onWar is true, restrict access to only states 0 and 3
         if (onWar && stateID != 0 && stateID != 3)
         {
+            UIInformation.instance.ShowPopup(UIInformation.PopupMessageType.InCombat);
             return; // Exit if trying to set a restricted state during onWar
         }
 

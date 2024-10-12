@@ -277,47 +277,50 @@ public class PlayerMovement : VariableComponent
     {
         if (UIController.instance.currentState != 0)
             return;
+
         // Raycast to determine aiming direction based on mouse position
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
         {
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
-            targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
             direction = (targetPosition - shootPos.position).normalized;
 
-            // Calculate desired upper body rotation
+            // Calculate desired upper body rotation (only Y-axis)
             Quaternion upperBodyRotation = Quaternion.LookRotation(direction, Vector3.up);
-            Vector3 eulerRotation = upperBodyRotation.eulerAngles;
-            eulerRotation.y += 60.378f;  // Adjust for offset
+            upperBodyRotation = Quaternion.Euler(0, upperBodyRotation.eulerAngles.y + 60.378f, 0);  // Adjust for offset
 
-            // Apply the upper body rotation
-            rotateBody.rotation = Quaternion.Euler(eulerRotation);
+            // Apply the upper body rotation with smoothing
+            rotateBody.rotation = Quaternion.Slerp(rotateBody.rotation, upperBodyRotation, rotationSpeed * Time.deltaTime);
 
-            // Handle lower body rotation
+            // Handle lower body rotation (only Y-axis)
             if (moveDirection != Vector3.zero)
             {
-                // If moving backward, align lower body with upper body's rotation
+                // Determine the desired forward direction based on movement
+                Quaternion moveRotation = Quaternion.LookRotation(moveDirection);
                 float dotProduct = Vector3.Dot(moveDirection.normalized, direction.normalized);
-                if (dotProduct < 0)  // Moving backward
+
+                if (dotProduct < 0) // Moving backward
                 {
+                    // Match lower body to upper body's Y rotation
                     transform.rotation = Quaternion.Slerp(
                         transform.rotation,
-                        rotateBody.rotation, // Match lower body to upper body's rotation
+                        Quaternion.Euler(0, rotateBody.rotation.eulerAngles.y, 0), // Match lower body to upper body's Y rotation
                         rotationSpeed * Time.deltaTime
                     );
                 }
                 else
                 {
-                    // Normal forward movement rotation
+                    // Normal forward movement rotation (only Y-axis)
                     transform.rotation = Quaternion.Slerp(
                         transform.rotation,
-                        Quaternion.LookRotation(moveDirection),
+                        Quaternion.Euler(0, moveRotation.eulerAngles.y, 0), // Only Y-axis
                         rotationSpeed * Time.deltaTime
                     );
                 }
             }
         }
     }
+
 
     private void HandleWeaponScroll()
     {
@@ -347,25 +350,43 @@ public class PlayerMovement : VariableComponent
     {
         // Implement your weapon switching logic here
         // For example, using the WeaponDatabase to get the active weapon based on the slot
+        WeaponHandler newActiveWeapon = null; // To store the new active weapon for updating UI
+
         foreach (WeaponHandler wh in WeaponManager.Instance.weaponCache.GetComponentsInChildren<WeaponHandler>())
         {
             if (wh.currentSlot == slot)
             {
-                if(activeWeaponHandler!= null)
+                if (activeWeaponHandler != null)
                 {
-                    HUDController.instance.SwapWeaponImagesSlot2((WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage));
+                    HUDController.instance.SwapWeaponImagesSlot2(WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage);
                     activeWeaponHandler.transform.localPosition = new Vector3(999, 999);
                     activeWeaponHandler.transform.parent = WeaponManager.Instance.weaponCache.transform;
                 }
                 wh.transform.parent = weaponGrab;
                 wh.transform.localPosition = Vector3.zero;
                 wh.transform.localRotation = Quaternion.identity;
+
+                newActiveWeapon = wh; // Store the new active weapon
                 activeWeaponHandler = wh;
                 rateFire = activeWeaponHandler.weaponRateOfFire;
-                HUDController.instance.SwapWeaponImagesSlot1((WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage));
+                HUDController.instance.SwapWeaponImagesSlot1(WeaponManager.Instance.weaponDatabase.GetWeaponByID(wh.ID).weaponImage);
+            }
+        }
+
+        // Update the inventory UI to reflect the current weapon slot
+        if (newActiveWeapon != null)
+        {
+            // Assuming you have a reference to your InventoryUIAnimator component
+            InventoryUIAnimator inventoryUIAnimator = FindObjectOfType<InventoryUIAnimator>();
+            if (inventoryUIAnimator != null)
+            {
+                Sprite primarySprite = WeaponManager.Instance.weaponDatabase.GetWeaponByID(activeWeaponHandler.ID).weaponImage; // Update with your primary weapon
+                Sprite secondarySprite = WeaponManager.Instance.weaponDatabase.GetWeaponByID(1).weaponImage; // Assuming index 1 is your secondary weapon
+                inventoryUIAnimator.UpdateWeaponIcons(primarySprite, secondarySprite);
             }
         }
     }
+
 
     private int previousWeaponSlot = 1;
 
