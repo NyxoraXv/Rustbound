@@ -92,10 +92,11 @@ public class SoundManager : MonoBehaviour
     }
 
     // Play sound effects (SFX)
-    public void PlaySFX(int index)
+    public void PlaySFX(int index, float volume = 1f)
     {
         if (index >= 0 && index < SFXClips.Length)
         {
+            SFXSource.volume = volume;
             SFXSource.PlayOneShot(SFXClips[index]);
         }
         else

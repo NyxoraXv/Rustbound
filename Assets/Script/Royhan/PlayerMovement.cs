@@ -359,6 +359,7 @@ public class PlayerMovement : VariableComponent
 
     private void SwitchWeapon(int slot)
     {
+        soundManager.PlaySFX(slot);
         foreach (WeaponHandler wh in WeaponManager.Instance.weaponCache.GetComponentsInChildren<WeaponHandler>())
         {
             if (wh.currentSlot == slot)

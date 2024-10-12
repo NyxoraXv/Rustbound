@@ -40,6 +40,7 @@ public class TurretHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnHover()
     {
         // Scale up and move the weaponImage with the specified offset
+        SoundManager.instance.PlaySFX(52, 0.4f);
         weaponImage.rectTransform.DOScale(1.1f, 0.5f); // Scale up
         weaponImage.rectTransform.DOLocalMove(originalPosition + hoverOffset, 0.5f); // Move to the original position plus offset
         statsLine.transform.DOScale(1.2f, 0.5f);
