@@ -102,6 +102,9 @@ public class PlayerMovement : VariableComponent
     {
         if (onBuilding || onMenu)
             return;
+        if (UIController.instance.currentState != 0)
+            return;
+
         HandleStamina();
         HandleFiring();
         HandleWeaponScroll();
@@ -272,6 +275,8 @@ public class PlayerMovement : VariableComponent
 
     private void HandleRotation(Vector3 moveDirection)
     {
+        if (UIController.instance.currentState != 0)
+            return;
         // Raycast to determine aiming direction based on mouse position
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))

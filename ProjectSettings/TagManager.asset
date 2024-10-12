@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Audio
   - Building
+  - Ground
   layers:
   - Default
   - TransparentFX
