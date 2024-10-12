@@ -4,9 +4,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+
     [Header("------- Audio Source -------")]
     [SerializeField] AudioSource MusicSource;
-    [SerializeField] AudioSource SFXSource;
+    [SerializeField] AudioSource[] SFXSources; // Array of AudioSources for SFX
 
     [Header("------- Audio Clip -------")]
     public AudioClip BgmFight;
@@ -17,25 +18,29 @@ public class SoundManager : MonoBehaviour
     private bool fightPlayed = true;
     public float fadeDuration = 1.0f; // Durasi fade-out dan fade-in
     private AudioClip lastAudio;
+    private int currentSFXIndex = 0;
 
     private void Awake()
     {
         instance = this;
     }
 
-
     private void Start()
     {
         MusicSource.clip = BgmFight;
         MusicSource.loop = true;
         MusicSource.Play();
+        MusicSource.priority = 128;
+        foreach (var item in SFXSources)
+        {
+            item.priority = 256;
+        }
     }
 
     // Switch BGM to Main Menu with Fade Out/In
     public void SwitchBGMMainMenu()
     {
         if (!fightPlayed) return; // Cegah jika sudah di MainMenu
-
         StartCoroutine(FadeOutAndSwitch(MusicSource, BGMMainMenu));
         fightPlayed = false;
     }
@@ -44,10 +49,10 @@ public class SoundManager : MonoBehaviour
     public void SwitchBGMFight()
     {
         if (fightPlayed) return; // Cegah jika sudah di Fight mode
-
         StartCoroutine(FadeOutAndSwitch(MusicSource, BgmFight));
         fightPlayed = true;
     }
+
     public void SwitchMarket()
     {
         if (MusicSource.clip != BGMMarket)
@@ -66,10 +71,8 @@ public class SoundManager : MonoBehaviour
     // Coroutine to fade out, switch BGM, and fade in
     private IEnumerator FadeOutAndSwitch(AudioSource audioSource, AudioClip newClip)
     {
-        // Fade out
         float startVolume = audioSource.volume;
 
-        // Gradually decrease the volume
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(startVolume, 0, t / fadeDuration);
@@ -77,27 +80,29 @@ public class SoundManager : MonoBehaviour
         }
 
         audioSource.volume = 0;
-        audioSource.Stop(); // Stop the audio before switching clip
+        audioSource.Stop(); 
         audioSource.clip = newClip;
-        audioSource.Play(); // Play the new BGM
+        audioSource.Play();
 
-        // Fade in
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
             audioSource.volume = Mathf.Lerp(0, startVolume, t / fadeDuration);
             yield return null;
         }
 
-        audioSource.volume = startVolume; // Ensure the volume is fully restored
+        audioSource.volume = startVolume;
     }
 
-    // Play sound effects (SFX)
+    // Play sound effects (SFX) using round-robin through available sources
     public void PlaySFX(int index, float volume = 1f)
     {
         if (index >= 0 && index < SFXClips.Length)
         {
-            SFXSource.volume = volume;
-            SFXSource.PlayOneShot(SFXClips[index]);
+            AudioSource currentSFXSource = SFXSources[currentSFXIndex];
+            currentSFXSource.volume = volume;
+            currentSFXSource.PlayOneShot(SFXClips[index]);
+
+            currentSFXIndex = (currentSFXIndex + 1) % SFXSources.Length; // Round-robin increment
         }
         else
         {
