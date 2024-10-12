@@ -275,6 +275,7 @@ public class PlacementSystem : MonoBehaviour
     // Place the object in the world
     private void PlaceObject()
     {
+        SoundManager.instance.PlaySFX(58, 0.6f);
         Vector3 position = previewObject.transform.position;
         Quaternion rotation = previewObject.transform.rotation;
 

@@ -18017,7 +18017,7 @@ PrefabInstance:
     - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
         type: 3}
       propertyPath: SFXClips.Array.size
-      value: 53
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
         type: 3}
@@ -18029,6 +18029,41 @@ PrefabInstance:
       propertyPath: SFXClips.Array.data[52]
       value: 
       objectReference: {fileID: 8300000, guid: 2f6f1589fee6df04597e154697e06b4c, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[53]
+      value: 
+      objectReference: {fileID: 8300000, guid: f91c4398e30c3bc4a883524894dd83b3, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[54]
+      value: 
+      objectReference: {fileID: 8300000, guid: a7f12cbb8f85d8d419bb7b86ba88ce00, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[55]
+      value: 
+      objectReference: {fileID: 8300000, guid: c1bbf325920fbe74d884ce1d1d88a4be, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[56]
+      value: 
+      objectReference: {fileID: 8300000, guid: 40a50c73ba7919548a6124d0b25a4582, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[57]
+      value: 
+      objectReference: {fileID: 8300000, guid: 367ff0cfcfefdec4da37121472aa0215, type: 3}
+    - target: {fileID: 2009838094588428997, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: SFXClips.Array.data[58]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3313fbc00a1fc0a4fa47eb54361c3fac, type: 3}
+    - target: {fileID: 2273756373308054985, guid: 7b0328222d339e1418722c947f9e4231,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.736
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
