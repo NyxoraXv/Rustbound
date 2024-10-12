@@ -6128,7 +6128,7 @@ GameObject:
   - component: {fileID: 470365889}
   - component: {fileID: 470365890}
   - component: {fileID: 470365891}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: armory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
