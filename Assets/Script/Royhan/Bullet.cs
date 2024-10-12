@@ -21,13 +21,15 @@ public class Bullet : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, rangeAttack, objLayerCol);
         foreach (var hitCollider in hitColliders)
         {
-            int argh = Random.Range(0,1);
+            int argh = Random.Range(0,2);
             if (hitCollider.gameObject.CompareTag("Enemy"))
             {
+                int kyah = Random.Range(0,5);
                 Debug.Log(hitCollider.gameObject.name);
                 hitCollider.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
                 gameObject.SetActive(false);
                 soundManager.PlaySFX(23 + argh);
+                soundManager.PlaySFX(36 + kyah);
             }
             else
             {
