@@ -15766,6 +15766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: workbench
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38ac9f65d82e63a4a8c633d8c484e62c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -23947,7 +23952,12 @@ PrefabInstance:
     - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
         type: 3}
       propertyPath: rotationSpeed
-      value: 222
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 311577893531157241, guid: c529607493801d34fba5de493b0377f7,
+        type: 3}
+      propertyPath: layerRaycast.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 4892000278053851870, guid: c529607493801d34fba5de493b0377f7,
         type: 3}

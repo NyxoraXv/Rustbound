@@ -23,6 +23,8 @@ public class PlayerMovement : VariableComponent
     [SerializeField] private int poolSize = 10; // Ukuran pool
     [SerializeField] private float sprintWalkPercentage = 50f;
     [SerializeField] private LayerMask layerRaycast;
+
+    [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float staminaDecreaseRate = 10f;  // Pengurangan stamina per detik saat berlari
     [SerializeField] private float staminaRecoveryRate = 5f;   // Pemulihan stamina per detik saat tidak berlari
     public float maxStamina = 100f;  // Maksimum stamina
@@ -42,7 +44,8 @@ public class PlayerMovement : VariableComponent
     private Camera mainCamera; // Untuk mengambil posisi mouse
     private float _speed;
     private int dieParam = Animator.StringToHash("Die");
-    private Vector3 direction;
+    private Vector3 direction; 
+
     private Animator animator;
     private int walkParam = Animator.StringToHash("IsWalk");
     private int runParam = Animator.StringToHash("IsRun");
@@ -279,6 +282,11 @@ public class PlayerMovement : VariableComponent
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerRaycast))
         {
+            if (hit.collider.gameObject.layer == playerLayer)
+            {
+                return;
+            }
+
             Vector3 targetPosition = new Vector3(hit.point.x, shootPos.position.y, hit.point.z);
             targetPosition.z -= Mathf.Abs(hit.point.normalized.x);
             direction = (targetPosition - shootPos.position).normalized;
