@@ -12,6 +12,13 @@ public class InventoryUIAnimator : MonoBehaviour
 
     private static readonly int HologramFadeID = Shader.PropertyToID("_HologramFade");
 
+    public void UpdateWeaponIcons(Sprite primaryWeaponSprite, Sprite secondaryWeaponSprite)
+    {
+        primaryIcon.sprite = primaryWeaponSprite; // Update primary weapon icon
+        secondaryIcon.sprite = secondaryWeaponSprite; // Update secondary weapon icon
+    }
+
+
     public void TriggerPrimarySlot(bool state)
     {
         if (state)
