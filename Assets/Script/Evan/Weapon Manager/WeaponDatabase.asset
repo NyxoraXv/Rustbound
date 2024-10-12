@@ -20,12 +20,12 @@ MonoBehaviour:
     weaponID: 0
     weaponDamage: 100
     weaponRateOfFire: 20
-    weaponAccuracy: 1.2
+    weaponAccuracy: 0.396
     price: 0
-    reloadTime: 0
+    reloadTime: 0.1
     magazineSize: 30
     currentAmmo: 180
-    shootForce: 10
+    shootForce: 80
     shootingType: 0
   - weaponName: Benelli M4
     weaponPrefab: {fileID: 1236257789494122, guid: b99167b03615f404cbd44aafc48d4491,
@@ -34,12 +34,12 @@ MonoBehaviour:
     weaponID: 1
     weaponDamage: 100
     weaponRateOfFire: 40
-    weaponAccuracy: 1.2
+    weaponAccuracy: 0.446
     price: 40
-    reloadTime: 0
+    reloadTime: 0.5
     magazineSize: 30
     currentAmmo: 180
-    shootForce: 10
+    shootForce: 80
     shootingType: 0
   - weaponName: M4
     weaponPrefab: {fileID: 1117582899397640, guid: f21265e2f7f588648b0c7db8bbf33b73,
@@ -48,9 +48,9 @@ MonoBehaviour:
     weaponID: 2
     weaponDamage: 5
     weaponRateOfFire: 0
-    weaponAccuracy: 0
+    weaponAccuracy: 0.909
     price: 80
-    reloadTime: 1
+    reloadTime: 0.08
     magazineSize: 20
     currentAmmo: 180
     shootForce: 80
@@ -62,7 +62,7 @@ MonoBehaviour:
     weaponID: 3
     weaponDamage: 5
     weaponRateOfFire: 0
-    weaponAccuracy: 0
+    weaponAccuracy: 0.937
     price: 120
     reloadTime: 1
     magazineSize: 20
@@ -73,12 +73,12 @@ MonoBehaviour:
     weaponPrefab: {fileID: 1261748888023320, guid: 35e3c742471b7194bb0cc6c2b0cf0030,
       type: 3}
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
-    weaponID: 4
+    weaponID: 5
     weaponDamage: 5
     weaponRateOfFire: 100
     weaponAccuracy: 1.2
     price: 200
-    reloadTime: 1
+    reloadTime: 0.075
     magazineSize: 2000
     currentAmmo: 180
     shootForce: 80
