@@ -706,7 +706,7 @@ MonoBehaviour:
   maxLaserDistance: 100
   collisionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 5721
 --- !u!1001 &9182266833331784676
 PrefabInstance:
   m_ObjectHideFlags: 0

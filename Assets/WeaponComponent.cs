@@ -15,6 +15,7 @@ public class WeaponComponent : MonoBehaviour
         {
             playerMovement.bulletDamage = damage;
             playerMovement.bulletPrefab = bulletPref;
+            Bullet.bulletDamage = damage;
         }
     }
 

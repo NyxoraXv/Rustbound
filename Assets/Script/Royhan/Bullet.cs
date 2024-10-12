@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
                 int kyah = Random.Range(0,5);
                 Debug.Log(hitCollider.gameObject.name);
                 hitCollider.gameObject.GetComponent<VariableComponent>().TakeDamage(bulletDamage);
+                Debug.Log("give damage " + bulletDamage);
                 gameObject.SetActive(false);
                 soundManager.PlaySFX(23 + argh);
                 soundManager.PlaySFX(36 + kyah);

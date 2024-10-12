@@ -62,6 +62,7 @@ public class WeaponHandler : MonoBehaviour
         shootForce = weaponData.shootForce;
         shootingType = weaponData.shootingType;
         currentSlot = slot;
+        Bullet.bulletDamage = weaponDamage;
         // You can also instantiate the weaponPrefab if needed or manage UI here
         // For example:
         // GameObject instantiatedWeapon = Instantiate(weaponData.weaponPrefab, somePosition, someRotation);

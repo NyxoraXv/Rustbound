@@ -525,7 +525,7 @@ MonoBehaviour:
   maxLaserDistance: 100
   collisionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 5721
 --- !u!1 &7696900336051631975
 GameObject:
   m_ObjectHideFlags: 0
