@@ -10,6 +10,8 @@ using Unity.VisualScripting;
 
 public class Round : MonoBehaviour
 {
+    public static Round instance;
+
     [Header("Round Finish")]
     public GameObject roundFinish;
 
@@ -73,6 +75,7 @@ public class Round : MonoBehaviour
     
     void Start()
     {
+        instance = this;
         soundManager = FindAnyObjectByType<SoundManager>();
         // Check if textMeshPro is assigned
         if (textRound == null)
@@ -103,6 +106,7 @@ public class Round : MonoBehaviour
                 canvasGroup = roundFinish.AddComponent<CanvasGroup>(); // Add CanvasGroup if not present
             }
 
+            onWar = false;
             roundFinish.SetActive(true);  // Step 1: Set active
             
             canvasGroup.alpha = 0f;
@@ -165,6 +169,8 @@ public class Round : MonoBehaviour
     // Coroutine to start spawning zombies
     public IEnumerator StartSpawningZombies()
     {
+        UIController.instance.setUIState(0);
+        onWar = true;
         // Call SpawnZombie method repeatedly until reaching the max limit
         while (spawnedZombies < zombiesToSpawn)
         {

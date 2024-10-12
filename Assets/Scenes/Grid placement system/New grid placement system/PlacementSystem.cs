@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System.Net;  // DoTween for smooth animations
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -22,6 +21,11 @@ public class PlacementSystem : MonoBehaviour
     private ObjectData currentObjectData;
     private bool isPlacing, isRemoving;
     private List<MonoBehaviour> previewScripts = new List<MonoBehaviour>(); // Store all disabled scripts
+
+    public void RemoveObject(int id)
+    {
+
+    }
 
     private void Awake()
     {
@@ -169,7 +173,18 @@ public class PlacementSystem : MonoBehaviour
         }
         else if (isRemoving)
         {
-            RemoveObject(currentObjectData.ID);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
+            {
+                // Check if the clicked object is a turret or building
+                if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Building"))
+                {
+                    Destroy(hit.collider.gameObject);  // Remove the object
+                    Debug.Log("Object removed: " + hit.collider.gameObject.name);
+                }
+            }
         }
     }
 
@@ -207,40 +222,22 @@ public class PlacementSystem : MonoBehaviour
     // Update remove preview
     private void UpdateRemovePreview()
     {
-        Vector3 position = inputManager.GetSelectedMapPosition();
-
-        // Maintain the fixed y position
-        position.y = fixedYPosition;  // Apply the fixed Y position
-
-        if (previewObject != null)
-        {
-            previewObject.transform.position = position;
-
-            // Check if the object under the cursor can be removed
-            if (IsRemovalValid())
-            {
-                SetPreviewColor(removeMaterial.color);  // Set valid removal color
-            }
-            else
-            {
-                SetPreviewColor(Color.red);  // Set invalid removal color
-            }
-        }
-    }
-
-
-    // Check if the current removal is valid
-    private bool IsRemovalValid()
-    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 100, objectLayerMask))
         {
-            // You can check if the hit object is removable (has a specific tag or component)
-            return hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Building");
+            // Check if the object can be removed (i.e., tagged as 'Turret' or 'Building')
+            if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Building"))
+            {
+                // Highlight the object for removal by changing its material to the removeMaterial
+                SetPreviewColor(removeMaterial.color);
+            }
+            else
+            {
+                SetPreviewColor(Color.red);  // Invalid removal color
+            }
         }
-        return false;
     }
 
     // Animate preview movement (e.g., floating effect)
@@ -249,11 +246,10 @@ public class PlacementSystem : MonoBehaviour
         if (previewObject != null)
         {
             // Example: Rotate and float up and down
-
+            // You can implement any floating effect here
         }
     }
 
-    // Rotate the preview object by the specified angle
     // Rotate the preview object by 45 degrees using DoTween
     private void RotatePreviewObject()
     {
@@ -267,7 +263,6 @@ public class PlacementSystem : MonoBehaviour
                 .SetEase(Ease.OutQuad);  // Choose an easing function for the animation
         }
     }
-
 
     // Place the object in the world
     private void PlaceObject()
@@ -301,12 +296,12 @@ public class PlacementSystem : MonoBehaviour
     // Check if the current placement is valid, ignoring its own colliders
     private bool IsPlacementValid()
     {
-       
-    if (!CurrencyManager.Instance.HasEnoughCurrency((TurretManager.Instance.turretDatabase.GetTurretByID(currentObjectData.ID).price)))
+        if (!CurrencyManager.Instance.HasEnoughCurrency((TurretManager.Instance.turretDatabase.GetTurretByID(currentObjectData.ID).price)))
         {
             Debug.LogWarning("Not enough currency to place the object.");
             return false;
         }
+
         Collider[] colliders = Physics.OverlapSphere(previewObject.transform.position, 0.5f, objectLayerMask);
 
         foreach (var collider in colliders)
@@ -326,22 +321,7 @@ public class PlacementSystem : MonoBehaviour
         return true;
     }
 
-    // Remove an object by its turret ID
-    public void RemoveObject(int turretID)
-    {
-        ObjectData selectedObjectData = objectsDatabase.objectsData[turretID];
-
-        if (selectedObjectData.currentSpawnedTurret > 0)
-        {
-            // Logic to find and destroy the corresponding turret game object
-            // Implement your logic here to find and remove the specific turret
-            selectedObjectData.currentSpawnedTurret--;
-        }
-
-        Destroy(previewObject);  // Destroy the preview if it exists
-    }
-
-    // Apply a material to the preview object
+    // Apply the preview material to the object
     private void ApplyPreviewMaterial(GameObject obj, Material material)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
@@ -352,28 +332,25 @@ public class PlacementSystem : MonoBehaviour
         }
     }
 
-    // Set the color of the preview object
+    // Set preview color for visual feedback
     private void SetPreviewColor(Color color)
     {
-        if (previewObject != null)
-        {
-            Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
 
-            foreach (var renderer in renderers)
-            {
-                renderer.material.color = color;  // Set the color
-            }
+        foreach (var renderer in renderers)
+        {
+            renderer.material.color = color;  // Set the material's color to the specified color
         }
     }
 
-    // Activate all colliders in the object hierarchy
-    private void ActivateColliders(Transform parent)
+    // Activate all colliders for the placed object
+    private void ActivateColliders(Transform obj)
     {
-        Collider[] colliders = parent.GetComponentsInChildren<Collider>();
+        Collider[] colliders = obj.GetComponentsInChildren<Collider>();
 
         foreach (var collider in colliders)
         {
-            collider.enabled = true;  // Enable each collider
+            collider.enabled = true;  // Enable the collider
         }
     }
 }

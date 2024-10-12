@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     private DepthOfField depthOfField;
     private int currentState;
     public GameObject HUD, WeaponMarket, TurretMarket, Inventory, PlacementUI, DeadUI; // Added DeadUI reference
+    private bool onWar;
 
     private bool isHUDAnimating = false; // Track if the HUD is currently animating
 
@@ -151,10 +152,18 @@ public class UIController : MonoBehaviour
 
     public void setUIState(int stateID)
     {
-        // If HUD is animating, wait for it to finish
+        onWar = Round.instance.onWar;
+
+        // Prevent state change if HUD is animating
         if (isHUDAnimating)
         {
-            return; // Prevent state change if HUD is animating
+            return;
+        }
+
+        // If onWar is true, restrict access to only states 0 and 3
+        if (onWar && stateID != 0 && stateID != 3)
+        {
+            return; // Exit if trying to set a restricted state during onWar
         }
 
         currentState = stateID;
@@ -170,58 +179,58 @@ public class UIController : MonoBehaviour
         {
             case 0:
                 StartCoroutine(HUDSetactive(true));
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                DeadUI.SetActive(false);
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 1:
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
-                triggerGlobalVolume(true); // Trigger for state 1
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                StartCoroutine(HUDSetactive(false));
+                triggerGlobalVolume(true);
+                DeadUI.SetActive(false);
                 WeaponMarket.SetActive(true);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 2:
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
-                triggerGlobalVolume(true); // Trigger for state 2
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                StartCoroutine(HUDSetactive(false));
+                triggerGlobalVolume(true);
+                DeadUI.SetActive(false);
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(true);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             case 3:
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
-                triggerGlobalVolume(true); // Trigger for state 3
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                StartCoroutine(HUDSetactive(false));
+                triggerGlobalVolume(true);
+                DeadUI.SetActive(false);
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(true);
                 PlacementUI.SetActive(false);
                 break;
             case 4:
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
+                StartCoroutine(HUDSetactive(false));
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(true);
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                DeadUI.SetActive(false);
                 break;
-            case 5: // New state for DeadUI
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
-                DeadUI.SetActive(true); // Show DeadUI
+            case 5: // Dead UI state
+                StartCoroutine(HUDSetactive(false));
+                DeadUI.SetActive(true);
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
                 PlacementUI.SetActive(false);
                 break;
             default:
-                StartCoroutine(HUDSetactive(false)); // Hide HUD and wait for the animation
-                DeadUI.SetActive(false); // Ensure DeadUI is hidden
+                StartCoroutine(HUDSetactive(false));
+                DeadUI.SetActive(false);
                 WeaponMarket.SetActive(false);
                 TurretMarket.SetActive(false);
                 Inventory.SetActive(false);
