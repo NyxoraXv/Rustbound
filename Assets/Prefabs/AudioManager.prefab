@@ -185,15 +185,15 @@ MonoBehaviour:
   BGMMainMenu: {fileID: 8300000, guid: e0f7afbe00218fd46bdb0cf2a7b61f95, type: 3}
   BGMMarket: {fileID: 8300000, guid: 342655aca8a88d14fb2c7d772572bf0d, type: 3}
   SFXClips:
-  - {fileID: 8300000, guid: a3fb62e3d60dafb49aa04a8b5422a976, type: 3}
-  - {fileID: 8300000, guid: bee907cac9764934fbf9d9b4d7532733, type: 3}
-  - {fileID: 8300000, guid: b22a75c47d78c754ca3ae4d9a2808a8b, type: 3}
-  - {fileID: 8300000, guid: 34df61f5c612a8b43a031fb44635fb6d, type: 3}
-  - {fileID: 8300000, guid: 18706ede3422dcd44b660e57fdb33f9a, type: 3}
-  - {fileID: 8300000, guid: e9316b74fd2a79b41af608eb525397d1, type: 3}
-  - {fileID: 8300000, guid: ee6c5efd71da10b4398de8ce9fb80780, type: 3}
-  - {fileID: 8300000, guid: b1007eb4b2a6af94fb2854297823e4ed, type: 3}
-  - {fileID: 8300000, guid: 7c15557820c21654aaab3c7908947d1e, type: 3}
+  - {fileID: 8300000, guid: db57e38521f5a944ba8b1a747b2206da, type: 3}
+  - {fileID: 8300000, guid: e82b447635ce1e84f9d76522504b7e3f, type: 3}
+  - {fileID: 8300000, guid: 6b24e85983c8a104bba52147d3933837, type: 3}
+  - {fileID: 8300000, guid: c7162df66cde1e4438892be50dc230d9, type: 3}
+  - {fileID: 8300000, guid: ecff9798189b3bf469501cfbe9934909, type: 3}
+  - {fileID: 8300000, guid: 834962e39123d0a46aea20dbe78222fd, type: 3}
+  - {fileID: 8300000, guid: caaa4b1b1716e984fb0f95f7ecebd860, type: 3}
+  - {fileID: 8300000, guid: e335c023f92945c4593587abef8516f2, type: 3}
+  - {fileID: 8300000, guid: 0b26bc63bed65f148ac72a91a6776da2, type: 3}
   - {fileID: 8300000, guid: 3fe6665a4ec2551409908a7c9a338ecd, type: 3}
   - {fileID: 8300000, guid: f1815d580b2c11b4bb627f908eb0d5bf, type: 3}
   - {fileID: 8300000, guid: 26e9e0b882a498943b4ac2969518e2f2, type: 3}
