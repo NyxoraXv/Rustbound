@@ -75,7 +75,7 @@ MonoBehaviour:
     weaponImage: {fileID: 21300000, guid: 18f2a2544eca0da4cbde1dc5a18a1ee8, type: 3}
     weaponID: 5
     weaponDamage: 60
-    weaponRateOfFire: 100
+    weaponRateOfFire: 1.2
     weaponAccuracy: 1.2
     price: 200
     reloadTime: 0
